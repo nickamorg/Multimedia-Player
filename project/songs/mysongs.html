@@ -10,139 +10,74 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="application/javascript" src="header.js"></script>
+    <script type="application/javascript" src="player.js"></script>
 </head>
 <body>
 
-<ul style="margin: 0; position:relative">
-    <li style="float:left"><a href="home.html">3Player</a></li>
-    <li style="float:left"><a style="padding-left:0;" href="#home"><em style="font-size:24px" class="fa">&#xf190;</em></a></li>
-    <li style="float:left"><a style="padding-left:0;" href="#home"><em style="font-size:24px" class="fa">&#xf18e;</em></a></li>
-    <li style="float: left">
-        <form style="padding-top:10px" class="navbar-form navbar-left">
-            <div class="input-group">
-                <input type="text" class="form-control" size="50" placeholder="Search for music">
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit">
-                        <i style="color:#000000" class="glyphicon glyphicon-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </li>
-    <li><a href="#playlists">Playlists</a></li>
-    <li><a href="mysongs.html">My songs</a></li>
-</ul>
+    <script>setHeader();</script>
 
-
-<!--div class="wrapper">-->
-<!--<div onclick="location.href='songs/home.html'"><img class="img-responsive" src="../ressrc/song.png"/><h1>Songs</h1></div>-->
-<!--<div><img class="img-responsive" src="../ressrc/movie.png"/><h1>Movies</h1></div>-->
-<!--<div><img class="img-responsive" src="../ressrc/serie.png"/><h1>Tv series</h1></div>-->
-<!--</div><-->
-
-<div class="content">
-    <div class="col-xs-3" style="padding:0; margin-bottom:120px">
-        sfsfsfsf
-    </div>
-
-    <div class="col-xs-9" style="padding-left:50px; padding-right:0;">
-
-        <h1>My songs</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>TITLE</th>
-                    <th>ARTIST</th>
-                    <th>ALBUM</th>
-                    <th>RELEASE</th>
-                    <th><em style="font-size:24px" class="fa">&#xf017;</em></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
-                    <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
-                    <td><button>In the Dark - First State Extended Remix</button></td>
-                    <td>Tiësto, Christian Burns</td>
-                    <td>In the dark</td>
-                    <td>15 September 2017</td>
-                    <td>5:11</td>
-                </tr>
-
-                <tr>
-                    <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
-                    <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
-                    <td><button>In the Dark - First State Extended Remix</button></td>
-                    <td>Tiësto, Christian Burns</td>
-                    <td>In the dark</td>
-                    <td>15 September 2017</td>
-                    <td>5:11</td>
-                </tr>
-
-                <tr>
-                    <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
-                    <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
-                    <td><button>In the Dark - First State Extended Remix</button></td>
-                    <td>Tiësto, Christian Burns</td>
-                    <td>In the dark</td>
-                    <td>15 September 2017</td>
-                    <td>5:11</td>
-                </tr>
-
-
-            </tbody>
-        </table>
-    </div>
-
-</div>
-
-</div>
-
-<div class="player text-center">
-    <audio id="playing" class="hidden" controls>
-        <source src="../ressrc/song.mp3"  type="audio/mpeg">
-        Your browser does not support HTML5 video.
-    </audio>
-
-    <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
-        <div class="col-xs-3" style="padding:10px 0px 10px 0px;">
-            <img style="width:80px" src="../ressrc/icon.png" alt="song image">
-        </div>
-        <div class="col-xs-6">
-            <p>Read All About It <em style="font-size:24px" class="fa">&#xf067;</em></p>
-            <p>Emeli Sandé</p>
-        </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
-        <div id="controls">
-            <button><em style="font-size:24px" class="fa">&#xf074;</em></button>
-            <button><em style="font-size:24px" class="fa">&#xf048;</em></button>
-            <button onclick="playPause()"><em style="font-size:35px" class="fa">&#xf01d;</em></button>
-            <button><em style="font-size:24px" class="fa">&#xf051;</em></button>
-            <button><em style="font-size:24px" class="fa">&#xf01e;</em></button>
+    <div class="content">
+        <div class="col-xs-3" style="padding:0; margin-bottom:120px">
+            sfsfsfsf
         </div>
 
-        <div>
-            <div id="curr" style="display:inline-block">0:00</div>
-            <div style="display:inline-block" id="myProgress">
-                <div id="myBar"></div>
+        <div class="col-xs-9" style="padding-left:50px; padding-right:0;">
 
-            </div>
-            <div id="dur" style="display:inline-block">4:37</div>
+            <h1>My songs</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>TITLE</th>
+                        <th>ARTIST</th>
+                        <th>ALBUM</th>
+                        <th>RELEASE</th>
+                        <th><em style="font-size:24px" class="fa">&#xf017;</em></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
+                        <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
+                        <td><button>In the Dark - First State Extended Remix</button></td>
+                        <td>Tiësto, Christian Burns</td>
+                        <td>In the dark</td>
+                        <td>15 September 2017</td>
+                        <td>5:11</td>
+                    </tr>
+
+                    <tr>
+                        <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
+                        <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
+                        <td><button>In the Dark - First State Extended Remix</button></td>
+                        <td>Tiësto, Christian Burns</td>
+                        <td>In the dark</td>
+                        <td>15 September 2017</td>
+                        <td>5:11</td>
+                    </tr>
+
+                    <tr>
+                        <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
+                        <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
+                        <td><button>In the Dark - First State Extended Remix</button></td>
+                        <td>Tiësto, Christian Burns</td>
+                        <td>In the dark</td>
+                        <td>15 September 2017</td>
+                        <td>5:11</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
         </div>
+
     </div>
 
-    <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
-        <button><em style="font-size:24px" class="fa">&#xf0ca;</em></button>
-        <button><em style="font-size:24px" class="fa">&#xf065;</em></button>
-        <button><em style="font-size:24px" class="fa">&#xf027;</em></button>
-        <div style="margin-bottom:4px" class="volume">	<span class="volumeBar"></span></div>
     </div>
 
-</div>
+    <script>setPlayer();</script>
 </body>
 
 <script type="application/javascript" src="../js/general.js"></script>
