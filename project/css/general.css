@@ -5,16 +5,29 @@ html, body {
     font-family: 'Roboto', sans-serif !important;
 }
 
-.content_home {
+.home {
     margin:20px;
 }
 
-.content {
+.mysongs {
     margin-right:20px;
 }
 
-.content div:nth-child(2) {
-    margin-top:20px;
+.filter_category {
+    padding:10px;
+    background-color: #1F4A58;
+}
+
+.filter_content {
+    padding:20px;
+    background-color: #373743;
+    border-bottom: 1px solid #565760;
+}
+
+.filter_content input[type=checkbox] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 * {
@@ -187,4 +200,12 @@ button {
 
 .resents small {
     font-size: 18px;
+}
+
+#genres, #release {
+    padding-bottom: 10px;
+}
+
+option {
+    color: #000000;
 }

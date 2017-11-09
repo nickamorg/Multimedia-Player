@@ -12,22 +12,72 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="application/javascript" src="header.js"></script>
     <script type="application/javascript" src="player.js"></script>
+    <script type="application/javascript" src="../js/general.js"></script>
 </head>
 <body>
 
     <script>setHeader();</script>
 
-    <div class="content">
+    <div class="mysongs">
         <div class="col-xs-3" style="padding:0; margin-bottom:120px">
-            sfsfsfsf
+            <div id="genres">
+                <div class="filter_category">
+                    <p style="margin:0">
+                        <span>Genres</span>
+                        <span style="float:right">
+                            <button onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
+                                <em class="fa fa-long-arrow-up"></em>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+
+                <div id="genres_content" class="collapse in filter_content">
+                    <input type="checkbox" name="genre" value="avant_garde">Avant-Garde<br>
+                    <input type="checkbox" name="genre" value="blues">Blues<br>
+                    <input type="checkbox" name="genre" value="classical">Classical<br>
+                    <input type="checkbox" name="genre" value="jazz">Jazz<br>
+                    <input type="checkbox" name="genre" value="latin">Latin<br>
+                </div>
+            </div>
+
+            <div id="release">
+                <div class="filter_category">
+                    <p style="margin:0">
+                        <span>Release Date</span>
+                        <span style="float:right">
+                            <button onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
+                                <em class="fa fa-long-arrow-up"></em>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+
+                <div id="release_content" class="collapse in filter_content form-inline text-center">
+                    <div class="form-group" style="padding-right:20px">
+                        <label class="control-label">From</label>
+                        <select id="from"  class="form-control">
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">To</label>
+                        <select id="to"  class="form-control">
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
-        <div class="col-xs-9" style="padding-left:50px; padding-right:0;">
+        <div class="col-xs-9" style="padding-right:0; margin-top:20px;">
 
             <h1>My songs</h1>
             <table class="table">
                 <thead>
                     <tr>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th>TITLE</th>
@@ -41,6 +91,7 @@
                     <tr>
                         <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
                         <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
+                        <td><button><em style="font-size:24px" class="fa">&#xf068;</em></button></td>
                         <td><button>In the Dark - First State Extended Remix</button></td>
                         <td>Tiësto, Christian Burns</td>
                         <td>In the dark</td>
@@ -51,6 +102,7 @@
                     <tr>
                         <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
                         <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
+                        <td><button><em style="font-size:24px" class="fa">&#xf068;</em></button></td>
                         <td><button>In the Dark - First State Extended Remix</button></td>
                         <td>Tiësto, Christian Burns</td>
                         <td>In the dark</td>
@@ -61,6 +113,7 @@
                     <tr>
                         <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
                         <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
+                        <td><button><em style="font-size:24px" class="fa">&#xf068;</em></button></td>
                         <td><button>In the Dark - First State Extended Remix</button></td>
                         <td>Tiësto, Christian Burns</td>
                         <td>In the dark</td>
@@ -80,6 +133,6 @@
     <script>setPlayer();</script>
 </body>
 
-<script type="application/javascript" src="../js/general.js"></script>
+<script type="application/javascript" src="../js/player.js"></script>
 
 </html>
