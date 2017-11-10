@@ -14,7 +14,7 @@ var allSongs =
             "album": "album",
             "release": "release",
             "duration": "duration",
-            "type": "type",
+            "kind": ["one", "two", "tree"]
         },
         "id2": {
         }

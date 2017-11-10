@@ -9,27 +9,6 @@ html, body {
     margin:20px;
 }
 
-.mysongs {
-    margin-right:20px;
-}
-
-.filter_category {
-    padding:10px;
-    background-color: #1F4A58;
-}
-
-.filter_content {
-    padding:20px;
-    background-color: #373743;
-    border-bottom: 1px solid #565760;
-}
-
-.filter_content input[type=checkbox] {
-    transform: scale(1.5);
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
 * {
     color: #ffffff;
 }
@@ -192,6 +171,16 @@ button {
     color:#99999F !important;
 }
 
+.similars p {
+    font-size: 25px;
+    margin: 0;
+    /*margin: 20px 0 0 0;*/
+}
+
+.similars small {
+    font-size: 18px;
+}
+
 .resents p {
     font-size: 25px;
     margin: 0;
@@ -202,10 +191,61 @@ button {
     font-size: 18px;
 }
 
-#genres, #release {
+.mysongs {
+    margin-right:20px;
+}
+
+.filter_category {
+    padding:10px;
+    background-color: #1F4A58;
+}
+
+.filter_content {
+    padding:20px;
+    background-color: #373743;
+    border-bottom: 1px solid #565760;
+}
+
+.filter_content input[type=checkbox] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#genres, #release, #artists {
     padding-bottom: 10px;
 }
 
 option {
     color: #000000;
+}
+
+#genres_content, #artists_content {
+    max-height: 180px;
+}
+
+/* scrollbar */
+.scrollbar{
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 15px;
+    border-radius: 10px;
+    background-color:#95989A;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color:#2BB4C4;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+#lyrics pre {
+    color: #ffffff;
+    border: none;
+    background-color: inherit;
+    padding: 0;
 }
