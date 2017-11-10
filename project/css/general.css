@@ -5,7 +5,7 @@ html, body {
     font-family: 'Roboto', sans-serif !important;
 }
 
-.home {
+.home, .song {
     margin:20px;
 }
 
@@ -171,6 +171,12 @@ button {
     color:#99999F !important;
 }
 
+.similars, .resents {
+    float: right;
+    padding-left: 0 !important;
+    margin-top:50px;
+    background-color: #33333F;
+}
 .similars p {
     font-size: 25px;
     margin: 0;
@@ -179,6 +185,10 @@ button {
 
 .similars small {
     font-size: 18px;
+}
+
+.similars img {
+    border-radius: 9px;
 }
 
 .resents p {
