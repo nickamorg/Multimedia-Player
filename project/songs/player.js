@@ -3,7 +3,7 @@ function setPlayer() {
 
     `<div class="player text-center">
         <audio id="playing" class="hidden" controls>
-            <source src="../ressrc/song.mp3"  type="audio/mpeg">
+            <source src="../ressrc/songs/loca.mp3"  type="audio/mpeg">
                 Your browser does not support HTML5 video.
         </audio>
     
@@ -19,10 +19,10 @@ function setPlayer() {
     
         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
             <div id="controls">
-                <button><em style="font-size:24px" class="fa">&#xf074;</em></button>
-                <button><em style="font-size:24px" class="fa">&#xf048;</em></button>
+                <button onclick="shuffle()"><em style="font-size:24px" class="fa">&#xf074;</em></button>
+                <button onClick="prev()"><em style="font-size:24px" class="fa">&#xf048;</em></button>
                 <button onclick="playPause()"><em style="font-size:35px" class="fa">&#xf01d;</em></button>
-                <button><em style="font-size:24px" class="fa">&#xf051;</em></button>
+                <button onClick="next()"><em style="font-size:24px" class="fa">&#xf051;</em></button>
                 <button><em style="font-size:24px" class="fa">&#xf01e;</em></button>
             </div>
         

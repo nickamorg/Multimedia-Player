@@ -1,3 +1,14 @@
+
+player = {};
+player.current = document.getElementById("playing")
+player.row = 0;
+player.isPlaylist = false;
+player.isSolidSong = true;
+player.isMySongs = false;
+player.playlist = ["Loca", "Alvaro Soler - Sofia", "Ariana Grande - Side To Side", "Baby K - Roma - Bangkok",
+                   "Fly Project - Like A Star", "Shakira - Perro Fiel"];
+
+
 /*Song play/pause*/
 var playing = document.getElementById("playing");
 var width = 0;
@@ -23,6 +34,41 @@ function playPause() {
     }
 }
 
+function next() {
+    playing = document.getElementById("playing");
+    isPaused = playing.paused;
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + player.playlist[++player.row % player.playlist.length] + ".mp3"
+    $("#playing")[0].load();
+    if(!isPaused) {
+        $("#playing")[0].play();
+    }
+}
+
+function prev() {
+    playing = document.getElementById("playing");
+    isPaused = playing.paused;
+    if(player.row === 0) {
+        player.row = player.playlist.length;
+    }
+
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + player.playlist[--player.row] + ".mp3"
+    $("#playing")[0].load();
+    if(!isPaused) {
+        $("#playing")[0].play();
+    }
+}
+
+function shuffle() {
+    for(var i = 0; i < 1 + (player.playlist.length / 2); i++) {
+        do {
+            var song1 = Math.floor(Math.random() * player.playlist.length);
+            var song2 = Math.floor(Math.random() * player.playlist.length);
+        } while (song1 !== player.row && song2 !== player.row);
+        var tmp = player.playlist[song1];
+        player.playlist[song1] = player.playlist[song2];
+        player.playlist[song2] = tmp;
+    }
+}
 
 /*Song duration*/
 var playing = document.getElementById("playing");

@@ -167,6 +167,10 @@
                 message = '{ "type": "add to my songs", "title":"' + title + '" }'
 
                 ws.send(message);
+
+                ws.onmessage = function(message) {
+                    alert(message.data);
+                };
             };
         }
 
