@@ -19,10 +19,10 @@ function setPlayer() {
     
         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
             <div id="controls">
-                <button onclick="shuffle()"><em style="font-size:24px" class="fa">&#xf074;</em></button>
-                <button onClick="prev()"><em style="font-size:24px" class="fa">&#xf048;</em></button>
-                <button onclick="playPause()"><em style="font-size:35px" class="fa">&#xf01d;</em></button>
-                <button onClick="next()"><em style="font-size:24px" class="fa">&#xf051;</em></button>
+                <button onclick="playerAPI.shuffle()"><em style="font-size:24px" class="fa">&#xf074;</em></button>
+                <button onClick="playerAPI.prev()"><em style="font-size:24px" class="fa">&#xf048;</em></button>
+                <button onclick="playerAPI.playPause()"><em style="font-size:35px" class="fa">&#xf01d;</em></button>
+                <button onClick="playerAPI.next()"><em style="font-size:24px" class="fa">&#xf051;</em></button>
                 <button><em style="font-size:24px" class="fa">&#xf01e;</em></button>
             </div>
         

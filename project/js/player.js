@@ -1,100 +1,88 @@
+playerAPI = {};
 
-player = {};
-player.current = document.getElementById("playing")
-player.row = 0;
-player.isPlaylist = false;
-player.isSolidSong = true;
-player.isMySongs = false;
-player.playlist = ["Loca", "Alvaro Soler - Sofia", "Ariana Grande - Side To Side", "Baby K - Roma - Bangkok",
-                   "Fly Project - Like A Star", "Shakira - Perro Fiel"];
+playerAPI.playing = document.getElementById("playing");
+playerAPI.width = 0;
+playerAPI.current = document.getElementById("playing");
+playerAPI.row = 0;
+playerAPI.playlist = ["Loca", "Alvaro Soler - Sofia", "Ariana Grande - Side To Side", "Baby K - Roma - Bangkok",
+"Fly Project - Like A Star", "Shakira - Perro Fiel"];
 
-
-/*Song play/pause*/
-var playing = document.getElementById("playing");
-var width = 0;
-function playPause() {
-    if (playing.paused) {
-        playing.play();
+ playerAPI.playPause = function playPause() {
+    if (playerAPI.playing.paused) {
+        playerAPI.playing.play();
         $("#controls").find("button").find("em")[2].innerHTML = "&#xf28c;";
         var elem = document.getElementById("myBar");
 
-        var id = setInterval(frame, 10000 * 100 / parseInt(playing.duration));
+        var id = setInterval(frame, 10000 * 100 / parseInt(playerAPI.playing.duration));
 
         function frame() {
-            if (width >= 100) {
+            if (playerAPI.width >= 100) {
                 clearInterval(id);
-            } else if (!playing.paused) {
-                width++;
-                elem.style.width = width + '%';
+            } else if (!playerAPI.playing.paused) {
+                playerAPI.width++;
+                elem.style.width = playerAPI.width + '%';
             }
         }
     } else {
-        playing.pause();
+        playerAPI.playing.pause();
         $("#controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
     }
-}
+};
 
-function next() {
+playerAPI.next = function next() {
     playing = document.getElementById("playing");
-    isPaused = playing.paused;
-    $("#playing").find("source")[0].src = "../ressrc/songs/" + player.playlist[++player.row % player.playlist.length] + ".mp3"
+    isPaused = playerAPI.playing.paused;
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[++playerAPI.row % playerAPI.playlist.length] + ".mp3"
     $("#playing")[0].load();
     if(!isPaused) {
         $("#playing")[0].play();
     }
-}
+};
 
-function prev() {
+playerAPI.prev = function prev() {
     playing = document.getElementById("playing");
-    isPaused = playing.paused;
-    if(player.row === 0) {
-        player.row = player.playlist.length;
+    isPaused = playerAPI.playing.paused;
+    if(playerAPI.row === 0) {
+        playerAPI.row = playerAPI.playlist.length;
     }
 
-    $("#playing").find("source")[0].src = "../ressrc/songs/" + player.playlist[--player.row] + ".mp3"
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[--playerAPI.row] + ".mp3"
     $("#playing")[0].load();
     if(!isPaused) {
         $("#playing")[0].play();
     }
-}
+};
 
-function shuffle() {
-    for(var i = 0; i < 1 + (player.playlist.length / 2); i++) {
+playerAPI.shuffle = function shuffle() {
+    for(var i = 0; i < 1 + (playerAPI.playlist.length / 2); i++) {
         do {
-            var song1 = Math.floor(Math.random() * player.playlist.length);
-            var song2 = Math.floor(Math.random() * player.playlist.length);
-        } while (song1 !== player.row && song2 !== player.row);
-        var tmp = player.playlist[song1];
-        player.playlist[song1] = player.playlist[song2];
-        player.playlist[song2] = tmp;
+            var song1 = Math.floor(Math.random() * playerAPI.playlist.length);
+            var song2 = Math.floor(Math.random() * playerAPI.playlist.length);
+        } while (song1 !== playerAPI.row && song2 !== playerAPI.row);
+        var tmp = playerAPI.playlist[song1];
+        playerAPI.playlist[song1] = playerAPI.playlist[song2];
+        playerAPI.playlist[song2] = tmp;
     }
-}
+};
 
-/*Song duration*/
-var playing = document.getElementById("playing");
-
-playing.oncanplay = function() {
-    var playing = document.getElementById("playing");
-    var min = parseInt(playing.duration / 60, 10);
-    var sec = parseInt(playing.duration % 60);
+playerAPI.playing.oncanplay = function() {
+    var min = parseInt(playerAPI.playing.duration / 60, 10);
+    var sec = parseInt(playerAPI.playing.duration % 60);
 
     $("#dur").text(min + ":" + sec);
 }
 
-playing.ontimeupdate = function() {
+playerAPI.playing.ontimeupdate = function() {
     var playing = document.getElementById("playing");
-    var min = parseInt(playing.currentTime / 60, 10);
-    var sec = parseInt(playing.currentTime % 60);
+    var min = parseInt(playerAPI.playing.currentTime / 60, 10);
+    var sec = parseInt(playerAPI.playing.currentTime % 60);
 
     $("#curr").text(min + ":" + (sec > 9 ? sec : "0" + sec));
 }
 
 /*Song Volume*/
-var playing = document.getElementById("playing");
-
-
 $('.muted').click(function () {
-    playing.muted = !playing.muted;
+    playerAPI.playing.muted = !playerAPI.playing.muted;
     return false;
 });
 
@@ -103,21 +91,24 @@ $('.muted').click(function () {
 var volumeDrag = false;
 $('.volume').on('mousedown', function (e) {
     volumeDrag = true;
-    playing.muted = false;
+    playerAPI.playing.muted = false;
     $('.sound').removeClass('muted');
     updateVolume(e.pageX);
 });
+
 $(document).on('mouseup', function (e) {
     if (volumeDrag) {
         volumeDrag = false;
         updateVolume(e.pageX);
     }
 });
+
 $(document).on('mousemove', function (e) {
     if (volumeDrag) {
         updateVolume(e.pageX);
     }
 });
+
 var updateVolume = function (x, vol) {
     var volume = $('.volume');
     var percentage;
@@ -139,12 +130,12 @@ var updateVolume = function (x, vol) {
 
     //update volume bar and video volume
     $('.volumeBar').css('width', percentage + '%');
-    playing.volume = percentage / 100;
+    playerAPI.playing.volume = percentage / 100;
 
     //change sound icon based on volume
-    if (playing.volume == 0) {
+    if (playerAPI.playing.volume == 0) {
         $('.sound').removeClass('sound2').addClass('muted');
-    } else if (playing.volume > 0.5) {
+    } else if (playerAPI.playing.volume > 0.5) {
         $('.sound').removeClass('muted').addClass('sound2');
     } else {
         $('.sound').removeClass('muted').removeClass('sound2');
