@@ -114,8 +114,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
-                            <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
+                            <td><button onclick="add_to_mysongs('come with me');"><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
+                            <td><button onclick="add_to_playlist('a song goes here', 'best italian songs');"><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
                             <td><button><em style="font-size:24px" class="fa">&#xf068;</em></button></td>
                             <td><button>In the Dark - First State Extended Remix</button></td>
                             <td>Tiësto, Christian Burns</td>
@@ -125,7 +125,7 @@
                         </tr>
 
                         <tr>
-                            <td><button onclick=""><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
+                            <td><button onclick="add_to_mysongs('never you now');"><em style="font-size:24px" class="fa">&#xf01d;</em></button></td>
                             <td><button><em style="font-size:24px" class="fa">&#xf067;</em></button></td>
                             <td><button><em style="font-size:24px" class="fa">&#xf068;</em></button></td>
                             <td><button>In the Dark - First State Extended Remix</button></td>
@@ -159,5 +159,25 @@
     </body>
 
     <script type="application/javascript" src="../js/player.js"></script>
+    <script>
+        function add_to_mysongs(title) {
+            var ws = new WebSocket('ws://' + "localhost" + ':6556');
 
+            ws.onopen = function() {
+                message = '{ "type": "add to my songs", "title":"' + title + '" }'
+
+                ws.send(message);
+            };
+        }
+
+        function add_to_playlist(title, playlist) {
+            var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+            ws.onopen = function() {
+                message = '{ "type": "add to playlist", "playlist":"' + playlist + '" , "title":"' + title + '" }'
+
+                ws.send(message);
+            };
+        }
+    </script>
 </html>

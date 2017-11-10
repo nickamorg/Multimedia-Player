@@ -4,13 +4,13 @@ function playerAPI() {
 
 }
 
-var allSongs =
+var songs =
 
     {
         "id1": {
-            "file": "file",
-            "title": "title",
-            "artist": "artist",
+            "file": "Shakira - Perro Fiel.mp3",
+            "title": "Perro Fiel",
+            "artist": "Shakira",
             "album": "album",
             "release": "release",
             "duration": "duration",
@@ -18,4 +18,12 @@ var allSongs =
         },
         "id2": {
         }
+    }
+
+var x =
+
+    {
+        "type": "add to my song", "title":"title"
+
+
     }
