@@ -93,6 +93,8 @@ li a:hover:not(.active) {
     font-size: 17px;
 }
 
+
+/*          Song current time bar        */
 #myProgress {
     width: 500px;
     background-color: #95989A;
@@ -104,6 +106,27 @@ li a:hover:not(.active) {
     width: 0%;
     height: 6px;
     background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+#myProgress  {
+    position:relative;
+    cursor:pointer;
+    height:6px;
+    display:inline-block;
+    margin-top:10px;
+    margin-right:10px;
+    background-color: #95989A;;
+    border-radius: 5px;
+}
+#myBar {
+    display:block;
+    height:6px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:#2BB4C4;
+    z-index:10;
     border-radius: 5px;
 }
 

@@ -4,6 +4,8 @@ playerAPI.playing = document.getElementById("playing");
 playerAPI.width = 0;
 playerAPI.current = document.getElementById("playing");
 playerAPI.row = 0;
+playerAPI.muted = false;
+playerAPI.stored_volume = 50;
 playerAPI.tmpPlaylsit = {};
 //playerAPI.playlist = ["Loca", "Alvaro Soler - Sofia", "Ariana Grande - Side To Side", "Baby K - Roma - Bangkok",
 //"Fly Project - Like A Star", "Shakira - Perro Fiel"];
@@ -264,11 +266,13 @@ playerAPI.playPause = function playPause() {
         $("#controls").find("button").find("em")[2].innerHTML = "&#xf28c;";
         var elem = document.getElementById("myBar");
 
-        var id = setInterval(frame, 10000 * 100 / parseInt(playerAPI.playing.duration));
+        setInterval(frame, 10 * parseInt(playerAPI.playing.duration));
 
         function frame() {
             if (playerAPI.width >= 100) {
-                clearInterval(id);
+                playerAPI.width = 0;
+                elem.style.width = 0;
+                $("#controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
             } else if (!playerAPI.playing.paused) {
                 playerAPI.width++;
                 elem.style.width = playerAPI.width + '%';
@@ -283,6 +287,8 @@ playerAPI.playPause = function playPause() {
 playerAPI.next = function next() {
     isPaused = playerAPI.playing.paused;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[++playerAPI.row % playerAPI.playlist.length];
+    $('#myBar').css('width', "0");
+    playerAPI.width = 0;
     $("#playing")[0].load();
     if(!isPaused) {
         $("#playing")[0].play();
@@ -295,6 +301,8 @@ playerAPI.prev = function prev() {
         playerAPI.row = playerAPI.playlist.length;
     }
 
+    $('#myBar').css('width', "0");
+    playerAPI.width = 0;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[--playerAPI.row];
     $("#playing")[0].load();
     if(!isPaused) {
@@ -331,6 +339,11 @@ playerAPI.playing.ontimeupdate = function() {
 
 /*Song Volume*/
 $('.muted').click(function () {
+    if(playerAPI.playing.muted) {
+        $('.volumeBar').css('width', playerAPI.stored_volume + '%');
+    } else {
+        $('.volumeBar').css('width', '0');
+    }
     playerAPI.playing.muted = !playerAPI.playing.muted;
     return false;
 });
@@ -380,7 +393,7 @@ var updateVolume = function (x, vol) {
     //update volume bar and video volume
     $('.volumeBar').css('width', percentage + '%');
     playerAPI.playing.volume = percentage / 100;
-
+    playerAPI.stored_volume = percentage;
     //change sound icon based on volume
     if (playerAPI.playing.volume == 0) {
         $('.sound').removeClass('sound2').addClass('muted');
@@ -390,4 +403,52 @@ var updateVolume = function (x, vol) {
         $('.sound').removeClass('muted').removeClass('sound2');
     }
 
+};
+
+
+//CURRENT TIME BAR
+//current time bar event
+var currentTimeDrag = false;
+$('#myProgress').on('mousedown', function (e) {
+    currentTimeDrag = true;
+    updateCurrTime(e.pageX);
+});
+
+$(document).on('mouseup', function (e) {
+    if (currentTimeDrag) {
+        currentTimeDrag = false;
+        updateCurrTime(e.pageX);
+    }
+});
+
+$(document).on('mousemove', function (e) {
+    if (currentTimeDrag) {
+        updateCurrTime(e.pageX);
+    }
+});
+
+var updateCurrTime = function (x, currTime) {
+    var progress = $('#myProgress');
+    var percentage;
+    //if only volume have specificed
+    //then direct update volume
+    if (currTime) {
+        percentage = currTime * 100;
+    } else {
+        var position = x - progress.offset().left;
+        percentage = 100 * position / progress.width();
+    }
+
+    if (percentage > 100) {
+        percentage = 100;
+    }
+    if (percentage < 0) {
+        percentage = 0;
+    }
+
+    //update volume bar and video volume
+    var elem = document.getElementById("myBar");
+    $('#myBar').css('width', percentage + '%');
+    playerAPI.playing.currentTime = playerAPI.playing.duration * percentage / 100;
+    playerAPI.width = percentage;
 };
