@@ -23,7 +23,7 @@ function setPlayer() {
                 <button onClick="playerAPI.prev()"><em style="font-size:24px" class="fa">&#xf048;</em></button>
                 <button onclick="playerAPI.playPause()"><em style="font-size:35px" class="fa">&#xf01d;</em></button>
                 <button onClick="playerAPI.next()"><em style="font-size:24px" class="fa">&#xf051;</em></button>
-                <button><em style="font-size:24px" class="fa">&#xf01e;</em></button>
+                <button onClick="playerAPI.repeat()"><em style="font-size:24px; color:#9999a5" class="fa">&#xf01e;</em></button>
             </div>
         
             <div>

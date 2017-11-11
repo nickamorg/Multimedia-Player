@@ -7,9 +7,8 @@ playerAPI.row = 0;
 playerAPI.muted = false;
 playerAPI.stored_volume = 50;
 playerAPI.tmpPlaylsit = {};
-//playerAPI.playlist = ["Loca", "Alvaro Soler - Sofia", "Ariana Grande - Side To Side", "Baby K - Roma - Bangkok",
-//"Fly Project - Like A Star", "Shakira - Perro Fiel"];
-
+playerAPI.repeat_flag = false;
+playerAPI.id_interval = -1;
 playerAPI.songs = {
         "crowd": 3,
         "id0": {
@@ -266,13 +265,23 @@ playerAPI.playPause = function playPause() {
         $("#controls").find("button").find("em")[2].innerHTML = "&#xf28c;";
         var elem = document.getElementById("myBar");
 
-        setInterval(frame, 10 * parseInt(playerAPI.playing.duration));
+        playerAPI.id_interval = setInterval(frame, 10 * parseInt(playerAPI.playing.duration));
 
         function frame() {
             if (playerAPI.width >= 100) {
+
+                if(playerAPI.playlist.length > playerAPI.row || playerAPI.repeat_flag) {
+                    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[++playerAPI.row % playerAPI.playlist.length];
+
+                    $("#playing")[0].load();
+                    $("#playing")[0].play();
+                    playerAPI.id_interval = setInterval(frame, 10 * parseInt(playerAPI.playing.duration));
+                } else {
+                    $("#controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
+                }
+                clearInterval(playerAPI.id_interval);
                 playerAPI.width = 0;
                 elem.style.width = 0;
-                $("#controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
             } else if (!playerAPI.playing.paused) {
                 playerAPI.width++;
                 elem.style.width = playerAPI.width + '%';
@@ -322,12 +331,22 @@ playerAPI.shuffle = function shuffle() {
     }
 };
 
+playerAPI.repeat = function repeat() {
+    if(playerAPI.repeat_flag) {
+        $("#controls").find("button").find("em")[4].style.color = "#9999a5";
+    } else {
+        $("#controls").find("button").find("em")[4].style.color = "#ffffff";
+    }
+
+    playerAPI.repeat_flag = !playerAPI.repeat_flag;
+};
+
 playerAPI.playing.oncanplay = function() {
     var min = parseInt(playerAPI.playing.duration / 60, 10);
     var sec = parseInt(playerAPI.playing.duration % 60);
 
     $("#dur").text(min + ":" + sec);
-}
+};
 
 playerAPI.playing.ontimeupdate = function() {
     var playing = document.getElementById("playing");
@@ -335,7 +354,9 @@ playerAPI.playing.ontimeupdate = function() {
     var sec = parseInt(playerAPI.playing.currentTime % 60);
 
     $("#curr").text(min + ":" + (sec > 9 ? sec : "0" + sec));
-}
+};
+
+
 
 /*Song Volume*/
 $('.muted').click(function () {
@@ -446,7 +467,7 @@ var updateCurrTime = function (x, currTime) {
         percentage = 0;
     }
 
-    //update volume bar and video volume
+    //change song current time bar
     var elem = document.getElementById("myBar");
     $('#myBar').css('width', percentage + '%');
     playerAPI.playing.currentTime = playerAPI.playing.duration * percentage / 100;
