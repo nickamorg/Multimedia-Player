@@ -1,0 +1,21 @@
+{
+  "name": "cs469_server",
+  "version": "1.0.0",
+  "description": "A simple server that receives messages from redis and forwards them to clients via websockets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "redis",
+    "cs469",
+    "cs-469",
+    "server"
+  ],
+  "author": "Arampatzis Dimitrios <arabatzis@ics.forth.gr>",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^2.8.0",
+    "ws": "^3.2.0"
+  }
+}
