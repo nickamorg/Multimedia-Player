@@ -9,6 +9,7 @@ playerAPI.stored_volume = 50;
 playerAPI.tmpPlaylsit = {};
 playerAPI.repeat_flag = false;
 playerAPI.id_interval = -1;
+playerAPI.mysongs = [];
 playerAPI.songs = {
         "crowd": 5,
         "id0": {
