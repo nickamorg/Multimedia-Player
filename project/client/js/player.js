@@ -168,7 +168,7 @@ playerAPI.songs = {
             "album": "Single",
             "release": "30 August 2016",
             "duration": "3:46",
-            "genre": "Reggae-pop",
+            "genre": ["Reggae-pop"],
             "img": "side to side.png",
 
             "lyrics": "I've been here all night (Ariana)\n" +

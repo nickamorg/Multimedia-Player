@@ -32,29 +32,65 @@ function send_mysongs() {
         ws.onmessage = function(message) {
             songs = message.data.split("\n");
 
-            playerAPI.tmpPlaylsit = [songs.length];
+            var artists = [];
+            var genres = [];
+            var genres_counter = 0;
+            var dates = [];
+            playerAPI.tmpPlaylist = [songs.length];
             for(var i = 0; i < songs.length; i++) {
-                playerAPI.tmpPlaylsit[i] = playerAPI.songs["id" + parseInt(songs[i].substring(2))].file;
+                song = playerAPI.songs["id" + parseInt(songs[i].substring(2))];
+                playerAPI.tmpPlaylist[i] = song.file;
+                artists[i] = song.artist;
+                for(var j = 0; j < song.genre.length; j++) {
+                    genres[genres_counter++] = song.genre[j];
+                }
+                dates[i] = parseInt(song.release.split(" ")[2]);
+
                 //$(".table").find("tbody").append(playerAPI.songs[song])
                 $(".table").find("tbody").append(
                     `<tr>
                             <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
                             <td><button><em class="fa">&#xf067;</em></button></td>
                             <td><button><em class="fa">&#xf068;</em></button></td>
-                            <td><button>${playerAPI.songs["id" + parseInt(songs[i].substring(2))].title}</button></td>
-                            <td>${playerAPI.songs["id" + parseInt(songs[i].substring(2))].artist}</td>
-                            <td>${playerAPI.songs["id" + parseInt(songs[i].substring(2))].album}</td>
-                            <td>${playerAPI.songs["id" + parseInt(songs[i].substring(2))].release}</td>
-                            <td>${playerAPI.songs["id" + parseInt(songs[i].substring(2))].duration}</td>
+                            <td><button>${song.title}</button></td>
+                            <td>${song.artist}</td>
+                            <td>${song.album}</td>
+                            <td>${song.release}</td>
+                            <td>${song.duration}</td>
                         </tr>`);
             }
-            // alert(message.data.split("\n").length);
+
+            // Filter duplicates
+            tmp = genres.filter(function(item, pos) {
+                return genres.indexOf(item) == pos;
+            });
+            genres = tmp;
+
+            for(i = 0; i < genres.length; i++) {
+                $("#genres_content").append('<input type="checkbox" name="genre" value="' + genres[i] + '">' + genres[i] + '<br>');
+            }
+            tmp = artists.filter(function(item, pos) {
+                return artists.indexOf(item) == pos;
+            });
+            artists = tmp;
+            for(i = 0; i < artists.length; i++) {
+                $("#artists_content").append('<input type="checkbox" name="artist" value="' + artists[i] + '">' + artists[i] + '<br>');
+            }
+            tmp = dates.filter(function(item, pos) {
+                return dates.indexOf(item) == pos;
+            });
+            dates = tmp;
+            dates = dates.sort(function (a, b) {  return b - a;  });
+            for(i = 0; i < dates.length; i++) {
+                $("#from").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+                $("#to").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+            }
         };
     };
 }
 
 function play_mysong(curr_song) {
-    playerAPI.playlist = playerAPI.tmpPlaylsit;
+    playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[curr_song];
     $("#playing")[0].load();
