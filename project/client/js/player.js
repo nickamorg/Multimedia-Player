@@ -10,7 +10,7 @@ playerAPI.tmpPlaylsit = {};
 playerAPI.repeat_flag = false;
 playerAPI.id_interval = -1;
 playerAPI.songs = {
-        "crowd": 3,
+        "crowd": 5,
         "id0": {
             "file": "Shakira - Perro Fiel.mp3",
             "title": "Perro Fiel",
@@ -19,6 +19,7 @@ playerAPI.songs = {
             "release": "15 September 2017",
             "duration": "3:16",
             "genre": ["Latin pop", "reggaeton"],
+            "img": "perro_fiel.png",
 
             "lyrics": "Aquí estás\n" +
             "Ya no puedes detenerte\n" +
@@ -97,6 +98,7 @@ playerAPI.songs = {
             "release": "7 November 2005",
             "duration": "4:03",
             "genre": ["Soul", "downtempo"],
+            "img": "like a star.jpg",
 
             "lyrics": "You can say that you love me,\n" +
             "Say that you need me,\n" +
@@ -167,6 +169,7 @@ playerAPI.songs = {
             "release": "30 August 2016",
             "duration": "3:46",
             "genre": "Reggae-pop",
+            "img": "side to side.png",
 
             "lyrics": "I've been here all night (Ariana)\n" +
             "I've been here all day (Nicki Minaj)\n" +
@@ -246,6 +249,158 @@ playerAPI.songs = {
             "Wrist icicle, ride dick bicycle\n" +
             "Come true yo, get you this type of blow\n" +
             "If you wanna menage I got a tricycle"
+        },
+        "id3": {
+            "file": "Green Day Boulevard Of Broken Dreams.mp3",
+            "title": "Boulevard Of Broken Dreams",
+            "artist": "Green Day",
+            "album": "American Idiot",
+            "release": "29 November 2004",
+            "duration": "4:20",
+            "genre": ["Alternative rock"],
+            "img": "boulevard of broken dreams.jpg",
+
+            "lyrics": "I walk a lonely road\n" +
+            "The only one that I have ever known\n" +
+            "Don't know where it goes\n" +
+            "But it's only me, and I walk alone\n" +
+            "I walk this empty street\n" +
+            "On the boulevard of broken dreams\n" +
+            "Where the city sleeps\n" +
+            "And I'm the only one, and I walk alone\n" +
+            "I walk alone, I walk alone\n" +
+            "I walk alone and I walk a\n" +
+            "My shadow's the only one that walks beside me\n" +
+            "My shallow heart's the only thing that's beating\n" +
+            "Sometimes I wish someone out there will find me\n" +
+            "Till then I walk alone\n" +
+            "Ah ah ah ah ah\n" +
+            "Ah ah ah ah ah\n" +
+            "I'm walking down the line\n" +
+            "That divides me somewhere in my mind\n" +
+            "On the border line of the edge\n" +
+            "And where I walk alone\n" +
+            "Read between the lines\n" +
+            "What's fucked up and every thing's all right\n" +
+            "Check my vital signs to know I'm still alive\n" +
+            "And I walk alone\n" +
+            "I walk alone, I walk alone\n" +
+            "I walk alone and I walk a\n" +
+            "My shadow's the only one that walks beside me\n" +
+            "My shallow heart's the only thing that's beating\n" +
+            "Sometimes I wish someone out there will find me\n" +
+            "Till then I walk alone\n" +
+            "Ah ah ah ah ah\n" +
+            "Ah ah ah ah ah\n" +
+            "I walk alone, I walk a\n" +
+            "I walk this empty street\n" +
+            "On the boulevard of broken dreams\n" +
+            "Where the city sleeps\n" +
+            "And I'm the only one, and I walk alone\n" +
+            "My shadow's the only one that walks beside me\n" +
+            "My shallow heart's the only thing that's beating\n" +
+            "Sometimes I wish someone out there will find me\n" +
+            "Till then I walk alone"
+        },
+        "id4": {
+            "file": "Green Day Holiday.mp3",
+            "title": "Holiday",
+            "artist": "Green Day",
+            "album": "American Idiot",
+            "release": "14 March 2005",
+            "duration": "4:41",
+            "genre": ["Punk rock", "pop punk"],
+            "img": "holiday.jpg",
+
+            "lyrics": "Say, hey!\n" +
+            "\n" +
+            "Hear the sound of the falling rain\n" +
+            "Coming down like an Armageddon flame (Hey!)\n" +
+            "The shame\n" +
+            "The ones who died without a name\n" +
+            "\n" +
+            "Hear the dogs howling out of key\n" +
+            "To a hymn called \"Faith and Misery\" (Hey!)\n" +
+            "And bleed, the company lost the war today\n" +
+            "\n" +
+            "I beg to dream and differ from the hollow lies\n" +
+            "This is the dawning of the rest of our lives\n" +
+            "On holiday\n" +
+            "\n" +
+            "Hear the drum pounding out of time\n" +
+            "Another protester has crossed the line (Hey!)\n" +
+            "To find, the money's on the other side\n" +
+            "\n" +
+            "Can I get another Amen? (Amen!)\n" +
+            "There's a flag wrapped around a score of men (Hey!)\n" +
+            "A gag, a plastic bag on a monument\n" +
+            "\n" +
+            "I beg to dream and differ from the hollow lies\n" +
+            "This is the dawning of the rest of our lives\n" +
+            "On holiday\n" +
+            "\n" +
+            "(Hey!)\n" +
+            "(Say, hey!)\n" +
+            "\n" +
+            "\"The representative from California has the floor\"\n" +
+            "\n" +
+            "Zieg Heil to the president Gasman\n" +
+            "Bombs away is your punishment\n" +
+            "Pulverize the Eiffel towers\n" +
+            "Who criticize your government\n" +
+            "Bang bang goes the broken glass and\n" +
+            "Kill all the fags that don't agree\n" +
+            "Trials by fire, setting fire\n" +
+            "Is not a way that's meant for me\n" +
+            "Just cause (hey, hey, hey), just cause, because we're outlaws yeah!\n" +
+            "\n" +
+            "I beg to dream and differ from the hollow lies\n" +
+            "This is the dawning of the rest of our lives\n" +
+            "I beg to dream and differ from the hollow lies\n" +
+            "This is the dawning of the rest of our lives\n" +
+            "\n" +
+            "This is our lives on holiday"
+        },
+        "id5": {
+            "file": "Green Day - American Idiot.mp3",
+            "title": "American Idiot",
+            "artist": "Green Day",
+            "album": "American Idiot",
+            "release": "31 August 2004",
+            "duration": "2:54",
+            "genre": ["Punk rock", "pop punk"],
+            "img": "american idiot.jpg",
+
+            "lyrics": "Don't wanna be an American idiot\n" +
+            "Don't want a nation under the new media\n" +
+            "And can you hear the sound of hysteria?\n" +
+            "The subliminal mind-fuck America\n" +
+            "Welcome to a new kind of tension\n" +
+            "All across the alien nation\n" +
+            "Where everything isn't meant to be okay\n" +
+            "Television dreams of tomorrow\n" +
+            "We're not the ones who're meant to follow\n" +
+            "For that's enough to argue\n" +
+            "Well maybe I'm the faggot America\n" +
+            "I'm not a part of a redneck agenda\n" +
+            "Now everybody do the propaganda\n" +
+            "And sing along to the age of paranoia\n" +
+            "Welcome to a new kind of tension\n" +
+            "All across the alien nation\n" +
+            "Where everything isn't meant to be okay\n" +
+            "Television dreams of tomorrow\n" +
+            "We're not the ones who're meant to follow\n" +
+            "For that's enough to argue\n" +
+            "Don't wanna be an American idiot\n" +
+            "One nation controlled by the media\n" +
+            "Information Age of hysteria\n" +
+            "It's calling out to idiot America\n" +
+            "Welcome to a new kind of tension\n" +
+            "All across the alien nation\n" +
+            "Where everything isn't meant to be okay\n" +
+            "Television dreams of tomorrow\n" +
+            "We're not the ones who're meant to follow\n" +
+            "For that's enough to argue"
         }
     };
 

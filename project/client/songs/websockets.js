@@ -60,4 +60,7 @@ function play_mysong(curr_song) {
     $("#playing")[0].load();
     $("#controls").find("button").find("em")[2].innerHTML = "&#xf28c;";
     $("#playing")[0].play();
+    $("#title").html(playerAPI.songs["id" + curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $("#artist").text(playerAPI.songs["id" + curr_song].artist);
+    $("#img").attr("src", "../ressrc/images/" + playerAPI.songs["id" + curr_song].img);
 }

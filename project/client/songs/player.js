@@ -9,11 +9,11 @@ function setPlayer() {
     
         <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
             <div class="col-xs-3" style="padding:10px 0px 10px 0px;">
-                <img style="width:80px" src="../ressrc/icon.png" alt="song image">
+                <img id="img" style="width:80px" src="../ressrc/icon.png">
             </div>
             <div class="col-xs-6">
-            <p>Read All About It <em style="font-size:24px" class="fa">&#xf067;</em></p>
-            <p>Emeli Sandé</p>
+            <p id="title">Read All About It <button><em style="font-size:24px" class="fa">&#xf067;</em></button></p>
+            <p id="artist">Emeli Sandé</p>
             </div>
         </div>
     
