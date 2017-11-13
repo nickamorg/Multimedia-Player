@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8de1764-2f35-408b-989f-49c57fe111bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/songs/playlists.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/songs/header.js" afterPath="$PROJECT_DIR$/client/songs/header.js" />
-    </list>
+    <list default="true" id="f8de1764-2f35-408b-989f-49c57fe111bc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -37,8 +33,8 @@
       <file leaf-file-name="mysongs.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/songs/mysongs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="931">
-              <caret line="129" column="13" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="129" selection-end-column="13" />
+            <state relative-caret-position="125">
+              <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -46,11 +42,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="explore.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/songs/explore.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="30" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="417" column="37" lean-forward="false" selection-start-line="417" selection-start-column="37" selection-end-line="417" selection-end-column="37" />
+            <state relative-caret-position="843">
+              <caret line="647" column="39" lean-forward="true" selection-start-line="647" selection-start-column="39" selection-end-line="647" selection-end-column="39" />
               <folding>
                 <element signature="e#390#3934#0" expanded="false" />
                 <element signature="e#3951#6668#0" expanded="false" />
@@ -78,8 +84,8 @@
       <file leaf-file-name="header.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/songs/header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+            <state relative-caret-position="650">
+              <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding>
                 <marker date="1510589390610" expanded="true" signature="53:1399" ph="..." />
                 <marker date="1510589390610" expanded="false" signature="74:102" ph="..." />
@@ -130,11 +136,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="playlists.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="playlists.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/songs/playlists.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            <state relative-caret-position="350">
+              <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -216,7 +222,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/nodejs_server/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1116" />
     <option name="y" value="118" />
     <option name="width" value="1100" />
@@ -249,24 +255,6 @@
               <item name="project" type="b2602c69:ProjectViewProjectNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ressrc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project" type="b2602c69:ProjectViewProjectNode" />
@@ -327,15 +315,15 @@
       <workItem from="1510410529384" duration="15307000" />
       <workItem from="1510432513666" duration="373000" />
       <workItem from="1510501238407" duration="13889000" />
-      <workItem from="1510573892612" duration="10504000" />
+      <workItem from="1510573892612" duration="13414000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80210000" />
+    <option name="totallyTimeSpent" value="83120000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
+    <frame x="-11" y="-11" width="2182" height="1402" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24988236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -685,53 +673,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/songs/explore.html">
+    <entry file="file://$PROJECT_DIR$/client/songs/websockets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="29" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/songs/mysongs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="931">
-          <caret line="129" column="13" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="129" selection-end-column="13" />
+        <state relative-caret-position="714">
+          <caret line="213" column="54" lean-forward="false" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="54" />
           <folding>
-            <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1510583549109" expanded="true" signature="1771:2356" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="1856:1864" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="1939:1947" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="2022:2030" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="4491:4499" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="4614:4628" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="4641:4649" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="7803:8316" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="7880:7888" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="7955:7963" ph="..." />
+            <marker date="1510583549109" expanded="true" signature="8030:8038" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="417" column="37" lean-forward="false" selection-start-line="417" selection-start-column="37" selection-end-line="417" selection-end-column="37" />
-          <folding>
-            <element signature="e#390#3934#0" expanded="false" />
-            <element signature="e#3951#6668#0" expanded="false" />
-            <element signature="e#6685#10808#0" expanded="false" />
-            <element signature="e#10825#13232#0" expanded="false" />
-            <element signature="e#13249#15752#0" expanded="false" />
-            <element signature="e#15769#17671#0" expanded="false" />
-            <marker date="1510578002030" expanded="true" signature="21556:21717" ph="..." />
-            <marker date="1510578002030" expanded="true" signature="21592:21658" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/css/general.css">
+    <entry file="file://$PROJECT_DIR$/client/songs/playlists.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
+          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/songs/header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        <state relative-caret-position="650">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
           <folding>
             <marker date="1510589390610" expanded="true" signature="53:1399" ph="..." />
             <marker date="1510589390610" expanded="false" signature="74:102" ph="..." />
@@ -759,33 +734,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/songs/websockets.js">
+    <entry file="file://$PROJECT_DIR$/client/css/general.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="213" column="54" lean-forward="false" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="54" />
+        <state relative-caret-position="350">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="843">
+          <caret line="647" column="39" lean-forward="true" selection-start-line="647" selection-start-column="39" selection-end-line="647" selection-end-column="39" />
           <folding>
-            <marker date="1510583549109" expanded="true" signature="1771:2356" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="1856:1864" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="1939:1947" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="2022:2030" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="4491:4499" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="4614:4628" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="4641:4649" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="7803:8316" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="7880:7888" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="7955:7963" ph="..." />
-            <marker date="1510583549109" expanded="true" signature="8030:8038" ph="..." />
+            <element signature="e#390#3934#0" expanded="false" />
+            <element signature="e#3951#6668#0" expanded="false" />
+            <element signature="e#6685#10808#0" expanded="false" />
+            <element signature="e#10825#13232#0" expanded="false" />
+            <element signature="e#13249#15752#0" expanded="false" />
+            <element signature="e#15769#17671#0" expanded="false" />
+            <marker date="1510578002030" expanded="true" signature="21556:21717" ph="..." />
+            <marker date="1510578002030" expanded="true" signature="21592:21658" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/songs/playlists.html">
+    <entry file="file://$PROJECT_DIR$/client/songs/mysongs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="125">
+          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/songs/explore.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="30" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
