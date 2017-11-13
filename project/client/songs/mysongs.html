@@ -52,13 +52,13 @@
                     <div id="release_content" class="collapse in filter_content form-inline text-center">
                         <div class="form-group" style="padding-right:20px">
                             <label class="control-label">From</label>
-                            <select id="from"  class="form-control">
+                            <select onchange="apply_filters_mysong()" id="from"  class="form-control">
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">To</label>
-                            <select id="to"  class="form-control">
+                            <select onchange="apply_filters_mysong()" id="to"  class="form-control">
                             </select>
                         </div>
 
@@ -78,6 +78,22 @@
                     </div>
 
                     <div id="artists_content" class="collapse in scrollbar filter_content">
+                    </div>
+                </div>
+
+                <div id="albums">
+                    <div class="filter_category">
+                        <p style="margin:0">
+                            <span>Albums</span>
+                            <span style="float:right">
+                                <button onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
+                                    <em class="fa fa-long-arrow-up"></em>
+                                </button>
+                            </span>
+                        </p>
+                    </div>
+
+                    <div id="albums_content" class="collapse in scrollbar filter_content">
                     </div>
                 </div>
 

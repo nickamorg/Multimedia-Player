@@ -36,6 +36,7 @@ function send_mysongs() {
             var genres = [];
             var genres_counter = 0;
             var dates = [];
+            var albums = [];
             playerAPI.tmpPlaylist = [songs.length];
             for(var i = 0; i < songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(songs[i].substring(2))];
@@ -46,7 +47,7 @@ function send_mysongs() {
                     genres[genres_counter++] = song.genre[j];
                 }
                 dates[i] = parseInt(song.release.split(" ")[2]);
-
+                albums[i] = song.album;
                 //$(".table").find("tbody").append(playerAPI.songs[song])
                 $(".table").find("tbody").append(
                     `<tr>
@@ -82,6 +83,15 @@ function send_mysongs() {
             });
             dates = tmp;
             dates = dates.sort(function (a, b) {  return b - a;  });
+            tmp = albums.filter(function(item, pos) {
+                return albums.indexOf(item) == pos;
+            });
+            albums = tmp;
+            for(i = 0; i < albums.length; i++) {
+                $("#albums_content").append('<input onchange="apply_filters_mysong()" type="checkbox" name="album" value="' + albums[i] + '">' + albums[i] + '<br>');
+            }
+            $("#from").append('<option value=\"' + "none" + '\"></option>');
+            $("#to").append('<option value=\"' + "none" + '\"></option>');
             for(i = 0; i < dates.length; i++) {
                 $("#from").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
                 $("#to").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
@@ -105,6 +115,7 @@ function play_mysong(curr_song) {
 function apply_filters_mysong() {
     let genres = [];
     let artists = [];
+    let albums = [];
     let counter = 0;
 
     for(i = 0; i < $("#genres_content").find("input").length; i++) {
@@ -120,35 +131,81 @@ function apply_filters_mysong() {
         }
     }
 
-    let tmp_mysongs = playerAPI.mysongs.slice();
-    for(let i = 0; i < tmp_mysongs.length; i++) {
-        let flag = false;
-        for(let j = 0; j < genres.length; j++) {
-            for(let k = 0; k < playerAPI.songs[tmp_mysongs[i]].genre.length; k++) {
-                if(playerAPI.songs[tmp_mysongs[i]].genre[k] === genres[j]) {
-                    flag = true;
-                    break;
-                }
-            }
-        }
-        if(!flag) {
-            for(let j = 0; j < artists.length; j++) {
-                if(playerAPI.songs[tmp_mysongs[i]].artist === artists[j]) {
-                    flag = true;
-                    break;
-                }
-            }
-            if(!flag) {
-                tmp_mysongs[i] = "-1";
-            }
+    counter = 0;
+    for(let i = 0; i < $("#albums_content").find("input").length; i++) {
+        if($("#albums_content").find("input")[i].checked) {
+            albums[counter++] = $("#albums_content").find("input")[i].value;
         }
     }
 
-    console.log(genres, artists, tmp_mysongs);
+    let from = $( "#from option:selected" ).text();
+    if(from === "") {
+        from = 0;
+    }
+    let to = $( "#to option:selected" ).text();
+    if(to === "") {
+        to = (new Date).getFullYear();
+    }
+
+    let tmp_mysongs = playerAPI.mysongs.slice();
+    let check = [];
+
+    for(let i = 0; i < tmp_mysongs.length; i++) {
+        check[i] = true;
+    }
+
+    if(genres.length > 0) {
+        for(let i = 0; i < tmp_mysongs.length; i++) {
+            let flag = false;
+            for(let j = 0; j < genres.length; j++) {
+                for(let k = 0; k < playerAPI.songs[tmp_mysongs[i]].genre.length; k++) {
+                    if(playerAPI.songs[tmp_mysongs[i]].genre[k] === genres[j]) {
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    if(artists.length > 0) {
+        for(let i = 0; i < tmp_mysongs.length; i++) {
+            let flag = false;
+            for(let j = 0; j < artists.length; j++) {
+                if(playerAPI.songs[tmp_mysongs[i]].artist === artists[j] && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    for(let i = 0; i < tmp_mysongs.length; i++) {
+        if(parseInt(playerAPI.songs[tmp_mysongs[i]].release.split(" ")[2]) < from ||
+           parseInt(playerAPI.songs[tmp_mysongs[i]].release.split(" ")[2]) > to) {
+            check[i] = false;
+        }
+    }
+
+    if(albums.length > 0) {
+        for(let i = 0; i < tmp_mysongs.length; i++) {
+            let flag = false;
+            for(let j = 0; j < albums.length; j++) {
+                if(playerAPI.songs[tmp_mysongs[i]].album === albums[j] && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
 
     $(".table").find("tbody").html("");
     for(let i = 0; i < tmp_mysongs.length; i++) {
-        if(tmp_mysongs[i] !== "-1") {
+        if(check[i]) {
             song = playerAPI.songs[tmp_mysongs[i]];
             $(".table").find("tbody").append(
                 `<tr>
