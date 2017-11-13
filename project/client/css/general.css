@@ -5,7 +5,7 @@ html, body {
     font-family: 'Roboto', sans-serif !important;
 }
 
-.home, .song {
+.home, .song, #explore {
     margin:20px;
 }
 
@@ -119,6 +119,7 @@ li a:hover:not(.active) {
     background-color: #95989A;;
     border-radius: 5px;
 }
+
 #myBar {
     display:block;
     height:6px;

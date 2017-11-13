@@ -497,6 +497,28 @@ playerAPI.repeat = function repeat() {
     playerAPI.repeat_flag = !playerAPI.repeat_flag;
 };
 
+playerAPI.explore_genres = function explore_genres() {
+    let genres = [];
+    let counter = 0;
+    console.log(playerAPI.songs.crowd);
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        for(let j = 0; j < playerAPI.songs["id" + i].genre.length; j++) {
+            genres[counter++] = playerAPI.songs["id" + i].genre[j];
+        }
+    }
+
+    tmp = genres.filter(function(item, pos) {
+        return genres.indexOf(item) == pos;
+    });
+    genres = tmp;
+    for(let i = 0; i < genres.length; i++) {
+        $("#explore").append(
+            `<div class="col-xs-3 text-center">
+                <button><p style="background-color: brown; height:20vw; width:20vw; line-height:20vw">${genres[i].toUpperCase()}</p></button>
+            </div>`);
+    }
+};
+
 playerAPI.playing.oncanplay = function() {
     var min = parseInt(playerAPI.playing.duration / 60, 10);
     var sec = parseInt(playerAPI.playing.duration % 60);
@@ -511,8 +533,6 @@ playerAPI.playing.ontimeupdate = function() {
 
     $("#curr").text(min + ":" + (sec > 9 ? sec : "0" + sec));
 };
-
-
 
 /*Song Volume*/
 $('.muted').click(function () {
