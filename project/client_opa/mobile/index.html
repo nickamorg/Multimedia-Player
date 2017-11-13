@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+      <title>Application</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+      <!-- OUR IMPORTS -->
+      <link type="text/css" rel="stylesheet" href="css/general.css">
+      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script type="application/javascript" src="songs/header.js"></script>
+      <script type="application/javascript" src="songs/player.js"></script>
+      <script type="application/javascript" src="songs/websockets.js"></script>
+    </head>
+    
+    <body class="scrollbar">
+        <script> var pages = ["lobby", "song_home", "song_mysongs", "song_explore"]</script>
+        <!-- BEGIN PAGES -->
+        <div id="pt-main" class="pt-perspective">
+            <!-- BEGIN PAGE 1 -->
+            <div id="lobby" class="pt-page visible">
+                <div class="wrapper">
+                    <div onclick="toggle_pages('song_home')"><img class="img-responsive" src="ressrc/song.png"/><h1>Songs</h1></div>
+                    <div><img class="img-responsive" src="ressrc/movie.png"/><h1>Movies</h1></div>
+                    <div><img class="img-responsive" src="ressrc/serie.png"/><h1>Tv series</h1></div>
+                </div>
+            </div>
+            <!-- END PAGE 1 -->
+            
+            <!-- BEGIN PAGE 2 -->
+            <div id="song_home" class="pt-page hidden">
+                <div class="home">
+                    <div class="text-center">
+                        <h1 style="margin:0; padding:20px 0 20px 0; background-color:#000000">Home</h1>
+                    </div>
+
+                    <div class="parent" style="top:30%">
+                        <h2>New releases</h2>
+                        <div class="scrollBar">
+                            <div class="child"><img style="width:100%" class="img-responsible" src="ressrc/image.png">
+                                <h3>Beach House 2</h3>
+                                <h5>Ty Dolla $ign</h5>
+                            </div>
+                            <div class="child"><img style="width:100%" class="img-responsible" src="ressrc/image.png">
+                                <h3>Beach House 2</h3>
+                                <h5>Ty Dolla $ign</h5>
+                            </div>
+                            <div class="child"><img style="width:100%" class="img-responsible" src="ressrc/image.png">
+                                <h3>Beach House 2</h3>
+                                <h5>Ty Dolla $ign</h5>
+                            </div>
+                            <div class="child"><img style="width:100%" class="img-responsible" src="ressrc/image.png">
+                                <h3>Beach House 2</h3>
+                                <h5>Ty Dolla $ign</h5>
+                            </div>
+                        </div>
+                    </div><div class="parent" style="top:60%">
+                        <h2>Charts</h2>
+                        <div class="scrollBar">
+                            <div class="child"><img style="width:100%" class="img-responsible" src="ressrc/image.png">
+                                <h3>Beach House 2</h3>
+                                <h5>Ty Dolla $ign</h5>
+                            </div>
+                            <div class="child"><img style="width:100%" class="img-responsible" src="ressrc/image.png">
+                                <h3>Beach House 2</h3>
+                                <h5>Ty Dolla $ign</h5>
+                            </div>
+                            <div class="child"><img style="width:100%" class="img-responsible" src="ressrc/image.png">
+                                <h3>Beach House 2</h3>
+                                <h5>Ty Dolla $ign</h5>
+                            </div>
+                            <div class="child"><img style="width:100%" class="img-responsible" src="ressrc/image.png">
+                                <h3>Beach House 2</h3>
+                                <h5>Ty Dolla $ign</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEGIN PAGE 3 -->
+            <div id="song_mysongs" class="pt-page hidden">
+                <div class="mysongs">
+                    <div class="col-xs-3" style="padding:0; margin-bottom:120px">
+                        <div id="genres">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Genres</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="genres_content" class="collapse in scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="release">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Release Date</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="release_content" class="collapse in filter_content form-inline text-center">
+                                <div class="form-group" style="padding-right:20px">
+                                    <label class="control-label">From</label>
+                                    <select onchange="apply_filters_mysong()" id="from"  class="form-control">
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">To</label>
+                                    <select onchange="apply_filters_mysong()" id="to"  class="form-control">
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="artists">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Artists</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#artists_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="artists_content" class="collapse in scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="albums">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Albums</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="albums_content" class="collapse in scrollbar filter_content">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-9" style="padding-right:0; margin-top:20px;">
+
+                        <h1>My songs</h1>
+                        <table class="table display_songs">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>TITLE</th>
+                                    <th>ARTIST</th>
+                                    <th>ALBUM</th>
+                                    <th>RELEASE</th>
+                                    <th><em class="fa">&#xf017;</em></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- BEGIN PAGE 4 -->
+            <div id="song_explore" class="pt-page hidden">
+                    <div id="explore" class="text-center">
+                        <div class="col-xs-12"><h1>Explore music by genre</h1></div>
+                    </div>
+            </div>
+
+            <script>setPlayer();</script>
+            <script type="application/javascript" src="js/player.js"></script>
+            <script>
+                send_mysongs();
+                playerAPI.explore_genres();
+            </script>
+            <!-- END PAGE 2 -->
+        </div>
+        <!-- END PAGES -->
+    </body>
+    
+    <script>
+        function toggle_pages(visible_page) {
+            for(i = 0; i < pages.length; i++) {
+                if(pages[i] !== visible_page) {
+                    $("#" + pages[i]).addClass("hidden");
+                    $("#" + pages[i]).removeClass("visible");
+                } else {
+                    $("#" + pages[i]).addClass("visible");
+                    $("#" + pages[i]).removeClass("hidden");
+                }
+            }
+        }
+         
+        </script>
+    </html>
