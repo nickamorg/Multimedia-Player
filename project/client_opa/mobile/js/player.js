@@ -4,6 +4,7 @@ playerAPI.playing = document.getElementById("playing");
 playerAPI.width = 0;
 playerAPI.current = document.getElementById("playing");
 playerAPI.row = 0;
+playerAPI.currentID = "id0";
 playerAPI.muted = false;
 playerAPI.stored_volume = 50;
 playerAPI.tmpPlaylsit = {};
@@ -512,8 +513,8 @@ playerAPI.explore_genres = function explore_genres() {
     genres = tmp;
     for(let i = 0; i < genres.length; i++) {
         $("#explore").append(
-            `<div class="col-xs-3 text-center">
-                <button><p style="background-color: brown; height:20vw; width:20vw; line-height:20vw">${genres[i].toUpperCase()}</p></button>
+            `<div class="col-xs-6 text-center">
+                <button><p style="background-color: brown; height:40vw; width:40vw; line-height:40vw">${genres[i].toUpperCase()}</p></button>
             </div>`);
     }
 };
@@ -648,3 +649,14 @@ var updateCurrTime = function (x, currTime) {
     playerAPI.playing.currentTime = playerAPI.playing.duration * percentage / 100;
     playerAPI.width = percentage;
 };
+
+$('.row .btn').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $collapse = $this.closest('.collapse-group').find('.collapse');
+    $collapse.collapse('toggle');
+});
+
+function toggle_class_in(elem) {
+    $(elem).toggleClass("in");
+}

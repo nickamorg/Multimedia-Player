@@ -46,20 +46,29 @@ function send_mysongs() {
                 for(var j = 0; j < song.genre.length; j++) {
                     genres[genres_counter++] = song.genre[j];
                 }
+                
                 dates[i] = parseInt(song.release.split(" ")[2]);
                 albums[i] = song.album;
                 //$(".table").find("tbody").append(playerAPI.songs[song])
-                $(".table").find("tbody").append(
-                    `<tr>
-                            <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
-                            <td><button><em class="fa">&#xf067;</em></button></td>
-                            <td><button><em class="fa">&#xf068;</em></button></td>
-                            <td><button>${song.title}</button></td>
-                            <td>${song.artist}</td>
-                            <td>${song.album}</td>
-                            <td>${song.release}</td>
-                            <td>${song.duration}</td>
-                        </tr>`);
+                $("#mysongs_content").append(
+                    `<div class="col-xs-12" style="border-bottom:1px solid #50505A">
+                        <div class="col-xs-2" style="height:100px; line-height:100px;">
+                            <img id="img" style="width:80px" src="ressrc/images/${song.img}">
+                        </div>
+                        <div class="col-xs-8">
+                            <button style="text-align:left;">
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
+                            </button>
+                        </div>
+                        <div class="col-xs-1" style="height:100px; line-height:100px;">
+                            <button onclick="play_mysong(${i})"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                        </div>
+                        <div class="col-xs-1" style="height:100px; line-height:100px;">
+                            <button style="float:right"><em class="fa fa-ellipsis-v" style="font-size:40px"></em></button>
+                        </div>
+                        </div>
+                    <div class="clearfix"></div> `);
             }
 
             // Filter duplicates
@@ -103,13 +112,20 @@ function send_mysongs() {
 function play_mysong(curr_song) {
     playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
-    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[curr_song];
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[curr_song];
     $("#playing")[0].load();
-    $("#controls").find("button").find("em")[2].innerHTML = "&#xf28c;";
+    $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
+    $("#title_artist").html(playerAPI.songs["id" + curr_song].title + " - " + playerAPI.songs["id" + curr_song].artist);
+    $("#expand_player").find("div").find("img")[0].src = "ressrc/images/" + playerAPI.songs["id" + curr_song].img;
+    $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs["id" + curr_song].title;
+    $("#expand_player").find("div").find("p")[7].innerHTML = playerAPI.songs["id" + curr_song].artist;
+    $("#expand_player").find("div").find("p")[8].innerHTML = playerAPI.songs["id" + curr_song].genre;
+    $("#expand_player").find("div").find("p")[9].innerHTML = playerAPI.songs["id" + curr_song].album;
+    $("#expand_player").find("div").find("p")[10].innerHTML = playerAPI.songs["id" + curr_song].release;
+    $("#expand_player").find("div").find("p")[11].innerHTML = playerAPI.songs["id" + curr_song].duration;
+    $("#expand_lyrics").html("<pre>" + playerAPI.songs["id" + curr_song].lyrics + "</pre>");
+    playerAPI.currentID = playerAPI.mysongs[curr_song];
     $("#playing")[0].play();
-    $("#title").html(playerAPI.songs["id" + curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
-    $("#artist").text(playerAPI.songs["id" + curr_song].artist);
-    $("#img").attr("src", "../ressrc/images/" + playerAPI.songs["id" + curr_song].img);
 }
 
 function apply_filters_mysong() {
@@ -203,21 +219,27 @@ function apply_filters_mysong() {
     }
 
 
-    $(".table").find("tbody").html("");
+    $("#mysongs_content").html("");
     for(let i = 0; i < tmp_mysongs.length; i++) {
         if(check[i]) {
             song = playerAPI.songs[tmp_mysongs[i]];
-            $(".table").find("tbody").append(
-                `<tr>
-                    <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
-                    <td><button><em class="fa">&#xf067;</em></button></td>
-                    <td><button><em class="fa">&#xf068;</em></button></td>
-                    <td><button>${song.title}</button></td>
-                    <td>${song.artist}</td>
-                    <td>${song.album}</td>
-                    <td>${song.release}</td>
-                    <td>${song.duration}</td>
-                </tr>`);
+            $("#mysongs_content").append(
+                `<div class="col-xs-12" style="height:100px; line-height:100px; border-bottom:1px solid #50505A">
+                    <div class="col-xs-2">
+                        <img id="img" style="width:80px" src="ressrc/images/${song.img}">
+                    </div>
+                    <div class="col-xs-8">
+                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
+                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
+                    </div>
+                    <div class="col-xs-1">
+                        <button onclick="play_mysong(${i})"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                    </div>
+                    <div class="col-xs-1">
+                        <button style="float:right"><em class="fa fa-ellipsis-v" style="font-size:40px"></em></button>
+                    </div>
+                    </div>
+                <div class="clearfix"></div> `);
         }
     }
 }
