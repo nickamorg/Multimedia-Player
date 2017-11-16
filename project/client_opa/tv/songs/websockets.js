@@ -104,6 +104,7 @@ function send_mysongs() {
 function play_mysong(curr_song) {
     playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
+    playerAPI.width = 0;
     $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[curr_song];
     $("#playing")[0].load();
     $(".controls").each( function () {

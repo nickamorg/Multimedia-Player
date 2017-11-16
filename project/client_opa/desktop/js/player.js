@@ -418,9 +418,10 @@ $("#playing")[0].load();
 playerAPI.playPause = function playPause() {
     if (playerAPI.playing.paused) {
         playerAPI.playing.play();
-        $("#controls").find("button").find("em")[2].innerHTML = "&#xf28c;";
-        var elem = document.getElementById("myBar");
-
+		$(".controls").each( function () {
+			var play_pause = $(this);
+			play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
+		});
         playerAPI.id_interval = setInterval(frame, 10 * parseInt(playerAPI.playing.duration));
 
         function frame() {
@@ -433,19 +434,28 @@ playerAPI.playPause = function playPause() {
                     $("#playing")[0].play();
                     playerAPI.id_interval = setInterval(frame, 10 * parseInt(playerAPI.playing.duration));
                 } else {
-                    $("#controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
+                    $(".controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
                 }
                 clearInterval(playerAPI.id_interval);
                 playerAPI.width = 0;
-                elem.style.width = 0;
+				$( ".myBar" ).each( function () {
+					var myBar = $(this);
+					myBar.css("width", playerAPI.width + '%'
+				)});
             } else if (!playerAPI.playing.paused) {
                 playerAPI.width++;
-                elem.style.width = playerAPI.width + '%';
+				$( ".myBar" ).each( function () {
+					var myBar = $(this);
+					myBar.css("width", playerAPI.width + '%'
+				)});
             }
         }
     } else {
         playerAPI.playing.pause();
-        $("#controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
+		$(".controls").each( function () {
+			var play_pause = $(this);
+			play_pause.find("button").find("em")[2].innerHTML = "&#xf01d;";
+		});
     }
 };
 
@@ -489,9 +499,9 @@ playerAPI.shuffle = function shuffle() {
 
 playerAPI.repeat = function repeat() {
     if(playerAPI.repeat_flag) {
-        $("#controls").find("button").find("em")[4].style.color = "#9999a5";
+        $(".controls").find("button").find("em")[4].style.color = "#9999a5";
     } else {
-        $("#controls").find("button").find("em")[4].style.color = "#ffffff";
+        $(".controls").find("button").find("em")[4].style.color = "#ffffff";
     }
 
     playerAPI.repeat_flag = !playerAPI.repeat_flag;
@@ -513,7 +523,7 @@ playerAPI.explore_genres = function explore_genres() {
     for(let i = 0; i < genres.length; i++) {
         $("#explore").append(
             `<div class="col-xs-3 text-center">
-                <button><p style="background-color: brown; height:20vw; width:20vw; line-height:20vw">${genres[i].toUpperCase()}</p></button>
+                <button class="display_song_by_genre clickableElement" onclick="set_songs_by_genre('${genres[i]}')"><p style="background-color: brown; height:20vw; width:20vw; line-height:20vw">${genres[i].toUpperCase()}</p></button>
             </div>`);
     }
 };
@@ -522,7 +532,7 @@ playerAPI.playing.oncanplay = function() {
     var min = parseInt(playerAPI.playing.duration / 60, 10);
     var sec = parseInt(playerAPI.playing.duration % 60);
 
-    $("#dur").text(min + ":" + sec);
+    $(".dur").text(min + ":" + sec);
 };
 
 playerAPI.playing.ontimeupdate = function() {
@@ -530,7 +540,7 @@ playerAPI.playing.ontimeupdate = function() {
     var min = parseInt(playerAPI.playing.currentTime / 60, 10);
     var sec = parseInt(playerAPI.playing.currentTime % 60);
 
-    $("#curr").text(min + ":" + (sec > 9 ? sec : "0" + sec));
+    $(".curr").text(min + ":" + (sec > 9 ? sec : "0" + sec));
 };
 
 /*Song Volume*/
@@ -605,7 +615,7 @@ var updateVolume = function (x, vol) {
 //CURRENT TIME BAR
 //current time bar event
 var currentTimeDrag = false;
-$('#myProgress').on('mousedown', function (e) {
+$('.myProgress').on('mousedown', function (e) {
     currentTimeDrag = true;
     updateCurrTime(e.pageX);
 });
@@ -624,7 +634,7 @@ $(document).on('mousemove', function (e) {
 });
 
 var updateCurrTime = function (x, currTime) {
-    var progress = $('#myProgress');
+    var progress = $('.myProgress');
     var percentage;
     //if only volume have specificed
     //then direct update volume
@@ -644,7 +654,10 @@ var updateCurrTime = function (x, currTime) {
 
     //change song current time bar
     var elem = document.getElementById("myBar");
-    $('#myBar').css('width', percentage + '%');
+	$( ".myBar" ).each( function () {
+		var myBar = $(this);
+		myBar.css("width", percentage + '%'
+	)});
     playerAPI.playing.currentTime = playerAPI.playing.duration * percentage / 100;
     playerAPI.width = percentage;
 };

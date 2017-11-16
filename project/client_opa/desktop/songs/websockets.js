@@ -38,6 +38,7 @@ function send_mysongs() {
             var dates = [];
             var albums = [];
             playerAPI.tmpPlaylist = [songs.length];
+			$(".table").find("tbody").html("");
             for(var i = 0; i < songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(songs[i].substring(2))];
                 playerAPI.mysongs[i] = "id" + parseInt(songs[i].substring(2));
@@ -103,13 +104,22 @@ function send_mysongs() {
 function play_mysong(curr_song) {
     playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
-    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[curr_song];
+    playerAPI.width = 0;
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[curr_song];
     $("#playing")[0].load();
-    $("#controls").find("button").find("em")[2].innerHTML = "&#xf28c;";
+    $(".controls").each( function () {
+		var play_pause = $(this);
+		play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
+	});
+	
+	$( ".myBar" ).each( function () {
+		var myBar = $(this);
+		myBar.css("width", "0");
+	});
     $("#playing")[0].play();
-    $("#title").html(playerAPI.songs["id" + curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
-    $("#artist").text(playerAPI.songs["id" + curr_song].artist);
-    $("#img").attr("src", "../ressrc/images/" + playerAPI.songs["id" + curr_song].img);
+    $(".title").html(playerAPI.songs["id" + curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs["id" + curr_song].artist);
+    $(".img").attr("src", "ressrc/images/" + playerAPI.songs["id" + curr_song].img);
 }
 
 function apply_filters_mysong() {
@@ -221,3 +231,82 @@ function apply_filters_mysong() {
         }
     }
 }
+
+function play_song(curr_song) {
+    playerAPI.playlist = playerAPI.tmpPlaylist;
+    playerAPI.row = curr_song;
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[curr_song].file;
+    $("#playing")[0].load();
+    $(".controls").each( function () {
+		var play_pause = $(this);
+		play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
+	});
+	
+	$( ".myBar" ).each( function () {
+		var myBar = $(this);
+		myBar.css("width", "0");
+	});
+    $("#playing")[0].play();
+    $(".title").html(playerAPI.songs[curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs[curr_song].artist);
+    $(".img").attr("src", "ressrc/images/" + playerAPI.songs[curr_song].img);
+}
+
+function set_songs_by_genre(genre) {
+	/*for(var i = 0; i < songs.length; i++) {
+		for(var j = 0; j < song.genre.length; j++) {
+			if(song.genre[i] === genre) {
+				$("display_by_genre").find("tbody").append(
+					`<tr>
+						<td><button onclick="play_song(${i})"><em class="fa">&#xf01d;</em></button></td>
+						<td><button><em class="fa">&#xf067;</em></button></td>
+						<td><button><em class="fa">&#xf068;</em></button></td>
+						<td><button>${song.title}</button></td>
+						<td>${song.artist}</td>
+						<td>${song.album}</td>
+						<td>${song.release}</td>
+						<td>${song.duration</td>
+					</tr>`);
+				break;
+			}
+		}
+	}*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,6 +38,7 @@ function send_mysongs() {
             var dates = [];
             var albums = [];
             playerAPI.tmpPlaylist = [songs.length];
+            $("#mysongs_content").html("");
             for(var i = 0; i < songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(songs[i].substring(2))];
                 playerAPI.mysongs[i] = "id" + parseInt(songs[i].substring(2));
@@ -49,7 +50,6 @@ function send_mysongs() {
                 
                 dates[i] = parseInt(song.release.split(" ")[2]);
                 albums[i] = song.album;
-                //$(".table").find("tbody").append(playerAPI.songs[song])
                 $("#mysongs_content").append(
                     `<div class="col-xs-12" style="border-bottom:1px solid #50505A">
                         <div class="col-xs-2" style="height:100px; line-height:100px;">

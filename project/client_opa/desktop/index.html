@@ -1,227 +1,270 @@
-<!DOCTYPE html>
-<html lang="en">
-    
-    <head>
-      <title>Application</title>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
 
-      <!-- OUR IMPORTS -->
-      <link type="text/css" rel="stylesheet" href="css/general.css">
-      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script type="application/javascript" src="songs/header.js"></script>
-      <script type="application/javascript" src="songs/player.js"></script>
-      <script type="application/javascript" src="songs/websockets.js"></script>
-    </head>
-    
-    <body class="scrollbar">
-        <script> var pages = ["lobby", "song_home", "song_mysongs", "song_explore"]</script>
-        <!-- BEGIN PAGES -->
-        <div id="pt-main" class="pt-perspective">
-            <script>setHeader();</script>
-            <!-- BEGIN PAGE 1 -->
-            <div id="lobby" class="pt-page visible">
-                <div class="wrapper">
-                    <div onclick="toggle_pages('song_home')"><img class="img-responsive" src="ressrc/song.png"/><h1>Songs</h1></div>
-                    <div><img class="img-responsive" src="ressrc/movie.png"/><h1>Movies</h1></div>
-                    <div><img class="img-responsive" src="ressrc/serie.png"/><h1>Tv series</h1></div>
-                </div>
-            </div>
-            <!-- END PAGE 1 -->
-            
-            <!-- BEGIN PAGE 2 -->
-            <div id="song_home" class="pt-page hidden">
-                <div class="home">
-                    <div class="col-xs-9" style="padding:0 50px 0 0; margin-bottom:120px">
-                        <div class="card col-xs-12">
-                            <h1>New releases</h1>
-                            <div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            <div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            <div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            <div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                        </div>
+<head>
+	<title>3Player</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-                        <div class="card col-xs-12">
-                                <h1>Charts</h1>
-                            <div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            <div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            <div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            <div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                        </div>
-                    </div>
+	<!-- BEGIN CSS LIBRARIES -->
+	<link rel="stylesheet" type="text/css" href="app/css/libs/animations.css">
+	<link rel="stylesheet" type="text/css" href="app/css/libs/page_transitions.css">
+	<!-- END CSS LIBRARIES -->
 
-                    <div class="col-xs-3" style="padding-right:0">
-                        <div class="card resents col-xs-12">
-                            <h1 style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently played</h1>
-                            <div class="col-xs-12" style="padding: 0 0 20px 0">
-                                <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
-                                <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            </div>
+	<!-- BEGIN JAVASCRIPT LIBRARIES -->
+	<script language="javascript" type="text/javascript" src="app/js/libs/jquery-1.11.3.min.js"></script>
+	<script language="javascript" type="text/javascript" src="app/js/libs/modernizr.custom.js"></script>
+	<!-- END JAVASCRIPT LIBRARIES -->
 
-                            <div class="col-xs-12" style="padding: 0 0 20px 0">
-                                <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
-                                <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            </div>
+	<!-- BEGIN CONFIG -->
+	<script language="javascript" type="text/javascript" src="app/js/src/config/config.js"></script>
+	<!-- END CONFIG -->
 
-                            <div class="col-xs-12" style="padding: 0 0 20px 0">
-                                <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
-                                <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            </div>
+	<!-- BEGIN APPLICATION SCRIPTS -->
+	<script language="javascript" type="text/javascript" src="app/js/src/demo.js"></script>
+	<!-- END APPLICATION SCRIPTS -->
 
-                            <div class="col-xs-12" style="padding: 0 0 20px 0">
-                                <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
-                                <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            </div>
+	<!-- OUR IMPORTS -->
+	<link type="text/css" rel="stylesheet" href="css/general.css">
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="application/javascript" src="songs/header.js"></script>
+	<script type="application/javascript" src="songs/player.js"></script>
+	<script type="application/javascript" src="songs/websockets.js"></script>
+	
+</head>
 
-                            <div class="col-xs-12" style="padding: 0 0 20px 0">
-                                <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
-                                <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<body>
+  <!-- BEGIN PAGES -->
+  <div id="pt-main" class="pt-perspective">
+    <!-- BEGIN PAGE 1 - LOBBY -->
+    <div id="lobby" class="pt-page">
+		<div class="wrapper">
+			<div id="to_song_home"><img class="img-responsive" src="ressrc/song.png"/><h1>Songs</h1></div>
+			<div><img class="img-responsive" src="ressrc/movie.png"/><h1>Movies</h1></div>
+			<div><img class="img-responsive" src="ressrc/serie.png"/><h1>Tv series</h1></div>
+		</div>
+	</div>
+	<!-- END PAGE 1 - LOBBY -->
+	
+	<!-- END PAGE 2 - HOME -->
+	<div id="song_home" class="pt-page">
+		<script>setHeader();</script>
+		<div class="home">
+			<div class="col-xs-9" style="padding:0 50px 0 0; margin-bottom:120px">
+				<div class="card col-xs-12">
+					<h1>New releases</h1>
+					<div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					<div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					<div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					<div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+				</div>
 
-            <!-- BEGIN PAGE 3 -->
-            <div id="song_mysongs" class="pt-page hidden">
-                <div class="mysongs">
-                    <div class="col-xs-3" style="padding:0; margin-bottom:120px">
-                        <div id="genres">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Genres</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
-                                </p>
-                            </div>
+				<div class="card col-xs-12">
+						<h1>Charts</h1>
+					<div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					<div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					<div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					<div class="col-xs-3"><img class="img-responsive" src="ressrc/image.png"/><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+				</div>
+			</div>
 
-                            <div id="genres_content" class="collapse in scrollbar filter_content">
-                            </div>
-                        </div>
+			<div class="col-xs-3" style="padding-right:0">
+				<div class="card resents col-xs-12">
+					<h1 style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently played</h1>
+					<div class="col-xs-12" style="padding: 0 0 20px 0">
+						<div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
+						<div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					</div>
 
-                        <div id="release">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Release Date</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
-                                </p>
-                            </div>
+					<div class="col-xs-12" style="padding: 0 0 20px 0">
+						<div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
+						<div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					</div>
 
-                            <div id="release_content" class="collapse in filter_content form-inline text-center">
-                                <div class="form-group" style="padding-right:20px">
-                                    <label class="control-label">From</label>
-                                    <select onchange="apply_filters_mysong()" id="from"  class="form-control">
-                                    </select>
-                                </div>
+					<div class="col-xs-12" style="padding: 0 0 20px 0">
+						<div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
+						<div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					</div>
 
-                                <div class="form-group">
-                                    <label class="control-label">To</label>
-                                    <select onchange="apply_filters_mysong()" id="to"  class="form-control">
-                                    </select>
-                                </div>
+					<div class="col-xs-12" style="padding: 0 0 20px 0">
+						<div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
+						<div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					</div>
 
-                            </div>
-                        </div>
+					<div class="col-xs-12" style="padding: 0 0 20px 0">
+						<div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="ressrc/image.png"></div>
+						<div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>setPlayer();</script>
+	</div>
+    <!-- END PAGE 2 - HOME -->
+	
+	<!-- BEGIN PAGE 3 - SONG_MYSONGS-->
+	<div id="song_mysongs" class="pt-page">
+		<script>setHeader();</script>
+		<div class="mysongs">
+			<div class="col-xs-3" style="padding:0; margin-bottom:120px">
+				<div id="genres">
+					<div class="filter_category">
+						<p style="margin:0">
+							<span>Genres</span>
+							<span style="float:right">
+								<button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
+									<em class="fa fa-long-arrow-up"></em>
+								</button>
+							</span>
+						</p>
+					</div>
 
-                        <div id="artists">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Artists</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#artists_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
-                                </p>
-                            </div>
+					<div id="genres_content" class="collapse in scrollbar filter_content">
+					</div>
+				</div>
 
-                            <div id="artists_content" class="collapse in scrollbar filter_content">
-                            </div>
-                        </div>
+				<div id="release">
+					<div class="filter_category">
+						<p style="margin:0">
+							<span>Release Date</span>
+							<span style="float:right">
+								<button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
+									<em class="fa fa-long-arrow-up"></em>
+								</button>
+							</span>
+						</p>
+					</div>
 
-                        <div id="albums">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Albums</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
-                                </p>
-                            </div>
+					<div id="release_content" class="collapse in filter_content form-inline text-center">
+						<div class="form-group" style="padding-right:20px">
+							<label class="control-label">From</label>
+							<select onchange="apply_filters_mysong()" id="from"  class="form-control">
+							</select>
+						</div>
 
-                            <div id="albums_content" class="collapse in scrollbar filter_content">
-                            </div>
-                        </div>
+						<div class="form-group">
+							<label class="control-label">To</label>
+							<select onchange="apply_filters_mysong()" id="to"  class="form-control">
+							</select>
+						</div>
 
-                    </div>
+					</div>
+				</div>
 
-                    <div class="col-xs-9" style="padding-right:0; margin-top:20px;">
+				<div id="artists">
+					<div class="filter_category">
+						<p style="margin:0">
+							<span>Artists</span>
+							<span style="float:right">
+								<button class="clickableElement" onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#artists_content">
+									<em class="fa fa-long-arrow-up"></em>
+								</button>
+							</span>
+						</p>
+					</div>
 
-                        <h1>My songs</h1>
-                        <table class="table display_songs">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>TITLE</th>
-                                    <th>ARTIST</th>
-                                    <th>ALBUM</th>
-                                    <th>RELEASE</th>
-                                    <th><em class="fa">&#xf017;</em></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <!-- BEGIN PAGE 4 -->
-            <div id="song_explore" class="pt-page hidden">
-                    <div id="explore" class="text-center">
-                        <div class="col-xs-12"><h1>Explore music by genre</h1></div>
-                    </div>
-            </div>
+					<div id="artists_content" class="collapse in scrollbar filter_content">
+					</div>
+				</div>
 
-            <script>setPlayer();</script>
-            <script type="application/javascript" src="js/player.js"></script>
-            <script>
-                send_mysongs();
-                playerAPI.explore_genres();
-            </script>
-            <!-- END PAGE 2 -->
-        </div>
-        <!-- END PAGES -->
-    </body>
-    
-    <script>
-        function toggle_pages(visible_page) {
-            for(i = 0; i < pages.length; i++) {
-                if(pages[i] !== visible_page) {
-                    $("#" + pages[i]).addClass("hidden");
-                    $("#" + pages[i]).removeClass("visible");
-                } else {
-                    $("#" + pages[i]).addClass("visible");
-                    $("#" + pages[i]).removeClass("hidden");
-                }
-            }
-        }
-         
-        </script>
-    </html>
+				<div id="albums">
+					<div class="filter_category">
+						<p style="margin:0">
+							<span>Albums</span>
+							<span style="float:right">
+								<button class="clickableElement" onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
+									<em class="fa fa-long-arrow-up"></em>
+								</button>
+							</span>
+						</p>
+					</div>
+
+					<div id="albums_content" class="collapse in scrollbar filter_content">
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-xs-9" style="padding-right:0; margin-top:20px;">
+
+				<h1>My songs</h1>
+				<table class="table display_songs">
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th>TITLE</th>
+							<th>ARTIST</th>
+							<th>ALBUM</th>
+							<th>RELEASE</th>
+							<th><em class="fa">&#xf017;</em></th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script>setPlayer();</script>
+	</div>
+	<!-- END PAGE 3 - SONG_MYSONGS-->
+	
+	<!-- BEGIN PAGE 4 - SONG_EXPLORE-->
+	<div id="song_explore" class="pt-page">
+		<script>setHeader();</script>
+		<div id="explore" class="text-center">
+			<div class="col-xs-12"><h1>Explore music by genre</h1></div>
+		</div>
+		<script>setPlayer();</script>
+	</div>
+	<!-- END PAGE 4 - SONG_EXPLORE-->
+	
+	<!-- BEGIN PAGE 5 - SONG_BY_GENRE-->
+	<div id="song_by_genre" class="pt-page">
+		<script>setHeader();</script>
+		<div class="text-center">
+			<div class="col-xs-9" style="padding-right:0; margin-top:20px;">
+
+				<h1>My songs</h1>
+				<table id="display_by_genre" class="table display_songs">
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th>TITLE</th>
+							<th>ARTIST</th>
+							<th>ALBUM</th>
+							<th>RELEASE</th>
+							<th><em class="fa">&#xf017;</em></th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script>setPlayer();</script>
+	</div>
+	<!-- END PAGE 4 - SONG_BY_GENRE-->
+
+  </div>
+  <!-- END PAGES -->
+
+    <!-- BEGIN AUDIO ELEMENT -->
+    <audio id="playing" class="hidden" controls>
+        <source src="ressrc/songs/loca.mp3"  type="audio/mpeg">
+        Your browser does not support HTML5 video.
+    </audio>
+    <!-- END AUDIO ELEMENT -->
+
+  <!-- BEGIN JAVASCRIPT AFTER LOADING -->
+  <script language="javascript" type="text/javascript" src="app/js/ami_libs/pagetransitions.js"></script>
+  <!-- END JAVASCRIPT AFTER LOADING -->
+  
+  <script type="application/javascript" src="js/player.js"></script>
+</body>
+
+</html>

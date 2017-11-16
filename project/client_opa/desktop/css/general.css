@@ -95,21 +95,21 @@ li a:hover:not(.active) {
 
 
 /*          Song current time bar        */
-#myProgress {
+.myProgress {
     width: 500px;
     background-color: #95989A;
     border-radius: 5px;
     margin: 0 auto;
 }
 
-#myBar {
+.myBar {
     width: 0%;
     height: 6px;
     background-color: #FFFFFF;
     border-radius: 5px;
 }
 
-#myProgress  {
+.myProgress  {
     position:relative;
     cursor:pointer;
     height:6px;
@@ -120,7 +120,7 @@ li a:hover:not(.active) {
     border-radius: 5px;
 }
 
-#myBar {
+.myBar {
     display:block;
     height:6px;
     position:absolute;
@@ -133,7 +133,7 @@ li a:hover:not(.active) {
 
 /*!* END PROGRESS BAR *!*/
 
-#controls {
+.controls {
     padding:20px 0px 5px 0px;
 }
 
@@ -141,7 +141,7 @@ li a:hover:not(.active) {
 background-color: transparent;
 border: none;
 }*/
-#controls i {
+.controls i {
     padding: 0px 10px 0px 10px;
 }
 

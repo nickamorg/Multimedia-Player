@@ -2,23 +2,18 @@ function setPlayer() {
     document.write(
 
     `<div class="player text-center">
-        <audio id="playing" class="hidden" controls>
-            <source src="ressrc/songs/loca.mp3"  type="audio/mpeg">
-                Your browser does not support HTML5 video.
-        </audio>
-    
         <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
             <div class="col-xs-3" style="padding:10px 0px 10px 0px;">
-                <img id="img" style="width:80px" src="ressrc/icon.png">
+                <img class="img" style="width:80px" src="ressrc/icon.png">
             </div>
-            <div class="col-xs-6">
-            <p id="title">Read All About It <button><em style="font-size:24px" class="fa">&#xf067;</em></button></p>
-            <p id="artist">Emeli Sandé</p>
+            <div class="col-xs-9 text-left">
+				<p class="title">Read All About It <button><em style="font-size:24px" class="fa">&#xf067;</em></button></p>
+				<p class="artist">Emeli Sandé</p>
             </div>
         </div>
     
         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
-            <div id="controls">
+            <div class="controls">
                 <button onclick="playerAPI.shuffle()"><em style="font-size:24px" class="fa">&#xf074;</em></button>
                 <button onClick="playerAPI.prev()"><em style="font-size:24px" class="fa">&#xf048;</em></button>
                 <button onclick="playerAPI.playPause()"><em style="font-size:35px" class="fa">&#xf01d;</em></button>
@@ -27,12 +22,12 @@ function setPlayer() {
             </div>
         
             <div>
-            <div id="curr" style="display:inline-block">0:00</div>
-            <div style="display:inline-block" id="myProgress">
-                <div id="myBar"></div>
+            <div class="curr" style="display:inline-block">0:00</div>
+            <div style="display:inline-block" class="myProgress">
+                <div class="myBar"></div>
             
                 </div>
-                <div id="dur" style="display:inline-block">4:37</div>
+                <div class="dur" style="display:inline-block">4:37</div>
             </div>
         </div>
         

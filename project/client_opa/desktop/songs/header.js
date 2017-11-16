@@ -3,8 +3,8 @@ function setHeader() {
 
     `<div>
         <ul style="margin: 0; position:relative">
-            <li style="float:left"><a style="padding:0" onclick="toggle_pages('lobby')"><img src="ressrc/3player.png"/></a></li>
-            <li style="float:left"><a onclick="toggle_pages('song_home')">3Player</a></li>
+            <li style="float:left"><a style="padding:0" class="to_lobby"><img src="ressrc/3player.png"/></a></li>
+            <li style="float:left"><a class="to_song_home">3Player</a></li>
             <li style="float:left"><a style="padding-left:0;" href="#home"><em style="font-size:24px" class="fa">&#xf190;</em></a></li>
             <li style="float:left"><a style="padding-left:0;" href="#home"><em style="font-size:24px" class="fa">&#xf18e;</em></a></li>
             <li style="float: left">
@@ -19,9 +19,9 @@ function setHeader() {
                     </div>
                 </form>
             </li>
-            <li><a onclick="toggle_pages('song_explore')">Explore</a></li>
+            <li><a class="to_song_explore">Explore</a></li>
             <li><a href="playlists.html">Playlists</a></li>
-            <li><a onclick="toggle_pages('song_mysongs')">My songs</a></li>
+            <li><a class="to_mysongs">My songs</a></li>
         </ul>
     </div>`);
 }

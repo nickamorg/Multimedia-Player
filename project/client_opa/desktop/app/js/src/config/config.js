@@ -3,14 +3,14 @@
 //*******************************************
 
 var GlobalConfig = (function () {
-  var DebugMode = false;     //true/false
+  var DebugMode = true;     //true/false
 
   var Connections = {
     Sockets: 'ws://127.0.0.1:6556/', // URL of socket server
   };
 
   var Pages = {
-    InitialPage: 'page1'     // initial page to display
+    InitialPage: 'lobby'     // initial page to display
   };
 
   var Cursor = {

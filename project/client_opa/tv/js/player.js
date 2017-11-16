@@ -499,9 +499,9 @@ playerAPI.shuffle = function shuffle() {
 
 playerAPI.repeat = function repeat() {
     if(playerAPI.repeat_flag) {
-        $("#controls").find("button").find("em")[4].style.color = "#9999a5";
+        $(".controls").find("button").find("em")[4].style.color = "#9999a5";
     } else {
-        $("#controls").find("button").find("em")[4].style.color = "#ffffff";
+        $(".controls").find("button").find("em")[4].style.color = "#ffffff";
     }
 
     playerAPI.repeat_flag = !playerAPI.repeat_flag;
