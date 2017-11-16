@@ -5,8 +5,16 @@ html, body {
     font-family: 'Roboto', sans-serif !important;
 }
 
-.home, .song, #explore {
+.home, .song {
     margin:20px;
+}
+
+#explore {
+    margin:20px;
+}
+
+#explore div {
+    padding-bottom:20px;
 }
 
 * {
@@ -290,4 +298,17 @@ option {
 
 a {
     cursor: pointer;
+}
+
+#display_by_genre button, #display_by_genre td {
+    height:100px;
+    line-height:100px;
+}
+
+.content {
+    height:83.4%;
+}
+
+#song_title {
+    text-align: center;
 }

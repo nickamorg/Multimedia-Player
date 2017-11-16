@@ -263,16 +263,16 @@ option {
 }
 
 .scrollbar::-webkit-scrollbar {
-    width: 20px;
+    width: 0;
     border-radius: 10px;
-    background-color:#95989A;
+    background-color:Transparent;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background-color:#2BB4C4;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background-color:Transparent;
+    -webkit-box-shadow: inset 0 0 6px Transparent;
 }
 
 #expand_lyrics pre {
@@ -343,4 +343,12 @@ a {
 
 h1 {
     font-size: 30px !important;
+}
+
+.content {
+    height:86%
+}
+
+#explore div {
+    padding-bottom:40px;
 }

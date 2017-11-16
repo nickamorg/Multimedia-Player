@@ -511,6 +511,7 @@ playerAPI.explore_genres = function explore_genres() {
         return genres.indexOf(item) == pos;
     });
     genres = tmp;
+    $("#explore").html('<h1 style="margin:0 0 50px 0; padding:20px 0 20px 0; background-color:#000000">Explore</h1>');
     for(let i = 0; i < genres.length; i++) {
         $("#explore").append(
             `<div class="col-xs-6 text-center">

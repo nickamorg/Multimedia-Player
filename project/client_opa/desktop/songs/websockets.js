@@ -55,7 +55,7 @@ function send_mysongs() {
                             <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
                             <td><button><em class="fa">&#xf067;</em></button></td>
                             <td><button><em class="fa">&#xf068;</em></button></td>
-                            <td><button>${song.title}</button></td>
+                            <td><button onclick="display_song_details('${"id" + parseInt(songs[i].substring(2))}')">${song.title}</button></td>
                             <td>${song.artist}</td>
                             <td>${song.album}</td>
                             <td>${song.release}</td>
@@ -69,6 +69,7 @@ function send_mysongs() {
             });
             genres = tmp;
 
+            $("#genres_content").html("");
             for(i = 0; i < genres.length; i++) {
                 $("#genres_content").append('<input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="' + genres[i] + '">' + genres[i] + '<br>');
             }
@@ -76,6 +77,7 @@ function send_mysongs() {
                 return artists.indexOf(item) == pos;
             });
             artists = tmp;
+            $("#artists_content").html("");
             for(i = 0; i < artists.length; i++) {
                 $("#artists_content").append('<input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="' + artists[i] + '">' + artists[i] + '<br>');
             }
@@ -88,9 +90,12 @@ function send_mysongs() {
                 return albums.indexOf(item) == pos;
             });
             albums = tmp;
+            $("#albums_content").html("");
             for(i = 0; i < albums.length; i++) {
                 $("#albums_content").append('<input onchange="apply_filters_mysong()" type="checkbox" name="album" value="' + albums[i] + '">' + albums[i] + '<br>');
             }
+            $("#from").html("");
+            $("#to").html("");
             $("#from").append('<option value=\"' + "none" + '\"></option>');
             $("#to").append('<option value=\"' + "none" + '\"></option>');
             for(i = 0; i < dates.length; i++) {
@@ -111,7 +116,14 @@ function play_mysong(curr_song) {
 		var play_pause = $(this);
 		play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
 	});
-	
+
+    $(".expand").each( function () {
+        var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details("id" + curr_song);
+        })
+    });
+
 	$( ".myBar" ).each( function () {
 		var myBar = $(this);
 		myBar.css("width", "0");
@@ -237,9 +249,17 @@ function play_song(curr_song) {
     playerAPI.row = curr_song;
     $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[curr_song].file;
     $("#playing")[0].load();
+
     $(".controls").each( function () {
 		var play_pause = $(this);
 		play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
+	});
+
+    $(".expand").each( function () {
+		var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details(curr_song);
+        })
 	});
 	
 	$( ".myBar" ).each( function () {
@@ -251,62 +271,3 @@ function play_song(curr_song) {
     $(".artist").text(playerAPI.songs[curr_song].artist);
     $(".img").attr("src", "ressrc/images/" + playerAPI.songs[curr_song].img);
 }
-
-function set_songs_by_genre(genre) {
-	/*for(var i = 0; i < songs.length; i++) {
-		for(var j = 0; j < song.genre.length; j++) {
-			if(song.genre[i] === genre) {
-				$("display_by_genre").find("tbody").append(
-					`<tr>
-						<td><button onclick="play_song(${i})"><em class="fa">&#xf01d;</em></button></td>
-						<td><button><em class="fa">&#xf067;</em></button></td>
-						<td><button><em class="fa">&#xf068;</em></button></td>
-						<td><button>${song.title}</button></td>
-						<td>${song.artist}</td>
-						<td>${song.album}</td>
-						<td>${song.release}</td>
-						<td>${song.duration</td>
-					</tr>`);
-				break;
-			}
-		}
-	}*/
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

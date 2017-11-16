@@ -520,6 +520,7 @@ playerAPI.explore_genres = function explore_genres() {
         return genres.indexOf(item) == pos;
     });
     genres = tmp;
+    $("#explore").html("<div class='col-xs-12'><h1>Explore music by genre</h1></div>");
     for(let i = 0; i < genres.length; i++) {
         $("#explore").append(
             `<div class="col-xs-3 text-center">

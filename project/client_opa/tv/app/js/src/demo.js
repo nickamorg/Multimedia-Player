@@ -51,6 +51,12 @@ $(document).ready(function () {
 		PageTransitions.goToPage(2, 'song_by_genre');
 	});
 
+    $('.display_song_details').click(function () {
+		// Tip: try other integers [1-67] at PageTransitions.goToPage function
+		// and see different animations on changing pages
+		PageTransitions.goToPage(2, 'song_details');
+	});
+
   //#endregion
   //---------------------------------------
 

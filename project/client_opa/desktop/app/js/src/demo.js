@@ -46,6 +46,7 @@ $(document).ready(function () {
 	});
 	
 	$('.display_song_by_genre').click(function () {
+		alert("gome to me");
 		// Tip: try other integers [1-67] at PageTransitions.goToPage function
 		// and see different animations on changing pages
 		PageTransitions.goToPage(2, 'song_by_genre');
