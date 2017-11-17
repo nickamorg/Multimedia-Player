@@ -352,3 +352,27 @@ h1 {
 #explore div {
     padding-bottom:40px;
 }
+
+#song_by_genre h1 {
+    padding-bottom: 50px;
+}
+
+.song_title {
+    text-align:center;
+}
+
+#song_details {
+    text-align: center;
+}
+
+#song_details h1 {
+    padding-bottom: 50px;
+}
+
+#song_details pre {
+    color: #ffffff;
+    border: none;
+    background-color: inherit;
+    padding: 0;
+    font-size:30px;
+}

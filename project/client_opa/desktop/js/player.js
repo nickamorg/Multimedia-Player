@@ -405,12 +405,14 @@ playerAPI.songs = {
         }
     };
 
-(function init() {
+playerAPI.init = function init() {
     playerAPI.playlist = [playerAPI.songs.crowd];
     for (i = 0; i < playerAPI.songs.crowd; i++) {
         playerAPI.playlist[i] = playerAPI.songs["id" + i].file;
     }
-})();
+};
+
+playerAPI.init();
 
 $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[0];
 $("#playing")[0].load();

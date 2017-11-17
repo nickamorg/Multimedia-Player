@@ -20,7 +20,7 @@ function setHeader() {
                 </form>
             </li>
             <li><a class="to_song_explore">Explore</a></li>
-            <li><a href="playlists.html">Playlists</a></li>
+            <li><a class="playlists">Playlists</a></li>
             <li><a class="to_mysongs">My songs</a></li>
         </ul>
     </div>`);

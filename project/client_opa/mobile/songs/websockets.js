@@ -56,7 +56,7 @@ function send_mysongs() {
                             <img id="img" style="width:80px" src="ressrc/images/${song.img}">
                         </div>
                         <div class="col-xs-8">
-                            <button style="text-align:left;">
+                            <button onclick="display_song_details('id' + ${parseInt(songs[i].substring(2))})" style="text-align:left;">
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
                             </button>
@@ -242,4 +242,23 @@ function apply_filters_mysong() {
                 <div class="clearfix"></div> `);
         }
     }
+}
+
+function play_song(curr_song) {
+    // playerAPI.init();
+    // playerAPI.row = curr_song;
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[curr_song].file;
+    $("#playing")[0].load();
+    $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
+    $("#title_artist").html(playerAPI.songs[curr_song].title + " - " + playerAPI.songs[curr_song].artist);
+    $("#expand_player").find("div").find("img")[0].src = "ressrc/images/" + playerAPI.songs[curr_song].img;
+    $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs[curr_song].title;
+    $("#expand_player").find("div").find("p")[7].innerHTML = playerAPI.songs[curr_song].artist;
+    $("#expand_player").find("div").find("p")[8].innerHTML = playerAPI.songs[curr_song].genre;
+    $("#expand_player").find("div").find("p")[9].innerHTML = playerAPI.songs[curr_song].album;
+    $("#expand_player").find("div").find("p")[10].innerHTML = playerAPI.songs[curr_song].release;
+    $("#expand_player").find("div").find("p")[11].innerHTML = playerAPI.songs[curr_song].duration;
+    $("#expand_lyrics").html("<pre>" + playerAPI.songs[curr_song].lyrics + "</pre>");
+    playerAPI.currentID = playerAPI.mysongs[curr_song];
+    $("#playing")[0].play();
 }

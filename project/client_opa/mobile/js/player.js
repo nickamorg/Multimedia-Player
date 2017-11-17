@@ -12,7 +12,7 @@ playerAPI.repeat_flag = false;
 playerAPI.id_interval = -1;
 playerAPI.mysongs = [];
 playerAPI.songs = {
-        "crowd": 5,
+        "crowd": 6,
         "id0": {
             "file": "Shakira - Perro Fiel.mp3",
             "title": "Perro Fiel",
@@ -515,7 +515,7 @@ playerAPI.explore_genres = function explore_genres() {
     for(let i = 0; i < genres.length; i++) {
         $("#explore").append(
             `<div class="col-xs-6 text-center">
-                <button><p style="background-color: brown; height:40vw; width:40vw; line-height:40vw">${genres[i].toUpperCase()}</p></button>
+                <button onclick="set_songs_by_genre('${genres[i]}')"><p style="background-color: brown; height:40vw; width:40vw; line-height:40vw">${genres[i].toUpperCase()}</p></button>
             </div>`);
     }
 };

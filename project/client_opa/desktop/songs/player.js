@@ -55,7 +55,7 @@ function set_songs_by_genre(genre) {
                     `<tr>
                         <td><img id="img" style="width:80px" src="ressrc/images/${song.img}"></td>
 						<td><button onclick='play_song("${'id' + i}")'><em class="fa">&#xf01d;</em></button></td>
-						<td><button><em class="fa">&#xf067;</em></button></td>
+						<td><button onclick="open_playlists_modal('${"id" + i}')"><em class="fa">&#xf067;</em></button></td>
 						<td><button onclick="display_song_details('${"id" + i}')">${song.title}</button></td>
 						<td>${song.artist}</td>
 						<td>${song.album}</td>

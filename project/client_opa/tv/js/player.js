@@ -11,7 +11,7 @@ playerAPI.repeat_flag = false;
 playerAPI.id_interval = -1;
 playerAPI.mysongs = [];
 playerAPI.songs = {
-        "crowd": 5,
+        "crowd": 6,
         "id0": {
             "file": "Shakira - Perro Fiel.mp3",
             "title": "Perro Fiel",

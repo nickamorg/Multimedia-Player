@@ -33,9 +33,7 @@ wsServer.on('connection', function connection(ws) {
             message = JSON.parse(message);
             if(message["type"] === "add to my songs") {
                 var fs = require('fs');
-                //fs.existsSync("todelete")
-                //fs.mkdir("data");
-                fs.appendFile("data/mysongs.txt", message["title"] + "\n", function(err) {
+                fs.appendFile("data/mysongs.txt", message["song_id"] + "\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }
@@ -44,9 +42,16 @@ wsServer.on('connection', function connection(ws) {
                 }); 
             } else if(message["type"] === "add to playlist") {
                 var fs = require('fs');
-                //fs.existsSync("todelete")
-                //fs.mkdir("data");
-                fs.appendFile("data/" + message["playlist"] + ".txt", message["title"] + "\n", function(err) {
+                fs.appendFile("data/" + message["playlist"] + ".txt", message["song_id"] + "\n", function(err) {
+                    if(err) {
+                        return console.log(err);
+                    }
+
+                    console.log("The file was saved!");
+                }); 
+            } else if(message["type"] === "new playlist") {
+                var fs = require('fs');
+                fs.appendFile("data/playlists.txt", message["playlist"] + "\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }
@@ -63,8 +68,14 @@ wsServer.on('connection', function connection(ws) {
                     }
                     ws.send("" + data);
                 });
-
-                
+            } else if(message === "playlists") {
+                var fs = require('fs');
+                fs.readFile("data/playlists.txt", function read(err, data) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    ws.send("" + data);
+                });
             }
         }
 
