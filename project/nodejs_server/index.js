@@ -42,7 +42,7 @@ wsServer.on('connection', function connection(ws) {
                 }); 
             } else if(message["type"] === "add to playlist") {
                 var fs = require('fs');
-                fs.appendFile("data/" + message["playlist"] + ".txt", message["song_id"] + "\n", function(err) {
+                fs.appendFile("data/playlists" + message["playlist"] + ".txt", message["song_id"] + "\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }
@@ -58,7 +58,25 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
-            }
+            } else  if(message["type"] === "new recent") {
+                var fs = require('fs');
+                fs.appendFile("data/recently_played.txt", message["song_id"] + "\n", function(err) {
+                    if(err) {
+                        return console.log(err);
+                    }
+
+                    console.log("The file was saved!");
+                }); 
+			} else  if(message["type"] === "playlist") {
+                var fs = require('fs');
+                var fs = require('fs');
+                fs.readFile("data/playlists/" + message["title"] + ".txt", function read(err, data) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    ws.send("" + data);
+                });
+			}
         } else {
             if(message === "mysongs") {
                 var fs = require('fs');
@@ -74,6 +92,21 @@ wsServer.on('connection', function connection(ws) {
                     if (err) {
                         return console.log(err);
                     }
+					/*
+					json_data = ` {
+        "crowd": 6,
+        "id0": {
+            "file": "Shakira - Perro Fiel.mp3",
+            "title": "Perro Fiel",
+            "artist": "Shakira",
+            "album": "Single",
+            "release": "15 September 2017",
+            "duration": "3:16",
+            "genre": ["Latin pop", "reggaeton"],`
+			
+					playlists = data.split("\n");
+					for(
+					*/
                     ws.send("" + data);
                 });
             }

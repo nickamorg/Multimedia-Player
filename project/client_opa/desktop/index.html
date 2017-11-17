@@ -327,6 +327,35 @@
     </div>
     <!-- END PAGE 7 - PLAYLISTS -->
 
+    <!-- BEGIN PAGE 8 - SONG_PLAYLIST-->
+    <div id="song_playlist" class="pt-page">
+    <script>setHeader();</script>
+    <div class="content scrollbar">
+        <div class="col-xs-9" style="padding-right:0; margin-top:20px;">
+
+            <h1>Playlist</h1>
+            <table id="playlist_songs" class="table display_songs">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>TITLE</th>
+                    <th>ARTIST</th>
+                    <th>ALBUM</th>
+                    <th>RELEASE</th>
+                    <th><em class="fa">&#xf017;</em></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>setPlayer();</script>
+    </div>
+    <!-- END PAGE 8 - SONG_PLAYLIST-->
+
     <!-- The Modal -->
     <div id="playlists_modal" class="modal">
 
@@ -336,7 +365,7 @@
                 <span class="close">&times;</span>
                 <h2>Choose the destination list of the track</h2>
             </div>
-            <div class="modal-body">
+            <div class="modal-body scrollbar">
             </div>
             <div class="modal-footer">
                 <button id="add"><h3>Add</h3></button>
@@ -357,7 +386,7 @@
   <script language="javascript" type="text/javascript" src="app/js/ami_libs/pagetransitions.js"></script>
   <!-- END JAVASCRIPT AFTER LOADING -->
   
-  <script type="application/javascript" src="js/player.js"></script>
+    <script type="application/javascript" src="js/player.js"></script>
 
     <script>
         // Get the modal

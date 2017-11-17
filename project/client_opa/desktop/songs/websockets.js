@@ -83,6 +83,7 @@ function send_mysongs() {
 }
 
 function play_mysong(curr_song) {
+    add_recently_played_song("id" + curr_song);
     playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
     playerAPI.width = 0;
@@ -221,6 +222,7 @@ function apply_filters_mysong() {
 }
 
 function play_song(curr_song) {
+    add_recently_played_song(curr_song);
     playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
     $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[curr_song].file;
@@ -267,7 +269,7 @@ function add_to_playlist(song_id, playlist) {
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
 
     ws.onopen = function() {
-        message = '{ "type": "add to playlist", "playlist":"' + playlist + '" , "song_id":"' + song_id + '" }'
+        message = '{ "type": "add to playlist", "playlist":"' + playlist + '" , "song_id":"' + song_id + '" }';
 
         ws.send(message);
     };
@@ -333,10 +335,10 @@ function get_playlists() {
             for(i = 0; i < playlists.length; i++) {
                 $("#playlists").find("tbody").append(`
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td><button><em class="fa">&#xf01d;</em></button></td></td>
+                        <td><button><em class="fa fa-minus"></em></button></td></td>
                         <td>${i + 1}</td>
-                        <td>${playlists[i]}</td>
+                        <td><button onclick="read_playlist('${playlists[i].replace(/(\r\n|\n|\r)/gm,"")}')">${playlists[i]}</button></td>
                         <td><em class="fa">&#xf001;</em></td>
                         <td><em class="fa">&#xf017;</em></td>
                     </tr>`
@@ -346,3 +348,43 @@ function get_playlists() {
     }
 }
 
+function add_recently_played_song(song_id) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "new recent", "song_id":"' + song_id + '"}';
+        ws.send(message);
+    };
+}
+
+function read_playlist(playlist) {
+    let playlist_songs = "";
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "playlist", "title":"' + playlist + '"}';
+
+        ws.send(message);
+        ws.onmessage = function (message) {
+            playlist_songs = message.data.split("\n");
+            console.log(playlist_songs);
+            $("#playlist_songs").find("tbody").html("");
+            for(var i = 0; i < playlist_songs.length; i++) {
+                song = playerAPI.songs["id" + parseInt(playlist_songs[i].substring(2))];
+                id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");
+                $("#playlist_songs").find("tbody").append(
+                    `<tr>
+                            <td><button onclick="play_song('${id}')"><em class="fa">&#xf01d;</em></button></td>
+                            <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
+                            <td><button><em class="fa fa-minus"></em></button></td>
+                            <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
+                            <td>${song.artist}</td>
+                            <td>${song.album}</td>
+                            <td>${song.release}</td>
+                            <td>${song.duration}</td>
+                        </tr>`);
+            }
+            PageTransitions.goToPage(2, "song_playlist");
+        };
+    };
+}

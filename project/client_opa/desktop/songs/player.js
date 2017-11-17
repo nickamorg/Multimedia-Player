@@ -78,7 +78,7 @@ function display_song_details(song_id) {
     $("#details").html(
         `<img class="img-responsive" style="border-radius: 38px" src="ressrc/images/${song.img}"/>
         <button onclick="play_song('${song_id}')"><em style="font-size:50px" class="fa">&#xf01d;</em></button>
-        <button><em style="font-size:50px" class="fa">&#xf067;</em></button>
+        <button onclick="open_playlists_modal('${song_id}')" ><em style="font-size:50px" class="fa">&#xf067;</em></button>
         
         <div class="clearfix"></div>
         

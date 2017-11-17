@@ -57,6 +57,12 @@ $(document).ready(function () {
 		PageTransitions.goToPage(2, 'song_details');
 	});
 
+    $('.playlists').click(function () {
+        // Tip: try other integers [1-67] at PageTransitions.goToPage function
+        // and see different animations on changing pages
+        get_playlists();
+        PageTransitions.goToPage(2, 'playlists');
+    });
   //#endregion
   //---------------------------------------
 

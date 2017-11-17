@@ -54,7 +54,7 @@ function set_songs_by_genre(genre) {
                     `<tr>
                         <td><img id="img" style="width:80px" src="ressrc/images/${song.img}"></td>
 						<td><button class="clickableElement" onclick='play_song("${'id' + i}")'><em class="fa">&#xf01d;</em></button></td>
-						<td><button class="clickableElement"><em class="fa">&#xf067;</em></button></td>
+						<td><button class="clickableElement" onclick="open_playlists_modal('${"id" + i}')"><em class="fa">&#xf067;</em></button></td>
 						<td><button class="clickableElement" onclick="display_song_details('${"id" + i}')">${song.title}</button></td>
 						<td>${song.artist}</td>
 						<td>${song.album}</td>
@@ -77,7 +77,7 @@ function display_song_details(song_id) {
     $("#details").html(
         `<img class="img-responsive" style="border-radius: 38px" src="ressrc/images/${song.img}"/>
         <button onclick="play_song('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf01d;</em></button>
-        <button class="clickableElement"><em style="font-size:50px" class="fa">&#xf067;</em></button>
+        <button onclick="open_playlists_modal('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf067;</em></button>
         
         <div class="clearfix"></div>
         
