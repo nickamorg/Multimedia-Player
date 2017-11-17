@@ -1,27 +1,3 @@
-function add_to_mysongs(title) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
-
-    ws.onopen = function() {
-        message = '{ "type": "add to my songs", "title":"' + title + '" }'
-
-        ws.send(message);
-
-        ws.onmessage = function(message) {
-            alert(message.data);
-        };
-    };
-}
-
-function add_to_playlist(title, playlist) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
-
-    ws.onopen = function() {
-        message = '{ "type": "add to playlist", "playlist":"' + playlist + '" , "title":"' + title + '" }'
-
-        ws.send(message);
-    };
-}
-
 function send_mysongs() {
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
 
@@ -55,19 +31,22 @@ function send_mysongs() {
                         <div class="col-xs-2" style="height:100px; line-height:100px;">
                             <img id="img" style="width:80px" src="ressrc/images/${song.img}">
                         </div>
-                        <div class="col-xs-8">
+                        <div class="col-xs-7">
                             <button onclick="display_song_details('id' + ${parseInt(songs[i].substring(2))})" style="text-align:left;">
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
                             </button>
                         </div>
-                        <div class="col-xs-1" style="height:100px; line-height:100px;">
+                        <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
                             <button onclick="play_mysong(${i})"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
                         </div>
-                        <div class="col-xs-1" style="height:100px; line-height:100px;">
-                            <button style="float:right"><em class="fa fa-ellipsis-v" style="font-size:40px"></em></button>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
                         </div>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
                         </div>
+                    </div>
                     <div class="clearfix"></div> `);
             }
 
@@ -261,4 +240,163 @@ function play_song(curr_song) {
     $("#expand_lyrics").html("<pre>" + playerAPI.songs[curr_song].lyrics + "</pre>");
     playerAPI.currentID = playerAPI.mysongs[curr_song];
     $("#playing")[0].play();
+}
+
+function add_to_mysongs(song_id) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "add to my songs", "song_id":"' + song_id + '" }';
+
+        ws.send(message);
+
+        ws.onmessage = function(message) {
+            alert(message.data);
+        };
+    };
+    $("#playlists_modal").css("display", "none");
+}
+
+function add_to_playlist(song_id, playlist) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "add to playlist", "playlist":"' + playlist + '" , "song_id":"' + song_id + '" }';
+
+        ws.send(message);
+    };
+    $("#playlists_modal").css("display", "none");
+}
+
+function add_new_playlist(playlist) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "new playlist", "playlist":"' + playlist + '"}';
+        ws.send(message);
+    };
+}
+
+// Get the button that opens the modal
+// When the user clicks the button, open the modal
+function open_playlists_modal(song_id) {
+    $("#add").click(function() {
+        new_playlist = $("#set_new_playlist").val();
+        add_new_playlist(new_playlist);
+        add_to_playlist(song_id, new_playlist);
+    });
+
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    ws.onopen = function() {
+        message = "playlists";
+
+        ws.send(message);
+        ws.onmessage = function (message) {
+            playlists = message.data.split("\n");
+            html_display = `
+                <h3 style="color:#000000">Playlists</h3>
+                <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="Type a new playlist and press Add"></input></div>`;
+
+            for(i = 0; i < playlists.length; i++) {
+                html_display += `
+                                <div class="col-xs-12">
+                                    <button onclick="add_to_playlist('${song_id}', '${playlists[i].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%">${playlists[i]}</button>
+                                </div>`;
+            }
+
+            html_display += `
+                <h3 style="color:#000000">My songs</h3>
+                <div class="col-xs-12"><button style="width:100%">My songs</button></div>
+                <div class="clearfix"></div>`;
+            $(".modal-body")[0].innerHTML = html_display;
+            $("#playlists_modal").css("display", "block");
+        };
+    };
+}
+
+function get_playlists() {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = "playlists";
+
+        ws.send(message);
+        ws.onmessage = function(message) {
+            let playlists = message.data.split("\n");
+            $("#playlists_content").html("");
+            for(i = 0; i < playlists.length; i++) {
+                $("#playlists_content").append(`
+                    <div class="col-xs-12" style="border-bottom:1px solid #50505A">
+                        <div class="col-xs-10">
+                            <button onclick="read_playlist('${playlists[i].replace(/(\r\n|\n|\r)/gm,"")}')" style="text-align:left;">
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${playlists[i]}</p>
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${"9 songs"}<p>
+                            </button>
+                        </div>
+                        <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                            <button><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                        </div>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div> `
+                )
+            }
+        }
+    }
+}
+
+function add_recently_played_song(song_id) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "new recent", "song_id":"' + song_id + '"}';
+        ws.send(message);
+    };
+}
+
+function read_playlist(playlist) {
+    let playlist_songs = "";
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "playlist", "title":"' + playlist + '"}';
+
+        ws.send(message);
+        ws.onmessage = function (message) {
+            playlist_songs = message.data.split("\n");
+            console.log(playlist_songs);
+            $("#playlist_content").html("");
+            for(var i = 0; i < playlist_songs.length; i++) {
+                song = playerAPI.songs["id" + parseInt(playlist_songs[i].substring(2))];
+                $("#song_playlist").find("h1")[0].innerHTML = playlist;
+                id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");
+                $("#playlist_content").append(
+                    `
+                        <div class="col-xs-12" style="border-bottom:1px solid #50505A">
+                        <div class="col-xs-2" style="height:100px; line-height:100px;">
+                            <img id="img" style="width:80px" src="ressrc/images/${song.img}">
+                        </div>
+                        <div class="col-xs-7">
+                            <button onclick="display_song_details(${id})" style="text-align:left;">
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
+                            </button>
+                        </div>
+                        <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                            <button onclick="play_mysong(${i})"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                        </div>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button onclick="open_playlists_modal('${id}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                        </div>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div> `);
+            }
+            PageTransitions.goToPage(2, "song_playlist");
+        };
+    };
 }

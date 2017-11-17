@@ -66,10 +66,10 @@ function setPlayer() {
             </div>
         </div>
         <div class="col-xs-12">
-            <div class="to_song_home"  style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-home"></em><p style="font-size:24px">Home</p></button></div>
+            <div class="to_song_home" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-home"></em><p style="font-size:24px">Home</p></button></div>
             <div class="to_mysongs" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-book"></em><p style="font-size:24px">My songs</p></button></div>
             <div style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-search"></em><p style="font-size:24px">Search</p></button></div>
-            <div style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-list"></em><p style="font-size:24px">playlists</p></button></div>
+            <div class="playlists" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-list"></em><p style="font-size:24px">playlists</p></button></div>
             <div class="to_song_explore" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-music"></em><p style="font-size:24px">Explore</p></button></div>
         </div>
 
@@ -101,11 +101,11 @@ function set_songs_by_genre(genre) {
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
                             </button>
                         </div>
-                        <div class="col-xs-1" style="height:100px; line-height:100px;">
-                            <button onclick="play_song(${i})"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button onclick="play_song('${"id" + i}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
                         </div>
-                        <div class="col-xs-1" style="height:100px; line-height:100px;">
-                            <button style="float:right"><em class="fa fa-ellipsis-v" style="font-size:40px"></em></button>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button onclick="open_playlists_modal('${"id" + i}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
                         </div>
                         </div>
                     <div class="clearfix"></div> `);
