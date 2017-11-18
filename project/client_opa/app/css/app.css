@@ -1,0 +1,60 @@
+/*--*************************************
+               GLOBAL CSS
+****************************************/
+
+body {
+  -webkit-perspective: 400;
+	-moz-perspective: 400;
+	perspective: 400;
+	overflow:hidden !important;
+}
+
+.clickableElement:hover,
+.clickableElement.hover
+{
+  -webkit-box-shadow: 0 0 14px 7px rgba(73,201,216,.83);
+	-moz-box-shadow: 0 0 14px 7px rgba(73,201,216,.83);
+	box-shadow: 0 0 14px 7px rgba(73,201,216,.83);
+  -webkit-transition: All 0.2s ease;
+	-moz-transition: All 0.2s ease;
+  transition: All 0.2s ease;
+}
+
+
+/* BEGIN CURSOR CSS */
+
+.cursor {
+	height: 70px; 
+	width: 70px;
+	background-size: 70px 70px;
+	position: absolute;
+	top: 35px;
+	left:30px;
+	background-repeat: no-repeat;
+}
+
+#cursor {	
+	z-index: 10;
+	position: absolute;
+	display:none;
+}
+
+.progressLoading {
+	height: 140px;
+}
+
+.progressLoading > svg {
+    height: 100%;
+}
+
+.cursor.right {
+  background-image: url("../images/cursor/cursor_right.png"); 
+}
+
+.cursor.left {
+  background-image: url("../images/cursor/cursor_left.png"); 
+}
+
+/* END CURSOR CSS */
+
+

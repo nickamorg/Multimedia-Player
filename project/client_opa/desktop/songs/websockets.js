@@ -415,3 +415,218 @@ function remove_from_playlist(playlist, song_id, this_elem) {
 
     $(this_elem).parents(':eq(1)').html("");
 }
+
+function search_songs(keywords) {
+    $("#inside_keywords").val(keywords);
+    let  artists = [];
+    let  genres = [];
+    let  genres_counter = 0;
+    let  dates = [];
+    let  albums = [];
+    $(".table").find("tbody").html("");
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        let id = "id" + i;
+        let song = playerAPI.songs[id];
+        artists[i] = song.artist;
+        for(let j = 0; j < song.genre.length; j++) {
+            genres[genres_counter++] = song.genre[j];
+        }
+        dates[i] = parseInt(song.release.split(" ")[2]);
+        albums[i] = song.album;
+        $(".table").find("tbody").append(
+            `<tr>
+                <td><button onclick="play_song(${id})"><em class="fa">&#xf01d;</em></button></td>
+                <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
+                <td><button><em class="fa fa-minus"></em></button></td>
+                <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
+                <td>${song.artist}</td>
+                <td>${song.album}</td>
+                <td>${song.release}</td>
+                <td>${song.duration}</td>
+            </tr>`);
+    }
+
+    // Filter duplicates
+    tmp = genres.filter(function(item, pos) {
+        return genres.indexOf(item) == pos;
+    });
+    genres = tmp;
+
+    $("#search_genres_content").html("");
+    for(i = 0; i < genres.length; i++) {
+        $("#search_genres_content").append('<input onchange="apply_filters_search()" type="checkbox" name="genre" value="' + genres[i] + '">' + genres[i] + '<br>');
+    }
+    tmp = artists.filter(function(item, pos) {
+        return artists.indexOf(item) == pos;
+    });
+    artists = tmp;
+    $("#search_artists_content").html("");
+    for(i = 0; i < artists.length; i++) {
+        $("#search_artists_content").append('<input onchange="apply_filters_search()" type="checkbox" name="artist" value="' + artists[i] + '">' + artists[i] + '<br>');
+    }
+    tmp = dates.filter(function(item, pos) {
+        return dates.indexOf(item) == pos;
+    });
+    dates = tmp;
+    dates = dates.sort(function (a, b) {  return b - a;  });
+    tmp = albums.filter(function(item, pos) {
+        return albums.indexOf(item) == pos;
+    });
+    albums = tmp;
+    $("#search_albums_content").html("");
+    for(i = 0; i < albums.length; i++) {
+        $("#search_albums_content").append('<input onchange="apply_filters_search()" type="checkbox" name="album" value="' + albums[i] + '">' + albums[i] + '<br>');
+    }
+    $("#search_from").html("");
+    $("#search_to").html("");
+    $("#search_from").append('<option value=\"' + "none" + '\"></option>');
+    $("#search_to").append('<option value=\"' + "none" + '\"></option>');
+    for(i = 0; i < dates.length; i++) {
+        $("#search_from").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+        $("#search_to").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+    }
+
+}
+
+function apply_filters_search() {
+    let genres = [];
+    let artists = [];
+    let albums = [];
+    let counter = 0;
+
+    for(i = 0; i < $("#search_genres_content").find("input").length; i++) {
+        if($("#search_genres_content").find("input")[i].checked) {
+            genres[counter++] = $("#search_genres_content").find("input")[i].value;
+        }
+    }
+
+    counter = 0;
+    for(let i = 0; i < $("#search_artists_content").find("input").length; i++) {
+        if($("#search_artists_content").find("input")[i].checked) {
+            artists[counter++] = $("#search_artists_content").find("input")[i].value;
+        }
+    }
+
+    counter = 0;
+    for(let i = 0; i < $("#search_albums_content").find("input").length; i++) {
+        if($("#search_albums_content").find("input")[i].checked) {
+            albums[counter++] = $("#search_albums_content").find("input")[i].value;
+        }
+    }
+
+    let from = $( "#search_from option:selected" ).text();
+    if(from === "") {
+        from = 0;
+    }
+    let to = $( "#search_to option:selected" ).text();
+    if(to === "") {
+        to = (new Date).getFullYear();
+    }
+
+
+    let check = [];
+
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        check[i] = true;
+    }
+
+    if(genres.length > 0) {
+        for(let i = 0; i < playerAPI.songs.crowd; i++) {
+            let flag = false;
+            for(let j = 0; j < genres.length; j++) {
+                for(let k = 0; k < playerAPI.songs["id" + i].genre.length; k++) {
+                    if(playerAPI.songs["id" + i].genre[k] === genres[j]) {
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    if(artists.length > 0) {
+        for(let i = 0; i < playerAPI.songs.crowd; i++) {
+            let flag = false;
+            for(let j = 0; j < artists.length; j++) {
+                if(playerAPI.songs["id" + i].artist === artists[j] && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        if(parseInt(playerAPI.songs["id" + i].release.split(" ")[2]) < from ||
+            parseInt(playerAPI.songs["id" + i].release.split(" ")[2]) > to) {
+            check[i] = false;
+        }
+    }
+
+    if(albums.length > 0) {
+        for(let i = 0; i < playerAPI.songs.crowd; i++) {
+            let flag = false;
+            for(let j = 0; j < albums.length; j++) {
+                if(playerAPI.songs["id" + i].album === albums[j] && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    if($("#inside_keywords").val() !== "") {
+        words = $("#inside_keywords").val().split(" ");
+        for(let i = 0; i < playerAPI.songs.crowd; i++) {
+            flag = false;
+            for(let j = 0; j < words.length; j++) {
+                if(contains_word(playerAPI.songs["id" + i].title, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs["id" + i].album, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs["id" + i].artist, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs["id" + i].release, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs["id" + i].genre.toString(), words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    $(".table").find("tbody").html("");
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        if(check[i]) {
+            song = playerAPI.songs["id" + i];
+            $(".table").find("tbody").append(
+                `<tr>
+                    <td><button onclick="play_song('${"id" + i}')"><em class="fa">&#xf01d;</em></button></td>
+                    <td><button><em class="fa">&#xf067;</em></button></td>
+                    <td><button><em class="fa">&#xf068;</em></button></td>
+                    <td><button>${song.title}</button></td>
+                    <td>${song.artist}</td>
+                    <td>${song.album}</td>
+                    <td>${song.release}</td>
+                    <td>${song.duration}</td>
+                </tr>`);
+        }
+    }
+}

@@ -1,6 +1,6 @@
 
 html, body {
-    background-color: #1E1F2B;
+    background-color: #191927;
     margin:0px;
     font-family: 'Roboto', sans-serif !important;
 }
@@ -84,7 +84,7 @@ li a:hover:not(.active) {
 
 .player {
     overflow: hidden;
-    background-color: #23242f;
+    background-color: #5E5E5E;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -145,10 +145,6 @@ li a:hover:not(.active) {
     padding:20px 0px 5px 0px;
 }
 
-.controls button {
-    margin: 0 30px;
-}
-
 /*#controls button {
 background-color: transparent;
 border: none;
@@ -189,7 +185,7 @@ button {
 .card {
     padding: 20px;
     margin-top: 50px;
-    background-color: #363641;
+    background-color: #33333F;
     border-radius: 9px;
 }
 

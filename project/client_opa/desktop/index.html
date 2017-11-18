@@ -356,6 +356,134 @@
         </div>
         <!-- END PAGE 8 - SONG_PLAYLIST-->
 
+        <!-- BEGIN PAGE 9 - SONG_SEARCH-->
+        <div id="song_search" class="pt-page">
+            <script>setHeader();</script>
+            <div class="content scrollbar">
+                <div class="search_songs">
+                    <div class="col-xs-3" style="padding:0; margin-bottom:120px">
+
+                        <div id="search_keywords">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Keywords</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('search_keywords');" type="button" data-toggle="collapse" data-target="#search_keywords">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_keywords_content" class="collapse in scrollbar filter_content">
+                                <input id="inside_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
+                            </div>
+                        </div>
+
+                        <div id="search_genres">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Genres</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('search_genres');" type="button" data-toggle="collapse" data-target="#genres_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_genres_content" class="collapse in scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="search_release">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Release Date</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('search_release');" type="button" data-toggle="collapse" data-target="#release_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_release_content" class="collapse in filter_content form-inline text-center">
+                                <div class="form-group" style="padding-right:20px">
+                                    <label class="control-label">From</label>
+                                    <select onchange="apply_filters_search()" id="search_from"  class="form-control">
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">To</label>
+                                    <select onchange="apply_filters_search()" id="search_to"  class="form-control">
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="search_artists">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Artists</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('search_artists');" type="button" data-toggle="collapse" data-target="#artists_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_artists_content" class="collapse in scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="search_albums">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Albums</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('search_albums');" type="button" data-toggle="collapse" data-target="#albums_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_albums_content" class="collapse in scrollbar filter_content">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-9" style="padding-right:0; margin-top:20px;">
+
+                        <h1>Songs</h1>
+                        <table class="table display_songs">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>TITLE</th>
+                                <th>ARTIST</th>
+                                <th>ALBUM</th>
+                                <th>RELEASE</th>
+                                <th><em class="fa">&#xf017;</em></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <script>setPlayer();</script>
+        </div>
+        <!-- END PAGE 9 - SONG_SEARCH-->
+
         <!-- The Modal -->
         <div id="playlists_modal" class="modal">
 
@@ -406,6 +534,18 @@
                 modal.style.display = "none";
             }
         }
+    </script>
+
+    <script>
+        function expand_filter(this_elem) {
+            $("#" + this_elem).find("em").toggleClass("fa-long-arrow-up fa-long-arrow-down");
+        }
+    </script>
+
+    <script>
+        $("#inside_keywords").on("change paste keyup", function() {
+            apply_filters_search();
+        });
     </script>
 </body>
 

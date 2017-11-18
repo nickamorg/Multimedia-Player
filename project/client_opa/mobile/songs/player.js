@@ -68,7 +68,7 @@ function setPlayer() {
         <div class="col-xs-12">
             <div class="to_song_home" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-home"></em><p style="font-size:24px">Home</p></button></div>
             <div class="to_mysongs" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-book"></em><p style="font-size:24px">My songs</p></button></div>
-            <div style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-search"></em><p style="font-size:24px">Search</p></button></div>
+            <div class="to_songs_search" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-search"></em><p style="font-size:24px">Search</p></button></div>
             <div class="playlists" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-list"></em><p style="font-size:24px">playlists</p></button></div>
             <div class="to_song_explore" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-music"></em><p style="font-size:24px">Explore</p></button></div>
         </div>
@@ -96,7 +96,7 @@ function set_songs_by_genre(genre) {
                             <img id="img" style="width:80px" src="ressrc/images/${song.img}">
                         </div>
                         <div class="col-xs-8" style="text-align:left">
-                            <button onclick="display_song_details('id' + i)" style="text-align:left">
+                            <button onclick="display_song_details('${"id" + i}')" style="text-align:left">
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
                             </button>
@@ -141,7 +141,7 @@ function display_song_details(song_id) {
                     </div>
                     <div class="col-xs-12">
                         <button onclick="play_song('${song_id}')"><em style="font-size:50px" class="fa">&#xf01d;</em></button>
-                        <button><em style="font-size:50px" class="fa">&#xf067;</em></button>
+                        <button onclick="open_playlists_modal('${song_id}')"><em style="font-size:50px" class="fa">&#xf067;</em></button>
                     </div>
                     <div class="col-xs-2">
                         <button onclick="toggle_class_in('#expand_song_lyrics')"><em style="font-size:50px" class="fa fa-angle-up"></em></button>
