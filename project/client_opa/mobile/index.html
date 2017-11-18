@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Application</title>
+        <title>3Player</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <!-- BEGIN CSS LIBRARIES -->
@@ -71,7 +71,7 @@
         </div>
         <!-- END PAGE 1 -->
 
-        <!-- BEGIN PAGE 2 -->
+        <!-- BEGIN PAGE 2 - HOME -->
         <div id="song_home" class="pt-page">
             <div class="content scrollbar">
                 <div class="home">
@@ -123,8 +123,9 @@
                 </div>
             </div>
         </div>
+        <!-- BEGIN PAGE 2 - HOME -->
 
-        <!-- BEGIN PAGE 3 -->
+        <!-- BEGIN PAGE 3 - SONG_MYSONGS-->
         <div id="song_mysongs" class="pt-page">
             <div class="content scrollbar">
                 <div class="mysongs">
@@ -223,13 +224,15 @@
                 </div>
             </div>
         </div>
+        <!-- BEGIN PAGE 3 - SONG_MYSONGS-->
 
-        <!-- BEGIN PAGE 4 -->
+        <!-- BEGIN PAGE 4 - SONG_EXPLORE-->
         <div id="song_explore" class="pt-page">
             <div class="content scrollbar">
                 <div id="explore" class="text-center"></div>
             </div>
         </div>
+        <!-- END PAGE 4 - SONG_EXPLORE-->
 
         <!-- BEGIN PAGE 5 - SONG_BY_GENRE -->
         <div id="song_by_genre" class="pt-page">
@@ -263,7 +266,7 @@
         </div>
         <!-- END PAGE 7 - PLAYLISTS -->
 
-        <!-- BEGIN PAGE 8 - SONG_PLAYLIST-->
+        <!-- BEGIN PAGE 8 - SONG_PLAYLIST -->
         <div id="song_playlist" class="pt-page">
             <div class="content scrollbar">
                 <div class="col-xs-12" style="padding-bottom: 50px; padding-right:0; margin-top:20px;">
@@ -272,7 +275,111 @@
                 <div id="playlist_content" class="col-xs-12"></div>
             </div>
         </div>
-        <!-- END PAGE 8 - SONG_PLAYLIST-->
+        <!-- END PAGE 8 - SONG_PLAYLIST -->
+
+        <!-- BEGIN PAGE 9 - SONG_SEARCH -->
+        <div id="song_search" class="pt-page">
+            <div class="content scrollbar">
+                <div class="search_songs">
+                    <div style="background-color:#000000">
+                        <div class="col-xs-12" style="padding-bottom: 50px;">
+                            <div class="col-xs-2" style="padding-top:20px"><em class="fa fa-angle-left" style="font-size:50px"></em></div>
+                            <div class="col-xs-8"><h1 class="text-center">Songs</h1></div>
+                            <div class="col-xs-2" style="padding-top:20px">
+                                <button data-toggle="collapse" data-target="#search_filters">
+                                    <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div id="search_filters" class="collapse">
+                        <div id="search_genres">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Genres</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#search_genres_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_genres_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="search_release">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Release Date</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#search_release_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_release_content" class="collapse filter_content form-inline text-center">
+                                <div class="form-group" style="padding-right:20px">
+                                    <label class="control-label">From</label>
+                                    <select onchange="apply_filters_mysong()" id="search_from"  class="form-control">
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">To</label>
+                                    <select onchange="apply_filters_mysong()" id="search_to"  class="form-control">
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="search_artists">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Artists</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#search_artists_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_artists_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="search_albums">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Albums</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#search_albums_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_albums_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding-left:30px; padding-right:30px" class="col-xs-12">
+                        <input style="padding: 30px 30px" id="keywords" class="form-control" placeholder="keywords"/>
+                    </div>
+                    <div id="search_songs_content"></div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 9 - SONG_SEARCH -->
 
         <!-- The Modal -->
         <div id="playlists_modal" class="modal">
@@ -317,6 +424,18 @@
                 modal.style.display = "none";
             }
         }
+    </script>
+
+    <script>
+        function expand_filter(this_elem) {
+            $("#" + this_elem).find("em").toggleClass("fa-long-arrow-up fa-long-arrow-down");
+        }
+    </script>
+
+    <script>
+        $("#keywords").on("change paste keyup", function() {
+            apply_filters_search();
+        });
     </script>
 </body>
 

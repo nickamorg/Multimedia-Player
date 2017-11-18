@@ -428,7 +428,7 @@ playerAPI.playPause = function playPause() {
             if (playerAPI.width >= 100) {
 
                 if(playerAPI.playlist.length > playerAPI.row || playerAPI.repeat_flag) {
-                    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[++playerAPI.row % playerAPI.playlist.length];
+                    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[playerAPI.playlist[++playerAPI.row % playerAPI.playlist.length]].file;
 
                     $("#playing")[0].load();
                     $("#playing")[0].play();
@@ -672,3 +672,8 @@ var updateCurrTime = function (x, currTime) {
     playerAPI.playing.currentTime = playerAPI.playing.duration * percentage / 100;
     playerAPI.width = percentage;
 };
+
+function contains_word(str, substr) {
+    expr = new RegExp(substr.toLowerCase());
+    return expr.test(str.toLowerCase());
+}

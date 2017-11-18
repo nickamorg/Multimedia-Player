@@ -10,11 +10,11 @@ function setHeader() {
             <li style="float: left">
                 <form style="padding-top:10px" class="navbar-form navbar-left">
                     <div class="input-group">
-                        <input type="text" class="form-control" size="50" placeholder="Search for music">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
+                        <input id="keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="Search for music">
+                        <div class="to_songs_search input-group-btn">
+                            <a class="btn btn-default" type="submit">
                                 <i style="color:#000000" class="glyphicon glyphicon-search"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </form>

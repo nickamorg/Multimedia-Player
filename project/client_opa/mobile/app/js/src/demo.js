@@ -70,6 +70,15 @@ $(document).ready(function () {
         PageTransitions.goToPage(2, 'playlists');
     });
 
+    $('.to_songs_search').click(function () {
+        // Tip: try other integers [1-67] at PageTransitions.goToPage function
+        // and see different animations on changing pages
+        $("#expand_lyrics").removeClass("in");
+        $("#expand_player").removeClass("in");
+        search_songs();
+        PageTransitions.goToPage(2, 'song_search');
+    });
+
   //#endregion
   //---------------------------------------
 

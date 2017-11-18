@@ -427,3 +427,231 @@ function remove_from_playlist(playlist, song_id, this_elem) {
 
     $(this_elem).parents(':eq(1)').html("");
 }
+
+function search_songs() {
+    var artists = [];
+    var genres = [];
+    var genres_counter = 0;
+    var dates = [];
+    var albums = [];
+    $("#search_songs_content").html("");
+
+    for(var i = 0; i < playerAPI.songs.crowd; i++) {
+        let id = "id" + i;
+        song = playerAPI.songs[id];
+        artists[i] = song.artist;
+        for(var j = 0; j < song.genre.length; j++) {
+            genres[genres_counter++] = song.genre[j];
+        }
+
+        dates[i] = parseInt(song.release.split(" ")[2]);
+        albums[i] = song.album;
+        $("#search_songs_content").append(
+            `<div class="col-xs-12" style="border-bottom:1px solid #50505A">
+                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                    <img id="img" style="width:80px" src="ressrc/images/${song.img}">
+                </div>
+                <div class="col-xs-8">
+                    <button onclick="display_song_details('${id}')" style="text-align:left;">
+                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
+                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
+                    </button>
+                </div>
+                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                    <button onclick="play_song('${id}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                </div>
+                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                    <button onclick="open_playlists_modal('${id}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                </div>
+            </div>
+            <div class="clearfix"></div>`);
+    }
+
+    // Filter duplicates
+    tmp = genres.filter(function(item, pos) {
+        return genres.indexOf(item) == pos;
+    });
+    genres = tmp;
+
+    for(i = 0; i < genres.length; i++) {
+        $("#search_genres_content").append('<input onchange="apply_filters_search()" type="checkbox" name="genre" value="' + genres[i] + '">' + genres[i] + '<br>');
+    }
+    tmp = artists.filter(function(item, pos) {
+        return artists.indexOf(item) == pos;
+    });
+    artists = tmp;
+    for(i = 0; i < artists.length; i++) {
+        $("#search_artists_content").append('<input onchange="apply_filters_search()" type="checkbox" name="artist" value="' + artists[i] + '">' + artists[i] + '<br>');
+    }
+    tmp = dates.filter(function(item, pos) {
+        return dates.indexOf(item) == pos;
+    });
+    dates = tmp;
+    dates = dates.sort(function (a, b) {  return b - a;  });
+    tmp = albums.filter(function(item, pos) {
+        return albums.indexOf(item) == pos;
+    });
+    albums = tmp;
+    for(i = 0; i < albums.length; i++) {
+        $("#search_albums_content").append('<input onchange="apply_filters_search()" type="checkbox" name="album" value="' + albums[i] + '">' + albums[i] + '<br>');
+    }
+    $("#search_from").append('<option value=\"' + "none" + '\"></option>');
+    $("#search_to").append('<option value=\"' + "none" + '\"></option>');
+    for(i = 0; i < dates.length; i++) {
+        $("#search_from").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+        $("#search_to").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+    }
+}
+
+function apply_filters_search() {
+    let genres = [];
+    let artists = [];
+    let albums = [];
+    let counter = 0;
+
+    for(i = 0; i < $("#search_genres_content").find("input").length; i++) {
+        if($("#search_genres_content").find("input")[i].checked) {
+            genres[counter++] = $("#search_genres_content").find("input")[i].value;
+        }
+    }
+
+    counter = 0;
+    for(let i = 0; i < $("#search_artists_content").find("input").length; i++) {
+        if($("#search_artists_content").find("input")[i].checked) {
+            artists[counter++] = $("#search_artists_content").find("input")[i].value;
+        }
+    }
+
+    counter = 0;
+    for(let i = 0; i < $("#search_albums_content").find("input").length; i++) {
+        if($("#search_albums_content").find("input")[i].checked) {
+            albums[counter++] = $("#search_albums_content").find("input")[i].value;
+        }
+    }
+
+    let from = $( "#search_from option:selected" ).text();
+    if(from === "") {
+        from = 0;
+    }
+    let to = $( "#search_to option:selected" ).text();
+    if(to === "") {
+        to = (new Date).getFullYear();
+    }
+
+
+    let check = [];
+
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        check[i] = true;
+    }
+
+    if(genres.length > 0) {
+        for(let i = 0; i < playerAPI.songs.crowd; i++) {
+            let flag = false;
+            for(let j = 0; j < genres.length; j++) {
+                for(let k = 0; k < playerAPI.songs["id" + i].genre.length; k++) {
+                    if(playerAPI.songs["id" + i].genre[k] === genres[j]) {
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    if(artists.length > 0) {
+        for(let i = 0; i < playerAPI.songs.crowd; i++) {
+            let flag = false;
+            for(let j = 0; j < artists.length; j++) {
+                if(playerAPI.songs["id" + i].artist === artists[j] && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        if(parseInt(playerAPI.songs["id" + i].release.split(" ")[2]) < from ||
+            parseInt(playerAPI.songs["id" + i].release.split(" ")[2]) > to) {
+            check[i] = false;
+        }
+    }
+
+    if(albums.length > 0) {
+        for(let i = 0; i < playerAPI.songs.crowd; i++) {
+            let flag = false;
+            for(let j = 0; j < albums.length; j++) {
+                if(playerAPI.songs["id" + i].album === albums[j] && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    if($("#keywords").val() !== "") {
+        words = $("#keywords").val().split(" ");
+        for(let i = 0; i < playerAPI.songs.crowd; i++) {
+            let flag = false;
+            for(let j = 0; j < words.length; j++) {
+                if(contains_word(playerAPI.songs["id" + i].title, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs["id" + i].album, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs["id" + i].artist, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs["id" + i].release, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs["id" + i].genre.toString(), words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    $("#search_songs_content").html("");
+
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        if(check[i]) {
+            id = "id" + i;
+            song = playerAPI.songs["id" + i];
+            $("#search_songs_content").append(
+                `<div class="col-xs-12" style="border-bottom:1px solid #50505A">
+                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                    <img id="img" style="width:80px" src="ressrc/images/${song.img}">
+                </div>
+                <div class="col-xs-8">
+                    <button onclick="display_song_details('${id}')" style="text-align:left;">
+                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
+                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
+                    </button>
+                </div>
+                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                    <button onclick="play_song('${id}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                </div>
+                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                    <button onclick="open_playlists_modal('${id}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                </div>
+            </div>
+            <div class="clearfix"></div>`);
+        }
+    }
+}
