@@ -2,13 +2,13 @@ function setPlayer() {
     document.write(
 
     `<div class="player text-center">
-        <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
+        <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px;">
             <div class="col-xs-3" style="padding:10px 0px 10px 0px;">
                 <img class="img" style="width:80px" src="ressrc/icon.png">
             </div>
-            <div class="col-xs-9 text-left">
-				<p class="title">Read All About It <button class="clickableElement"><em style="font-size:24px" class="fa">&#xf067;</em></button></p>
-				<p class="artist">Emeli Sandé</p>
+            <div class="col-xs-9 text-left" style="margin-top: 20px;">
+                <p class="title">Read All About It <button><em style="font-size:16px" class="fa">&#xf067;</em></button></p>
+                <p class="artist">Emeli Sandé</p>
             </div>
         </div>
     
