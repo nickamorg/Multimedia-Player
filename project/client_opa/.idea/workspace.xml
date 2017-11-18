@@ -3,22 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7cde2d0d-1118-4cc0-8e6b-cb3c56ae54c0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/app/js/src/demo.js" afterPath="$PROJECT_DIR$/desktop/app/js/src/demo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/index.html" afterPath="$PROJECT_DIR$/desktop/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/js/player.js" afterPath="$PROJECT_DIR$/desktop/js/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/songs/header.js" afterPath="$PROJECT_DIR$/desktop/songs/header.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/songs/websockets.js" afterPath="$PROJECT_DIR$/desktop/songs/websockets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/app/js/src/demo.js" afterPath="$PROJECT_DIR$/mobile/app/js/src/demo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/index.html" afterPath="$PROJECT_DIR$/mobile/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/js/player.js" afterPath="$PROJECT_DIR$/mobile/js/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/songs/player.js" afterPath="$PROJECT_DIR$/mobile/songs/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/songs/websockets.js" afterPath="$PROJECT_DIR$/mobile/songs/websockets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tv/app/js/src/demo.js" afterPath="$PROJECT_DIR$/tv/app/js/src/demo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tv/index.html" afterPath="$PROJECT_DIR$/tv/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tv/js/player.js" afterPath="$PROJECT_DIR$/tv/js/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tv/songs/header.js" afterPath="$PROJECT_DIR$/tv/songs/header.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tv/songs/websockets.js" afterPath="$PROJECT_DIR$/tv/songs/websockets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nodejs_server/data/recently_played.txt" afterPath="$PROJECT_DIR$/../nodejs_server/data/recently_played.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -671,16 +655,15 @@
       <workItem from="1510859402468" duration="13926000" />
       <workItem from="1510902346486" duration="14693000" />
       <workItem from="1510930638414" duration="20367000" />
-      <workItem from="1510988545249" duration="41008000" />
+      <workItem from="1510988545249" duration="41288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105851000" />
+    <option name="totallyTimeSpent" value="106131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24988236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
