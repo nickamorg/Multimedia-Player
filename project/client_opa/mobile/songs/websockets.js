@@ -325,10 +325,11 @@ function get_playlists() {
             let playlists = message.data.split("\n");
             $("#playlists_content").html("");
             for(i = 0; i < playlists.length; i++) {
+                playlists[i] = playlists[i].replace(/(\r\n|\n|\r)/gm,"");
                 $("#playlists_content").append(`
                     <div class="col-xs-12" style="border-bottom:1px solid #50505A">
                         <div class="col-xs-10">
-                            <button onclick="read_playlist('${playlists[i].replace(/(\r\n|\n|\r)/gm,"")}')" style="text-align:left;">
+                            <button onclick="read_playlist('${playlists[i]}')" style="text-align:left;">
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${playlists[i]}</p>
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${"9 songs"}<p>
                             </button>
@@ -337,7 +338,7 @@ function get_playlists() {
                             <button><em class="fa" style="font-size:40px">&#xf01d;</em></button>
                         </div>
                         <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
-                            <button style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                            <button onclick="remove_playlist('${playlists[i]}', this)"  style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
                         </div>
                     </div>
                     <div class="clearfix"></div> `
@@ -357,6 +358,7 @@ function add_recently_played_song(song_id) {
 }
 
 function read_playlist(playlist) {
+    PageTransitions.goToPage(2, "song_playlist");
     let playlist_songs = "";
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
 
@@ -375,28 +377,51 @@ function read_playlist(playlist) {
                 $("#playlist_content").append(
                     `
                         <div class="col-xs-12" style="border-bottom:1px solid #50505A">
-                        <div class="col-xs-2" style="height:100px; line-height:100px;">
-                            <img id="img" style="width:80px" src="ressrc/images/${song.img}">
+                            <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                <img id="img" style="width:80px" src="ressrc/images/${song.img}">
+                            </div>
+                            <div class="col-xs-7">
+                                <button onclick="display_song_details(${id})" style="text-align:left;">
+                                    <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
+                                    <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
+                                </button>
+                            </div>
+                            <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                <button onclick="play_song('${id}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                            </div>
+                            <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                <button onclick="open_playlists_modal('${id}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                            </div>
+                            <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                <button style="float:right" onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                            </div>
                         </div>
-                        <div class="col-xs-7">
-                            <button onclick="display_song_details(${id})" style="text-align:left;">
-                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
-                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
-                            </button>
-                        </div>
-                        <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
-                            <button onclick="play_mysong(${i})"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
-                        </div>
-                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
-                            <button onclick="open_playlists_modal('${id}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
-                        </div>
-                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
-                            <button style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div> `);
+                        <div class="clearfix"></div> `);
             }
-            PageTransitions.goToPage(2, "song_playlist");
         };
     };
+}
+
+function remove_playlist(playlist, this_elem) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "remove playlist", "playlist":"' + playlist + '"}';
+
+        ws.send(message);
+    };
+
+    $(this_elem).parents(':eq(1)').html("");
+}
+
+function remove_from_playlist(playlist, song_id, this_elem) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "remove from playlist", "playlist":"' + playlist + '", "song_id":"' + song_id + '"}';
+
+        ws.send(message);
+    };
+
+    $(this_elem).parents(':eq(1)').html("");
 }

@@ -333,12 +333,13 @@ function get_playlists() {
             let playlists = message.data.split("\n");
             $("#playlists").find("tbody").html("");
             for(i = 0; i < playlists.length; i++) {
+                playlists[i] = playlists[i].replace(/(\r\n|\n|\r)/gm,"");
                 $("#playlists").find("tbody").append(`
                     <tr>
                         <td><button><em class="fa">&#xf01d;</em></button></td></td>
-                        <td><button><em class="fa fa-minus"></em></button></td></td>
+                        <td><button onclick="remove_playlist('${playlists[i]}', this)"><em class="fa fa-minus"></em></button></td></td>
                         <td>${i + 1}</td>
-                        <td><button onclick="read_playlist('${playlists[i].replace(/(\r\n|\n|\r)/gm,"")}')">${playlists[i]}</button></td>
+                        <td><button onclick="read_playlist('${playlists[i]}')">${playlists[i]}</button></td>
                         <td><em class="fa">&#xf001;</em></td>
                         <td><em class="fa">&#xf017;</em></td>
                     </tr>`
@@ -376,7 +377,7 @@ function read_playlist(playlist) {
                     `<tr>
                             <td><button onclick="play_song('${id}')"><em class="fa">&#xf01d;</em></button></td>
                             <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
-                            <td><button><em class="fa fa-minus"></em></button></td>
+                            <td><button onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-minus"></em></button></td>
                             <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
                             <td>${song.artist}</td>
                             <td>${song.album}</td>
@@ -387,4 +388,28 @@ function read_playlist(playlist) {
             PageTransitions.goToPage(2, "song_playlist");
         };
     };
+}
+
+function remove_playlist(playlist, this_elem) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "remove playlist", "playlist":"' + playlist + '"}';
+
+        ws.send(message);
+    };
+
+    $(this_elem).parents(':eq(1)').html("");
+}
+
+function remove_from_playlist(playlist, song_id, this_elem) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "remove from playlist", "playlist":"' + playlist + '", "song_id":"' + song_id + '"}';
+
+        ws.send(message);
+    };
+
+    $(this_elem).parents(':eq(1)').html("");
 }

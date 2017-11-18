@@ -69,14 +69,56 @@ wsServer.on('connection', function connection(ws) {
                 }); 
 			} else  if(message["type"] === "playlist") {
                 var fs = require('fs');
-                var fs = require('fs');
                 fs.readFile("data/playlists/" + message["title"] + ".txt", function read(err, data) {
                     if (err) {
                         return console.log(err);
                     }
                     ws.send("" + data);
                 });
-			}
+			} else if(message["type"] === "remove playlist") {
+                var fs = require('fs');
+				fs.readFile("data/playlists.txt", 'utf8', function (err,data) {
+					if (err) {
+						return console.log(err);
+					}
+					var replace = message["playlist"] + '\r\n';
+					var re = new RegExp(replace);
+
+					tmp = data.replace(re, "");
+					if(data === tmp) {
+						var replace = message["playlist"];
+						var re = new RegExp(replace);
+						tmp = data.replace(re, "");
+					}
+					data = tmp;
+					
+					fs.writeFile("data/playlists.txt", data, 'utf8', function (err) {
+						if (err) return console.log(err);
+					});
+				});
+            } else if(message["type"] === "remove from playlist") {
+                var fs = require('fs');
+				fs.readFile("data/playlists/" + message["playlist"] + ".txt", 'utf8', function (err,data) {
+					if (err) {
+						return console.log(err);
+					}
+					var replace = message["song_id"] + '\r\n';
+					var re = new RegExp(replace);
+
+					tmp = data.replace(re, "");
+					if(data === tmp) {
+						var replace = message["song_id"];
+						var re = new RegExp(replace);
+						tmp = data.replace(re, "");
+					}
+					data = tmp;
+					
+					console.log(data);
+					fs.writeFile("data/playlists/" + message["playlist"] + ".txt", data, 'utf8', function (err) {
+						if (err) return console.log(err);
+					});
+				});
+            } 
         } else {
             if(message === "mysongs") {
                 var fs = require('fs');

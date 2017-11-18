@@ -55,8 +55,8 @@ $(document).ready(function () {
 	$('.playlists').click(function () {
 		// Tip: try other integers [1-67] at PageTransitions.goToPage function
 		// and see different animations on changing pages
+        PageTransitions.goToPage(2, 'playlists');
         get_playlists();
-		PageTransitions.goToPage(2, 'playlists');
 	});
 
   //#endregion
