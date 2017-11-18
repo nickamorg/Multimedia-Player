@@ -64,6 +64,8 @@ $(document).ready(function () {
     $('.playlists').click(function () {
         // Tip: try other integers [1-67] at PageTransitions.goToPage function
         // and see different animations on changing pages
+        $("#expand_lyrics").removeClass("in");
+        $("#expand_player").removeClass("in");
         get_playlists();
         PageTransitions.goToPage(2, 'playlists');
     });

@@ -18,7 +18,7 @@ function send_mysongs() {
             for(var i = 0; i < songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(songs[i].substring(2))];
                 playerAPI.mysongs[i] = "id" + parseInt(songs[i].substring(2));
-                playerAPI.tmpPlaylist[i] = song.file;
+                playerAPI.tmpPlaylist[i] = "id" + parseInt(songs[i].substring(2));
                 artists[i] = song.artist;
                 for(var j = 0; j < song.genre.length; j++) {
                     genres[genres_counter++] = song.genre[j];
@@ -91,18 +91,18 @@ function send_mysongs() {
 function play_mysong(curr_song) {
     playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
-    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[curr_song];
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[playerAPI.playlist[curr_song]].file;
     $("#playing")[0].load();
     $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
     $("#title_artist").html(playerAPI.songs["id" + curr_song].title + " - " + playerAPI.songs["id" + curr_song].artist);
     $("#expand_player").find("div").find("img")[0].src = "ressrc/images/" + playerAPI.songs["id" + curr_song].img;
-    $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs["id" + curr_song].title;
-    $("#expand_player").find("div").find("p")[7].innerHTML = playerAPI.songs["id" + curr_song].artist;
-    $("#expand_player").find("div").find("p")[8].innerHTML = playerAPI.songs["id" + curr_song].genre;
-    $("#expand_player").find("div").find("p")[9].innerHTML = playerAPI.songs["id" + curr_song].album;
-    $("#expand_player").find("div").find("p")[10].innerHTML = playerAPI.songs["id" + curr_song].release;
-    $("#expand_player").find("div").find("p")[11].innerHTML = playerAPI.songs["id" + curr_song].duration;
-    $("#expand_lyrics").html("<pre>" + playerAPI.songs["id" + curr_song].lyrics + "</pre>");
+    $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].title;
+    $("#expand_player").find("div").find("p")[7].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].artist;
+    $("#expand_player").find("div").find("p")[8].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].genre;
+    $("#expand_player").find("div").find("p")[9].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].album;
+    $("#expand_player").find("div").find("p")[10].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].release;
+    $("#expand_player").find("div").find("p")[11].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].duration;
+    $("#expand_lyrics").html("<pre>" + playerAPI.songs[playerAPI.playlist[curr_song]].lyrics + "</pre>");
     playerAPI.currentID = playerAPI.mysongs[curr_song];
     $("#playing")[0].play();
 }
@@ -370,10 +370,12 @@ function read_playlist(playlist) {
             playlist_songs = message.data.split("\n");
             console.log(playlist_songs);
             $("#playlist_content").html("");
+            playerAPI.tmpPlaylist = [playlist_songs.length];
             for(var i = 0; i < playlist_songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(playlist_songs[i].substring(2))];
                 $("#song_playlist").find("h1")[0].innerHTML = playlist;
                 id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");
+                playerAPI.tmpPlaylist[i] = id;
                 $("#playlist_content").append(
                     `
                         <div class="col-xs-12" style="border-bottom:1px solid #50505A">
@@ -387,7 +389,7 @@ function read_playlist(playlist) {
                                 </button>
                             </div>
                             <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
-                                <button onclick="play_song('${id}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                                <button onclick="play_mysong('${i}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
                             </div>
                             <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
                                 <button onclick="open_playlists_modal('${id}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>

@@ -42,7 +42,7 @@ wsServer.on('connection', function connection(ws) {
                 }); 
             } else if(message["type"] === "add to playlist") {
                 var fs = require('fs');
-                fs.appendFile("data/playlists" + message["playlist"] + ".txt", message["song_id"] + "\n", function(err) {
+                fs.appendFile("data/playlists/" + message["playlist"] + ".txt", message["song_id"] + "\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }

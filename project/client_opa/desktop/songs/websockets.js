@@ -18,7 +18,7 @@ function send_mysongs() {
             for(var i = 0; i < songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(songs[i].substring(2))];
                 playerAPI.mysongs[i] = "id" + parseInt(songs[i].substring(2));
-                playerAPI.tmpPlaylist[i] = song.file;
+                playerAPI.tmpPlaylist[i] = "id" + parseInt(songs[i].substring(2));
                 artists[i] = song.artist;
                 for(var j = 0; j < song.genre.length; j++) {
                     genres[genres_counter++] = song.genre[j];
@@ -83,32 +83,32 @@ function send_mysongs() {
 }
 
 function play_mysong(curr_song) {
-    add_recently_played_song("id" + curr_song);
     playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
     playerAPI.width = 0;
-    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[curr_song];
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[playerAPI.playlist[curr_song]].file;
     $("#playing")[0].load();
+
     $(".controls").each( function () {
-		var play_pause = $(this);
-		play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
-	});
+        var play_pause = $(this);
+        play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
+    });
 
     $(".expand").each( function () {
         var expand_button = $(this);
         expand_button.click(function() {
-            display_song_details("id" + curr_song);
+            display_song_details(playerAPI.playlist[curr_song]);
         })
     });
 
-	$( ".myBar" ).each( function () {
-		var myBar = $(this);
-		myBar.css("width", "0");
-	});
+    $( ".myBar" ).each( function () {
+        var myBar = $(this);
+        myBar.css("width", "0");
+    });
     $("#playing")[0].play();
-    $(".title").html(playerAPI.songs["id" + curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
-    $(".artist").text(playerAPI.songs["id" + curr_song].artist);
-    $(".img").attr("src", "ressrc/images/" + playerAPI.songs["id" + curr_song].img);
+    $(".title").html(playerAPI.songs[playerAPI.playlist[curr_song]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs[playerAPI.playlist[curr_song]].artist);
+    $(".img").attr("src", "ressrc/images/" + playerAPI.songs[playerAPI.playlist[curr_song]].img);
 }
 
 function apply_filters_mysong() {
@@ -360,6 +360,7 @@ function add_recently_played_song(song_id) {
 
 function read_playlist(playlist) {
     let playlist_songs = "";
+    PageTransitions.goToPage(2, "song_playlist");
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
 
     ws.onopen = function() {
@@ -368,14 +369,15 @@ function read_playlist(playlist) {
         ws.send(message);
         ws.onmessage = function (message) {
             playlist_songs = message.data.split("\n");
-            console.log(playlist_songs);
             $("#playlist_songs").find("tbody").html("");
+            playerAPI.tmpPlaylist = [playlist_songs.length];
             for(var i = 0; i < playlist_songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(playlist_songs[i].substring(2))];
                 id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");
+                playerAPI.tmpPlaylist[i] = id;
                 $("#playlist_songs").find("tbody").append(
                     `<tr>
-                            <td><button onclick="play_song('${id}')"><em class="fa">&#xf01d;</em></button></td>
+                            <td><button onclick="play_mysong('${i}')"><em class="fa">&#xf01d;</em></button></td>
                             <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
                             <td><button onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-minus"></em></button></td>
                             <td><button onclick="display_song_details('${id}')">${song.title}</button></td>

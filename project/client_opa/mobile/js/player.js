@@ -452,9 +452,22 @@ playerAPI.playPause = function playPause() {
 
 playerAPI.next = function next() {
     isPaused = playerAPI.playing.paused;
-    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[++playerAPI.row % playerAPI.playlist.length];
+    playerAPI.row = (playerAPI.row + 1) % playerAPI.playlist.length;
     $('#myBar').css('width', "0");
     playerAPI.width = 0;
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
+    $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
+    $("#title_artist").html(playerAPI.songs["id" + playerAPI.row].title + " - " + playerAPI.songs["id" + playerAPI.row].artist);
+    $("#expand_player").find("div").find("img")[0].src = "ressrc/images/" + playerAPI.songs["id" + playerAPI.row].img;
+    $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].title;
+    $("#expand_player").find("div").find("p")[7].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist;
+    $("#expand_player").find("div").find("p")[8].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].genre;
+    $("#expand_player").find("div").find("p")[9].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].album;
+    $("#expand_player").find("div").find("p")[10].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].release;
+    $("#expand_player").find("div").find("p")[11].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].duration;
+    $("#expand_lyrics").html("<pre>" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].lyrics + "</pre>");
+
+
     $("#playing")[0].load();
     if(!isPaused) {
         $("#playing")[0].play();
@@ -463,13 +476,18 @@ playerAPI.next = function next() {
 
 playerAPI.prev = function prev() {
     isPaused = playerAPI.playing.paused;
-    if(playerAPI.row === 0) {
+    playerAPI.row = (playerAPI.row - 1);
+    if(playerAPI.row < 0) {
         playerAPI.row = playerAPI.playlist.length;
     }
 
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
     $('#myBar').css('width', "0");
     playerAPI.width = 0;
-    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[--playerAPI.row];
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
+    $(".img").attr("src", "ressrc/images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
     $("#playing")[0].load();
     if(!isPaused) {
         $("#playing")[0].play();

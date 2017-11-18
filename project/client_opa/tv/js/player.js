@@ -461,9 +461,14 @@ playerAPI.playPause = function playPause() {
 
 playerAPI.next = function next() {
     isPaused = playerAPI.playing.paused;
-    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[++playerAPI.row % playerAPI.playlist.length];
+    playerAPI.row = (playerAPI.row + 1) % playerAPI.playlist.length;
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
     $('#myBar').css('width', "0");
     playerAPI.width = 0;
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
+    $(".img").attr("src", "ressrc/images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
     $("#playing")[0].load();
     if(!isPaused) {
         $("#playing")[0].play();
@@ -472,13 +477,18 @@ playerAPI.next = function next() {
 
 playerAPI.prev = function prev() {
     isPaused = playerAPI.playing.paused;
-    if(playerAPI.row === 0) {
+    playerAPI.row = (playerAPI.row - 1);
+    if(playerAPI.row < 0) {
         playerAPI.row = playerAPI.playlist.length;
     }
 
+    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
     $('#myBar').css('width', "0");
     playerAPI.width = 0;
-    $("#playing").find("source")[0].src = "ressrc/songs/" + playerAPI.playlist[--playerAPI.row];
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
+    $(".img").attr("src", "ressrc/images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
     $("#playing")[0].load();
     if(!isPaused) {
         $("#playing")[0].play();
