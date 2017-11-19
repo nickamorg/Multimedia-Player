@@ -47,6 +47,12 @@ html, body {
     font-size: 50px;
 }
 
+.results-image {
+    width: 220px;
+    height: 220px;
+    padding: 12px;
+}
+
 /*      Menu        */
 
 ul {
