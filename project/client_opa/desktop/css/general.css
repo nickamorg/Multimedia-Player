@@ -61,7 +61,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background: #181825; /* For browsers that do not support gradients */
-    background: linear-gradient(to bottom right, #181825, #63636A); /* Standard syntax */
+    background: linear-gradient(to bottom right, #181825, #2D2D3D); /* Standard syntax */
     position: fixed;
     top: 0;
     width: 100%;
@@ -90,7 +90,7 @@ li a:hover:not(.active) {
 
 .player {
     overflow: hidden;
-    background-color: #5E5E5E;
+    background-color: #1E1E2C;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -405,3 +405,27 @@ a {
 #set_new_playlist {
     color: #000000;
 }
+
+/* Movies */
+.img-movie {
+    width: 188px !important;
+    height: 250px !important;
+}
+
+.img-movie-recently-watched {
+    width: 80px;
+    height: 107px;
+}
+
+/* TV Series */
+.tvshow--hero-img {
+    width: 451px;
+    height: 676px;
+}
+
+.card--tvshow {
+    height: 676px;
+    opacity: 0.95;
+}
+
+
