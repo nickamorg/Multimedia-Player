@@ -1,0 +1,401 @@
+
+html, body {
+    background-color: #191927;
+    margin:0px;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.home, .song {
+    margin:20px;
+}
+
+#explore {
+    margin:20px;
+}
+
+#explore div {
+    padding-bottom:20px;
+}
+
+* {
+    color: #ffffff;
+}
+
+.wrapper {
+    text-align: center;
+    margin-top:20vh;
+}
+
+.wrapper div img {
+    width: 90%;
+    border-radius: 100%;
+    opacity: 0.5;
+}
+
+.wrapper div img:hover {
+    opacity: 1;
+}
+.wrapper div {
+    cursor: pointer;
+    float: left;
+    width: 33.33%;
+    margin:0px;
+    padding:0px;
+}
+
+.wrapper h1 {
+    font-size: 50px;
+}
+
+/*      Menu        */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #181825; /* For browsers that do not support gradients */
+    background: linear-gradient(to bottom right, #181825, #63636A); /* Standard syntax */
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white !important;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 30px !important;
+    text-decoration: none !important;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+.player {
+    overflow: hidden;
+    background-color: #5E5E5E;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+}
+
+.player a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
+/*          Song current time bar        */
+.myProgress {
+    width: 500px;
+    background-color: #95989A;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.myBar {
+    width: 0%;
+    height: 6px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.myProgress  {
+    position:relative;
+    cursor:pointer;
+    height:6px;
+    display:inline-block;
+    margin-top:10px;
+    margin-right:10px;
+    background-color: #95989A;;
+    border-radius: 5px;
+}
+
+.myBar {
+    display:block;
+    height:6px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:#2BB4C4;
+    z-index:10;
+    border-radius: 5px;
+}
+
+/*!* END PROGRESS BAR *!*/
+
+.controls {
+    padding:20px 0px 5px 0px;
+}
+
+/*#controls button {
+background-color: transparent;
+border: none;
+}*/
+.controls i {
+    padding: 0px 10px 0px 10px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+/*          volume bar         */
+.volume {
+    position:relative;
+    cursor:pointer;
+    width:100px;
+    height:6px;
+    display:inline-block;
+    margin-top:10px;
+    margin-right:10px;
+    background-color: #95989A;;
+    border-radius: 5px;
+}
+.volumeBar {
+    display:block;
+    height:6px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:#2BB4C4;
+    z-index:10;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.card {
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #33333F;
+    border-radius: 9px;
+}
+
+.card h1 {
+    margin-top: 0;
+    padding-left: 15px;
+    padding-bottom: 20px;
+}
+
+.card p {
+    margin: 5px 0 0 0;
+}
+
+.card small {
+    color:#99999F !important;
+}
+
+.similars, .resents {
+    float: right;
+    padding-left: 0 !important;
+    margin-top:50px;
+    background-color: #33333F;
+}
+.similars p {
+    font-size: 25px;
+    margin: 0;
+    /*margin: 20px 0 0 0;*/
+}
+
+.similars small {
+    font-size: 18px;
+}
+
+.similars img {
+    border-radius: 9px;
+}
+
+.resents p {
+    font-size: 25px;
+    margin: 0;
+    /*margin: 20px 0 0 0;*/
+}
+
+.resents small {
+    font-size: 18px;
+}
+
+.mysongs {
+    margin-right:20px;
+}
+
+.filter_category {
+    padding:10px;
+    background-color: #1F4A58;
+}
+
+.filter_content {
+    padding:20px;
+    background-color: #373743;
+    border-bottom: 1px solid #565760;
+}
+
+.filter_content input[type=checkbox] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#genres, #release, #artists {
+    padding-bottom: 10px;
+}
+
+option {
+    color: #000000;
+}
+
+#genres_content, #artists_content {
+    max-height: 180px;
+}
+
+/* scrollbar */
+.scrollbar{
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 15px;
+    border-radius: 10px;
+    background-color:#95989A;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color:#2BB4C4;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+#lyrics pre {
+    color: #ffffff;
+    border: none;
+    background-color: inherit;
+    padding: 0;
+}
+
+.display_songs em {
+    font-size: 24px;
+}
+
+a {
+    cursor: pointer;
+}
+
+#display_by_genre button, #display_by_genre td {
+    height:100px;
+    line-height:100px;
+}
+
+.content {
+    height:83.4%;
+}
+
+#song_title {
+    text-align: center;
+}
+
+/* MODAL FOR PLAYLISTS */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 50px !important;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    background-color: #616161;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    max-height:50%
+}
+
+.modal-body button:hover {
+    border:1px solid #2bb4c4;
+}
+
+.modal-body button {
+    padding:10px 10px;
+    text-align: left;
+    color: #000000;
+}
+
+.modal-footer {
+    background-color: #616161;
+    color: white;
+}
+
+#set_new_playlist {
+    color: #000000;
+}
