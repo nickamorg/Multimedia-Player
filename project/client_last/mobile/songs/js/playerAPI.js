@@ -12,7 +12,7 @@ playerAPI.repeat_flag = false;
 playerAPI.id_interval = -1;
 playerAPI.mysongs = [];
 playerAPI.songs = {
-        "crowd": 6,
+        "crowd": 13,
         "id0": {
             "file": "Shakira - Perro Fiel.mp3",
             "title": "Perro Fiel",
@@ -403,7 +403,531 @@ playerAPI.songs = {
             "Television dreams of tomorrow\n" +
             "We're not the ones who're meant to follow\n" +
             "For that's enough to argue"
-        }
+        },
+        "id6": {
+            "file": "Scorpions - Rock You Like A Hurricane.mp3",
+            "title": "Rock You Like A Hurricane",
+            "artist": "Scorpions",
+            "album": "Comeblack",
+            "release": "20 February 1984",
+            "duration": "4:11",
+            "genre": ["Hard Rock"],
+            "img": "rock you like a hurricane.jpeg",
+
+            "lyrics": "It's early morning, the sun comes out\n" +
+            "Last night was shaking and pretty loud\n" +
+            "My cat is purring, it scratches my skin\n" +
+            "So what is wrong with another sin?\n" +
+            "\n" +
+            "The bitch is hungry, she needs to tell\n" +
+            "So give her inches and feed her well\n" +
+            "More days to come, new places to go\n" +
+            "I've got to leave, it's time for a show\n" +
+            "\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane\n" +
+            "\n" +
+            "My body is burning, it starts to shout\n" +
+            "Desire is coming, it breaks out loud\n" +
+            "Lust is in cages till storm breaks loose\n" +
+            "Just have to make it with someone I choose\n" +
+            "\n" +
+            "The night is calling, I have to go\n" +
+            "The wolf is hungry, he runs the show\n" +
+            "He's licking his lips, he's ready to win\n" +
+            "On the hunt tonight for love at first sting\n" +
+            "\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane (Are you ready, baby?)\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane (Come on, come on, baby)\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane\n" +
+            "\n" +
+            "Rock you like a hurricane\n" +
+            "\n" +
+            "It's early morning, the sun comes out\n" +
+            "Last night was shaking and pretty loud\n" +
+            "My cat is purring, it scratches my skin\n" +
+            "So what is wrong with another sin?\n" +
+            "\n" +
+            "The night is calling, I have to go\n" +
+            "The wolf is hungry, he runs the show\n" +
+            "He's licking his lips, he's ready to win\n" +
+            "On the hunt tonight for love at first sting\n" +
+            "\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane (Are you ready, baby?)\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane (Come on, come on, come on, come on)\n" +
+            "Here I am\n" +
+            "Rock you like a hurricane"},
+        "id7": {
+            "file": "Post Malone - rockstar.mp3",
+            "title": "Rockstar",
+            "artist": "Post Malone",
+            "album": "Rockstar",
+            "release": "15 September 2017",
+            "duration": "3:38",
+            "genre": ["Hip hop", "trap"],
+            "img": "rockstar.jpg",
+
+            "lyrics": "Ayy, I've been fuckin' hoes and poppin' pillies\n" +
+            "Man, I feel just like a rockstar (star)\n" +
+            "Ayy, ayy, all my brothers got that gas\n" +
+            "And they always be smokin' like a Rasta\n" +
+            "Fuckin' with me, call up on a Uzi\n" +
+            "And show up, man them the shottas\n" +
+            "When my homies pull up on your block\n" +
+            "They make that thing go grrra-ta-ta-ta (pow, pow, pow)\n" +
+            "\n" +
+            "Ayy, ayy, switch my whip, came back in black\n" +
+            "I'm startin' sayin', \"Rest in peace to Bon Scott\"\n" +
+            "Ayy, close that door, we blowin' smoke\n" +
+            "She ask me light a fire like I'm Morrison\n" +
+            "Ayy, act a fool on stage\n" +
+            "Prolly leave my fuckin' show in a cop car\n" +
+            "Ayy, shit was legendary\n" +
+            "Threw a TV out the window of the Montage\n" +
+            "Cocaine on the table, liquor pourin', don't give a damn\n" +
+            "Dude, your girlfriend is a groupie, she just tryna get in\n" +
+            "Sayin', \"I'm with the band\"\n" +
+            "Ayy, ayy, now she actin' outta pocket\n" +
+            "Tryna grab up from my pants\n" +
+            "Hundred bitches in my trailer say they ain't got a man\n" +
+            "And they all brought a friend\n" +
+            "Yeah, ayy\n" +
+            "\n" +
+            "Ayy, I've been fuckin' hoes and poppin' pillies\n" +
+            "Man, I feel just like a rockstar (star)\n" +
+            "Ayy, ayy, all my brothers got that gas\n" +
+            "And they always be smokin' like a Rasta\n" +
+            "Fuckin' with me, call up on a Uzi\n" +
+            "And show up, man them the shottas\n" +
+            "When my homies pull up on your block\n" +
+            "They make that thing go grrra-ta-ta-ta (pow, pow, pow)\n" +
+            "\n" +
+            "I've been in the Hills fuckin' superstars\n" +
+            "Feelin' like a pop star (21, 21, 21)\n" +
+            "Drankin' Henny, bad bitches jumpin' in the pool\n" +
+            "And they ain't got on no bra\n" +
+            "Hit her from the back, pullin' on her tracks\n" +
+            "And now she screamin' out, \"no más\" (yeah, yeah, yeah)\n" +
+            "They like, \"Savage, why you got a 12 car garage\n" +
+            "And you only got 6 cars?\" (21)\n" +
+            "I ain't with the cakin', how you kiss that? (kiss that?)\n" +
+            "Your wifey say I'm lookin' like a whole snack (big snack)\n" +
+            "Green hundreds in my safe, I got old racks (old racks)\n" +
+            "L.A. bitches always askin' where the coke at\n" +
+            "Livin' like a rockstar, smash out on a cop car\n" +
+            "Sweeter than a Pop-Tart, you know you are not hard\n" +
+            "I done made the hot chart, 'member I used to trap hard\n" +
+            "Livin' like a rockstar, I'm livin' like a rockstar\n" +
+            "\n" +
+            "Ayy, I've been fuckin' hoes and poppin' pillies\n" +
+            "Man, I feel just like a rockstar (star)\n" +
+            "Ayy, ayy, all my brothers got that gas\n" +
+            "And they always be smokin' like a Rasta\n" +
+            "Fuckin' with me, call up on a Uzi\n" +
+            "And show up, man them the shottas\n" +
+            "When my homies pull up on your block\n" +
+            "They make that thing go grrra-ta-ta-ta (pow, pow, pow)\n" +
+            "\n" +
+            "Rockstar\n" +
+            "Rockstar, feel just like a rock\n" +
+            "Rockstar\n" +
+            "Star\n" +
+            "Rockstar\n" +
+            "Feel just like a"},
+        "id8": {
+            "file": "Demi Lovato - Sorry Not Sorry.mp3",
+            "title": "Sorry Not Sorry",
+            "artist": "Demi Lovato",
+            "album": "Tell Me You Love Me",
+            "release": "11 July 2017",
+            "duration": "3:23",
+            "genre": ["pop"],
+            "img": "Sorry_Not_Sorry.png",
+
+            "lyrics": "Payback is a bad bitch\n" +
+            "And baby, I'm the baddest\n" +
+            "\n" +
+            "Now I'm out here looking like revenge\n" +
+            "Feelin' like a ten, the best I ever been\n" +
+            "And yeah, I know how bad it must hurt\n" +
+            "To see me like this, but it gets worse (wait a minute)\n" +
+            "Now you're out here looking like regret\n" +
+            "Ain't too proud to beg, second chance you'll never get\n" +
+            "And yeah, I know how bad it must hurt to see me like this\n" +
+            "But it gets worse (wait a minute)\n" +
+            "\n" +
+            "Now payback is a bad bitch\n" +
+            "And baby, I'm the baddest\n" +
+            "You fuckin' with a savage\n" +
+            "Can't have this, can't have this (ah)\n" +
+            "And it'd be nice of me to take it easy on ya, but nah\n" +
+            "\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Being so bad got me feelin' so good\n" +
+            "Showing you up like I knew that I would\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Feeling inspired 'cause the tables have turned\n" +
+            "Yeah, I'm on fire and I know that it burns\n" +
+            "\n" +
+            "Baby, fineness is the way to kill\n" +
+            "Tell me how it feel, bet it's such a bitter pill\n" +
+            "And yeah, I know you thought you had bigger, better things\n" +
+            "Bet right now this stings (wait a minute)\n" +
+            "'Cause the grass is greener under me\n" +
+            "Bright as technicolor, I can tell that you can see\n" +
+            "And yeah, I know how bad it must hurt to see me like this\n" +
+            "But it gets worse (wait a minute)\n" +
+            "\n" +
+            "Now payback is a bad bitch\n" +
+            "And baby, I'm the baddest\n" +
+            "You fuckin' with a savage\n" +
+            "Can't have this, can't have this (ah)\n" +
+            "And it'd be nice of me to take it easy on ya, but nah\n" +
+            "\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Being so bad got me feelin' so good\n" +
+            "Showing you up like I knew that I would\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Feeling inspired 'cause the tables have turned\n" +
+            "Yeah, I'm on fire and I know that it burns\n" +
+            "\n" +
+            "Talk that talk, baby\n" +
+            "Better walk, better walk that walk, baby\n" +
+            "If you talk, if you talk that talk, baby\n" +
+            "Better walk, better walk that walk, baby\n" +
+            "Oh yeah\n" +
+            "Talk that talk, baby\n" +
+            "Better walk, better walk that walk, baby\n" +
+            "If you talk, if you talk that talk, baby\n" +
+            "Better walk, better walk that walk, baby\n" +
+            "\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Being so bad got me feelin' so good\n" +
+            "Showing you up like I knew that I would\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Baby, I'm sorry (I'm not sorry)\n" +
+            "Feeling inspired 'cause the tables have turned\n" +
+            "Yeah, I'm on fire and I know that it burns\n" +
+            "\n" +
+            "Payback is a bad bitch\n" +
+            "And baby, I'm the baddest\n" +
+            "I'm the baddest, I'm the baddest"},
+        "id9": {
+            "file": "Imagine Dragons - Thunder.mp3",
+            "title": "Thunder",
+            "artist": "Imagine Dragons",
+            "album": "Evolve",
+            "release": "27 April 2017",
+            "duration": "3:07",
+            "genre": ["Synth-pop"],
+            "img": "thunder.jpg",
+
+            "lyrics": "Just a young gun with a quick fuse\n" +
+            "I was uptight, wanna let loose\n" +
+            "I was dreaming of bigger things\n" +
+            "And wanna leave my own life behind\n" +
+            "Not a yes sir, not a follower\n" +
+            "Fit the box, fit the mold\n" +
+            "Have a seat in the foyer, take a number\n" +
+            "I was lightning before the thunder\n" +
+            "\n" +
+            "Thunder, thunder\n" +
+            "Thunder, thun', thunder\n" +
+            "Thun-thun-thunder, thunder, thunder\n" +
+            "Thunder, thun', thunder\n" +
+            "Thun-thun-thunder, thunder\n" +
+            "\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder\n" +
+            "Thunder, thunder\n" +
+            "Thunder\n" +
+            "\n" +
+            "Kids were laughing in my classes\n" +
+            "While I was scheming for the masses\n" +
+            "Who do you think you are?\n" +
+            "Dreaming 'bout being a big star\n" +
+            "You say you're basic, you say you're easy\n" +
+            "You're always riding in the back seat\n" +
+            "Now I'm smiling from the stage while\n" +
+            "You were clapping in the nose bleeds\n" +
+            "\n" +
+            "Thunder\n" +
+            "Thunder, thun', thunder\n" +
+            "Thun-thun-thunder, thunder, thunder\n" +
+            "Thunder, thun', thunder\n" +
+            "Thun-thun-thunder, thunder\n" +
+            "\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder\n" +
+            "Thunder\n" +
+            "\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder, thunder\n" +
+            "\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder, thunder\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder, thunder\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder, thunder\n" +
+            "Thunder, feel the thunder\n" +
+            "Lightning and the thunder, thunder\n" +
+            "\n" +
+            "Thunder, thunder, thunder\n" +
+            "Thun-thun-thunder, thunder\n" +
+            "Thunder, thunder, thunder\n" +
+            "Thun-thun-thunder, thunder\n" +
+            "Thunder, thunder, thunder\n" +
+            "Thun-thun-thunder, thunder\n" +
+            "Thunder, thunder, thunder\n" +
+            "Thun-thun-thunder, thunder"},
+        "id10": {
+            "file": "Foo Fighters - The Sky Is A Neighborhood.mp3",
+            "title": "The Sky Is A Neighborhood",
+            "artist": "Foo Fighters",
+            "album": "Concrete and Gold",
+            "release": "23 August 2017",
+            "duration": "4:04",
+            "genre": ["Alternative rock"],
+            "img": "the sky is a neighborhood.jpg",
+
+            "lyrics": "Ah ah \n" +
+            "Ah ah\n" +
+            "Ah ah\n" +
+            "The sky is a neighborhood\n" +
+            "So keep it down\n" +
+            "heart is a storybook\n" +
+            "A star burned out\n" +
+            "The sky is a neighborhood\n" +
+            "Don't make a sound\n" +
+            "Lights coming up ahead\n" +
+            "Don't look now\n" +
+            "The sky is a neighborhood\n" +
+            "The sky is a neighborhood\n" +
+            "Don't look now\n" +
+            "Oh my dear Heaven is a big band now\n" +
+            "Gotta get to sleep somehow\n" +
+            "Bangin' on the ceiling\n" +
+            "Bangin' on the ceiling\n" +
+            "Keep it down\n" +
+            "Oh my dear Heaven is a big band now\n" +
+            "Gotta get to sleep somehow\n" +
+            "Bangin' on the ceiling\n" +
+            "Bangin' on the ceiling\n" +
+            "Keep it down\n" +
+            "Mind is a battlefield\n" +
+            "All hope is gone\n" +
+            "Trouble to the right and left\n" +
+            "Whose side you're on?\n" +
+            "Thoughts like a minefield\n" +
+            "I'm a ticking bomb\n" +
+            "Maybe you should watch your step\n" +
+            "Don't get lost\n" +
+            "The sky is a neighborhood\n" +
+            "The sky is a neighborhood\n" +
+            "Don't get lost\n" +
+            "Oh my dear Heaven is a big band now\n" +
+            "Gotta get to sleep somehow\n" +
+            "Bangin' on the ceiling\n" +
+            "Bangin' on the ceiling\n" +
+            "Keep it down\n" +
+            "Oh my dear Heaven is a big band now\n" +
+            "Gotta get to sleep somehow\n" +
+            "Bangin' on the ceiling\n" +
+            "Bangin' on the ceiling\n" +
+            "Keep it down\n" +
+            "The sky is a neighborhood\n" +
+            "heart is a storybook\n" +
+            "A star burned out\n" +
+            "Something coming up ahead\n" +
+            "Don't look now\n" +
+            "Oh my dear Heaven is a big band now\n" +
+            "Gotta get to sleep somehow\n" +
+            "Bangin' on the ceiling\n" +
+            "Bangin' on the ceiling\n" +
+            "Keep it down\n" +
+            "Oh my dear Heaven is a big band now\n" +
+            "Gotta get to sleep somehow\n" +
+            "Bangin' on the ceiling\n" +
+            "Bangin' on the ceiling\n" +
+            "Keep it down\n" +
+            "Oh my dear Heaven is a big band now\n" +
+            "Gotta get to sleep somehow (The sky is a neighborhood)\n" +
+            "Bangin' on the ceiling\n" +
+            "Bangin' on the ceiling\n" +
+            "Keep it down\n" +
+            "The sky is a neighborhood"},
+        "id11": {
+            "file": "Sam Smith - Too Good At Goodbyes.mp3",
+            "title": "Too Good At Goodbyes",
+            "artist": "Sam Smith",
+            "album": "The Thrill of It All",
+            "release": "8 September 2017",
+            "duration": "3:21",
+            "genre": ["Orchestral pop"],
+            "img": "Too_Good_at_Goodbyes.jpg",
+
+            "lyrics": "You must think that I'm stupid\n" +
+            "You must think that I'm a fool\n" +
+            "You must think that I'm new to this\n" +
+            "But I have seen this all before\n" +
+            "\n" +
+            "I'm never gonna let you close to me\n" +
+            "Even though you mean the most to me\n" +
+            "'Cause every time I open up, it hurts\n" +
+            "So I'm never gonna get too close to you\n" +
+            "Even when I mean the most to you\n" +
+            "In case you go and leave me in the dirt\n" +
+            "\n" +
+            "But every time you hurt me, the less that I cry\n" +
+            "And every time you leave me, the quicker these tears dry\n" +
+            "And every time you walk out, the less I love you\n" +
+            "Baby, we don't stand a chance, it's sad but it's true\n" +
+            "\n" +
+            "I'm way too good at goodbyes\n" +
+            "(I'm way too good at goodbyes)\n" +
+            "I'm way too good at goodbyes\n" +
+            "(I'm way too good at goodbyes)\n" +
+            "\n" +
+            "I know you're thinking I'm heartless\n" +
+            "I know you're thinking I'm cold\n" +
+            "I'm just protecting my innocence\n" +
+            "I'm just protecting my soul\n" +
+            "\n" +
+            "I'm never gonna let you close to me\n" +
+            "Even though you mean the most to me\n" +
+            "'Cause every time I open up, it hurts\n" +
+            "So I'm never gonna get too close to you\n" +
+            "Even when I mean the most to you\n" +
+            "In case you go and leave me in the dirt\n" +
+            "\n" +
+            "But every time you hurt me, the less that I cry\n" +
+            "And every time you leave me, the quicker these tears dry\n" +
+            "And every time you walk out, the less I love you\n" +
+            "Baby, we don't stand a chance, it's sad but it's true\n" +
+            "\n" +
+            "I'm way to good at goodbyes\n" +
+            "(I'm way to good at goodbyes)\n" +
+            "I'm way too good at goodbyes\n" +
+            "(I'm way too good at goodbyes)\n" +
+            "No way that you'll see me cry\n" +
+            "(No way that you'll see me cry)\n" +
+            "I'm way too good at goodbyes\n" +
+            "(I'm way too good at goodbyes)\n" +
+            "\n" +
+            "No\n" +
+            "No, no, no, no, no (I'm way too good at goodbyes)\n" +
+            "No, no, no, no\n" +
+            "No, no, no (I'm way too good at goodbyes)\n" +
+            "(No way that you'll see me cry)\n" +
+            "(I'm way too good at goodbyes)\n" +
+            "\n" +
+            "'Cause every time you hurt me, the less that I cry\n" +
+            "And every time you leave me, the quicker these tears dry\n" +
+            "And every time you walk out, the less I love you\n" +
+            "Baby, we don't stand a chance, it's sad but it's true\n" +
+            "I'm way too good at goodbyes"},
+        "id12": {
+        "file": "Camila Cabello - Havana.mp3",
+        "title": "Havana",
+        "artist": "Camila Cabello",
+        "album": "Single",
+        "release": "8 September 2017",
+        "duration": "3:36",
+        "genre": ["Latin", "pop"],
+        "img": "havana.png",
+
+        "lyrics": "Hey\n" +
+        "Havana, ooh na-na (ay)\n" +
+        "Half of my heart is in Havana, ooh-na-na (ay, ay)\n" +
+        "He took me back to East Atlanta, na-na-na\n" +
+        "All of my heart is in Havana (ay)\n" +
+        "There's somethin' 'bout his manners (uh huh)\n" +
+        "Havana, ooh na-na (uh)\n" +
+        "He didn't walk up with that \"how you doin'?\" (uh)\n" +
+        "(When he came in the room)\n" +
+        "He said there's a lot of girls I can do with (uh)\n" +
+        "(But I can't without you)\n" +
+        "I'm doin' forever in a minute (hey)\n" +
+        "(That summer night in June)\n" +
+        "And papa says he got malo in him (uh)\n" +
+        "He got me feelin' like\n" +
+        "Ooh-ooh-ooh, I knew it when I met him\n" +
+        "I loved him when I left him\n" +
+        "Got me feelin' like\n" +
+        "Ooh-ooh-ooh, and then I had to tell him\n" +
+        "I had to go, oh na-na-na-na-na\n" +
+        "Havana, ooh na-na (ay, ay)\n" +
+        "Half of my heart is in Havana, ooh-na-na (ay, ay)\n" +
+        "He took me back to East Atlanta, na-na-na (uh huh)\n" +
+        "All of my heart is in Havana (ay)\n" +
+        "My heart is in Havana (ay)\n" +
+        "Havana, ooh na-na\n" +
+        "Jeffery\n" +
+        "Just graduated, fresh on campus, mm\n" +
+        "Fresh out East Atlanta with no manners, damn\n" +
+        "Fresh out East Atlanta\n" +
+        "Bump on her bumper like a traffic jam\n" +
+        "Hey, I was quick to pay that girl like Uncle Sam (here you go, ay)\n" +
+        "Back it on me, shawty cravin' on me\n" +
+        "Get to diggin' on me (on me)\n" +
+        "She waited on me (then what?)\n" +
+        "Shawty cakin' on me, got the bacon on me (wait up)\n" +
+        "This is history in the makin' on me (on me)\n" +
+        "Point blank, close range, that B\n" +
+        "If it cost a million, that's me (that's me)\n" +
+        "I was gettin' mula, man they feel me\n" +
+        "Havana, ooh na-na (ay, ay)\n" +
+        "Half of my heart is in Havana, ooh-na-na (oh, ay, ay)\n" +
+        "He took me back to East Atlanta, na-na-na (oh no)\n" +
+        "All of my heart is in Havana (ay)\n" +
+        "My heart is in Havana (ay)\n" +
+        "Havana, ooh na-na\n" +
+        "Ooh na-na, oh na-na-na (oo-ooh)\n" +
+        "Take me back, back, back like\n" +
+        "Ooh na-na, oh na-na-na (yeah, babe)\n" +
+        "Take me back, back, back like\n" +
+        "Ooh na-na, oh na-na-na (yea, yeah)\n" +
+        "Take me back, back, back like\n" +
+        "Ooh na-na, oh na-na-na (yea, babe)\n" +
+        "Take me back, back, back\n" +
+        "(Hey, hey)\n" +
+        "Ooh-ooh-ooh\n" +
+        "Ooh-ooh-ooh\n" +
+        "Take me back to my Havana\n" +
+        "Havana, ooh na-na\n" +
+        "Half of my heart is in Havana, ooh-na-na (oh, yeah)\n" +
+        "He took me back to East Atlanta, na-na-na (ay, ay)\n" +
+        "All of my heart is in Havana\n" +
+        "My heart is in Havana (ay)\n" +
+        "Havana, ooh na-na\n" +
+        "Uh huh\n" +
+        "Oh na-na-na (oh na, yeah)\n" +
+        "Oh na-na-na\n" +
+        "Oh na-na-na\n" +
+        "No, no, no, take me back\n" +
+        "Oh na-na-na\n" +
+        "Havana, ooh na-na"}
     };
 
 (function init() {

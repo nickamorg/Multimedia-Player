@@ -1,7 +1,7 @@
 function setPlayer() {
     document.write(
 
-    `<div class="player text-center">
+    `<div id="bottom_menu" class="player text-center">
         <audio id="playing" class="hidden" controls="">
             <source src="../ressrc/songs/Shakira - Perro Fiel.mp3" type="audio/mpeg">
                 Your browser does not support HTML5 video.
@@ -66,11 +66,11 @@ function setPlayer() {
             </div>
         </div>
         <div class="col-xs-12">
-            <div class="to_song_home" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-home"></em><p style="font-size:24px">Home</p></button></div>
-            <div class="to_mysongs" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-book"></em><p style="font-size:24px">My songs</p></button></div>
+            <div class="to_lobby" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-home"></em><p style="font-size:24px">3Player</p></button></div>
+            <div class="to_song_home" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-music"></em><p style="font-size:24px">Explore</p></button></div>
             <div class="to_songs_search" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-search"></em><p style="font-size:24px">Search</p></button></div>
+            <div class="to_mysongs" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-book"></em><p style="font-size:24px">My songs</p></button></div>
             <div class="playlists" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-list"></em><p style="font-size:24px">playlists</p></button></div>
-            <div class="to_song_explore" style="width:20%; float:left"><button><em style="font-size:50px" class="fa fa-music"></em><p style="font-size:24px">Explore</p></button></div>
         </div>
 
     </div>`);

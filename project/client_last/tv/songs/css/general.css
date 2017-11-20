@@ -48,7 +48,6 @@ html, body {
 }
 
 /*      Menu        */
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -67,7 +66,7 @@ li {
 
 li a {
     display: block;
-    color: white !important;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     font-size: 30px !important;
@@ -75,16 +74,12 @@ li a {
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
+    color: #2bb4c4;
 }
 
 .player {
     overflow: hidden;
-    background-color: #5E5E5E;
+    background-color: #1E1E2C;
     position: fixed;
     bottom: 0;
     width: 100%;

@@ -99,11 +99,11 @@ function send_mysongs() {
 function play_mysong(curr_song) {
     playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
-    $("#playing").find("source")[0].src = "..ressrc/songs/" + playerAPI.songs[playerAPI.playlist[curr_song]].file;
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[curr_song]].file;
     $("#playing")[0].load();
     $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
-    $("#title_artist").html(playerAPI.songs["id" + curr_song].title + " - " + playerAPI.songs["id" + curr_song].artist);
-    $("#expand_player").find("div").find("img")[0].src = "..ressrc/songs_images/" + playerAPI.songs["id" + curr_song].img;
+    $("#title_artist").html(playerAPI.songs[playerAPI.playlist[curr_song]].title + " - " + playerAPI.songs[playerAPI.playlist[curr_song]].artist);
+    $("#expand_player").find("div").find("img")[0].src = "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[curr_song]].img;
     $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].title;
     $("#expand_player").find("div").find("p")[7].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].artist;
     $("#expand_player").find("div").find("p")[8].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].genre;

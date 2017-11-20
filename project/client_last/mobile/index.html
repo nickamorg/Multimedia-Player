@@ -61,7 +61,7 @@
     <div id="pt-main" class="pt-perspective">
         <!-- BEGIN PAGE 1 -->
         <div id="lobby" class="pt-page">
-            <div class="content scrollbar">
+            <div class="scrollbar">
                 <div class="wrapper">
                     <div id="to_song_home"><img class="img-responsive" src="../ressrc/song.png"/><h1>Songs</h1></div>
                     <div><img class="img-responsive" src="../ressrc/movie.png"/><h1>Movies</h1></div>
@@ -82,41 +82,49 @@
                     <div class="parent" style="top:30%">
                         <h2>New releases</h2>
                         <div class="scrollBar">
-                            <div class="child"><img style="width:100%" class="img-responsible" src="../ressrc/image.png">
-                                <h3>Beach House 2</h3>
-                                <h5>Ty Dolla $ign</h5>
+                            <div class="child" onclick="display_song_details('id0')">
+                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/perro_fiel.png">
+                                <h3>Perro Fiel</h3>
+                                <h5>Shakira</h5>
                             </div>
-                            <div class="child"><img style="width:100%" class="img-responsible" src="../ressrc/image.png">
-                                <h3>Beach House 2</h3>
-                                <h5>Ty Dolla $ign</h5>
+                            <div class="child" onclick="display_song_details('id7')">
+                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/rockstar.jpg">
+                                <h3>Rockstar</h3>
+                                <h5>Post Malone</h5>
                             </div>
-                            <div class="child"><img style="width:100%" class="img-responsible" src="../ressrc/image.png">
-                                <h3>Beach House 2</h3>
-                                <h5>Ty Dolla $ign</h5>
+                            <div class="child" onclick="display_song_details('id9')">
+                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/thunder.jpg">
+                                <h3>Thunder</h3>
+                                <h5>Imagine Dragons</h5>
                             </div>
-                            <div class="child"><img style="width:100%" class="img-responsible" src="../ressrc/image.png">
-                                <h3>Beach House 2</h3>
-                                <h5>Ty Dolla $ign</h5>
+                            <div class="child" onclick="display_song_details('id10')">
+                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/the%20sky%20is%20a%20neighborhood.jpg">
+                                <h3>The Sky Is a Neighborhood</h3>
+                                <h5>Foo Fighters</h5>
                             </div>
                         </div>
                         </div><div class="parent" style="top:60%">
                         <h2>Charts</h2>
                         <div class="scrollBar">
-                            <div class="child"><img style="width:100%" class="img-responsible" src="../ressrc/image.png">
-                                <h3>Beach House 2</h3>
-                                <h5>Ty Dolla $ign</h5>
+                            <div class="child" onclick="display_song_details('id12')">
+                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/havana.png">
+                                <h3>Havana</h3>
+                                <h5>Camila Cabello</h5>
                             </div>
-                            <div class="child"><img style="width:100%" class="img-responsible" src="../ressrc/image.png">
-                                <h3>Beach House 2</h3>
-                                <h5>Ty Dolla $ign</h5>
+                            <div class="child" onclick="display_song_details('id11')">
+                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+                                <h3>Too Good At Goodbyes</h3>
+                                <h5>Sam Smith</h5>
                             </div>
-                            <div class="child"><img style="width:100%" class="img-responsible" src="../ressrc/image.png">
-                                <h3>Beach House 2</h3>
-                                <h5>Ty Dolla $ign</h5>
+                            <div class="child" onclick="display_song_details('id7')">
+                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/rockstar.jpg">
+                                <h3>Rockstar</h3>
+                                <h5>Post Malone</h5>
                             </div>
-                            <div class="child"><img style="width:100%" class="img-responsible" src="../ressrc/image.png">
-                                <h3>Beach House 2</h3>
-                                <h5>Ty Dolla $ign</h5>
+                            <div class="child" onclick="display_song_details('id8')">
+                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+                                <h3>Sorry Not Sorry</h3>
+                                <h5>Demi Lovato</h5>
                             </div>
                         </div>
                     </div>
@@ -399,7 +407,10 @@
         </div>
     </div>
     <!-- END PAGES -->
-    <script>setPlayer();</script>
+    <script>
+        setPlayer();
+        $("#bottom_menu").hide();
+    </script>
     <!-- BEGIN JAVASCRIPT AFTER LOADING -->
     <script language="javascript" type="text/javascript" src="../app/js/ami_libs/pagetransitions.js"></script>
     <!-- END JAVASCRIPT AFTER LOADING -->
