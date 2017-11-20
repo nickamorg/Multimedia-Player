@@ -134,22 +134,25 @@ wsServer.on('connection', function connection(ws) {
                     if (err) {
                         return console.log(err);
                     }
-					/*
-					json_data = ` {
-        "crowd": 6,
-        "id0": {
-            "file": "Shakira - Perro Fiel.mp3",
-            "title": "Perro Fiel",
-            "artist": "Shakira",
-            "album": "Single",
-            "release": "15 September 2017",
-            "duration": "3:16",
-            "genre": ["Latin pop", "reggaeton"],`
-			
-					playlists = data.split("\n");
-					for(
-					*/
-                    ws.send("" + data);
+					data = data.toString().split("\r\n");
+					length = data.length;
+					console.log(data.toString().split("\r\n"));
+					
+					json_data = `{"crowd":${length},`;
+					
+					for(i = 0; i < length; i++) {
+						var text = fs.readFileSync("data/playlists/" + data[i] + ".txt",'utf8');
+						mid_data = "";
+						for(j = 0; j < text.toString().split("\r\n").length; j++) {
+							mid_data += '"' + text.toString().split("\r\n")[j] + '"';
+							if(j < text.toString().split("\r\n").length - 1) mid_data += ",";
+						}
+						json_data += `"${data[i]}":[${mid_data}]`;
+						if(i < length - 1) json_data += ",";
+					}
+					json_data += "}";
+					console.log(json_data);
+                    ws.send(json_data);
                 });
             }
         }

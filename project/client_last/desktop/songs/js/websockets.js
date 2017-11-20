@@ -330,21 +330,54 @@ function get_playlists() {
 
         ws.send(message);
         ws.onmessage = function(message) {
-            for(i = 0; i < message.data.crowd; i++) {
-                playlists[i] = message.data.
+            data = JSON.parse(message.data);
+            playlists = [];
+            keys = Object.keys(data);
+            for(i = 0; i < data.crowd; i++) {
+                playlists[i] = keys[i + 1];
             }
-            let playlists = message.data.split("\n");
+
             $("#playlists").find("tbody").html("");
             for(i = 0; i < playlists.length; i++) {
-                playlists[i] = playlists[i].replace(/(\r\n|\n|\r)/gm, "");
+                min = 0;
+                sec = 0;
+                for(j = 0; j < data[playlists[i]].length; j++) {
+                    console.log(data[playlists[i]][0]);
+                    current_song = data[playlists[i]][j];
+                    console.log("'" + current_song + "'");
+                    min += parseInt(playerAPI.songs[current_song].duration.split(":")[0]);
+                    sec += parseInt(playerAPI.songs[current_song].duration.split(":")[1]);
+
+                    min += Math.floor(sec / 60);
+                    sec = sec % 60;
+
+                    hours = Math.floor(min / 60);
+                    min = min % 60;
+                    total = "";
+                    if(hours > 0) {
+                        if(hours < 10) {
+                            total += "0";
+                        }
+                        total += hours + ":";
+                        if(min < 10) {
+                            total += "0";
+                        }
+                    }
+
+                    total += min + ":";
+                    if(sec < 10) {
+                        total += "0";
+                    }
+                    total += sec;
+                }
                 $("#playlists").find("tbody").append(`
                     <tr>
                         <td><button><em class="fa">&#xf01d;</em></button></td>
                         <td><button onclick="remove_playlist('${playlists[i]}', this)"><em class="fa fa-minus"></em></button></td></td>
                         <td>${i + 1}</td>
                         <td><button onclick="read_playlist('${playlists[i]}')">${playlists[i]}</button></td>
-                        <td><em class="fa">&#xf001;</em></td>
-                        <td><em class="fa">&#xf017;</em></td>
+                        <td><em class="fa">${data[playlists[i]].length}</em></td>
+                        <td><em class="fa">${total}</em></td>
                     </tr>`
                 )
             }
