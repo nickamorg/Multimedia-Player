@@ -434,7 +434,6 @@ function search_songs(keywords) {
             `<tr>
                 <td><button class="clickableElement" onclick="play_song(${i})"><em class="fa">&#xf01d;</em></button></td>
                 <td><button class="clickableElement" onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
-                <td><buttonclass="clickableElement" ><em class="fa fa-minus"></em></button></td>
                 <td><button class="clickableElement" onclick="display_song_details('${id}')">${song.title}</button></td>
                 <td>${song.artist}</td>
                 <td>${song.album}</td>
@@ -615,10 +614,9 @@ function apply_filters_search() {
             song = playerAPI.songs["id" + i];
             $(".table").find("tbody").append(
                 `<tr>
-                    <td><button onclick="play_song('${"id" + i}')"><em class="fa">&#xf01d;</em></button></td>
-                    <td><button><em class="fa">&#xf067;</em></button></td>
-                    <td><button><em class="fa">&#xf068;</em></button></td>
-                    <td><button>${song.title}</button></td>
+                    <td><button class="clickableElement" onclick="play_song('${"id" + i}')"><em class="fa">&#xf01d;</em></button></td>
+                    <td><button class="clickableElement" onclick="open_playlists_modal('${"id" + i}')"><em class="fa">&#xf067;</em></button></td>
+                    <td><button class="clickableElement" onclick="display_song_details('${"id" + i}')">${song.title}</button></td>
                     <td>${song.artist}</td>
                     <td>${song.album}</td>
                     <td>${song.release}</td>

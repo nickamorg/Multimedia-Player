@@ -1,3 +1,6 @@
+#pt-main {
+    background-color: #191927;
+}
 
 html, body {
     background-color: #191927;
@@ -54,7 +57,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background: #181825; /* For browsers that do not support gradients */
-    background: linear-gradient(to bottom right, #181825, #63636A); /* Standard syntax */
+    background: linear-gradient(to bottom right, #181825, #2D2D3D); /* Standard syntax */
     position: fixed;
     top: 0;
     width: 100%;
@@ -140,10 +143,10 @@ li a:hover:not(.active) {
     padding:20px 0px 5px 0px;
 }
 
-/*#controls button {
-background-color: transparent;
-border: none;
-}*/
+.controls button {
+    margin: 0 30px;
+}
+
 .controls i {
     padding: 0px 10px 0px 10px;
 }

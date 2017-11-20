@@ -330,9 +330,6 @@ function get_playlists() {
 
         ws.send(message);
         ws.onmessage = function(message) {
-            for(i = 0; i < message.data.crowd; i++) {
-                playlists[i] = message.data.
-            }
             let playlists = message.data.split("\n");
             $("#playlists").find("tbody").html("");
             for(i = 0; i < playlists.length; i++) {
