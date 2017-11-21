@@ -42,7 +42,7 @@ wsServer.on('connection', function connection(ws) {
                 }); 
             } else if(message["type"] === "add to playlist") {
                 var fs = require('fs');
-                fs.appendFile("data/playlists/" + message["playlist"] + ".txt", message["song_id"] + "\n", function(err) {
+                fs.appendFile("data/playlists/" + message["playlist"] + ".txt", message["song_id"] + "\r\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }
@@ -51,7 +51,8 @@ wsServer.on('connection', function connection(ws) {
                 }); 
             } else if(message["type"] === "new playlist") {
                 var fs = require('fs');
-                fs.appendFile("data/playlists.txt", message["playlist"] + "\n", function(err) {
+				fs.closeSync(fs.openSync("data/playlists/" + message["playlist"] + ".txt", 'w'));
+                fs.appendFile("data/playlists.txt", message["playlist"] + " - ", function(err) {
                     if(err) {
                         return console.log(err);
                     }
@@ -156,20 +157,29 @@ wsServer.on('connection', function connection(ws) {
                     if (err) {
                         return console.log(err);
                     }
-					data = data.toString().split("\r\n");
+					
+				
+					if(data.toString() === "") return;
+					data = data.toString().substring(0, data.toString().length - 3).split(" - ");
 					length = data.length;
-					console.log(data.toString().split("\r\n"));
+				
+					console.log(data);
 					
 					json_data = `{"crowd":${length},`;
 					
 					for(i = 0; i < length; i++) {
+						data[i] = data[i].replace(/(\r\n|\n|\r)/gm,"");
 						var text = fs.readFileSync("data/playlists/" + data[i] + ".txt",'utf8');
 						mid_data = "";
 						for(j = 0; j < text.toString().split("\r\n").length; j++) {
+							if(text.toString().split("\r\n")[j] === "") {
+								console.log("OKKK");
+								continue;
+							}
 							mid_data += '"' + text.toString().split("\r\n")[j] + '"';
-							if(j < text.toString().split("\r\n").length - 1) mid_data += ",";
+							if(j < text.toString().split("\r\n").length - 2) mid_data += ",";
 						}
-						json_data += `"${data[i]}":[${mid_data}]`;
+						json_data += `"${data[i]}":[${mid_data.replace(/(\r\n|\n|\r)/gm,"")}]`;
 						if(i < length - 1) json_data += ",";
 					}
 					json_data += "}";

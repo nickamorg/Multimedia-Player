@@ -14,7 +14,7 @@ function send_mysongs() {
             var dates = [];
             var albums = [];
             playerAPI.tmpPlaylist = [songs.length];
-			$(".table").find("tbody").html("");
+			$(".display_songs").find("tbody").html("");
             for(var i = 0; i < songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(songs[i].substring(2))];
                 playerAPI.mysongs[i] = "id" + parseInt(songs[i].substring(2));
@@ -25,8 +25,8 @@ function send_mysongs() {
                 }
                 dates[i] = parseInt(song.release.split(" ")[2]);
                 albums[i] = song.album;
-                //$(".table").find("tbody").append(playerAPI.songs[song])
-                $(".table").find("tbody").append(
+
+                $(".display_songs").find("tbody").append(
                     `<tr>
                             <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
                             <td><button onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');"><em class="fa fa-plus"></em></button></td>
@@ -336,15 +336,17 @@ function open_playlists_modal(song_id) {
 
         ws.send(message);
         ws.onmessage = function (message) {
-            playlists = message.data.split("\n");
+            playlists = JSON.parse(message.data);
+            keys = Object.keys(playlists);
+
             html_display = `
                 <h3 style="color:#000000">Playlists</h3>
                 <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="Type a new playlist and press Add"></input></div>`;
 
-            for(i = 0; i < playlists.length; i++) {
+            for(i = 0; i < playlists.crowd; i++) {
                 html_display += `
                                 <div class="col-xs-12">
-                                    <button onclick="add_to_playlist('${song_id}', '${playlists[i].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%">${playlists[i]}</button>
+                                    <button onclick="add_to_playlist('${song_id}', '${keys[i + 1].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%">${keys[i + 1]}</button>
                                 </div>`;
             }
 
@@ -357,6 +359,7 @@ function open_playlists_modal(song_id) {
         };
     };
 }
+
 
 function get_playlists() {
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
@@ -378,7 +381,6 @@ function get_playlists() {
                 min = 0;
                 sec = 0;
                 for(j = 0; j < data[playlists[i]].length; j++) {
-                    console.log(data[playlists[i]][0]);
                     current_song = data[playlists[i]][j];
                     console.log("'" + current_song + "'");
                     min += parseInt(playerAPI.songs[current_song].duration.split(":")[0]);
@@ -432,6 +434,7 @@ function add_recently_played_song(song_id) {
 
 function read_playlist(playlist) {
     let playlist_songs = "";
+    $("#curr_playlist").html("Playlist - " + playlist);
     PageTransitions.goToPage(2, "song_playlist");
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
 
@@ -727,4 +730,8 @@ function set_song_new_releases() {
                                     `)
         }
     }
+}
+
+function open_new_playlist_modal() {
+    $('#new_playlist_modal').css('display', 'block');
 }

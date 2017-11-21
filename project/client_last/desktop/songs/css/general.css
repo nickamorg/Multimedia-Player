@@ -259,7 +259,7 @@ button {
     margin-bottom: 10px;
 }
 
-#genres, #release, #artists {
+#genres, #release, #artists, #mysongs_keywords{
     padding-bottom: 10px;
 }
 

@@ -296,7 +296,7 @@
                     <div class="col-xs-10" style="padding-right:0; margin-top:20px;">
 
                         <h1>My songs</h1>
-                        <table class="table display_songs">
+                        <table class="table display_songs table-striped table-borderless">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -390,8 +390,13 @@
         <div id="playlists" class="pt-page">
             <script>setHeader();</script>
             <div class="col-xs-12" style="margin-top:20px;">
-                <h1>Playlists</h1>
-                <table class="table display_songs">
+                <div class="col-xs-6">
+                    <h3>Playlists</h3>
+                </div>
+                <div class="col-xs-6" style="float:right">
+                    <h3 style="float:right; padding:10px; border: 1px solid green; border-radius:10px;  cursor: pointer" onclick="open_new_playlist_modal()""><em class="fa fa-plus" style="color:green"></em>Add playlist</h3>
+                </div>
+                <table class="table display_songs table-striped table-borderless">
                     <thead>
                     <tr>
                         <th></th>
@@ -416,8 +421,8 @@
         <div class="content scrollbar">
             <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
 
-                <h1>Playlist</h1>
-                <table id="playlist_songs" class="table display_songs">
+                <h3 id="curr_playlist">Playlist</h3>
+                <table id="playlist_songs" class="table display_songs table-striped table-borderless">
                     <thead>
                     <tr>
                         <th></th>
@@ -447,49 +452,98 @@
                     <section aria-label="Results">
                         <div class="row">
                             <aside class="col-xs-2">
-                                <div id="search_genres">
-                                    <div class="filter_category">
-                                        <p style="margin:0">
-                                            <span>Genres</span>
-                                            <span style="float:right">
+                                    <div id="search_keywords">
+                                        <div class="filter_category">
+                                            <p style="margin:0">
+                                                <span>Keywords</span>
+                                                <span style="float:right">
+                                        <button onclick="expand_filter('search_keywords');" type="button" data-toggle="collapse" data-target="#search_keywords">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                            </p>
+                                        </div>
+
+                                        <div id="search_keywords_content" class="collapse in scrollbar filter_content">
+                                            <input id="search_input_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
+                                        </div>
+                                    </div>
+
+                                    <div id="search_genres">
+                                        <div class="filter_category">
+                                            <p style="margin:0">
+                                                <span>Genres</span>
+                                                <span style="float:right">
                                         <button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#search_genres_content">
                                             <em class="fa fa-long-arrow-up"></em>
                                         </button>
                                     </span>
-                                        </p>
+                                            </p>
+                                        </div>
+
+                                        <div id="search_genres_content" class="collapse in scrollbar filter_content"><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Latin pop">Latin pop<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="reggaeton">reggaeton<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Soul">Soul<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="downtempo">downtempo<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Alternative rock">Alternative rock<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Punk rock">Punk rock<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="pop punk">pop punk<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="pop">pop<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Reggae-pop">Reggae-pop<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Synth-pop">Synth-pop<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Hard Rock">Hard Rock<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Latin">Latin<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Orchestral pop">Orchestral pop<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="Hip hop">Hip hop<br><input onchange="apply_filters_mysong()" type="checkbox" name="genre" value="trap">trap<br></div>
                                     </div>
 
-                                    <div id="search_genres_content" class="collapse in scrollbar filter_content">
-                                    </div>
-                                </div>
-
-                                <div id="search_release">
-                                    <div class="filter_category">
-                                        <p style="margin:0">
-                                            <span>Release Date</span>
-                                            <span style="float:right">
+                                    <div id="search_release">
+                                        <div class="filter_category">
+                                            <p style="margin:0">
+                                                <span>Release Date</span>
+                                                <span style="float:right">
                                         <button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#search_release_content">
                                             <em class="fa fa-long-arrow-up"></em>
                                         </button>
                                     </span>
-                                        </p>
-                                    </div>
-
-                                    <div id="search_release_content" class="collapse in filter_content form-inline text-center">
-                                        <div class="form-group" style="padding-right:20px">
-                                            <label class="control-label">From</label>
-                                            <select onchange="apply_filters_mysong()" id="search_from"  class="form-control">
-                                            </select>
+                                            </p>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label class="control-label">To</label>
-                                            <select onchange="apply_filters_mysong()" id="search_to"  class="form-control">
-                                            </select>
+                                        <div id="search_release_content" class="collapse in filter_content form-inline">
+                                            <div class="col-xs-12">
+                                                <label class="control-label">From</label>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <select id="search_from" onchange="apply_filters_mysong()" class="form-control" style="width:100%"><option value="none"></option><option value="2017">2017</option><option value="2016">2016</option><option value="2005">2005</option><option value="2004">2004</option><option value="1984">1984</option></select>
+                                            </div>
+
+                                            <div class="col-xs-12">
+                                                <label class="control-label">To</label>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <select id="search_to" onchange="apply_filters_mysong()" class="form-control" style="width:100%"><option value="none"></option><option value="2017">2017</option><option value="2016">2016</option><option value="2005">2005</option><option value="2004">2004</option><option value="1984">1984</option></select>
+                                            </div>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+
+                                    <div id="search_artists">
+                                        <div class="filter_category">
+                                            <p style="margin:0">
+                                                <span>Artists</span>
+                                                <span style="float:right">
+                                        <button class="clickableElement" onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#search_artists_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                            </p>
                                         </div>
 
+                                        <div id="search_artists_content" class="collapse in scrollbar filter_content"><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Shakira">Shakira<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Fly Project">Fly Project<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Green Day">Green Day<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Demi Lovato">Demi Lovato<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Ariana Grande">Ariana Grande<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Imagine Dragons">Imagine Dragons<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Scorpions">Scorpions<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Camila Cabello">Camila Cabello<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Foo Fighters">Foo Fighters<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Sam Smith">Sam Smith<br><input onchange="apply_filters_mysong()" type="checkbox" name="artist" value="Post Malone">Post Malone<br></div>
                                     </div>
-                                </div>
+
+                                    <div id="search_albums">
+                                        <div class="filter_category">
+                                            <p style="margin:0">
+                                                <span>Albums</span>
+                                                <span style="float:right">
+                                        <button class="clickableElement" onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#search_albums_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                            </p>
+                                        </div>
+
+                                        <div id="search_albums_content" class="collapse in scrollbar filter_content"><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Single">Single<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="American Idiot">American Idiot<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Tell Me You Love Me">Tell Me You Love Me<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Evolve">Evolve<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Comeblack">Comeblack<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Concrete and Gold">Concrete and Gold<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="The Thrill of It All">The Thrill of It All<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Rockstar">Rockstar<br></div>
+                                    </div>
                             </aside>
                             <article class="col-md-10">
                                 <div class="horizontal-tabs">
@@ -535,49 +589,49 @@
                                             <th>TITLE</th>
                                             <th>ARTIST</th>
                                             <th>ALBUM</th>
-                                            <th">DURATION</th>
+                                            <th>DURATION</th>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">1</td>
-                                                <td headers="title">Rockabye (feat. Sean Paul & Anne-Marie)</td>
-                                                <td headers="artist"><a href="#">Clean Bandit</a>, <a href="#">Sean Paul</a>, <a href="#">Anne-Marie</a></td>
-                                                <td headers="album"><a href="#">Rockabye (feat. Sean Paul & Anne-Marie)</a></td>
-                                                <td headers="duration">4:11</td>
-                                            </tr>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">2</td>
-                                                <td headers="title">We Will Rock You - Remastered 2011</td>
-                                                <td headers="artist"><a href="#">Queen</a></td>
-                                                <td headers="album"><a href="#">News Of The World (2011 Remaster)</a></td>
-                                                <td headers="duration">2:02</td>
-                                            </tr>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">3</td>
-                                                <td headers="title">Rock You Like a Hurricane</td>
-                                                <td headers="artist"><a href="#">Scorpions</a></td>
-                                                <td headers="album"><a href="#">Comeblack</a></td>
-                                                <td headers="duration">4:15</td>
-                                            </tr>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">4</td>
-                                                <td headers="title">Rockstar</td>
-                                                <td headers="artist"><a href="#">Post Malone</a>, <a href="#">21 Savage</a></td>
-                                                <td headers="album"><a href="#">Rockstar</a></td>
-                                                <td headers="duration">3:38</td>
-                                            </tr>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">5</td>
-                                                <td headers="title">Rock the Casbah - Remastered</td>
-                                                <td headers="artist"><a href="#">The Clash</a></td>
-                                                <td headers="album"><a href="#">Combat Rock</a></td>
-                                                <td headers="duration">3:42</td>
-                                            </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">1</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">Rockabye (feat. Sean Paul & Anne-Marie)</td>
+                                                    <td headers="artist"><a href="#">Clean Bandit</a>, <a href="#">Sean Paul</a>, <a href="#">Anne-Marie</a></td>
+                                                    <td headers="album"><a href="#">Rockabye (feat. Sean Paul & Anne-Marie)</a></td>
+                                                    <td headers="duration">4:11</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">2</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">We Will Rock You - Remastered 2011</td>
+                                                    <td headers="artist"><a href="#">Queen</a></td>
+                                                    <td headers="album"><a href="#">News Of The World (2011 Remaster)</a></td>
+                                                    <td headers="duration">2:02</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">3</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">Rock You Like a Hurricane</td>
+                                                    <td headers="artist"><a href="#">Scorpions</a></td>
+                                                    <td headers="album"><a href="#">Comeblack</a></td>
+                                                    <td headers="duration">4:15</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">4</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">Rockstar</td>
+                                                    <td headers="artist"><a href="#">Post Malone</a>, <a href="#">21 Savage</a></td>
+                                                    <td headers="album"><a href="#">Rockstar</a></td>
+                                                    <td headers="duration">3:38</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">5</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">Rock the Casbah - Remastered</td>
+                                                    <td headers="artist"><a href="#">The Clash</a></td>
+                                                    <td headers="album"><a href="#">Combat Rock</a></td>
+                                                    <td headers="duration">3:42</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </section>
@@ -714,46 +768,46 @@
                                             <th>DURATION</th>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">1</td>
-                                                <td headers="title">Rockabye (feat. Sean Paul & Anne-Marie)</td>
-                                                <td headers="artist"><a href="#">Clean Bandit</a>, <a href="#">Sean Paul</a>, <a href="#">Anne-Marie</a></td>
-                                                <td headers="album"><a href="#">Rockabye (feat. Sean Paul & Anne-Marie)</a></td>
-                                                <td headers="duration">4:11</td>
-                                            </tr>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">2</td>
-                                                <td headers="title">We Will Rock You - Remastered 2011</td>
-                                                <td headers="artist"><a href="#">Queen</a></td>
-                                                <td headers="album"><a href="#">News Of The World (2011 Remaster)</a></td>
-                                                <td headers="duration">2:02</td>
-                                            </tr>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">3</td>
-                                                <td headers="title">Rock You Like a Hurricane</td>
-                                                <td headers="artist"><a href="#">Scorpions</a></td>
-                                                <td headers="album"><a href="#">Comeblack</a></td>
-                                                <td headers="duration">4:15</td>
-                                            </tr>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">4</td>
-                                                <td headers="title">Rockstar</td>
-                                                <td headers="artist"><a href="#">Post Malone</a>, <a href="#">21 Savage</a></td>
-                                                <td headers="album"><a href="#">Rockstar</a></td>
-                                                <td headers="duration">3:38</td>
-                                            </tr>
-                                            <tr>
-                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
-                                                <td headers="number">5</td>
-                                                <td headers="title">Rock the Casbah - Remastered</td>
-                                                <td headers="artist"><a href="#">The Clash</a></td>
-                                                <td headers="album"><a href="#">Combat Rock</a></td>
-                                                <td headers="duration">3:42</td>
-                                            </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">1</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">Rockabye (feat. Sean Paul & Anne-Marie)</td>
+                                                    <td headers="artist"><a href="#">Clean Bandit</a>, <a href="#">Sean Paul</a>, <a href="#">Anne-Marie</a></td>
+                                                    <td headers="album"><a href="#">Rockabye (feat. Sean Paul & Anne-Marie)</a></td>
+                                                    <td headers="duration">4:11</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">2</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">We Will Rock You - Remastered 2011</td>
+                                                    <td headers="artist"><a href="#">Queen</a></td>
+                                                    <td headers="album"><a href="#">News Of The World (2011 Remaster)</a></td>
+                                                    <td headers="duration">2:02</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">3</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">Rock You Like a Hurricane</td>
+                                                    <td headers="artist"><a href="#">Scorpions</a></td>
+                                                    <td headers="album"><a href="#">Comeblack</a></td>
+                                                    <td headers="duration">4:15</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">4</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">Rockstar</td>
+                                                    <td headers="artist"><a href="#">Post Malone</a>, <a href="#">21 Savage</a></td>
+                                                    <td headers="album"><a href="#">Rockstar</a></td>
+                                                    <td headers="duration">3:38</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="cursor: pointer" onclick="play_song('id7')" headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                    <td headers="number">5</td>
+                                                    <td style="cursor: pointer" onclick="display_song_details('id7')" headers="title">Rock the Casbah - Remastered</td>
+                                                    <td headers="artist"><a href="#">The Clash</a></td>
+                                                    <td headers="album"><a href="#">Combat Rock</a></td>
+                                                    <td headers="duration">3:42</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </section>
@@ -939,9 +993,28 @@
                     <h2>Choose the destination list of the track</h2>
                 </div>
                 <div class="modal-body scrollbar">
+                    <input id="new_playlist_input"/>
                 </div>
                 <div class="modal-footer">
                     <button id="add"><h3>Add</h3></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="new_playlist_modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="close" class="close">&times;</span>
+                    <h2>Fill in the title of your new playlist</h2>
+                </div>
+                <div class="modal-body scrollbar">
+                    <input id="playlist_title" style="width:100%; color:black" placeholder="Playlist's title">
+                </div>
+                <div class="modal-footer">
+                    <button id="save"><h3>Save</h3></button>
                 </div>
             </div>
         </div>
@@ -979,6 +1052,23 @@
                 modal.style.display = "none";
             }
         }
+
+        var new_playlist_modal = document.getElementById('new_playlist_modal');
+
+        // Get the <span> element that closes the modal
+        var new_playlist_modal_span = document.getElementById("close");
+
+        // When the user clicks on <span> (x), close the modal
+        new_playlist_modal_span.onclick = function() {
+            new_playlist_modal.style.display = "none";
+        };
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == new_playlist_modal) {
+                new_playlist_modal.style.display = "none";
+            }
+        }
     </script>
 
     <script>
@@ -994,6 +1084,14 @@
     </script>
 
     <script>toggle_tabs("top_results");</script>
+
+    <script>
+        $("#save").click(function() {
+            new_playlist = $("#playlist_title").val();
+            add_new_playlist(new_playlist);
+            document.getElementById('new_playlist_modal').style.display = "none";
+        });
+    </script>
 </body>
 
 </html>
