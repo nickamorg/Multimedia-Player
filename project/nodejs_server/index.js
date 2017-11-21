@@ -82,7 +82,7 @@ wsServer.on('connection', function connection(ws) {
 					if (err) {
 						return console.log(err);
 					}
-					var replace = message["playlist"] + '\r\n';
+					var replace = message["playlist"] + ' - ';
 					var re = new RegExp(replace);
 
 					tmp = data.replace(re, "");
@@ -93,6 +93,7 @@ wsServer.on('connection', function connection(ws) {
 					}
 					data = tmp;
 					
+					fs.unlinkSync("data/playlists/" + message["playlist"] + ".txt");
 					fs.writeFile("data/playlists.txt", data, 'utf8', function (err) {
 						if (err) return console.log(err);
 					});

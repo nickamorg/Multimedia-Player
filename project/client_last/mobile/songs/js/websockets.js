@@ -27,7 +27,7 @@ function send_mysongs() {
                 dates[i] = parseInt(song.release.split(" ")[2]);
                 albums[i] = song.album;
                 $("#mysongs_content").append(
-                    `<div class="col-xs-12" style="border-bottom:1px solid #50505A">
+                    `<div class="col-xs-12">
                         <div class="col-xs-2" style="height:100px; line-height:100px;">
                             <img id="img" style="width:80px" src="../ressrc/songs_images/${song.img}">
                         </div>
@@ -44,10 +44,9 @@ function send_mysongs() {
                             <button onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
                         </div>
                         <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
-                            <button style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                            <button onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this);" style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
                         </div>
-                    </div>
-                    <div class="clearfix"></div> `);
+                    </div>`);
             }
 
             // Filter duplicates
@@ -110,6 +109,12 @@ function play_mysong(curr_song) {
     $("#expand_player").find("div").find("p")[9].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].album;
     $("#expand_player").find("div").find("p")[10].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].release;
     $("#expand_player").find("div").find("p")[11].innerHTML = playerAPI.songs[playerAPI.playlist[curr_song]].duration;
+
+    $("#add_from_expand").click(function() {
+        $("#expand_player").removeClass("in");
+        open_playlists_modal(playerAPI.playlist[playerAPI.row]);
+    });
+
     $("#expand_lyrics").html("<pre>" + playerAPI.songs[playerAPI.playlist[curr_song]].lyrics + "</pre>");
     playerAPI.currentID = playerAPI.mysongs[curr_song];
     $("#playing")[0].play();
@@ -205,28 +210,66 @@ function apply_filters_mysong() {
         }
     }
 
+    if($("#mysongs_input_keywords").val() !== "") {
+        words = $("#mysongs_input_keywords").val().split(" ");
+        for(let i = 0; i < tmp_mysongs.length; i++) {
+            flag = false;
+            for(let j = 0; j < words.length; j++) {
+                if(contains_word(playerAPI.songs[tmp_mysongs[i]].title, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs[tmp_mysongs[i]].album, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs[tmp_mysongs[i]].artist, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs[tmp_mysongs[i]].release, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs[tmp_mysongs[i]].genre.toString(), words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+
+        }
+    }
 
     $("#mysongs_content").html("");
     for(let i = 0; i < tmp_mysongs.length; i++) {
         if(check[i]) {
             song = playerAPI.songs[tmp_mysongs[i]];
             $("#mysongs_content").append(
-                `<div class="col-xs-12" style="height:100px; line-height:100px; border-bottom:1px solid #50505A">
-                    <div class="col-xs-2">
-                        <img id="img" style="width:80px" src="../ressrc/songs_images/${song.img}">
-                    </div>
-                    <div class="col-xs-8">
-                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
-                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
-                    </div>
-                    <div class="col-xs-1">
-                        <button onclick="play_mysong(${i})"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
-                    </div>
-                    <div class="col-xs-1">
-                        <button style="float:right"><em class="fa fa-ellipsis-v" style="font-size:40px"></em></button>
-                    </div>
-                    </div>
-                <div class="clearfix"></div> `);
+                `<div class="col-xs-12">
+                        <div class="col-xs-2" style="height:100px; line-height:100px;">
+                            <img id="img" style="width:80px" src="../ressrc/songs_images/${song.img}">
+                        </div>
+                        <div class="col-xs-7">
+                            <button onclick="display_song_details('id' + ${parseInt(songs[i].substring(2))})" style="text-align:left;">
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
+                            </button>
+                        </div>
+                        <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                            <button onclick="play_mysong(${i})"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                        </div>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                        </div>
+                        <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                            <button onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this);" style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                        </div>
+                    </div>`);
         }
     }
 }
@@ -300,15 +343,18 @@ function open_playlists_modal(song_id) {
 
         ws.send(message);
         ws.onmessage = function (message) {
-            playlists = message.data.split("\n");
+            playlists = JSON.parse(message.data);
+            keys = Object.keys(playlists);
+            console.log(keys);
+
             html_display = `
                 <h3 style="color:#000000">Playlists</h3>
                 <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="Type a new playlist and press Add"></input></div>`;
 
-            for(i = 0; i < playlists.length; i++) {
+            for(i = 0; i < playlists.crowd; i++) {
                 html_display += `
                                 <div class="col-xs-12">
-                                    <button onclick="add_to_playlist('${song_id}', '${playlists[i].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%">${playlists[i]}</button>
+                                    <button onclick="add_to_playlist('${song_id}', '${keys[i + 1].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%">${keys[i + 1]}</button>
                                 </div>`;
             }
 
@@ -330,16 +376,21 @@ function get_playlists() {
 
         ws.send(message);
         ws.onmessage = function(message) {
-            let playlists = message.data.split("\n");
+            data = JSON.parse(message.data);
+            playlists = [];
+            keys = Object.keys(data);
+            for(i = 0; i < data.crowd; i++) {
+                playlists[i] = keys[i + 1];
+            }
+
             $("#playlists_content").html("");
             for(i = 0; i < playlists.length; i++) {
-                playlists[i] = playlists[i].replace(/(\r\n|\n|\r)/gm,"");
                 $("#playlists_content").append(`
-                    <div class="col-xs-12" style="border-bottom:1px solid #50505A">
+                    <div class="col-xs-12">
                         <div class="col-xs-10">
                             <button onclick="read_playlist('${playlists[i]}')" style="text-align:left;">
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${playlists[i]}</p>
-                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${"9 songs"}<p>
+                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${data[playlists[i]].length} songs</p>
                             </button>
                         </div>
                         <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
@@ -348,8 +399,7 @@ function get_playlists() {
                         <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
                             <button onclick="remove_playlist('${playlists[i]}', this)"  style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
                         </div>
-                    </div>
-                    <div class="clearfix"></div> `
+                    </div>`
                 )
             }
         }
@@ -376,17 +426,17 @@ function read_playlist(playlist) {
         ws.send(message);
         ws.onmessage = function (message) {
             playlist_songs = message.data.split("\n");
-            console.log(playlist_songs);
             $("#playlist_content").html("");
             playerAPI.tmpPlaylist = [playlist_songs.length];
-            for(var i = 0; i < playlist_songs.length; i++) {
+
+            for(var i = 0; i < playlist_songs.length - 1; i++) {
                 id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");
                 song = playerAPI.songs[id];
-                $("#song_playlist").find("h1")[0].innerHTML = playlist;
+                $("#song_playlist").find("h1")[0].innerHTML = "Playlist - " + playlist;
                 playerAPI.tmpPlaylist[i] = id;
                 $("#playlist_content").append(
                     `
-                        <div class="col-xs-12" style="border-bottom:1px solid #50505A">
+                        <div class="col-xs-12">
                             <div class="col-xs-2" style="height:100px; line-height:100px;">
                                 <img id="img" style="width:80px" src="../ressrc/songs_images/${song.img}">
                             </div>
@@ -405,8 +455,7 @@ function read_playlist(playlist) {
                             <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
                                 <button style="float:right" onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-minus" style="font-size:40px"></em></button>
                             </div>
-                        </div>
-                        <div class="clearfix"></div> `);
+                        </div>`);
             }
         };
     };
@@ -455,7 +504,7 @@ function search_songs() {
         dates[i] = parseInt(song.release.split(" ")[2]);
         albums[i] = song.album;
         $("#search_songs_content").append(
-            `<div class="col-xs-12" style="border-bottom:1px solid #50505A">
+            `<div class="col-xs-12">
                 <div class="col-xs-2" style="height:100px; line-height:100px;">
                     <img id="img" style="width:80px" src="../ressrc/songs_images/${song.img}">
                 </div>
@@ -668,6 +717,34 @@ function apply_filters_search() {
                 </div>
             </div>
             <div class="clearfix"></div>`);
+        }
+    }
+}
+
+function remove_from_mysongs(song_id, this_elem) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "remove from mysongs", "song_id":"' + song_id + '"}';
+
+        ws.send(message);
+    };
+
+    $(this_elem).parents(':eq(1)').html("");
+}
+
+function set_song_new_releases() {
+    $("#song_new_releases_content").html("");
+
+    for(let i = 0; i < playerAPI.songs.crowd; i++) {
+        if (playerAPI.songs["id" + i].release.split(" ")[2] === (new Date()).getFullYear().toString()) {
+            $("#song_new_releases_content").append(`
+                                    <div class="col-xs-6" onclick="display_song_details('id' + ${i})">
+                                        <img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"/>
+                                        <p>${playerAPI.songs["id" + i].title}</p>
+                                        <small>${playerAPI.songs["id" + i].artist}</small>
+                                    </div>
+                                    `)
         }
     }
 }

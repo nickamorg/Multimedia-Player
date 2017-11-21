@@ -234,8 +234,6 @@ function apply_filters_mysong() {
             check[i] = flag;
 
         }
-        console.log(check);
-        console.log(tmp_mysongs);
     }
 
     $(".table").find("tbody").html("");
@@ -446,6 +444,7 @@ function read_playlist(playlist) {
             playlist_songs = message.data.split("\n");
             $("#playlist_songs").find("tbody").html("");
             playerAPI.tmpPlaylist = [playlist_songs.length];
+
             for(var i = 0; i < playlist_songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(playlist_songs[i].substring(2))];
                 id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");

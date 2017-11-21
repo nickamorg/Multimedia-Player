@@ -65,6 +65,25 @@ $(document).ready(function () {
         PageTransitions.goToPage(2, 'song_search');
     });
 
+    $('#song_new_releases_link').click(function () {
+        // Tip: try other integers [1-67] at PageTransitions.goToPage function
+        // and see different animations on changing pages
+        set_song_new_releases();
+        PageTransitions.goToPage(2, 'song_new_releases');
+    });
+
+    $('#song_charts_link').click(function () {
+        // Tip: try other integers [1-67] at PageTransitions.goToPage function
+        // and see different animations on changing pages
+        PageTransitions.goToPage(2, 'song_charts');
+    });
+
+    $('#song_genres_link').click(function () {
+        // Tip: try other integers [1-67] at PageTransitions.goToPage function
+        // and see different animations on changing pages
+        PageTransitions.goToPage(2, 'song_genres');
+    });
+
   //#endregion
   //---------------------------------------
 

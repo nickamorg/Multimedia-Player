@@ -32,13 +32,13 @@ function setPlayer() {
                     <div class="col-xs-7 text-left" style="padding-right:70px">
                         <p>Whole Lotta Love</p>
                         <p>Led Zeppelin</p>
-                        <p style="white-space:nowrap; overflow-x: hidden;">Hard Rock</p>
+                        <p>Hard Rock</p>
                         <p>Led Zeppelin II</p>
                         <p>07 Nov 1969</p>
                         <p>4:50</p>
                     </div>
                     <div class="col-xs-12 style="padding:0">
-                    <button style="float:left;"><em class="fa fa-plus"></em></button>
+                    <button id="add_from_expand" style="float:left;"><em class="fa fa-plus"></em></button>
                         <div id="controls">
                             <button onclick="playerAPI.shuffle()"><em class="fa">&#xf074;</em></button>
                             <button onClick="playerAPI.prev()"><em class="fa">&#xf048;</em></button>
@@ -119,8 +119,8 @@ function display_song_details(song_id) {
     PageTransitions.goToPage(2, 'song_details');
     var song = playerAPI.songs[song_id];
     $("#song_details").find(".content").html(
-    `<h1>${song.title}</h1>
-    <div class="col-xs-12">
+                    `<h1>${song.title}</h1>
+                    <div class="col-xs-12">
                         <img style="width:80%" src="../ressrc/songs_images/${song.img}">
                     </div>
                     <div class="col-xs-5 text-left" style="padding-left:70px">

@@ -246,7 +246,7 @@ button {
     margin-bottom: 10px;
 }
 
-#genres, #release, #artists {
+#genres, #release, #artists, #mysongs_keywords {
     padding-bottom: 10px;
 }
 
@@ -326,8 +326,10 @@ a {
     display:inline-block;
 }
 
-.child h3, .child h5{
-    white-space:nowrap;overflow-x: hidden;;
+.child h3, .child h5, .parent h3 {
+    /*white-space:nowrap;
+    overflow-x: hidden;*/
+    overflow-y: scroll;
 }
 
 .pt-page {
@@ -340,11 +342,6 @@ a {
 
 #mysongs_filters {
     padding-bottom: 50px;
-}
-
-#title_artist {
-    white-space:nowrap;
-    overflow-x: hidden;
 }
 
 h1 {
@@ -468,4 +465,22 @@ h1 {
 
 #set_new_playlist {
     color: #000000;
+}
+
+#expand_player p, .content p, #title_artist {
+    white-space:nowrap;
+    overflow-x: scroll;
+}
+
+#song_new_releases_content small, #song_charts_content small {
+    color: darkgray;
+}
+
+#song_new_releases_content p, #song_charts_content p, #song_genres_content p {
+    margin: 0;
+    /*font-size: 18px;*/
+}
+
+#song_new_releases_content div, #song_charts_content div, #song_genres_content div {
+    padding-bottom: 40px;
 }
