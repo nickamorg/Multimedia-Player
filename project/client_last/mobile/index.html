@@ -87,82 +87,117 @@
 
         <!-- BEGIN PAGE 2 - HOME -->
         <div id="song_home" class="pt-page">
+            <div class="text-center">
+                <h1 style="margin:0; padding:20px 0 20px 0; background-color:#000000">Home</h1>
+            </div>
             <div class="content scrollbar">
-                <div class="home">
-                    <div class="text-center">
-                        <h1 style="margin:0; padding:20px 0 20px 0; background-color:#000000">Home</h1>
-                    </div>
+                <div class="clearfix" style="padding-top:25%"></div>
 
-                    <div class="parent" style="top:18%">
-                        <h2><button id="song_new_releases_link">New releases</button></h2>
-                        <div class="scrollBar">
-                            <div class="child" onclick="display_song_details('id0')">
-                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/perro_fiel.png">
-                                <h3>Perro Fiel</h3>
-                                <h5>Shakira</h5>
-                            </div>
-                            <div class="child" onclick="display_song_details('id7')">
-                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/rockstar.jpg">
-                                <h3>Rockstar</h3>
-                                <h5>Post Malone</h5>
-                            </div>
-                            <div class="child" onclick="display_song_details('id9')">
-                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/thunder.jpg">
-                                <h3>Thunder</h3>
-                                <h5>Imagine Dragons</h5>
-                            </div>
-                            <div class="child" onclick="display_song_details('id10')">
-                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/the%20sky%20is%20a%20neighborhood.jpg">
-                                <h3>The Sky Is a Neighborhood</h3>
-                                <h5>Foo Fighters</h5>
-                            </div>
+                <div class="parent" style="top:18%">
+                    <h2><button id="song_new_releases_link">New releases</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_song_details('id0')">
+                            <img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png">
+                            <h3>Perro Fiel</h3>
+                            <h5>Shakira</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id7')">
+                            <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+                            <h3>Rockstar</h3>
+                            <h5>Post Malone</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id9')">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+                            <h3>Thunder</h3>
+                            <h5>Imagine Dragons</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id10')">
+                            <img class="img-responsive" src="../ressrc/songs_images/the%20sky%20is%20a%20neighborhood.jpg">
+                            <h3>The Sky Is a Neighborhood</h3>
+                            <h5>Foo Fighters</h5>
                         </div>
                     </div>
+                </div>
 
-                    <div class="parent" style="top:46%">
-                        <h2><button id="song_charts_link">Charts</button></h2>
-                        <div class="scrollBar">
-                            <div class="child" onclick="display_song_details('id12')">
-                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/havana.png">
-                                <h3>Havana</h3>
-                                <h5>Camila Cabello</h5>
-                            </div>
-                            <div class="child" onclick="display_song_details('id11')">
-                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
-                                <h3>Too Good At Goodbyes</h3>
-                                <h5>Sam Smith</h5>
-                            </div>
-                            <div class="child" onclick="display_song_details('id7')">
-                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/rockstar.jpg">
-                                <h3>Rockstar</h3>
-                                <h5>Post Malone</h5>
-                            </div>
-                            <div class="child" onclick="display_song_details('id8')">
-                                <img style="width:100%" class="img-responsible" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
-                                <h3>Sorry Not Sorry</h3>
-                                <h5>Demi Lovato</h5>
-                            </div>
+                <div class="parent">
+                    <h2><button id="song_charts_link">Charts</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_song_details('id12')">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+                            <h3>Havana</h3>
+                            <h5>Camila Cabello</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id11')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+                            <h3>Too Good At Goodbyes</h3>
+                            <h5>Sam Smith</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id7')">
+                            <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+                            <h3>Rockstar</h3>
+                            <h5>Post Malone</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id8')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+                            <h3>Sorry Not Sorry</h3>
+                            <h5>Demi Lovato</h5>
                         </div>
                     </div>
+                </div>
 
-                    <div class="parent" style="top:72%">
-                        <h2><button id="song_genres_link">Genres</button></h2>
-                        <div class="scrollBar">
-                            <div class="child display_song_by_genre" onclick="set_songs_by_genre('Alternative rock')">
-                                <img class="img-responsive" src="../ressrc/songs_images/genres/alternative_rock.jpg">
-                                <h3>Alternative rock</h3></div>
-                            <div class="child display_song_by_genre" onclick="set_songs_by_genre('downtempo')">
-                                <img class="img-responsive" src="../ressrc/songs_images/genres/downtempo.jpg">
-                                <h3>Downtempo</h3>
-                            </div>
-                            <div class="child display_song_by_genre" onclick="set_songs_by_genre('pop')">
-                                <img class="img-responsive" src="../ressrc/songs_images/genres/pop.jpg">
-                                <h3>Pop</h3>
-                            </div>
-                            <div class="child display_song_by_genre" onclick="set_songs_by_genre('Punk rock')">
-                                <img class="img-responsive" src="../ressrc/songs_images/genres/punk_rock.jpg">
-                                <h3>Punk rock</h3>
-                            </div>
+                <div class="parent">
+                    <h2><button id="song_genres_link">Genres</button></h2>
+                    <div class="scrollBar">
+                        <div class="child display_song_by_genre" onclick="set_songs_by_genre('Alternative rock')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/alternative_rock.jpg">
+                            <h3>Alternative rock</h3>
+                        </div>
+                        <div class="child display_song_by_genre" onclick="set_songs_by_genre('downtempo')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/downtempo.jpg">
+                            <h3>Downtempo</h3>
+                        </div>
+                        <div class="child display_song_by_genre" onclick="set_songs_by_genre('pop')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/pop.jpg">
+                            <h3>Pop</h3>
+                        </div>
+                        <div class="child display_song_by_genre" onclick="set_songs_by_genre('Punk rock')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/punk_rock.jpg">
+                            <h3>Punk rock</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parent">
+                    <h2>Recently played</h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_song_details('id2')">
+                            <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"/>
+                            <h3>Side To Side</h3>
+                            <h5>Ariana Grande</h5>
+                        </div>
+
+                        <div class="child" onclick="display_song_details('id9')">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg"/>
+                            <h3>Thunder</h3>
+                            <h5>Imagine Dragons</h5>
+                        </div>
+
+                        <div class="child" onclick="display_song_details('id12')">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png"/>
+                            <h3>Havana</h3>
+                            <h5>Camila Cabello</h5>
+                        </div>
+
+                        <div class="child" onclick="display_song_details('id1')">
+                            <img class="img-responsive" src="../ressrc/songs_images/like%20a%20star.jpg"/>
+                            <h3>Like A Star</h3>
+                            <h5>Fly Project</h5>
+                        </div>
+
+                        <div class="child" onclick="display_song_details('id4')">
+                            <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg"/>
+                            <h3>Holiday</h3>
+                            <h5>Green Day</h5>
                         </div>
                     </div>
                 </div>
