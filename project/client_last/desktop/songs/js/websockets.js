@@ -30,7 +30,7 @@ function send_mysongs() {
                     `<tr>
                             <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
                             <td><button onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');"><em class="fa fa-plus"></em></button></td>
-                            <td><button><em class="fa fa-minus"></em></button></td>
+                            <td><button onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this)"><em class="fa fa-minus"></em></button></td>
                             <td><button onclick="display_song_details('${"id" + parseInt(songs[i].substring(2))}')">${song.title}</button></td>
                             <td>${song.artist}</td>
                             <td>${song.album}</td>
@@ -201,6 +201,42 @@ function apply_filters_mysong() {
         }
     }
 
+    if($("#mysongs_input_keywords").val() !== "") {
+        words = $("#mysongs_input_keywords").val().split(" ");
+        for(let i = 0; i < tmp_mysongs.length; i++) {
+            flag = false;
+            for(let j = 0; j < words.length; j++) {
+                if(contains_word(playerAPI.songs[tmp_mysongs[i]].title, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs[tmp_mysongs[i]].album, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs[tmp_mysongs[i]].artist, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs[tmp_mysongs[i]].release, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(playerAPI.songs[tmp_mysongs[i]].genre.toString(), words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+
+        }
+        console.log(check);
+        console.log(tmp_mysongs);
+    }
 
     $(".table").find("tbody").html("");
     for(let i = 0; i < tmp_mysongs.length; i++) {
@@ -209,9 +245,9 @@ function apply_filters_mysong() {
             $(".table").find("tbody").append(
                 `<tr>
                     <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
-                    <td><button><em class="fa">&#xf067;</em></button></td>
-                    <td><button><em class="fa">&#xf068;</em></button></td>
-                    <td><button>${song.title}</button></td>
+                    <td><button onclick="open_playlists_modal('${tmp_mysongs[i]}');"><em class="fa fa-plus"></em></button></td>
+                    <td><button onclick="remove_playlist('${tmp_mysongs[i]}', this)"><em class="fa fa-minus"></em></button></td>
+                    <td><button onclick="display_song_details('${tmp_mysongs[i]}')">${song.title}</button></td>
                     <td>${song.artist}</td>
                     <td>${song.album}</td>
                     <td>${song.release}</td>
@@ -445,6 +481,18 @@ function remove_from_playlist(playlist, song_id, this_elem) {
 
     ws.onopen = function() {
         message = '{ "type": "remove from playlist", "playlist":"' + playlist + '", "song_id":"' + song_id + '"}';
+
+        ws.send(message);
+    };
+
+    $(this_elem).parents(':eq(1)').html("");
+}
+
+function remove_from_mysongs(song_id, this_elem) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "remove from mysongs", "song_id":"' + song_id + '"}';
 
         ws.send(message);
     };

@@ -118,7 +118,29 @@ wsServer.on('connection', function connection(ws) {
 						if (err) return console.log(err);
 					});
 				});
-            } 
+            } else if(message["type"] === "remove from mysongs") {
+                var fs = require('fs');
+				fs.readFile("data/mysongs.txt", 'utf8', function (err,data) {
+					if (err) {
+						return console.log(err);
+					}
+					var replace = message["song_id"] + '\r\n';
+					var re = new RegExp(replace);
+
+					tmp = data.replace(re, "");
+					if(data === tmp) {
+						var replace = message["song_id"];
+						var re = new RegExp(replace);
+						tmp = data.replace(re, "");
+					}
+					data = tmp;
+					
+					console.log(data);
+					fs.writeFile("data/mysongs.txt", data, 'utf8', function (err) {
+						if (err) return console.log(err);
+					});
+				});
+			}
         } else {
             if(message === "mysongs") {
                 var fs = require('fs');

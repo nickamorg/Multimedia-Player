@@ -24,6 +24,7 @@
 
 	<!-- OUR IMPORTS -->
 	<link type="text/css" rel="stylesheet" href="songs/css/general.css">
+    <link type="text/css" rel="stylesheet" href="search.css">
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -31,7 +32,39 @@
 	<script type="application/javascript" src="songs/js/header.js"></script>
 	<script type="application/javascript" src="songs/js/player.js"></script>
 	<script type="application/javascript" src="songs/js/websockets.js"></script>
-	
+
+    <style>
+        .table-striped>tbody>tr:nth-child(odd)>td,
+        .table-striped>tbody>tr:nth-child(odd)>th {
+            background-color: #222235;
+        }
+        .table-borderless > tbody > tr > td,
+        .table-borderless > tbody > tr > th,
+        .table-borderless > tfoot > tr > td,
+        .table-borderless > tfoot > tr > th,
+        .table-borderless > thead > tr > td,
+        .table-borderless > thead > tr > th {
+            border: none;
+        }
+    </style>
+
+    <script>
+        function toggle_tabs(id) {
+            $("#display_top_results").hide();
+            $("#display_genres").hide();
+            $("#display_artists").hide();
+            $("#display_tracks").hide();
+            $("#display_albums").hide();
+            $("#display_" + id).show();
+
+            $("#songs_top_results").removeClass("active-tab");
+            $("#songs_genres").removeClass("active-tab");
+            $("#songs_artists").removeClass("active-tab");
+            $("#songs_tracks").removeClass("active-tab");
+            $("#songs_albums").removeClass("active-tab");
+            $("#songs_" + id).addClass("active-tab");
+        }
+    </script>
 </head>
 
 <body>
@@ -161,7 +194,24 @@
             <script>setHeader();</script>
             <div class="content scrollbar">
                 <div class="mysongs">
-                    <div class="col-xs-3" style="padding:0; margin-bottom:120px">
+                    <div class="col-xs-2" style="padding:0; margin-bottom:120px">
+                        <div id="mysongs_keywords">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Keywords</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('search_keywords');" type="button" data-toggle="collapse" data-target="#search_keywords">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="mysongs_keywords_content" class="collapse in scrollbar filter_content">
+                                <input id="mysongs_input_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
+                            </div>
+                        </div>
+
                         <div id="genres">
                             <div class="filter_category">
                                 <p style="margin:0">
@@ -190,18 +240,21 @@
                                 </p>
                             </div>
 
-                            <div id="release_content" class="collapse in filter_content form-inline text-center">
-                                <div class="form-group" style="padding-right:20px">
+                            <div id="release_content" class="collapse in filter_content form-inline">
+                                <div class="col-xs-12">
                                     <label class="control-label">From</label>
-                                    <select onchange="apply_filters_mysong()" id="from"  class="form-control">
-                                    </select>
+                                </div>
+                                <div class="col-xs-12">
+                                    <select id="from" onchange="apply_filters_mysong()" class="form-control" style="width:100%"></select>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="col-xs-12">
                                     <label class="control-label">To</label>
-                                    <select onchange="apply_filters_mysong()" id="to"  class="form-control">
-                                    </select>
                                 </div>
+                                <div class="col-xs-12">
+                                    <select id="to" onchange="apply_filters_mysong()" class="form-control" style="width:100%"></select>
+                                </div>
+                                <div class="clearfix"></div>
 
                             </div>
                         </div>
@@ -240,7 +293,7 @@
 
                     </div>
 
-                    <div class="col-xs-9" style="padding-right:0; margin-top:20px;">
+                    <div class="col-xs-10" style="padding-right:0; margin-top:20px;">
 
                         <h1>My songs</h1>
                         <table class="table display_songs">
@@ -321,30 +374,9 @@
 
                   <div class="col-xs-3" style="padding-right:0">
                       <div class="card similars col-xs-12">
-                          <h1 style="margin-top:0; padding-left:15px; padding-bottom:20px">Similar songs</h1>
-                          <div class="col-xs-12" style="padding: 0 0 20px 0">
-                              <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/image.png"></div>
-                              <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                          </div>
+                          <h1 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related songs</h1>
 
-                          <div class="col-xs-12" style="padding: 0 0 20px 0">
-                              <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/image.png"></div>
-                              <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                          </div>
-
-                          <div class="col-xs-12" style="padding: 0 0 20px 0">
-                              <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/image.png"></div>
-                              <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                          </div>
-
-                          <div class="col-xs-12" style="padding: 0 0 20px 0">
-                              <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/image.png"></div>
-                              <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
-                          </div>
-
-                          <div class="col-xs-12" style="padding: 0 0 20px 0">
-                              <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/image.png"></div>
-                              <div class="col-xs-8" style="padding-right: 0"><p>Wolves</p><small>Selena Gomez, Marshmello</small></div>
+                          <div id="related_content">
                           </div>
                       </div>
                   </div>
@@ -411,124 +443,366 @@
         <div id="song_search" class="pt-page">
             <script>setHeader();</script>
             <div class="content scrollbar">
-                <div class="search_songs">
-                    <div class="col-xs-3" style="padding:0; margin-bottom:120px">
-
-                        <div id="search_keywords">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Keywords</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('search_keywords');" type="button" data-toggle="collapse" data-target="#search_keywords">
+                <div class="col-xs-12" style="padding:0 50px 0 0; margin-bottom:120px">
+                    <section aria-label="Results">
+                        <div class="row">
+                            <aside class="col-xs-2">
+                                <div id="search_genres">
+                                    <div class="filter_category">
+                                        <p style="margin:0">
+                                            <span>Genres</span>
+                                            <span style="float:right">
+                                        <button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#search_genres_content">
                                             <em class="fa fa-long-arrow-up"></em>
                                         </button>
                                     </span>
-                                </p>
-                            </div>
+                                        </p>
+                                    </div>
 
-                            <div id="search_keywords_content" class="collapse in scrollbar filter_content">
-                                <input id="inside_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
-                            </div>
-                        </div>
-
-                        <div id="search_genres">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Genres</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('search_genres');" type="button" data-toggle="collapse" data-target="#genres_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
-                                </p>
-                            </div>
-
-                            <div id="search_genres_content" class="collapse in scrollbar filter_content">
-                            </div>
-                        </div>
-
-                        <div id="search_release">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Release Date</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('search_release');" type="button" data-toggle="collapse" data-target="#release_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
-                                </p>
-                            </div>
-
-                            <div id="search_release_content" class="collapse in filter_content form-inline text-center">
-                                <div class="form-group" style="padding-right:20px">
-                                    <label class="control-label">From</label>
-                                    <select onchange="apply_filters_search()" id="search_from"  class="form-control">
-                                    </select>
+                                    <div id="search_genres_content" class="collapse in scrollbar filter_content">
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="control-label">To</label>
-                                    <select onchange="apply_filters_search()" id="search_to"  class="form-control">
-                                    </select>
+                                <div id="search_release">
+                                    <div class="filter_category">
+                                        <p style="margin:0">
+                                            <span>Release Date</span>
+                                            <span style="float:right">
+                                        <button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#search_release_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                        </p>
+                                    </div>
+
+                                    <div id="search_release_content" class="collapse in filter_content form-inline text-center">
+                                        <div class="form-group" style="padding-right:20px">
+                                            <label class="control-label">From</label>
+                                            <select onchange="apply_filters_mysong()" id="search_from"  class="form-control">
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label">To</label>
+                                            <select onchange="apply_filters_mysong()" id="search_to"  class="form-control">
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </aside>
+                            <article class="col-md-10">
+                                <div class="horizontal-tabs">
+                                    <a id="songs_top_results" onclick="toggle_tabs('top_results')">TOP RESULTS</a>
+                                    <a id="songs_genres" onclick="toggle_tabs('genres')">GENRE</a>
+                                    <a id="songs_artists" onclick="toggle_tabs('artists')">ARTISTS</a>
+                                    <a id="songs_tracks" onclick="toggle_tabs('tracks')">TRACKS</a>
+                                    <a id="songs_albums" onclick="toggle_tabs('albums')">ALBUMS</a>
                                 </div>
 
-                            </div>
+                                <div id="display_top_results">
+                                    <section>
+                                        <h4>Genre</h4>
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/rock.jpg" alt="Rock">
+                                                <p class="text-center">Rock</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/alternative-rock.jpg" alt="Alternative Rock">
+                                                <p class="text-center">Alternative Rock</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/hard-rock.jpg" alt="Hard Rock">
+                                                <p class="text-center">Hard Rock</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/progressive-rock.jpg" alt="Progressive Rock">
+                                                <p class="text-center">Progressive Rock</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/punk-rock.jpg" alt="Punk Rock">
+                                                <p class="text-center">Punk Rock</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                    <section>
+                                        <h4>Tracks</h4>
+                                        <table class="table table-striped table-borderless" summary="Top tracks for search results rock">
+                                            <thead>
+                                            <th style="visibility: hidden;">Listen</th>
+                                            <th aria-label="number">#</th>
+                                            <th>TITLE</th>
+                                            <th>ARTIST</th>
+                                            <th>ALBUM</th>
+                                            <th">DURATION</th>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">1</td>
+                                                <td headers="title">Rockabye (feat. Sean Paul & Anne-Marie)</td>
+                                                <td headers="artist"><a href="#">Clean Bandit</a>, <a href="#">Sean Paul</a>, <a href="#">Anne-Marie</a></td>
+                                                <td headers="album"><a href="#">Rockabye (feat. Sean Paul & Anne-Marie)</a></td>
+                                                <td headers="duration">4:11</td>
+                                            </tr>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">2</td>
+                                                <td headers="title">We Will Rock You - Remastered 2011</td>
+                                                <td headers="artist"><a href="#">Queen</a></td>
+                                                <td headers="album"><a href="#">News Of The World (2011 Remaster)</a></td>
+                                                <td headers="duration">2:02</td>
+                                            </tr>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">3</td>
+                                                <td headers="title">Rock You Like a Hurricane</td>
+                                                <td headers="artist"><a href="#">Scorpions</a></td>
+                                                <td headers="album"><a href="#">Comeblack</a></td>
+                                                <td headers="duration">4:15</td>
+                                            </tr>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">4</td>
+                                                <td headers="title">Rockstar</td>
+                                                <td headers="artist"><a href="#">Post Malone</a>, <a href="#">21 Savage</a></td>
+                                                <td headers="album"><a href="#">Rockstar</a></td>
+                                                <td headers="duration">3:38</td>
+                                            </tr>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">5</td>
+                                                <td headers="title">Rock the Casbah - Remastered</td>
+                                                <td headers="artist"><a href="#">The Clash</a></td>
+                                                <td headers="album"><a href="#">Combat Rock</a></td>
+                                                <td headers="duration">3:42</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </section>
+                                    <section>
+                                        <h4>Artists</h4>
+                                        <div style="display: flex;  justify-content: space-between;">
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/elvis-presley.jpg" alt="Elvis Presley">
+                                                <p class="text-center">Elvis Presley</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/A$AP-Rocky.jpg" alt="A$AP Rocky">
+                                                <p class="text-center">A$AP Rocky</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/Stage-Rockers.jpg" alt="Stage Rockers">
+                                                <p class="text-center">Stage Rockers</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/ONE-OK-ROCK.jpg" alt="ONE OK ROCK">
+                                                <p class="text-center">ONE OK ROCK</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/PnB-Rock.jpg" alt="PnB Rock">
+                                                <p class="text-center">PnB Rock</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                    <section>
+                                        <h4>Albums</h4>
+                                        <div style="display: flex;  justify-content: space-between;">
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/rock-or-burst-by-ac-dc.jpg" alt="Rock or Burst by AC/DC">
+                                                    <p class="text-center">Rock or Burst</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">AC/DC</a></p>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/rockstar-by-post-malone.jpg" alt="Rockstar by Post Malone">
+                                                    <p class="text-center">Rockstar</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">Post Malone</a></p>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/let-there-be-rock-by-ac-dc.jpg" alt="Let There Be Rock by AC/DC">
+                                                    <p class="text-center">Let There Be Rock</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">AC/DC</a></p>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/Rockabye-(feat.-Sean-Paul-&-&Anne-Marie)-by-Clean-Bandit.jpg" alt="Rockabye">
+                                                    <p class="text-center">Rockabye</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">Clean Bandit</a></p>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/In-Rock-by-Stelios-Rokkos.jpg" alt="In Rock by Stelios Rokkos">
+                                                    <p class="text-center">In Rock</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">Stelios Rokkos</a></p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="display_genres">
+                                    <section>
+                                        <h4>Genre</h4>
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/rock.jpg" alt="Rock">
+                                                <p class="text-center">Rock</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/alternative-rock.jpg" alt="Alternative Rock">
+                                                <p class="text-center">Alternative Rock</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/hard-rock.jpg" alt="Hard Rock">
+                                                <p class="text-center">Hard Rock</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/progressive-rock.jpg" alt="Progressive Rock">
+                                                <p class="text-center">Progressive Rock</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/punk-rock.jpg" alt="Punk Rock">
+                                                <p class="text-center">Punk Rock</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="display_artists">
+                                    <section>
+                                        <h4>Artists</h4>
+                                        <div style="display: flex;  justify-content: space-between;">
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/elvis-presley.jpg" alt="Elvis Presley">
+                                                <p class="text-center">Elvis Presley</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/A$AP-Rocky.jpg" alt="A$AP Rocky">
+                                                <p class="text-center">A$AP Rocky</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/Stage-Rockers.jpg" alt="Stage Rockers">
+                                                <p class="text-center">Stage Rockers</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/ONE-OK-ROCK.jpg" alt="ONE OK ROCK">
+                                                <p class="text-center">ONE OK ROCK</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/PnB-Rock.jpg" alt="PnB Rock">
+                                                <p class="text-center">PnB Rock</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="display_tracks">
+                                    <section>
+                                        <h4>Tracks</h4>
+                                        <table class="table table-striped table-borderless" summary="Top tracks for search results rock">
+                                            <thead>
+                                            <th style="visibility: hidden;">Listen</th>
+                                            <th aria-label="number">#</th>
+                                            <th>TITLE</th>
+                                            <th>ARTIST</th>
+                                            <th>ALBUM</th>
+                                            <th>DURATION</th>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">1</td>
+                                                <td headers="title">Rockabye (feat. Sean Paul & Anne-Marie)</td>
+                                                <td headers="artist"><a href="#">Clean Bandit</a>, <a href="#">Sean Paul</a>, <a href="#">Anne-Marie</a></td>
+                                                <td headers="album"><a href="#">Rockabye (feat. Sean Paul & Anne-Marie)</a></td>
+                                                <td headers="duration">4:11</td>
+                                            </tr>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">2</td>
+                                                <td headers="title">We Will Rock You - Remastered 2011</td>
+                                                <td headers="artist"><a href="#">Queen</a></td>
+                                                <td headers="album"><a href="#">News Of The World (2011 Remaster)</a></td>
+                                                <td headers="duration">2:02</td>
+                                            </tr>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">3</td>
+                                                <td headers="title">Rock You Like a Hurricane</td>
+                                                <td headers="artist"><a href="#">Scorpions</a></td>
+                                                <td headers="album"><a href="#">Comeblack</a></td>
+                                                <td headers="duration">4:15</td>
+                                            </tr>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">4</td>
+                                                <td headers="title">Rockstar</td>
+                                                <td headers="artist"><a href="#">Post Malone</a>, <a href="#">21 Savage</a></td>
+                                                <td headers="album"><a href="#">Rockstar</a></td>
+                                                <td headers="duration">3:38</td>
+                                            </tr>
+                                            <tr>
+                                                <th headers="icon" scope="row"><button aria-label="Play" class="btn my-btn"><em class="fa" style="font-size: 20px;">&#xf01d;</em></button></th>
+                                                <td headers="number">5</td>
+                                                <td headers="title">Rock the Casbah - Remastered</td>
+                                                <td headers="artist"><a href="#">The Clash</a></td>
+                                                <td headers="album"><a href="#">Combat Rock</a></td>
+                                                <td headers="duration">3:42</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </section>
+                                </div>
+                                <div id="display_albums">
+                                    <section>
+                                        <h4>Albums</h4>
+                                        <div style="display: flex;  justify-content: space-between;">
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/rock-or-burst-by-ac-dc.jpg" alt="Rock or Burst by AC/DC">
+                                                    <p class="text-center">Rock or Burst</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">AC/DC</a></p>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/rockstar-by-post-malone.jpg" alt="Rockstar by Post Malone">
+                                                    <p class="text-center">Rockstar</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">Post Malone</a></p>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/let-there-be-rock-by-ac-dc.jpg" alt="Let There Be Rock by AC/DC">
+                                                    <p class="text-center">Let There Be Rock</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">AC/DC</a></p>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/Rockabye-(feat.-Sean-Paul-&-&Anne-Marie)-by-Clean-Bandit.jpg" alt="Rockabye">
+                                                    <p class="text-center">Rockabye</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">Clean Bandit</a></p>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <img class="img-circle results-image" src="../ressrc/search/In-Rock-by-Stelios-Rokkos.jpg" alt="In Rock by Stelios Rokkos">
+                                                    <p class="text-center">In Rock</p>
+                                                </a>
+                                                <p class="text-center">By <a href="#">Stelios Rokkos</a></p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </article>
                         </div>
-
-                        <div id="search_artists">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Artists</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('search_artists');" type="button" data-toggle="collapse" data-target="#artists_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
-                                </p>
-                            </div>
-
-                            <div id="search_artists_content" class="collapse in scrollbar filter_content">
-                            </div>
-                        </div>
-
-                        <div id="search_albums">
-                            <div class="filter_category">
-                                <p style="margin:0">
-                                    <span>Albums</span>
-                                    <span style="float:right">
-                                        <button onclick="expand_filter('search_albums');" type="button" data-toggle="collapse" data-target="#albums_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
-                                </p>
-                            </div>
-
-                            <div id="search_albums_content" class="collapse in scrollbar filter_content">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-xs-9" style="padding-right:0; margin-top:20px;">
-
-                        <h1>Songs</h1>
-                        <table class="table display_songs">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th>TITLE</th>
-                                <th>ARTIST</th>
-                                <th>ALBUM</th>
-                                <th>RELEASE</th>
-                                <th><em class="fa">&#xf017;</em></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                    </section>
                 </div>
             </div>
             <script>setPlayer();</script>
@@ -714,10 +988,12 @@
     </script>
 
     <script>
-        $("#inside_keywords").on("change paste keyup", function() {
-            apply_filters_search();
+        $("#mysongs_input_keywords").on("change paste keyup", function() {
+            apply_filters_mysong();
         });
     </script>
+
+    <script>toggle_tabs("top_results");</script>
 </body>
 
 </html>
