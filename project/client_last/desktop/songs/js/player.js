@@ -99,7 +99,7 @@ function display_song_details(song_id) {
             <p>${song.duration}</p>
         </div>`);
 
-    $("#relevant_content").html("");
+    $("#related_content").html("");
     counter = 0;
     common = [];
     common_counter = 0;
