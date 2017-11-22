@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Roboto', sans-serif !important;
+    cursor:default;
 }
 
 #pt-main {
@@ -243,6 +244,7 @@ button {
 }
 
 .filter_category {
+    cursor: pointer;
     padding:10px;
     background-color: #1F4A58;
 }
@@ -431,4 +433,29 @@ a {
 
 #song_charts_content small {
     color:darkgray;
+}
+
+#song_recently_played_content div {
+    cursor: pointer;
+    padding-bottom: 40px;
+}
+
+#song_recently_played_content p {
+    margin: 0;
+    font-size:18px;
+}
+
+#song_recently_played_content small {
+    color:darkgray;
+}
+button:hover, a:hover, a:hover em, button:hover em {
+    color: #2BB4C4;
+}
+
+input, select {
+    cursor: pointer;
+}
+
+.fa {
+    font-size: 24px !important;
 }

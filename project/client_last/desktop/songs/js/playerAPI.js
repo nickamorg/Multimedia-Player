@@ -1005,7 +1005,7 @@ playerAPI.prev = function prev() {
     isPaused = playerAPI.playing.paused;
     playerAPI.row = (playerAPI.row - 1);
     if(playerAPI.row < 0) {
-        playerAPI.row = playerAPI.playlist.length;
+        playerAPI.row = playerAPI.playlist.length - 1;
     }
 
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;

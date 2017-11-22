@@ -11,3 +11,22 @@ $( document ).ready(function() {
     document.getElementById("from").innerHTML = html;
     document.getElementById("to").innerHTML = html;
 })
+
+class VisitedPagesStack {
+
+    constructor() {
+        this.stack = ["lobby"];
+        this.counter = 1;
+    }
+
+    goToLastVisitedPage() {
+        PageTransitions.goToPage(2, this.stack[--this.counter]);
+    }
+
+    setNewLastVisitedPage(page) {
+        this.stack[this.counter++] = page;
+    }
+
+}
+
+visitedPagesStack = new VisitedPagesStack();

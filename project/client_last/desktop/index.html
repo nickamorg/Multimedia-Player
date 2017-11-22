@@ -31,6 +31,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="application/javascript" src="songs/js/header.js"></script>
 	<script type="application/javascript" src="songs/js/player.js"></script>
+    <script type="application/javascript" src="songs/js/general.js"></script>
 	<script type="application/javascript" src="songs/js/websockets.js"></script>
 
     <style>
@@ -156,7 +157,7 @@
 
                     <div class="col-xs-3" style="padding-right:0">
                         <div class="card resents col-xs-12">
-                            <h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently played</h3>
+                            <h3><button id="song_recently_played_link">Recently played</button></h3>
                             <div class="col-xs-12" style="padding: 0 0 20px 0; cursor: pointer" onclick="display_song_details('id2')">
                                 <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"></div>
                                 <div class="col-xs-8" style="padding-right: 0"><p>Side To Side</p><small>Ariana Grande</small></div>
@@ -196,13 +197,11 @@
                 <div class="mysongs">
                     <div class="col-xs-2" style="padding:0; margin-bottom:120px">
                         <div id="mysongs_keywords">
-                            <div class="filter_category">
+                            <div class="filter_category" onclick="expand_filter('mysongs_keywords');" type="button" data-toggle="collapse" data-target="#mysongs_keywords_content">
                                 <p style="margin:0">
                                     <span>Keywords</span>
                                     <span style="float:right">
-                                        <button onclick="expand_filter('mysongs_keywords');" type="button" data-toggle="collapse" data-target="#mysongs_keywords_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
+                                        <em class="fa fa-long-arrow-up"></em>
                                     </span>
                                 </p>
                             </div>
@@ -213,13 +212,11 @@
                         </div>
 
                         <div id="genres">
-                            <div class="filter_category">
+                            <div class="filter_category" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
                                 <p style="margin:0">
                                     <span>Genres</span>
                                     <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
+                                        <em class="fa fa-long-arrow-up"></em>
                                     </span>
                                 </p>
                             </div>
@@ -229,13 +226,11 @@
                         </div>
 
                         <div id="release">
-                            <div class="filter_category">
+                            <div class="filter_category" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
                                 <p style="margin:0">
                                     <span>Release Date</span>
                                     <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
+                                        <em class="fa fa-long-arrow-up"></em>
                                     </span>
                                 </p>
                             </div>
@@ -260,13 +255,11 @@
                         </div>
 
                         <div id="artists">
-                            <div class="filter_category">
+                            <div class="filter_category" onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#artists_content">
                                 <p style="margin:0">
                                     <span>Artists</span>
                                     <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#artists_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
+                                        <em class="fa fa-long-arrow-up"></em>
                                     </span>
                                 </p>
                             </div>
@@ -276,17 +269,14 @@
                         </div>
 
                         <div id="albums">
-                            <div class="filter_category">
+                            <div class="filter_category" onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
                                 <p style="margin:0">
                                     <span>Albums</span>
                                     <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
+                                        <em class="fa fa-long-arrow-up"></em>
                                     </span>
                                 </p>
                             </div>
-
                             <div id="albums_content" class="collapse in scrollbar filter_content">
                             </div>
                         </div>
@@ -474,7 +464,7 @@
                                             <p style="margin:0">
                                                 <span>Genres</span>
                                                 <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#search_genres_content">
+                                        <button onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#search_genres_content">
                                             <em class="fa fa-long-arrow-up"></em>
                                         </button>
                                     </span>
@@ -489,7 +479,7 @@
                                             <p style="margin:0">
                                                 <span>Release Date</span>
                                                 <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#search_release_content">
+                                        <button onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#search_release_content">
                                             <em class="fa fa-long-arrow-up"></em>
                                         </button>
                                     </span>
@@ -520,7 +510,7 @@
                                             <p style="margin:0">
                                                 <span>Artists</span>
                                                 <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#search_artists_content">
+                                        <button onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#search_artists_content">
                                             <em class="fa fa-long-arrow-up"></em>
                                         </button>
                                     </span>
@@ -535,7 +525,7 @@
                                             <p style="margin:0">
                                                 <span>Albums</span>
                                                 <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#search_albums_content">
+                                        <button onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#search_albums_content">
                                             <em class="fa fa-long-arrow-up"></em>
                                         </button>
                                     </span>
@@ -545,7 +535,7 @@
                                         <div id="search_albums_content" class="collapse in scrollbar filter_content"><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Single">Single<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="American Idiot">American Idiot<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Tell Me You Love Me">Tell Me You Love Me<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Evolve">Evolve<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Comeblack">Comeblack<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Concrete and Gold">Concrete and Gold<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="The Thrill of It All">The Thrill of It All<br><input onchange="apply_filters_mysong()" type="checkbox" name="album" value="Rockstar">Rockstar<br></div>
                                     </div>
                             </aside>
-                            <article class="col-md-10">
+                            <article class="col-md-10" style="padding-top:50px">
                                 <div class="horizontal-tabs">
                                     <a id="songs_top_results" onclick="toggle_tabs('top_results')">TOP RESULTS</a>
                                     <a id="songs_genres" onclick="toggle_tabs('genres')">GENRE</a>
@@ -945,34 +935,34 @@
                 <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
                     <h3 style="margin-left:5px; padding:0 0 10px 10px">Genres</h3>
                     <div id="song_genres_content">
-                        <div class="col-xs-3 display_song_by_genre" style="cursor: pointer" onclick="set_songs_by_genre('Alternative rock')">
+                        <div class="col-xs-3" style="cursor: pointer" onclick="set_songs_by_genre('Alternative rock')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/alternative_rock.jpg">
                             <p>Alternative rock</p></div>
-                        <div class="col-xs-3 display_song_by_genre" style="cursor: pointer" onclick="set_songs_by_genre('downtempo')">
+                        <div class="col-xs-3" style="cursor: pointer" onclick="set_songs_by_genre('downtempo')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/downtempo.jpg">
                             <p>Downtempo</p>
                         </div>
-                        <div class="col-xs-3 display_song_by_genre" style="cursor: pointer" onclick="set_songs_by_genre('pop')">
+                        <div class="col-xs-3" style="cursor: pointer" onclick="set_songs_by_genre('pop')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/pop.jpg">
                             <p>Pop</p>
                         </div>
-                        <div class="col-xs-3 display_song_by_genre" style="cursor: pointer" onclick="set_songs_by_genre('Punk rock')">
+                        <div class="col-xs-3" style="cursor: pointer" onclick="set_songs_by_genre('Punk rock')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/punk_rock.jpg">
                             <p>Punk rock</p>
                         </div>
-                        <div class="col-xs-3 display_song_by_genre" style="cursor: pointer" onclick="set_songs_by_genre('reggaeton')">
+                        <div class="col-xs-3" style="cursor: pointer" onclick="set_songs_by_genre('reggaeton')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/reggaeton.png">
                             <p>Reggaeton</p>
                         </div>
-                        <div class="col-xs-3 display_song_by_genre" style="cursor: pointer" onclick="set_songs_by_genre('trap')">
+                        <div class="col-xs-3" style="cursor: pointer" onclick="set_songs_by_genre('trap')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/trap.jpg">
                             <p>Trap</p>
                         </div>
-                        <div class="col-xs-3 display_song_by_genre" style="cursor: pointer" onclick="set_songs_by_genre('latin')">
+                        <div class="col-xs-3" style="cursor: pointer" onclick="set_songs_by_genre('latin')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/latin.jpg">
                             <p>Latin</p>
                         </div>
-                        <div class="col-xs-3 display_song_by_genre" style="cursor: pointer" onclick="set_songs_by_genre('Reggae-pop')">
+                        <div class="col-xs-3" style="cursor: pointer" onclick="set_songs_by_genre('Reggae-pop')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/reggae_pop.jpg">
                             <p>Reggae-pop</p>
                         </div>
@@ -983,14 +973,57 @@
         </div>
         <!-- END PAGE 12 - SONG_GENRES-->
 
-        <!-- The Modal -->
+        <!-- BEGIN PAGE 13 - SONG_GENRES-->
+        <div id="song_recently_played" class="pt-page">
+            <script>setHeader();</script>
+            <div class="content scrollbar">
+                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Recently played</h3>
+                    <div id="song_recently_played_content">
+                        <div class="col-xs-3" onclick="display_song_details('id2')">
+                            <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png">
+                            <p>Side To Side</p>
+                            <small>Ariana Grande</small>
+                        </div>
+
+                        <div class="col-xs-3" onclick="display_song_details('id9')">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+                            <p>Thunder</p>
+                            <small>Imagine Dragons</small>
+                        </div>
+
+                        <div class="col-xs-3" onclick="display_song_details('id12')">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+                            <p>Havana</p>
+                            <small>Camila Cabello</small>
+                        </div>
+
+                        <div class="col-xs-3" onclick="display_song_details('id1')">
+                            <img class="img-responsive" src="../ressrc/songs_images/like%20a%20star.jpg">
+                            <p>Like A Star</p>
+                            <small>Fly Project</small>
+                        </div>
+
+                        <div class="col-xs-3" onclick="display_song_details('id4')">
+                            <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg">
+                            <p>Holiday</p>
+                            <small>Green Day</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>setPlayer();</script>
+        </div>
+        <!-- END PAGE 12 - SONG_GENRES-->
+
+        <!-- Modal - Playlists -->
         <div id="playlists_modal" class="modal">
 
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>Choose the destination list of the track</h2>
+                    <h2></h2>
                 </div>
                 <div class="modal-body scrollbar">
                     <input id="new_playlist_input"/>
@@ -1001,7 +1034,7 @@
             </div>
         </div>
 
-        <!-- The Modal -->
+        <!-- Modal - New playlist -->
         <div id="new_playlist_modal" class="modal">
 
             <!-- Modal content -->
@@ -1035,24 +1068,18 @@
     <script type="application/javascript" src="songs/js/playerAPI.js"></script>
 
     <script>
-        // Get the modal
-        var modal = document.getElementById('playlists_modal');
+        // Get the playlists modal
+        var playlists_modal = document.getElementById('playlists_modal');
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
-            modal.style.display = "none";
+            playlists_modal.style.display = "none";
         };
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
+        // Get the new playlist modal
         var new_playlist_modal = document.getElementById('new_playlist_modal');
 
         // Get the <span> element that closes the modal
@@ -1065,6 +1092,10 @@
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
+            if (event.target == playlists_modal) {
+                playlists_modal.style.display = "none";
+            }
+
             if (event.target == new_playlist_modal) {
                 new_playlist_modal.style.display = "none";
             }

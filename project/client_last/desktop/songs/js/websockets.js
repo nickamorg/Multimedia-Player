@@ -106,7 +106,7 @@ function play_mysong(curr_song) {
         myBar.css("width", "0");
     });
     $("#playing")[0].play();
-    $(".title").html(playerAPI.songs[playerAPI.playlist[curr_song]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".title").html(playerAPI.songs[playerAPI.playlist[curr_song]].title + '<button onclick="open_playlists_modal(\'' + playerAPI.playlist[curr_song] + '\')"><em class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[curr_song]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[curr_song]].img);
 }
@@ -258,7 +258,6 @@ function apply_filters_mysong() {
 function play_song(curr_song) {
     add_recently_played_song(curr_song);
     playerAPI.playlist = playerAPI.tmpPlaylist;
-    playerAPI.row = curr_song;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[curr_song].file;
     $("#playing")[0].load();
 
@@ -279,7 +278,7 @@ function play_song(curr_song) {
 		myBar.css("width", "0");
 	});
     $("#playing")[0].play();
-    $(".title").html(playerAPI.songs[curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".title").html(playerAPI.songs[curr_song].title + '<button onclick="open_playlists_modal(\'' + curr_song + '\')"><em class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[curr_song].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[curr_song].img);
 }
@@ -322,6 +321,7 @@ function add_new_playlist(playlist) {
 // Get the button that opens the modal
 // When the user clicks the button, open the modal
 function open_playlists_modal(song_id) {
+    $("#playlists_modal").find("h2")[0].innerHTML = "Choose a list to add the track '" + playerAPI.songs[song_id].title + "'";
     $("#add").click(function() {
         new_playlist = $("#set_new_playlist").val();
         add_new_playlist(new_playlist);
@@ -380,7 +380,6 @@ function get_playlists() {
                 sec = 0;
                 for(j = 0; j < data[playlists[i]].length; j++) {
                     current_song = data[playlists[i]][j];
-                    console.log("'" + current_song + "'");
                     min += parseInt(playerAPI.songs[current_song].duration.split(":")[0]);
                     sec += parseInt(playerAPI.songs[current_song].duration.split(":")[1]);
 
@@ -408,7 +407,7 @@ function get_playlists() {
                 }
                 $("#playlists").find("tbody").append(`
                     <tr>
-                        <td><button><em class="fa">&#xf01d;</em></button></td>
+                        <td><button onclick="play_playlist('${playlists[i]}')"><em class="fa">&#xf01d;</em></button></td>
                         <td><button onclick="remove_playlist('${playlists[i]}', this)"><em class="fa fa-minus"></em></button></td></td>
                         <td>${i + 1}</td>
                         <td><button onclick="read_playlist('${playlists[i]}')">${playlists[i]}</button></td>
@@ -462,6 +461,30 @@ function read_playlist(playlist) {
                         </tr>`);
             }
             PageTransitions.goToPage(2, "song_playlist");
+        };
+    };
+}
+
+function play_playlist(playlist) {
+    let playlist_songs = "";
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "playlist", "title":"' + playlist + '"}';
+
+        ws.send(message);
+        ws.onmessage = function (message) {
+            playlist_songs = message.data.split("\n");
+            playerAPI.tmpPlaylist = [];
+
+            for(var i = 0; i < playlist_songs.length; i++) {
+
+                if(playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"") === "") continue;
+                playerAPI.tmpPlaylist[i] = "id" + parseInt(playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"").substring(2));
+            }
+            playerAPI.row = 0;
+            console.log(playerAPI.playlist);
+            play_song(playerAPI.tmpPlaylist[0]);
         };
     };
 }

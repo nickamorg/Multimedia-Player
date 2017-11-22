@@ -1,88 +1,80 @@
 $(document).ready(function () {
 
-  //---------------------------------------
-  //#region Demo Button Clicks
+	function reset_search_bar() {
+        $(".keywords").each(function () {
+            this.value = "";
+        });
+	}
 
-	$('.demoBtn').click(function () {
-		$(this).toggleClass('checked')
-	});
-
-	$('.demoBtn2').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
-		PageTransitions.goToPage(1, 'page2');
-	});
-
-	$('.demoBtn3').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
-		PageTransitions.goToPage(2, 'page1');
-	});
+    $('.to_lobby').click(function () {
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("lobby");
+        playerAPI.playing.pause();
+        PageTransitions.goToPage(2, 'lobby');
+    });
 
 	$('#to_song_home, .to_song_home').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("song_home");
 		PageTransitions.goToPage(2, 'song_home');
 	});
 	
 	$('.to_mysongs').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("song_mysongs");
 		PageTransitions.goToPage(2, 'song_mysongs');
 		send_mysongs();
 	});
-	
-	$('.to_lobby').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
-		PageTransitions.goToPage(2, 'lobby');
-	});
-	
-	$('.to_song_explore').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
-		PageTransitions.goToPage(2, 'song_explore');
-		playerAPI.explore_genres();
-	});
-	
+
 	$('.display_song_by_genre').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("song_by_genre");
 		PageTransitions.goToPage(2, 'song_by_genre');
 	});
 
 	$('.playlists').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("playlists");
         PageTransitions.goToPage(2, 'playlists');
         get_playlists();
 	});
 
 	$('.to_songs_search').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
-        // search_songs($("#keywords").val());
-        // apply_filters_search();
+        visitedPagesStack.setNewLastVisitedPage("song_search");
         PageTransitions.goToPage(2, 'song_search');
+
+        $(".keywords").each(function () {
+        	val = this.value;
+            if(val !== "") {
+                reset_search_bar();
+                $("#song_search").find(".keywords")[0].value = val;
+			}
+        });
 	});
 
 	$('#song_new_releases_link').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
+        reset_search_bar();
         set_song_new_releases();
+        visitedPagesStack.setNewLastVisitedPage("song_new_releases");
         PageTransitions.goToPage(2, 'song_new_releases');
 	});
 
     $('#song_charts_link').click(function () {
-        // Tip: try other integers [1-67] at PageTransitions.goToPage function
-        // and see different animations on changing pages
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("song_charts");
         PageTransitions.goToPage(2, 'song_charts');
     });
 
     $('#song_genres_link').click(function () {
-        // Tip: try other integers [1-67] at PageTransitions.goToPage function
-        // and see different animations on changing pages
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("song_genres");
         PageTransitions.goToPage(2, 'song_genres');
+    });
+
+    $('#song_recently_played_link').click(function () {
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("song_recently_played");
+        PageTransitions.goToPage(2, 'song_recently_played');
     });
 
   //#endregion
