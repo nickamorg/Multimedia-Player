@@ -23,16 +23,27 @@
 	<!-- END APPLICATION SCRIPTS -->
 
 	<!-- OUR IMPORTS -->
-	<link type="text/css" rel="stylesheet" href="songs/css/general.css">
     <link type="text/css" rel="stylesheet" href="search.css">
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- SONGS -->
+    <link type="text/css" rel="stylesheet" href="songs/css/general.css">
 	<script type="application/javascript" src="songs/js/header.js"></script>
 	<script type="application/javascript" src="songs/js/player.js"></script>
     <script type="application/javascript" src="songs/js/general.js"></script>
 	<script type="application/javascript" src="songs/js/websockets.js"></script>
+
+    <!-- MOVIES -->
+    <link type="text/css" rel="stylesheet" href="movies/css/general.css">
+    <!--<script type="application/javascript" src="movies/js/playerAPI.js.js"></script>-->
+    <script type="application/javascript" src="movies/js/movies_header.js"></script>
+	<script type="application/javascript" src="movies/js/movie_player.js"></script>
+    <!--<script type="application/javascript" src="movies/js/general.js"></script>-->
+	<!--<script type="application/javascript" src="movies/js/websockets.js"></script>-->
+
 
     <style>
         .table-striped>tbody>tr:nth-child(odd)>td,
@@ -75,7 +86,7 @@
         <div id="lobby" class="pt-page">
             <div class="wrapper">
                 <div id="to_song_home"><img class="img-responsive" src="../ressrc/song.png"/><h1>Songs</h1></div>
-                <div><img class="img-responsive" src="../ressrc/movie.png"/><h1>Movies</h1></div>
+                <div id="to_movies_home"><img class="img-responsive" src="../ressrc/movie.png"/><h1>Movies</h1></div>
                 <div><img class="img-responsive" src="../ressrc/serie.png"/><h1>Tv series</h1></div>
             </div>
         </div>
@@ -1051,6 +1062,197 @@
                 </div>
             </div>
         </div>
+
+        <!--    END OF SONGS PAGES -->
+
+        <!-- BEGIN PAGE 1 - MOVIES HOME -->
+        <div id="movies_home" class="pt-page">
+            <script>setMoviesHeader();</script>
+            <div class="movies_content scrollbar">
+                <div class="home">
+                    <div class="col-xs-9" style="padding:0 50px 0 0; margin-bottom:120px">
+                        <div class="card col-xs-12">
+                            <h3><button id="movies_news_link">New Movies</button></h3>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('id0')">
+                                <img class="img-movie" src="../ressrc/movies_images/spider-man_homecoming.png"/>
+                                <p>Spider-Man: Homecoming</p>
+                                <small>2017</small>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('id4')">
+                                <img class="img-movie" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg"/>
+                                <p>Valerian and the City of a Thousand Planets</p>
+                                <small>2017</small>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('id3')">
+                                <img class="img-movie" src="../ressrc/movies_images/the_hitmans_bodyguard.jpg"/>
+                                <p>The Hitman's Bodyguard</p>
+                                <small>2017</small>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('id8')">
+                                <img class="img-movie" src="../ressrc/movies_images/logan_lucky.jpg"/>
+                                <p>Logan Lucky</p>
+                                <small>2017</small>
+                            </div>
+                        </div>
+
+                        <div class="card col-xs-12">
+                            <h3><button id="movies_tops_link">Top Movies</button></h3>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('id9')">
+                                <img class="img-movie" src="../ressrc/movies_images/deadpool.JPG"/>
+                                <p>Deadpool</p>
+                                <small>2016</small>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('id7')">
+                                <img class="img-movie" src="../ressrc/movies_images/guardians_of_the_galaxy.jpg"/>
+                                <p>Guardians of the Galaxy</p>
+                                <small>2014</small>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('id6')">
+                                <img class="img-movie" src="../ressrc/movies_images/the_dark_night.jpg"/>
+                                <p>The Dark Knight</p>
+                                <small>2008</small>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('id10')">
+                                <img class="img-movie" src="../ressrc/movies_images/suicide_squard.jpg"/>
+                                <p>Suicide Squad</p>
+                                <small>2016</small>
+                            </div>
+                        </div>
+
+                        <div class="card col-xs-12">
+                            <h3><button id="movies_genres_link">Genres</button></h3>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('Alternative rock')">
+                                <img class="img-movie" src="../ressrc/movies_images/genres/horror.jpg"/>
+                                <p>Horror</p>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('Alternative rock')">
+                                <img class="img-movie" src="../ressrc/movies_images/genres/romantic_comedy.jpg"/>
+                                <p>Romantic Comedy</p>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('Alternative rock')">
+                                <img class="img-movie" src="../ressrc/movies_images/genres/action_film.jpg"/>
+                                <p>Action Film</p>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('Alternative rock')">
+                                <img class="img-movie" src="../ressrc/movies_images/genres/science_fiction.jpg"/>
+                                <p> Science Fiction</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3" style="padding-right:0">
+                        <div class="card resents col-xs-12">
+                            <h3><button id="movies_recently_played_link">Recently watched</button></h3>
+                            <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id5')">
+                                <div class="col-xs-4" style="padding-right:0">
+                                    <img class="img-movie-recently-watched" src="../ressrc/movies_images/wonder_woman.jpg">
+                                </div>
+                                <div class="col-xs-8" style="padding-right: 0">
+                                    <p>Wonder Woman</p>
+                                    <small>2017</small>
+                                </div>
+                            </div>
+                            <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id10')">
+                                <div class="col-xs-4" style="padding-right:0">
+                                    <img class="img-movie-recently-watched" src="../ressrc/movies_images/suicide_squard.jpg">
+                                </div>
+                                <div class="col-xs-8" style="padding-right: 0">
+                                    <p>Suicide Squad</p>
+                                    <small>2016</small>
+                                </div>
+                            </div>
+                            <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id9')">
+                                <div class="col-xs-4" style="padding-right:0">
+                                    <img class="img-movie-recently-watched" src="../ressrc/movies_images/deadpool.JPG">
+                                </div>
+                                <div class="col-xs-8" style="padding-right: 0">
+                                    <p>Deadpool</p>
+                                    <small>2016</small>
+                                </div>
+                            </div>
+                            <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id1')">
+                                <div class="col-xs-4" style="padding-right:0">
+                                    <img class="img-movie-recently-watched" src="../ressrc/movies_images/annabelle_creation.jpg">
+                                </div>
+                                <div class="col-xs-8" style="padding-right: 0">
+                                    <p>Annabelle Creation</p>
+                                    <small>2017</small>
+                                </div>
+                            </div>
+                            <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id2')">
+                                <div class="col-xs-4" style="padding-right:0">
+                                    <img class="img-movie-recently-watched" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
+                                </div>
+                                <div class="col-xs-8" style="padding-right: 0"  onclick="display_movie_details('Alternative rock')">
+                                    <p>Dead Men Tell No Tales</p>
+                                    <small>2017</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 1 - MOVIES HOME -->
+
+        <!-- BEGIN PAGE 2 - MOVIES MOVIE_PAGE -->
+        <div id="movie_page" class="pt-page">
+            <script>setMoviesHeader()</script>
+            <div id="full-screen" class="movies_content scrollbar">
+                <div class="col-xs-3 text-center" style="margin-top: 50px; margin-bottom:120px; padding-left:0">
+                    <img id="movie_poster" class="img-responsive" style="border-radius: 38px" src="../ressrc/movies_images/spider-man_homecoming.png">
+                    <button onclick=""><em style="font-size:50px" class="fa">&#xf01d;</em></button>
+                    <button><em style="font-size:50px" class="fa">&#xf067;</em></button>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div id="movie_details" class="col-xs-6" style="margin-top: 50px; margin-bottom:120px;">
+                    <h1 id="movie_title">Spider-Man: Homecoming</h1>
+                    <p id="movie_info">2017 • 133 min • action/adventure/science-fiction/superhero/comedy • <span><img width="30" height="15" src="../ressrc/movies_images/imdb.png"></span> 7.7</p>
+                    <p id="movie_description">Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.</p>
+                </div>
+
+                <div class="col-xs-3" style="padding-right:0">
+                    <div class="card movie_related col-xs-12">
+                        <h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Movies</h3>
+
+                        <div id="movie_related_content">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>setPlayer();</script>
+        </div>
+        <!-- END PAGE 2 - MOVIES MOVIE_PAGE -->
+
+        <!-- BEGIN PAGE 3 - MOVIES NEW_MOVIES-->
+        <div id="movies_news" class="pt-page">
+            <script>setMoviesHeader();</script>
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+                    <h3 style="margin-left:5px; padding:0 0 10px 10px">New Movies</h3>
+                    <div id="movies_news_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 3 - MOVIES NEW_MOVIES -->
+
+        <!-- BEGIN PAGE 4- MOVIES TOP_MOVIES-->
+        <div id="movies_tops" class="pt-page">
+            <script>setMoviesHeader();</script>
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Top Movies</h3>
+                    <div id="movies_tops_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 4 - MOVIES TOP_MOVIES -->
     </div>
   <!-- END PAGES -->
 
