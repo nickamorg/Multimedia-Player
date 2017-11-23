@@ -1121,23 +1121,22 @@
 
                         <div class="card col-xs-12">
                             <h3><button id="movies_genres_link">Genres</button></h3>
-                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('Alternative rock')">
-                                <img class="img-movie" src="../ressrc/movies_images/genres/horror.jpg"/>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="set_movies_by_genre('Action')">
+                                <img class="img-movie" src="../ressrc/movies_images/spider-man_homecoming.png"/>
+                                <p>Action</p>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="set_movies_by_genre('Adventure')">
+                                <img class="img-movie" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg"/>
+                                <p>Adventure</p>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="set_movies_by_genre('Fantasy')">
+                                <img class="img-movie" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg">
+                                <p>Fantasy</p>
+                            </div>
+                            <div class="col-xs-3" style="cursor: pointer" onclick="set_movies_by_genre('Horror')">
+                                <img class="img-movie" src="../ressrc/movies_images/annabelle_creation.jpg"/>
                                 <p>Horror</p>
                             </div>
-                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('Alternative rock')">
-                                <img class="img-movie" src="../ressrc/movies_images/genres/romantic_comedy.jpg"/>
-                                <p>Romantic Comedy</p>
-                            </div>
-                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('Alternative rock')">
-                                <img class="img-movie" src="../ressrc/movies_images/genres/action_film.jpg"/>
-                                <p>Action Film</p>
-                            </div>
-                            <div class="col-xs-3" style="cursor: pointer" onclick="display_movie_details('Alternative rock')">
-                                <img class="img-movie" src="../ressrc/movies_images/genres/science_fiction.jpg"/>
-                                <p> Science Fiction</p>
-                            </div>
-
                         </div>
                     </div>
 
@@ -1253,6 +1252,32 @@
             </div>
         </div>
         <!-- END PAGE 4 - MOVIES TOP_MOVIES -->
+
+        <!-- BEGIN PAGE 5- MOVIES GENRES_MOVIES-->
+        <div id="movies_genres" class="pt-page">
+            <script>setMoviesHeader();</script>
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Genres</h3>
+                    <div id="movies_genres_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 5 - MOVIES GENRES_MOVIES -->
+
+        <!-- BEGIN PAGE 6- MOVIES BY_GENRES_MOVIES-->
+        <div id="movies_by_genres" class="pt-page">
+            <script>setMoviesHeader();</script>
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+                    <h3 style="margin-left:5px; padding:0 0 10px 10px"></h3>
+                    <div id="movies_by_genres_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 6 - MOVIES BY_GENRES_MOVIES -->
     </div>
   <!-- END PAGES -->
 

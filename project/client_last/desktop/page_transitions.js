@@ -100,6 +100,13 @@ $(document).ready(function () {
         PageTransitions.goToPage(2, 'movies_tops');
     });
 
+    $('#movies_genres_link').click(function () {
+        reset_search_bar();
+        set_movies_genres();
+        visitedPagesStack.setNewLastVisitedPage("movies_genres");
+        PageTransitions.goToPage(2, 'movies_genres');
+    });
+
   //#endregion
   //---------------------------------------
 

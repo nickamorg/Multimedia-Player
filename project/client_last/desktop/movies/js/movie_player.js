@@ -237,6 +237,27 @@ function display_movie_details(movie_id) {
             }
         }
     }
+
+    if(counter < 4) {
+        for(let i = 0; i < movies.crowd; i++) {
+            if(counter === 4) return;
+            if (("id" + i) !== movie_id && movies["id" + i].release.split(" ")[2] === movies[movie_id].release.split(" ")[2]) {
+                $("#movie_related_content").append(
+                    `<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id${i}')">
+                            <div class="col-xs-4" style="padding-right:0">
+                                <img class="img-movie-recently-watched" src="../ressrc/movies_images/${movies['id' + i].img}">
+                            </div>
+                            <div class="col-xs-8" style="padding-right: 0">
+                                <p>${movies['id' + i].title}</p>
+                                <small>${movies['id' + i].release.split(" ")[2]}</small>
+                            </div>
+                        </div>`)
+                if(counter++ % 4 == 0) {
+                    $("#movie_related_content").append(`<div class="clearfix"></div>`)
+                }
+            }
+        }
+    }
 }
 
 function set_movies_news() {
@@ -278,4 +299,71 @@ function set_movies_tops() {
             }
         }
     }
+}
+
+function set_movies_genres() {
+    genres = [];
+    genres_counter = 0;
+
+    for(var i = 0; i < movies.crowd; i++) {
+        movie = movies["id" + i];
+        for(var j = 0; j < movie.genre.length; j++) {
+            genres[genres_counter++] = movie.genre[j];
+        }
+    }
+
+    // Filter duplicates
+    tmp = genres.filter(function(item, pos) {
+        return genres.indexOf(item) == pos;
+    });
+    genres = tmp;
+
+    $("#movies_genres_content").html("");
+
+    current_movies = [];
+    movies_counter = 0;
+    var counter = 1;
+    console.log(genres);
+    for(let i = 0; i < genres.length; i++) {
+        for(let j = 0; j < movies.crowd; j++) {
+            if(current_movies.indexOf("id" + j) == -1 && movies["id" + j].genre.indexOf(genres[i]) > -1) {
+                $("#movies_genres_content").append(`
+                    <div class="col-xs-3" onclick="set_movies_by_genre('${genres[i]}')">
+                        <img class="img-responsive" src="../ressrc/movies_images/${movies["id" + j].img}"/>
+                        <p>${genres[i]}</p>
+                    </div>
+                `)
+
+                if(counter++ % 4 == 0) {
+                    $("#movies_genres_content").append(`<div class="clearfix"></div>`)
+                }
+                current_movies[movies_counter++] = "id" + j;
+                break;
+            }
+        }
+    }
+}
+
+function set_movies_by_genre(genre) {
+    $("#movies_by_genres_content").html("");
+
+    let counter = 1;
+    for(let i = 0; i < movies.crowd; i++) {
+        if(movies["id" + i].genre.indexOf(genre) > -1) {
+            $("#movies_by_genres_content").append(`
+                    <div class="col-xs-3" onclick="display_movie_details('${"id" + i}')">
+                        <img class="img-responsive" src="../ressrc/movies_images/${movies["id" + i].img}"/>
+                        <p>${movies["id" + i].title}</p>
+                    <small>${movies["id" + i].release}</small>
+                    </div>
+                `);
+
+            if(counter++ % 4 == 0) {
+                $("#movies_by_genres_content").append(`<div class="clearfix"></div>`)
+            }
+        }
+    }
+
+    visitedPagesStack.setNewLastVisitedPage("movies_by_genres");
+    PageTransitions.goToPage(2, 'movies_by_genres');
 }
