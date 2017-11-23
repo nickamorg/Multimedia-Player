@@ -107,6 +107,13 @@ $(document).ready(function () {
         PageTransitions.goToPage(2, 'movies_genres');
     });
 
+    $('.to_mymovies').click(function () {
+        reset_search_bar();
+        visitedPagesStack.setNewLastVisitedPage("movies_mymovies");
+        PageTransitions.goToPage(2, 'movies_mymovies');
+        send_mymovies();
+    });
+
   //#endregion
   //---------------------------------------
 

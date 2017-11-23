@@ -18,7 +18,7 @@ function setMoviesHeader() {
                 </form>
             </li>
             <li><a class="to_movies_playlists">Playlists</a></li>
-            <li><a class="to_mymovies">My songs</a></li>
+            <li><a class="to_mymovies">My movies</a></li>
             <li><a class="to_movies_home">Explore</a></li>
         </ul>
     </div>`);

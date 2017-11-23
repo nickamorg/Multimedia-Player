@@ -142,6 +142,28 @@ wsServer.on('connection', function connection(ws) {
 						if (err) return console.log(err);
 					});
 				});
+			} else if(message["type"] === "remove from mymovies") {
+                var fs = require('fs');
+				fs.readFile("data/mymovies.txt", 'utf8', function (err,data) {
+					if (err) {
+						return console.log(err);
+					}
+					var replace = message["movie_id"] + '\r\n';
+					var re = new RegExp(replace);
+
+					tmp = data.replace(re, "");
+					if(data === tmp) {
+						var replace = message["movie_id"];
+						var re = new RegExp(replace);
+						tmp = data.replace(re, "");
+					}
+					data = tmp;
+					
+					console.log(data);
+					fs.writeFile("data/mymovies.txt", data, 'utf8', function (err) {
+						if (err) return console.log(err);
+					});
+				});
 			}
         } else {
             if(message === "mysongs") {
@@ -186,6 +208,14 @@ wsServer.on('connection', function connection(ws) {
 					json_data += "}";
 					console.log(json_data);
                     ws.send(json_data);
+                });
+            } else if(message === "mymovies") {
+                var fs = require('fs');
+                fs.readFile("data/mymovies.txt", function read(err, data) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    ws.send("" + data);
                 });
             }
         }

@@ -61,3 +61,56 @@ img {
     height: 500px;
     width: 100%;
 }
+
+#mymovies_content img {
+    height: 500px;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .5s ease;
+}
+
+.container:hover .overlay {
+    bottom: 0;
+    height: 100%;
+}
+
+.options {
+    white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.options div {
+    padding-bottom:20px;
+    cursor: pointer;
+}
+
+.options div span:hover {
+    color: #2BB4C4;
+}

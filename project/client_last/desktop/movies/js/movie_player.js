@@ -367,3 +367,232 @@ function set_movies_by_genre(genre) {
     visitedPagesStack.setNewLastVisitedPage("movies_by_genres");
     PageTransitions.goToPage(2, 'movies_by_genres');
 }
+
+function send_mymovies() {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = "mymovies";
+
+        ws.send(message);
+        ws.onmessage = function(message) {
+            mymovies = message.data.split("\n");
+
+            var rates = [];
+            var genres = [];
+            var genres_counter = 0;
+            var dates = [];
+            $("#mymovies_content").html("");
+            for(var i = 0; i < mymovies.length; i++) {
+                id = "id" + parseInt(mymovies[i].substring(2));
+                movie = movies[id];
+
+                for(var j = 0; j < movie.genre.length; j++) {
+                    genres[genres_counter++] = movie.genre[j];
+                }
+
+                dates[i] = parseInt(movie.release.split(" ")[2]);
+                rates[i] = parseFloat(movie.rate);
+                $("#mymovies_content").append(
+                    `<div class="col-xs-4 container">
+                        <img class="img-responsive" src="../ressrc/movies_images/${movie.img}"/>
+                        <p>${movie.title}</p>
+                        <div class="overlay">
+                            <h3 class="text-center">${movie.title}</h3>
+                            <div class="options">
+                                <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                    <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
+                                </div>
+                                
+                                <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                    <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
+                                </div>
+                                
+                                <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
+                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`);
+            }
+
+            // Filter duplicates
+            tmp = genres.filter(function(item, pos) {
+                return genres.indexOf(item) == pos;
+            });
+            genres = tmp;
+
+            $("#mymovies_genres_content").html("");
+            for(i = 0; i < genres.length; i++) {
+                $("#mymovies_genres_content").append('<input onchange="apply_filters_mymovies()" type="checkbox" name="genre" value="' + genres[i] + '">' + genres[i] + '<br>');
+            }
+
+            tmp = dates.filter(function(item, pos) {
+                return dates.indexOf(item) == pos;
+            });
+            dates = tmp;
+            dates = dates.sort(function (a, b) {  return b - a;  });
+
+            tmp = rates.filter(function(item, pos) {
+                return rates.indexOf(item) == pos;
+            });
+            rates = tmp;
+            rates = rates.sort(function (a, b) {  return b - a;  });
+
+            $("#mymovies_release_from").html("");
+            $("#mymovies_release_to").html("");
+            $("#mymovies_release_from").append('<option value=\"' + "none" + '\"></option>');
+            $("#mymovies_release_to").append('<option value=\"' + "none" + '\"></option>');
+            for(i = 0; i < dates.length; i++) {
+                $("#mymovies_release_from").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+                $("#mymovies_release_to").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+            }
+
+            $("#mymovies_rate_from").html("");
+            $("#mymovies_rate_to").html("");
+            $("#mymovies_rate_from").append('<option value=\"' + "none" + '\"></option>');
+            $("#mymovies_rate_to").append('<option value=\"' + "none" + '\"></option>');
+            for(i = 0; i < rates.length; i++) {
+                $("#mymovies_rate_from").append('<option value=\"' + rates[i] + '\">' + rates[i] + '</option>');
+                $("#mymovies_rate_to").append('<option value=\"' + rates[i] + '\">' + rates[i] + '</option>');
+            }
+        };
+    };
+}
+
+function remove_from_mymovies(movie_id, this_elem) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "remove from mymovies", "movie_id":"' + movie_id + '"}';
+
+        ws.send(message);
+    };
+
+    $(this_elem).parentsUntil("#mymovies_content").remove();
+}
+
+function apply_filters_mymovies() {
+    let genres = [];
+    let counter = 0;
+
+    for(i = 0; i < $("#mymovies_genres_content").find("input").length; i++) {
+        if($("#mymovies_genres_content").find("input")[i].checked) {
+            genres[counter++] = $("#mymovies_genres_content").find("input")[i].value;
+        }
+    }
+
+    let release_from = $( "#mymovies_release_from option:selected" ).text();
+    if(release_from === "") {
+        release_from = 0;
+    }
+    let release_to = $( "#mymovies_release_to option:selected" ).text();
+    if(release_to === "") {
+        release_to = (new Date).getFullYear();
+    }
+
+    let rate_from = $( "#mymovies_rate_from option:selected" ).text();
+    if(rate_from === "") {
+        rate_from = 0;
+    }
+    let rate_to = $( "#mymovies_rate_to option:selected" ).text();
+    if(rate_to === "") {
+        rate_to = (new Date).getFullYear();
+    }
+
+    let check = [];
+
+    for(let i = 0; i < movies.crowd; i++) {
+        check[i] = true;
+    }
+
+    if(genres.length > 0) {
+        for(let i = 0; i < movies.crowd; i++) {
+            let flag = false;
+            for(let j = 0; j < genres.length; j++) {
+                for(let k = 0; k < movies["id" + i].genre.length; k++) {
+                    if(movies["id" + i].genre[k] === genres[j]) {
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+    for(let i = 0; i < movies.crowd; i++) {
+        if(parseInt(movies["id" + i].release.split(" ")[2]) < release_from ||
+            parseInt(movies["id" + i].release.split(" ")[2]) > release_to) {
+            check[i] = false;
+        }
+    }
+
+    for(let i = 0; i < movies.crowd; i++) {
+        if(parseInt(movies["id" + i].rate) < rate_from ||
+            parseInt(movies["id" + i].rate) > rate_to) {
+            check[i] = false;
+        }
+    }
+
+    if($("#mymovies_input_keywords").val() !== "") {
+        words = $("#mymovies_input_keywords").val().split(" ");
+        for(let i = 0; i < movies.crowd; i++) {
+            flag = false;
+            for(let j = 0; j < words.length; j++) {
+                if(contains_word(movies["id" + i].title, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(movies["id" + i].release, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(movies["id" + i].rate, words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+
+                if(!flag && contains_word(movies["id" + i].genre.toString(), words[j]) && check[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            check[i] = flag;
+        }
+    }
+
+
+    $("#mymovies_content").html("");
+    for(var i = 0; i < movies.crowd; i++) {
+        if(check[i]) {
+            id = "id" + i;
+            movie = movies[id];
+
+            $("#mymovies_content").append(
+                `<div class="col-xs-4 container">
+                            <img class="img-responsive" src="../ressrc/movies_images/${movie.img}"/>
+                            <p>${movie.title}</p>
+                            <div class="overlay">
+                                <h3 class="text-center">${movie.title}</h3>
+                                <div class="options">
+                                    <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                        <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
+                                    </div>
+                                    
+                                    <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                        <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
+                                    </div>
+                                    
+                                    <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
+                                        <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`);
+
+        }
+    }
+}
