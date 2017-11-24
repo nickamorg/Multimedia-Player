@@ -4,6 +4,7 @@ movies = {
         "file": "Spider-Man Homecoming.mp4",
         "title": "Spider-Man: Homecoming",
         "release": "6 July 2017",
+        "rate": "7.6",
         "duration": "2:13:00",
         "genre": ["Action", "Adventure", "Science fiction", "Fantasy"],
         "img": "spider-man_homecoming.png"
@@ -68,7 +69,7 @@ movies = {
     "id6": {
         "file": "The Dark Knight.mp4",
         "title": "The Dark Knight",
-        "release": " 17 July 2008",
+        "release": "17 July 2008",
         "duration": "152 min",
         "rate": "9.0",
         "genre": ["Action", "Crime", "Drama"],
@@ -122,6 +123,8 @@ movies = {
     }
 
 };
+
+mymovies = [];
 
 function setPlayer() {
     document.write(
@@ -433,6 +436,7 @@ function send_mymovies() {
             dates = tmp;
             dates = dates.sort(function (a, b) {  return b - a;  });
 
+            console.log(rates);
             tmp = rates.filter(function(item, pos) {
                 return rates.indexOf(item) == pos;
             });
@@ -502,16 +506,17 @@ function apply_filters_mymovies() {
 
     let check = [];
 
-    for(let i = 0; i < movies.crowd; i++) {
+    for(let i = 0; i < mymovies.length; i++) {
         check[i] = true;
     }
 
     if(genres.length > 0) {
-        for(let i = 0; i < movies.crowd; i++) {
+        for(let i = 0; i < mymovies.length; i++) {
             let flag = false;
             for(let j = 0; j < genres.length; j++) {
-                for(let k = 0; k < movies["id" + i].genre.length; k++) {
-                    if(movies["id" + i].genre[k] === genres[j]) {
+                id = "id" + parseInt(mymovies[i].substring(2));
+                for(let k = 0; k < movies[id].genre.length; k++) {
+                    if(movies[id].genre[k] === genres[j]) {
                         flag = true;
                         break;
                     }
@@ -521,41 +526,45 @@ function apply_filters_mymovies() {
         }
     }
 
-    for(let i = 0; i < movies.crowd; i++) {
-        if(parseInt(movies["id" + i].release.split(" ")[2]) < release_from ||
-            parseInt(movies["id" + i].release.split(" ")[2]) > release_to) {
+
+    for(let i = 0; i < mymovies.length; i++) {
+        id = "id" + parseInt(mymovies[i].substring(2));
+        if(parseFloat(movies[id].release.split(" ")[2]) < release_from ||
+            parseFloat(movies[id].release.split(" ")[2]) > release_to) {
             check[i] = false;
         }
     }
 
-    for(let i = 0; i < movies.crowd; i++) {
-        if(parseInt(movies["id" + i].rate) < rate_from ||
-            parseInt(movies["id" + i].rate) > rate_to) {
+    for(let i = 0; i < mymovies.length; i++) {
+        id = "id" + parseInt(mymovies[i].substring(2));
+        if(parseFloat(movies[id].rate) < rate_from ||
+            parseFloat(movies[id].rate) > rate_to) {
             check[i] = false;
         }
     }
 
     if($("#mymovies_input_keywords").val() !== "") {
         words = $("#mymovies_input_keywords").val().split(" ");
-        for(let i = 0; i < movies.crowd; i++) {
+        for(let i = 0; i < mymovies.length; i++) {
+            id = "id" + parseInt(mymovies[i].substring(2));
             flag = false;
             for(let j = 0; j < words.length; j++) {
-                if(contains_word(movies["id" + i].title, words[j]) && check[i]) {
+                if(contains_word(movies[id].title, words[j]) && check[i]) {
                     flag = true;
                     break;
                 }
 
-                if(!flag && contains_word(movies["id" + i].release, words[j]) && check[i]) {
+                if(!flag && contains_word(movies[id].release, words[j]) && check[i]) {
                     flag = true;
                     break;
                 }
 
-                if(!flag && contains_word(movies["id" + i].rate, words[j]) && check[i]) {
+                if(!flag && contains_word(movies[id].rate, words[j]) && check[i]) {
                     flag = true;
                     break;
                 }
 
-                if(!flag && contains_word(movies["id" + i].genre.toString(), words[j]) && check[i]) {
+                if(!flag && contains_word(movies[id].genre.toString(), words[j]) && check[i]) {
                     flag = true;
                     break;
                 }
@@ -566,9 +575,10 @@ function apply_filters_mymovies() {
 
 
     $("#mymovies_content").html("");
-    for(var i = 0; i < movies.crowd; i++) {
+    for(var i = 0; i < mymovies.length; i++) {
+
         if(check[i]) {
-            id = "id" + i;
+            id = "id" + parseInt(mymovies[i].substring(2));
             movie = movies[id];
 
             $("#mymovies_content").append(
@@ -594,5 +604,65 @@ function apply_filters_mymovies() {
                         </div>`);
 
         }
+    }
+}
+
+function search_movies_filters() {
+    var rates = [];
+    var genres = [];
+    var genres_counter = 0;
+    var dates = [];
+    for(var i = 0; i < movies.crowd; i++) {
+        id = "id" + i;
+        movie = movies[id];
+
+        for(var j = 0; j < movie.genre.length; j++) {
+            genres[genres_counter++] = movie.genre[j];
+        }
+
+        dates[i] = parseInt(movie.release.split(" ")[2]);
+        rates[i] = parseFloat(movie.rate);
+
+    }
+
+    // Filter duplicates
+    tmp = genres.filter(function(item, pos) {
+        return genres.indexOf(item) == pos;
+    });
+    genres = tmp;
+
+    $("#search_movies_genres_content").html("");
+    for(i = 0; i < genres.length; i++) {
+        $("#search_movies_genres_content").append('<input type="checkbox" name="genre" value="' + genres[i] + '">' + genres[i] + '<br>');
+    }
+
+    tmp = dates.filter(function(item, pos) {
+        return dates.indexOf(item) == pos;
+    });
+    dates = tmp;
+    dates = dates.sort(function (a, b) {  return b - a;  });
+
+    tmp = rates.filter(function(item, pos) {
+        return rates.indexOf(item) == pos;
+    });
+    rates = tmp;
+    rates = rates.sort(function (a, b) {  return b - a;  });
+
+    $("#earch_movies_release_from").html("");
+    $("#search_movies_release_to").html("");
+    $("#search_movies_release_from").append('<option value=\"' + "none" + '\"></option>');
+    $("#search_movies_release_to").append('<option value=\"' + "none" + '\"></option>');
+    for(i = 0; i < dates.length; i++) {
+        $("#search_movies_release_from").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+        $("#search_movies_release_to").append('<option value=\"' + dates[i] + '\">' + dates[i] + '</option>');
+    }
+
+    $("#search_movies_rate_from").html("");
+    $("#search_movies_rate_to").html("");
+    $("#search_movies_rate_from").append('<option value=\"' + "none" + '\"></option>');
+    $("#search_movies_rate_to").append('<option value=\"' + "none" + '\"></option>');
+    for(i = 0; i < rates.length; i++) {
+        $("#search_movies_rate_from").append('<option value=\"' + rates[i] + '\">' + rates[i] + '</option>');
+        $("#search_movies_rate_to").append('<option value=\"' + rates[i] + '\">' + rates[i] + '</option>');
     }
 }

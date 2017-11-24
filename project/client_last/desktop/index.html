@@ -1301,7 +1301,7 @@
             <div class="movies_content scrollbar">
                     <div class="col-xs-2" style="padding:0; margin-bottom:120px">
                         <div id="mymovies_keywords">
-                            <div class="filter_category" onclick="expand_filter('mymovies_keywords');" type="button" data-toggle="collapse" data-target="#mysongs_keywords_content">
+                            <div class="filter_category" onclick="expand_filter('mymovies_keywords');" type="button" data-toggle="collapse" data-target="#mymovies_keywords_content">
                                 <p style="margin:0">
                                     <span>Keywords</span>
                                     <span style="float:right">
@@ -1332,7 +1332,7 @@
                         <div id="mymovies_release">
                             <div class="filter_category" onclick="expand_filter('mymovies_release');" type="button" data-toggle="collapse" data-target="#mymovies_release_content">
                                 <p style="margin:0">
-                                    <span>Release Date</span>
+                                    <span>Release</span>
                                     <span style="float:right">
                                         <em class="fa fa-long-arrow-up"></em>
                                     </span>
@@ -1357,7 +1357,7 @@
                             </div>
                         </div>
                         <div id="mymovies_rate">
-                            <div class="filter_category" onclick="expand_filter('mymovies_rate');" type="button" data-toggle="collapse" data-target="#mymovies_rate">
+                            <div class="filter_category" onclick="expand_filter('mymovies_rate');" type="button" data-toggle="collapse" data-target="#mymovies_rate_content">
                                 <p style="margin:0">
                                     <span>Rate</span>
                                     <span style="float:right">
@@ -1402,47 +1402,94 @@
                     <section aria-label="Results">
                         <div class="row">
                             <aside class="col-xs-2">
-                                <div id="genres">
+                                <div id="search_movies_keywords">
+                                    <div class="filter_category" onclick="expand_filter('mymovies_keywords');" type="button" data-toggle="collapse" data-target="#search_movies_keywords_content">
+                                        <p style="margin:0">
+                                            <span>Keywords</span>
+                                            <span style="float:right">
+                                        <em class="fa fa-long-arrow-up"></em>
+                                    </span>
+                                        </p>
+                                    </div>
+
+                                    <div id="search_movies_keywords_content" class="collapse in scrollbar filter_content">
+                                        <input id="search_movies_input_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
+                                    </div>
+                                </div>
+
+                                <div id="search_movies_genres">
                                     <div class="filter_category">
                                         <p style="margin:0">
                                             <span>Genres</span>
                                             <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
+                                        <button onclick="expand_filter('search_movies_genres');" type="button" data-toggle="collapse" data-target="#search_movies_genres_content">
                                             <em class="fa fa-long-arrow-up"></em>
                                         </button>
                                     </span>
                                         </p>
                                     </div>
 
-                                    <div id="genres_content" class="collapse in scrollbar filter_content">
+                                    <div id="search_movies_genres_content" class="collapse in scrollbar filter_content">
                                     </div>
                                 </div>
 
-                                <div id="release">
+                                <div id="search_movies_release">
                                     <div class="filter_category">
                                         <p style="margin:0">
                                             <span>Release Date</span>
-                                            <span style="float:right">
-                                        <button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
-                                            <em class="fa fa-long-arrow-up"></em>
-                                        </button>
-                                    </span>
+                                                <span style="float:right">
+                                                <button onclick="expand_filter('search_movies_release');" type="button" data-toggle="collapse" data-target="#search_movies_release_content">
+                                                    <em class="fa fa-long-arrow-up"></em>
+                                                </button>
+                                            </span>
                                         </p>
                                     </div>
 
-                                    <div id="release_content" class="collapse in filter_content form-inline text-center">
-                                        <div class="form-group" style="padding-right:20px">
+                                    <div id="search_movies_release_content" class="collapse in filter_content form-inline text-left">
+                                        <div class="col-xs-12">
                                             <label class="control-label">From</label>
-                                            <select onchange="apply_filters_mysong()" id="from"  class="form-control">
-                                            </select>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <select id="search_movies_release_from" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="col-xs-12">
                                             <label class="control-label">To</label>
-                                            <select onchange="apply_filters_mysong()" id="to"  class="form-control">
-                                            </select>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <select id="search_movies_release_to" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+
+                                <div id="search_movies_rate">
+                                    <div class="filter_category">
+                                        <p style="margin:0">
+                                            <span>Rate</span>
+                                            <span style="float:right">
+                                                <button onclick="expand_filter('search_movies_rate');" type="button" data-toggle="collapse" data-target="#search_movies_rate_content">
+                                                    <em class="fa fa-long-arrow-up"></em>
+                                                </button>
+                                            </span>
+                                        </p>
+                                    </div>
+
+                                    <div id="search_movies_rate_content" class="collapse in filter_content form-inline">
+                                        <div class="col-xs-12">
+                                            <label class="control-label">From</label>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <select id="search_movies_rate_from" class="form-control" style="width:100%"></select>
                                         </div>
 
+                                        <div class="col-xs-12">
+                                            <label class="control-label">To</label>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <select id="search_movies_rate_to"  class="form-control" style="width:100%"></select>
+                                        </div>
+                                        <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </aside>
@@ -1617,6 +1664,7 @@
                 </div>
             </div>
             <script>setPlayer();</script>
+            <script>search_movies_filters()</script>
             <script>toggle_movies_tabs("top_results")</script>
         </div>
         <!-- END PAGE 8 - MOVIES SEARCH-->
