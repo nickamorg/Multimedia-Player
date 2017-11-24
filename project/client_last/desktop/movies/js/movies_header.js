@@ -9,7 +9,7 @@ function setMoviesHeader() {
                 <form style="padding-top:10px" class="navbar-form navbar-left">
                     <div class="input-group">
                         <input style="padding-top:21px; padding-bottom:21px" type="text" class="keywords form-control" size="50" placeholder="Search for movies">
-                        <div class="to_songs_search input-group-btn">
+                        <div class="to_movies_search input-group-btn">
                             <a class="btn btn-default" type="submit">
                                 <i style="color:#000000" class="glyphicon glyphicon-search"></i>
                             </a>
@@ -17,7 +17,6 @@ function setMoviesHeader() {
                     </div>
                 </form>
             </li>
-            <li><a class="to_movies_playlists">Playlists</a></li>
             <li><a class="to_mymovies">My movies</a></li>
             <li><a class="to_movies_home">Explore</a></li>
         </ul>

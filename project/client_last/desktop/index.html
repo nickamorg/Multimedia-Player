@@ -77,6 +77,22 @@
             $("#songs_" + id).addClass("active-tab");
         }
     </script>
+
+    <script>
+        function toggle_movies_tabs(id) {
+            $("#display_movies_top_results").hide();
+            $("#display_movies_genres").hide();
+            $("#display_movies_movies").hide();
+            $("#display_movies_people").hide();
+            $("#display_movies_" + id).show();
+
+            $("#movies_top_results").removeClass("active-tab");
+            $("#movies_search_genres").removeClass("active-tab");
+            $("#movies_movies").removeClass("active-tab");
+            $("#movies_people").removeClass("active-tab");
+            $("#movies_" + id).addClass("active-tab");
+        }
+    </script>
 </head>
 
 <body>
@@ -1378,6 +1394,232 @@
         </div>
         <!-- END PAGE 7 - MOVIES MYMOVIES -->
 
+        <!-- BEGIN PAGE 8 - MOVIES SEARCH-->
+        <div id="movies_search" class="pt-page">
+            <script>setMoviesHeader();</script>
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0 50px 0 0; margin-bottom:120px">
+                    <section aria-label="Results">
+                        <div class="row">
+                            <aside class="col-xs-2">
+                                <div id="genres">
+                                    <div class="filter_category">
+                                        <p style="margin:0">
+                                            <span>Genres</span>
+                                            <span style="float:right">
+                                        <button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                        </p>
+                                    </div>
+
+                                    <div id="genres_content" class="collapse in scrollbar filter_content">
+                                    </div>
+                                </div>
+
+                                <div id="release">
+                                    <div class="filter_category">
+                                        <p style="margin:0">
+                                            <span>Release Date</span>
+                                            <span style="float:right">
+                                        <button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
+                                            <em class="fa fa-long-arrow-up"></em>
+                                        </button>
+                                    </span>
+                                        </p>
+                                    </div>
+
+                                    <div id="release_content" class="collapse in filter_content form-inline text-center">
+                                        <div class="form-group" style="padding-right:20px">
+                                            <label class="control-label">From</label>
+                                            <select onchange="apply_filters_mysong()" id="from"  class="form-control">
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label">To</label>
+                                            <select onchange="apply_filters_mysong()" id="to"  class="form-control">
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </aside>
+                            <article class="col-md-10" style="padding-top:50px">
+                                <div class="horizontal-tabs">
+                                    <a id="movies_top_results" onclick="toggle_movies_tabs('top_results')">TOP RESULTS</a>
+                                    <a id="movies_search_genres" onclick="toggle_movies_tabs('genres')">GENRE</a>
+                                    <a id="movies_artists" onclick="toggle_movies_tabs('movies')">MOVIES</a>
+                                    <a id="movies_tracks" onclick="toggle_movies_tabs('people')">PEOPLE</a>
+                                </div>
+                                <div id="display_movies_top_results">
+                                    <section class="card">
+                                        <h3>Genre</h3>
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/action_horror.jpg" alt="Action Horror">
+                                                <p class="text-center">Action Horror</p>
+                                            </a>
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/comedy_horror.jpg" alt="Comedy Horror">
+                                                <p class="text-center">Comedy Horror</p>
+                                            </a>
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/science_fiction_horror.jpg" alt="Science Fiction Horror">
+                                                <p class="text-center">Science Fiction Horror</p>
+                                            </a>
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/horror_drama.jpg" alt="Horror Drama">
+                                                <p class="text-center">Horror Drama</p>
+                                            </a>
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/psychological_horror.jpg" alt="Psychological Horror">
+                                                <p class="text-center">Psychological Horror</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                    <section class="card">
+                                        <h3>Movies</h3>
+                                        <div style="display: flex;  justify-content: space-between;">
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="../ressrc/search/the_rocky_horror_picture_show.jpg" alt="The Rocky Horror Picture Show">
+                                                <p class="text-center">The Rocky Horror Picture Show</p>
+                                            </a>
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="../ressrc/search/horror.jpg" alt="#Horror">
+                                                <p class="text-center">#Horror</p>
+                                            </a>
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="../ressrc/search/a_christmas_horror_story.png" alt="A Christmas Horror Story">
+                                                <p class="text-center">A Christmas Horror Story</p>
+                                            </a>
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="../ressrc/search/the_last_horror_film.jpg" alt="The Last Horror Film">
+                                                <p class="text-center">The Last Horror Film</p>
+                                            </a>
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="../ressrc/search/the_amityville_horror.png" alt="The Amityville Horror">
+                                                <p class="text-center">The Amityville Horror</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                    <section class="card">
+                                        <h3>People</h3>
+                                        <div style="display: flex;  justify-content: space-between;">
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/cl.jpg" alt="Christopher Lee">
+                                                <p class="text-center">Christopher Lee</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/bk.jpg" alt="Boris Karloff">
+                                                <p class="text-center">Boris Karloff</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/vp.jpg" alt="Vincent Prices">
+                                                <p class="text-center">Vincent Price</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/bl.jpg" alt="Bela Lugosi">
+                                                <p class="text-center">Bela Lugosi</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/wc.jpg" alt="Wes Craven">
+                                                <p class="text-center">Wes Craven</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="display_movies_genres">
+                                    <section>
+                                        <h3>Genre</h3>
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/action_horror.jpg" alt="Action Horror">
+                                                <p class="text-center">Action Horror</p>
+                                            </a>
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/comedy_horror.jpg" alt="Comedy Horror">
+                                                <p class="text-center">Comedy Horror</p>
+                                            </a>
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/science_fiction_horror.jpg" alt="Science Fiction Horror">
+                                                <p class="text-center">Science Fiction Horror</p>
+                                            </a>
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/horror_drama.jpg" alt="Horror Drama">
+                                                <p class="text-center">Horror Drama</p>
+                                            </a>
+                                            <a onclick="set_movies_by_genre('Horror')">
+                                                <img class="results-image" src="../ressrc/search/psychological_horror.jpg" alt="Psychological Horror">
+                                                <p class="text-center">Psychological Horror</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="display_movies_movies">
+                                    <section>
+                                        <h3>Movies</h3>
+                                        <div style="display: flex;  justify-content: space-between;">
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="http://vignette4.wikia.nocookie.net/rockyhorror/images/f/f0/The_rocky_horror_picture_show_poster.jpg/revision/latest?cb=20130914000612" alt="The Rocky Horror Picture Show">
+                                                <p class="text-center">The Rocky Horror Picture Show</p>
+                                            </a>
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="https://images-na.ssl-images-amazon.com/images/I/81NVUmf0eIL._SL1500_.jpg" alt="#Horror">
+                                                <p class="text-center">#Horror</p>
+                                            </a>
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="https://upload.wikimedia.org/wikipedia/en/6/62/A_Christmas_Horror_Story_poster.png" alt="A Christmas Horror Story">
+                                                <p class="text-center">A Christmas Horror Story</p>
+                                            </a>
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="https://images-na.ssl-images-amazon.com/images/I/51ZDt1s2BGL._SY300_QL70_.jpg" alt="The Last Horror Film">
+                                                <p class="text-center">The Last Horror Film</p>
+                                            </a>
+                                            <a onclick="display_movie_details('id1')">
+                                                <img class="img-movie results-image" src="https://resizing.flixster.com/hRwxqvnrmN8qnNXW9GFMetwtwNY=/206x305/v1.bTsxMTIwMzc0ODtqOzE3NTg5OzEyMDA7MTQ3NjsxOTY4" alt="The Amityville Horror">
+                                                <p class="text-center">The Amityville Horror</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="display_movies_people">
+                                    <section>
+                                        <h3>People</h3>
+                                        <div style="display: flex;  justify-content: space-between;">
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/cl.jpg" alt="Christopher Lee">
+                                                <p class="text-center">Christopher Lee</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/bk.jpg" alt="Boris Karloff">
+                                                <p class="text-center">Boris Karloff</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/vp.jpg" alt="Vincent Prices">
+                                                <p class="text-center">Vincent Price</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/bl.jpg" alt="Bela Lugosi">
+                                                <p class="text-center">Bela Lugosi</p>
+                                            </a>
+                                            <a href="#">
+                                                <img class="img-circle results-image" src="../ressrc/search/wc.jpg" alt="Wes Craven">
+                                                <p class="text-center">Wes Craven</p>
+                                            </a>
+                                        </div>
+                                    </section>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <script>setPlayer();</script>
+            <script>toggle_movies_tabs("top_results")</script>
+        </div>
+        <!-- END PAGE 8 - MOVIES SEARCH-->
     </div>
   <!-- END PAGES -->
 

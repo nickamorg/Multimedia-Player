@@ -114,6 +114,19 @@ $(document).ready(function () {
         send_mymovies();
     });
 
+    $('.to_movies_search').click(function () {
+        visitedPagesStack.setNewLastVisitedPage("movies_search");
+        PageTransitions.goToPage(2, 'movies_search');
+
+        $(".movies_keywords").each(function () {
+            val = this.value;
+            if(val !== "") {
+                reset_search_bar();
+                $("#movies_search").find(".movies_keywords")[0].value = val;
+            }
+        });
+    });
+
   //#endregion
   //---------------------------------------
 
