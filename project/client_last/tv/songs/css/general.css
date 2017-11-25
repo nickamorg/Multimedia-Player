@@ -417,9 +417,9 @@ a {
 }
 
 .options {
-    white-space: nowrap;
+    align-content: center;
     color: white;
-    font-size: 20px;
+    font-size: 50px;
     position: absolute;
     overflow: hidden;
     top: 50%;
@@ -429,10 +429,5 @@ a {
 }
 
 .options div {
-    padding-bottom:20px;
     cursor: pointer;
-}
-
-.options div span:hover {
-    color: #2BB4C4;
 }
