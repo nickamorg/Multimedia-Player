@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('#to_song_home').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("song_home");
-        PageTransitions.goToPage(2, 'song_home');
+        PageTransitions.goToPage(32, 'song_home');
     });
 
     $('.to_song_home').click(function () {
@@ -145,7 +145,5 @@ $(document).ready(function () {
         visitedPagesStack.setNewLastVisitedPage("movies_recently_watched");
         PageTransitions.goToPage(2, 'movies_recently_watched');
     });
-  //#endregion
-  //---------------------------------------
 
 });

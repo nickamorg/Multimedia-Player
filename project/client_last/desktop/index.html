@@ -1226,19 +1226,20 @@
                     <p id="movie_info">2017 • 133 min • action/adventure/science-fiction/superhero/comedy • <span><img width="30" height="15" src="../ressrc/movies_images/imdb.png"></span> 7.7</p>
                     <p id="movie_description">Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.</p>
 
+                    <button id="movie_display_play">
+                        <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+                            <em class="fa fa-play-circle-o"></em> Play the movie
+                        </h3>
+                    </button>
+
+                    <br/>
+
                     <button id="movie_display_add">
                         <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
                             <em class="fa fa-plus"></em> Add to My movies
                         </h3>
                     </button>
 
-                    <br/>
-
-                    <button id="movie_display_play">
-                        <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
-                            <em class="fa fa-play-circle-o"></em> Play the movie
-                        </h3>
-                    </button>
                 </div>
 
                 <div class="col-xs-3" style="padding-right:0">
@@ -1684,7 +1685,7 @@
             <script>setMoviesHeader();</script>
             <div class="movies_content scrollbar">
                 <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Top Movies</h3>
+                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Recently Watched</h3>
                     <div id="movies_recently_watched_content">
                         <div class="col-xs-3" onclick="display_movie_details('id' + 5)">
                             <img class="img-responsive" src="../ressrc/movies_images/wonder_woman.jpg">

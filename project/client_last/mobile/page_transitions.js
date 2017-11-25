@@ -1,11 +1,6 @@
 $(document).ready(function () {
 
-  //---------------------------------------
-  //#region Demo Button Clicks
-
 	$('#to_song_home, .to_song_home').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
     	$("#bottom_menu").show();
@@ -13,8 +8,6 @@ $(document).ready(function () {
 	});
 	
 	$('.to_mysongs').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
 		PageTransitions.goToPage(2, 'song_mysongs');
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
@@ -22,17 +15,13 @@ $(document).ready(function () {
 	});
 	
 	$('.to_lobby').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
         $("#bottom_menu").hide();
-		PageTransitions.goToPage(2, 'lobby');
+        PageTransitions.goToPage(2, 'lobby');
 	});
 	
 	$('.to_song_explore').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
 		PageTransitions.goToPage(2, 'song_explore');
@@ -40,16 +29,12 @@ $(document).ready(function () {
 	});
 	
 	$('.display_song_by_genre').click(function () {
-		// Tip: try other integers [1-67] at PageTransitions.goToPage function
-		// and see different animations on changing pages
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
 		PageTransitions.goToPage(2, 'song_by_genre');
 	});
 
     $('.playlists').click(function () {
-        // Tip: try other integers [1-67] at PageTransitions.goToPage function
-        // and see different animations on changing pages
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
         get_playlists();
@@ -57,8 +42,6 @@ $(document).ready(function () {
     });
 
     $('.to_songs_search').click(function () {
-        // Tip: try other integers [1-67] at PageTransitions.goToPage function
-        // and see different animations on changing pages
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
         search_songs();
@@ -66,25 +49,40 @@ $(document).ready(function () {
     });
 
     $('#song_new_releases_link').click(function () {
-        // Tip: try other integers [1-67] at PageTransitions.goToPage function
-        // and see different animations on changing pages
         set_song_new_releases();
         PageTransitions.goToPage(2, 'song_new_releases');
     });
 
     $('#song_charts_link').click(function () {
-        // Tip: try other integers [1-67] at PageTransitions.goToPage function
-        // and see different animations on changing pages
         PageTransitions.goToPage(2, 'song_charts');
     });
 
     $('#song_genres_link').click(function () {
-        // Tip: try other integers [1-67] at PageTransitions.goToPage function
-        // and see different animations on changing pages
         PageTransitions.goToPage(2, 'song_genres');
     });
 
-  //#endregion
-  //---------------------------------------
+    $('#to_movies_home, .to_movies_home').click(function () {
+        $("#movies_bottom_menu").show();
+        PageTransitions.goToPage(2, 'movies_home');
+    });
+
+    $('#movies_news_link').click(function () {
+        set_movies_news();
+        PageTransitions.goToPage(2, 'movies_news');
+    });
+
+    $('#movies_tops_link').click(function () {
+        set_movies_tops();
+        PageTransitions.goToPage(2, 'movies_tops');
+    });
+
+    $('#movies_genres_link').click(function () {
+        set_movies_genres();
+        PageTransitions.goToPage(2, 'movies_genres');
+    });
+
+    $('#movies_recently_watched_link').click(function () {
+        PageTransitions.goToPage(2, 'movies_recently_watched');
+    });
 
 });
