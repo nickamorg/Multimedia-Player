@@ -722,6 +722,32 @@
         </div>
         <!-- END PAGE 1 - MOVIES HOME -->
 
+        <!-- BEGIN PAGE 2 - MOVIES MOVIE_PAGE -->
+        <div id="movie_page" class="pt-page">
+            <div id="full-screen" class="movies_content scrollbar">
+                <h1 id="movie_title">Spider-Man: Homecoming</h1>
+
+                <div id="movie_details" class="col-xs-12" style="    background-color: #33333F; opacity: 0.9;">
+                    <p id="movie_info">2017 • 133 min • action/adventure/science-fiction/superhero/comedy • <span><img width="30" height="15" src="../ressrc/movies_images/imdb.png"></span> 7.7</p>
+                    <p id="movie_description">Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.</p>
+
+                    <button id="movie_display_play">
+                        <h2 style="background-color:black; padding:20px; border-radius:10px; cursor:pointer">
+                            <em class="fa fa-play-circle-o"></em> Play the movie
+                        </h2>
+                    </button>
+
+                    <button id="movie_display_add" style="float:right">
+                        <h2 style="background-color:black; padding:20px; border-radius:10px; cursor:pointer">
+                            <em class="fa fa-plus"></em> Add to My movies
+                        </h2>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 2 - MOVIES MOVIE_PAGE -->
+
         <!-- BEGIN PAGE 3 - MOVIES NEW_MOVIES -->
         <div id="movies_news" class="pt-page">
             <div class="content scrollbar">
@@ -733,50 +759,6 @@
             </div>
         </div>
         <!-- END PAGE 3 - MOVIES NEW_MOVIES -->
-
-        <!-- BEGIN PAGE 2 - MOVIES MOVIE_PAGE -->
-        <div id="movie_page" class="pt-page">
-            <script>setMoviesHeader()</script>
-            <div id="full-screen" class="movies_content scrollbar">
-                <div class="col-xs-3 text-center" style="margin-top: 50px; margin-bottom:120px; padding-left:0">
-                    <img id="movie_poster" class="img-responsive" style="border-radius: 38px" src="../ressrc/movies_images/spider-man_homecoming.png">
-
-                    <div class="clearfix"></div>
-                </div>
-
-                <div id="movie_details" class="col-xs-6" style="margin-top: 50px; margin-bottom:120px;">
-                    <h1 id="movie_title">Spider-Man: Homecoming</h1>
-                    <p id="movie_info">2017 • 133 min • action/adventure/science-fiction/superhero/comedy • <span><img width="30" height="15" src="../ressrc/movies_images/imdb.png"></span> 7.7</p>
-                    <p id="movie_description">Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.</p>
-
-                    <button id="movie_display_play">
-                        <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
-                            <em class="fa fa-play-circle-o"></em> Play the movie
-                        </h3>
-                    </button>
-
-                    <br/>
-
-                    <button id="movie_display_add">
-                        <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
-                            <em class="fa fa-plus"></em> Add to My movies
-                        </h3>
-                    </button>
-
-                </div>
-
-                <div class="col-xs-3" style="padding-right:0">
-                    <div class="card movie_related col-xs-12">
-                        <h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Movies</h3>
-
-                        <div id="movie_related_content">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END PAGE 2 - MOVIES MOVIE_PAGE -->
 
         <!-- BEGIN PAGE 4 - MOVIES TOP_MOVIES-->
         <div id="movies_tops" class="pt-page">
@@ -813,6 +795,116 @@
             </div>
         </div>
         <!-- END PAGE 6 - MOVIES BY_GENRES_MOVIES -->
+
+        <!-- BEGIN PAGE 7 - MOVIES MYMOVIES -->
+        <div id="movies_mymovies" class="pt-page">
+            <div class="content scrollbar">
+                <div style=" background-color:#000000">
+                    <div class="col-xs-12" style="padding-bottom: 50px;">
+                        <div class="col-xs-2" style="padding-top:20px"><em class="fa fa-angle-left" style="font-size:50px"></em></div>
+                        <div class="col-xs-8"><h1 class="text-center">My movies</h1></div>
+                        <div class="col-xs-2" style="padding-top:20px">
+                            <button data-toggle="collapse" data-target="#mymovies_filters">
+                                <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div id="mymovies_filters" class="collapse">
+                    <div id="mymovies_keywords">
+                        <div class="filter_category" onclick="expand_filter('mymovies_keywords');" type="button" data-toggle="collapse" data-target="#mymovies_keywords_content">
+                            <p style="margin:0">
+                                <span>Keywords</span>
+                                <span style="float:right">
+                                    <em class="fa fa-long-arrow-up"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="mymovies_keywords_content" class="collapse in scrollbar filter_content">
+                            <input id="mymovies_input_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
+                        </div>
+                    </div>
+
+                    <div id="mymovies_genres">
+                        <div class="filter_category" onclick="expand_filter('mymovies_genres');" type="button" data-toggle="collapse" data-target="#mymovies_genres_content">
+                            <p style="margin:0">
+                                <span>Genres</span>
+                                <span style="float:right">
+                                    <em class="fa fa-long-arrow-up"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="mymovies_genres_content" class="collapse in scrollbar filter_content">
+                        </div>
+                    </div>
+
+                    <div id="mymovies_release">
+                        <div class="filter_category" onclick="expand_filter('mymovies_release');" type="button" data-toggle="collapse" data-target="#mymovies_release_content">
+                            <p style="margin:0">
+                                <span>Release</span>
+                                <span style="float:right">
+                                    <em class="fa fa-long-arrow-up"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="mymovies_release_content" class="collapse in filter_content form-inline">
+                            <div class="col-xs-12">
+                                <label class="control-label">From</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="mymovies_release_from" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <label class="control-label">To</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="mymovies_release_to" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div id="mymovies_rate">
+                        <div class="filter_category" onclick="expand_filter('mymovies_rate');" type="button" data-toggle="collapse" data-target="#mymovies_rate_content">
+                            <p style="margin:0">
+                                <span>Rate</span>
+                                <span style="float:right">
+                                    <em class="fa fa-long-arrow-up"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="mymovies_rate_content" class="collapse in filter_content form-inline">
+                            <div class="col-xs-12">
+                                <label class="control-label">From</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="mymovies_rate_from" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <label class="control-label">To</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="mymovies_rate_to" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12">
+                    <div id="mymovies_content"></div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 7 - MOVIES MYMOVIES -->
 
         <!-- BEGIN PAGE 9 - MOVIES RECENTLY_WATCHED-->
         <div id="movies_recently_watched" class="pt-page">
@@ -873,6 +965,33 @@
         </div>
         <!-- END PAGE 9 - MOVIES RECENTLY_WATCHED -->
 
+        <!-- BEGIN PAGE 10 - MOVIES PLAYER-->
+        <div id="movies_player" class="pt-page">
+            <div class="col-xs-12" style="padding:0">
+                <video id="movies_video" poster="">
+                    <source src="../ressrc/movies/deadpool.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="player text-center">
+
+                    <div style="padding-top:30px; padding-bottom:30px;">
+                        <div style="transform: rotate(90deg); display:inline-block" class="movie_curr_dur">0:00</div>
+                        <div class="movie_progress" style="display:inline-block">
+                            <div style="width: 2.4193%;" class="movie_bar"></div>
+
+                        </div>
+                        <div style="transform: rotate(90deg); display:inline-block" class="movie_dur">2:21</div>
+                    </div>
+
+                    <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
+                        <button class="movie_muted"><em class="fa">&#xf027;</em></button>
+                        <div style="margin-bottom:4px" class="movie_volume"><span class="movie_volume_bar"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 10 - MOVIES PLAYER -->
+
     </div>
     <!-- END PAGES -->
     <script>
@@ -886,6 +1005,7 @@
     <!-- END JAVASCRIPT AFTER LOADING -->
 
     <script type="application/javascript" src="songs/js/playerAPI.js"></script>
+    <script type="application/javascript" src="movies/js/movie_player_control.js"></script>
 
     <script>
         // Get the modal

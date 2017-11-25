@@ -150,7 +150,7 @@ video {
 }
 
 /*          volume bar         */
-.movie_volume {
+.volume {
     position:relative;
     cursor:pointer;
     width:100px;

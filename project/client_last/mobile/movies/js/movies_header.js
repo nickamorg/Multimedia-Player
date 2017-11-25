@@ -27,12 +27,9 @@ function setMoviesMenu() {
     document.write(
 
         `<div id="movies_bottom_menu" class="player text-center">
-            <div class="col-xs-12">
-                <div class="to_lobby" style="width:25%; float:left"><button><em style="font-size:50px" class="fa fa-home"></em><p style="font-size:24px">3Player</p></button></div>
-                <div class="to_movies_home" style="width:25%; float:left"><button><em style="font-size:50px" class="fa fa-map-signs"></em><p style="font-size:24px">Explore</p></button></div>
-                <div class="to_movies_search" style="width:25%; float:left"><button><em style="font-size:50px" class="fa fa-search"></em><p style="font-size:24px">Search</p></button></div>
-                <div class="to_mymovies" style="width:25%; float:left"><button><em style="font-size:50px" class="fa fa-film"></em><p style="font-size:24px">My movies</p></button></div>
-            </div>
+            <div class="to_lobby" style="width:25%; float:left"><button><em style="font-size:50px" class="fa fa-home"></em><p style="font-size:24px">3Player</p></button></div>
+            <div class="to_movies_home" style="width:25%; float:left"><button><em style="font-size:50px" class="fa fa-map-signs"></em><p style="font-size:24px">Explore</p></button></div>
+            <div class="to_movies_search" style="width:25%; float:left"><button><em style="font-size:50px" class="fa fa-search"></em><p style="font-size:24px">Search</p></button></div>
+            <div class="to_mymovies" style="width:25%; float:left"><button><em style="font-size:50px" class="fa fa-film"></em><p style="font-size:24px">My movies</p></button></div>
         </div>`);
-
 }
