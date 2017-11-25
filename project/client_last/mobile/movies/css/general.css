@@ -178,7 +178,7 @@ video {
 }
 
 /*          volume bar         */
-.volume {
+..movie_volume {
     position:relative;
     cursor:pointer;
     width:100px;
@@ -189,6 +189,7 @@ video {
     background-color: #95989A;;
     border-radius: 5px;
 }
+
 .movie_volume_bar {
     display:block;
     height:6px;
