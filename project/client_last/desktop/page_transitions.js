@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('#to_song_home').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("song_home");
-        PageTransitions.goToPage(2, 'song_home');
+        PageTransitions.goToPage(32, 'song_home');
     });
 
     $('.to_song_home').click(function () {
