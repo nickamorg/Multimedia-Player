@@ -1,5 +1,5 @@
 movies = {
-    "crowd": 11,
+    "crowd": 13,
     "id0": {
         "file": "Spider-Man Homecoming.mp4",
         "title": "Spider-Man: Homecoming",
@@ -120,81 +120,34 @@ movies = {
         "img": "suicide_squard.jpg",
         "description": "A secret government agency recruits some of the most dangerous incarcerated " +
         "super-villains to form a defensive task force. Their first mission: save the world from the apocalypse."
+    },
+    "id11": {
+        "file": "it.mp4",
+        "title": "IT",
+        "release": "28 September 2017",
+        "duration": "135 min",
+        "rate": "7.7",
+        "genre": ["Thriller", "Horror", "Drama"],
+        "img": "it.jpg",
+        "description": "A group of bullied kids band together when a shapeshifting monster, taking the " +
+        "appearance of a clown, begins hunting children."
+    },
+    "id12": {
+        "file": "It Comes At Night.mp4",
+        "title": "It Comes At Night",
+        "release": "7 September 2017",
+        "duration": "91 min",
+        "rate": "6.2",
+        "genre": ["Horror", "Mystery"],
+        "img": "it_comes_at_night.jpg",
+        "description": "Secure within a desolate home as an unnatural threat terrorizes the world, a " +
+        "man has established a tenuous domestic order with his wife and son. Then a desperate young " +
+        "family arrives seeking refuge."
     }
 
 };
 
 mymovies = [];
-
-function setPlayer() {
-    document.write(
-
-    `<div class="player text-center">
-        <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
-            <div class="col-xs-3" style="padding:10px 0px 10px 0px;">
-                <img class="img" style="width:80px" src="../ressrc/icon.png">
-            </div>
-            <div class="col-xs-9 text-left" style="padding-top:15px">
-				<p class="title">Read All About It <button><em class="fa">&#xf067;</em></button></p>
-				<p class="artist">Emeli Sandé</p>
-            </div>
-        </div>
-    
-        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
-            <div class="controls">
-                <button onclick="playerAPI.shuffle()"><em class="fa">&#xf074;</em></button>
-                <button onClick="playerAPI.prev()"><em class="fa">&#xf048;</em></button>
-                <button onclick="playerAPI.playPause()"><em style="font-size:35px !important" class="fa">&#xf01d;</em></button>
-                <button onClick="playerAPI.next()"><em class="fa">&#xf051;</em></button>
-                <button onClick="playerAPI.repeat()"><em class="fa">&#xf01e;</em></button>
-            </div>
-        
-            <div>
-            <div class="curr" style="display:inline-block">0:00</div>
-            <div style="display:inline-block" class="myProgress">
-                <div class="myBar"></div>
-            
-                </div>
-                <div class="dur" style="display:inline-block">4:37</div>
-            </div>
-        </div>
-        
-        <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
-            <button><em style="font-size:24px" class="fa">&#xf0ca;</em></button>
-            <button class="expand"><em class="fa">&#xf065;</em></button>
-            <button class="muted"><em class="fa">&#xf027;</em></button>
-            <div style="margin-bottom:4px" class="volume"><span class="volumeBar"></span></div>
-        </div>
-    
-    </div>`);
-
-}
-
-function set_songs_by_genre(genre) {
-    PageTransitions.goToPage(2, 'song_by_genre');
-    $("#display_by_genre").find("tbody").html("");
-    $("#song_by_genre").find("h1")[0].innerHTML = "Songs - " + genre.charAt(0).toUpperCase() + genre.slice(1);
-
-    for(let i = 0; i < playerAPI.songs.crowd; i++) {
-        song = playerAPI.songs["id" + i];
-        for(let j = 0; j < song.genre.length; j++) {
-            if(song.genre[j] === genre) {
-                $("#display_by_genre").find("tbody").append(
-                    `<tr>
-                        <td><img id="img" style="width:80px" src="../ressrc/songs_images/${song.img}"></td>
-						<td><button onclick='play_song("${'id' + i}")'><em class="fa">&#xf01d;</em></button></td>
-						<td><button onclick="open_playlists_modal('${"id" + i}')"><em class="fa">&#xf067;</em></button></td>
-						<td><button onclick="display_song_details('${"id" + i}')">${song.title}</button></td>
-						<td>${song.artist}</td>
-						<td>${song.album}</td>
-						<td>${song.release}</td>
-						<td>${song.duration}</td>
-					</tr>`);
-                break;
-            }
-        }
-    }
-}
 
 function display_movie_details(movie_id) {
     var movie = movies[movie_id];
@@ -208,6 +161,14 @@ function display_movie_details(movie_id) {
     ${movies[movie_id].release.split(" ")[2]} • ${movie.duration} • ${movie.genre} • 
     <span><img width="30" height="15" src="../ressrc/movies_images/imdb.png"></span> ${movie.rate}`);
     $('#movie_description').text(movie.description);
+
+    $('#movie_display_play').click(function() {
+        setMoviesPlayer(movie_id);
+    });
+
+    $('#movie_display_add').click(function() {
+        add_to_mymovies(movie_id);
+    });
 
     PageTransitions.goToPage(2, 'movie_page');
 
@@ -386,9 +347,14 @@ function send_mymovies() {
             var genres_counter = 0;
             var dates = [];
             $("#mymovies_content").html("");
+
+            var index = mymovies.indexOf("");
+            mymovies.splice(index, 1);
+
             for(var i = 0; i < mymovies.length; i++) {
                 id = "id" + parseInt(mymovies[i].substring(2));
                 movie = movies[id];
+
 
                 for(var j = 0; j < movie.genre.length; j++) {
                     genres[genres_counter++] = movie.genre[j];
@@ -407,7 +373,7 @@ function send_mymovies() {
                                     <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
                                 </div>
                                 
-                                <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                <div class="col-xs-12" onclick="setMoviesPlayer('${id}')">
                                     <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
                                 </div>
                                 
@@ -436,7 +402,6 @@ function send_mymovies() {
             dates = tmp;
             dates = dates.sort(function (a, b) {  return b - a;  });
 
-            console.log(rates);
             tmp = rates.filter(function(item, pos) {
                 return rates.indexOf(item) == pos;
             });
@@ -665,4 +630,14 @@ function search_movies_filters() {
         $("#search_movies_rate_from").append('<option value=\"' + rates[i] + '\">' + rates[i] + '</option>');
         $("#search_movies_rate_to").append('<option value=\"' + rates[i] + '\">' + rates[i] + '</option>');
     }
+}
+
+function add_to_mymovies(movie_id) {
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "add to my movies", "movie_id":"' + movie_id + '" }';
+
+        ws.send(message);
+    };
 }

@@ -40,6 +40,15 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
+            } else if(message["type"] === "add to my movies") {
+                var fs = require('fs');
+                fs.appendFile("data/mymovies.txt", message["movie_id"] + "\n", function(err) {
+                    if(err) {
+                        return console.log(err);
+                    }
+
+                    console.log("The file was saved!");
+                }); 
             } else if(message["type"] === "add to playlist") {
                 var fs = require('fs');
                 fs.appendFile("data/playlists/" + message["playlist"] + ".txt", message["song_id"] + "\r\n", function(err) {
