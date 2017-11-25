@@ -62,3 +62,157 @@
     overflow-x: scroll;
     margin:0;
 }
+
+#full-screen {
+    height: 100%;
+    background: center no-repeat;
+    background-size: cover;
+    background-image: url('../../../ressrc/movies_images/background/spider-man_homecoming.png');
+    /*background-position: center;
+    background-repeat: no-repeat;*/
+}
+
+#movie_title {
+    background-color: #000000;
+    color: #ffffff;
+    margin:0;
+    text-align: center;
+    padding:20px 0px 20px 0px;
+}
+
+#movie_details {
+    background-color: #33333F;
+    opacity: 0.9;
+    height: 86%;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .5s ease;
+}
+
+.container:hover .overlay {
+    bottom: 0;
+    height: 100%;
+}
+
+.options {
+    white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.options div {
+    padding-bottom:20px;
+    cursor: pointer;
+}
+
+.options div span:hover {
+    color: #2BB4C4;
+}
+
+video {
+    width: 100%;
+    position: absolute;
+    transform: rotate(90deg);
+
+    transform-origin: bottom left;
+    width: 72vh;
+    /*height: 100vw;*/
+    height: 650px;
+    margin-top: -100vw;
+    object-fit: cover;
+
+    z-index: 4;
+    visibility: visible;
+}
+
+/*          Song current time bar        */
+.movie_progress {
+    width: 500px;
+    background-color: #95989A;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.movie_bar {
+    width: 0%;
+    height: 6px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.movie_progress  {
+    position:relative;
+    cursor:pointer;
+    height:6px;
+    display:inline-block;
+    margin-top:10px;
+    margin-right:10px;
+    background-color: #95989A;;
+    border-radius: 5px;
+}
+
+.movie_bar {
+    display:block;
+    height:6px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:#2BB4C4;
+    z-index:10;
+    border-radius: 5px;
+}
+
+/*          volume bar         */
+.volume {
+    position:relative;
+    cursor:pointer;
+    width:100px;
+    height:6px;
+    display:inline-block;
+    margin-top:10px;
+    margin-right:10px;
+    background-color: #95989A;;
+    border-radius: 5px;
+}
+.movie_volume_bar {
+    display:block;
+    height:6px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:#2BB4C4;
+    z-index:10;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.special_menu div {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transition-duration: 5s;
+    -moz-transition-duration: 5s;
+    -o-transition-duration: 5s;
+    transition-duration: 5s;
+}
+
+.special_menu_none div {
+    -webkit-transform: none;
+    transform: none;
+}

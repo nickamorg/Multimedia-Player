@@ -7,7 +7,10 @@ movies = {
         "rate": "7.6",
         "duration": "2:13:00",
         "genre": ["Action", "Adventure", "Science fiction", "Fantasy"],
-        "img": "spider-man_homecoming.png"
+        "img": "spider-man_homecoming.png",
+        "description": "Peter Parker balances his life as an ordinary high school student in Queens " +
+        "with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling " +
+        "the skies of New York City."
     },
     "id1": {
         "file": "ANNABELLE CREATION.mp4",
@@ -151,11 +154,10 @@ mymovies = [];
 
 function display_movie_details(movie_id) {
     var movie = movies[movie_id];
-    new_background = 'url(\'../ressrc/movies_images/background/' + movie.img + '\')';
+    new_background = 'url(\'../ressrc/movies_images/' + movie.img + '\')';
     new_poster = '../ressrc/movies_images/' + movie.img;
 
     $('#full-screen').css('background-image', new_background);
-    $('#movie_poster').attr('src', new_poster);
     $('#movie_title').text(movie.title);
     $('#movie_info').html(`
     ${movies[movie_id].release.split(" ")[2]} • ${movie.duration} • ${movie.genre} • 
@@ -339,6 +341,7 @@ function send_mymovies() {
 
             for(var i = 0; i < mymovies.length; i++) {
                 id = "id" + parseInt(mymovies[i].substring(2));
+                if(id === "idNaN") continue;
                 movie = movies[id];
 
 
@@ -349,22 +352,22 @@ function send_mymovies() {
                 dates[i] = parseInt(movie.release.split(" ")[2]);
                 rates[i] = parseFloat(movie.rate);
                 $("#mymovies_content").append(
-                    `<div class="col-xs-4 container">
-                        <img class="img-responsive" src="../ressrc/movies_images/${movie.img}"/>
-                        <p>${movie.title}</p>
+                    `<div class="col-xs-6 container">
+                        <img class="img-movie_gen" src="../ressrc/movies_images/${movie.img}"/>
+                        <h3>${movie.title}</h3>
                         <div class="overlay">
                             <h3 class="text-center">${movie.title}</h3>
                             <div class="options">
                                 <div class="col-xs-12" onclick="display_movie_details('${id}')">
-                                    <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
+                                    <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movie</span></em>
                                 </div>
                                 
                                 <div class="col-xs-12" onclick="setMoviesPlayer('${id}')">
-                                    <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
+                                    <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play movie</span></em>
                                 </div>
                                 
                                 <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
+                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove movie</span></em>
                                 </div>
                             </div>
                         </div>

@@ -24,6 +24,9 @@ function setMoviesPlayer(movie_id) {
             $("#movies_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
         }
     }, 2500);
+
+    $("#movies_bottom_menu").addClass("special_menu");
+    $("#movies_bottom_menu").removeClass("special_menu_none");
 }
 
 movies_video.addEventListener('click', function(){

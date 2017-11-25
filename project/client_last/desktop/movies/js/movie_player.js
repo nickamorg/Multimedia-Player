@@ -7,7 +7,10 @@ movies = {
         "rate": "7.6",
         "duration": "2:13:00",
         "genre": ["Action", "Adventure", "Science fiction", "Fantasy"],
-        "img": "spider-man_homecoming.png"
+        "img": "spider-man_homecoming.png",
+        "description": "Peter Parker balances his life as an ordinary high school student in Queens " +
+        "with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling " +
+        "the skies of New York City."
     },
     "id1": {
         "file": "ANNABELLE CREATION.mp4",
