@@ -99,7 +99,7 @@ img {
     cursor: pointer;
 }
 
-.options div span:hover {
+.options div em:hover {
     color: #2BB4C4;
 }
 
@@ -172,4 +172,16 @@ video {
     z-index:10;
     width: 50%;
     border-radius: 5px;
+}
+
+.movies_controls {
+    padding:20px 0px 5px 0px;
+}
+
+.movies_controls button {
+    margin: 0 30px;
+}
+
+.movies_controls i {
+    padding: 0px 10px 0px 10px;
 }
