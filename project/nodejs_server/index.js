@@ -49,6 +49,15 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
+            } else if(message["type"] === "add to my series") {
+                var fs = require('fs');
+                fs.appendFile("data/myseries.txt", message["serie_id"] + "\n", function(err) {
+                    if(err) {
+                        return console.log(err);
+                    }
+
+                    console.log("The file was saved!");
+                }); 
             } else if(message["type"] === "add to playlist") {
                 var fs = require('fs');
                 fs.appendFile("data/playlists/" + message["playlist"] + ".txt", message["song_id"] + "\r\n", function(err) {
@@ -173,6 +182,28 @@ wsServer.on('connection', function connection(ws) {
 						if (err) return console.log(err);
 					});
 				});
+			} else if(message["type"] === "remove from myseries") {
+                var fs = require('fs');
+				fs.readFile("data/myseries.txt", 'utf8', function (err,data) {
+					if (err) {
+						return console.log(err);
+					}
+					var replace = message["serie_id"] + '\r\n';
+					var re = new RegExp(replace);
+
+					tmp = data.replace(re, "");
+					if(data === tmp) {
+						var replace = message["serie_id"];
+						var re = new RegExp(replace);
+						tmp = data.replace(re, "");
+					}
+					data = tmp;
+					
+					console.log(data);
+					fs.writeFile("data/myseries.txt", data, 'utf8', function (err) {
+						if (err) return console.log(err);
+					});
+				});
 			}
         } else {
             if(message === "mysongs") {
@@ -221,6 +252,14 @@ wsServer.on('connection', function connection(ws) {
             } else if(message === "mymovies") {
                 var fs = require('fs');
                 fs.readFile("data/mymovies.txt", function read(err, data) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    ws.send("" + data);
+                });
+            }  else if(message === "myseries") {
+                var fs = require('fs');
+                fs.readFile("data/myseries.txt", function read(err, data) {
                     if (err) {
                         return console.log(err);
                     }

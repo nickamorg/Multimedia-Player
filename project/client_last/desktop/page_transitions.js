@@ -145,4 +145,68 @@ $(document).ready(function () {
         visitedPagesStack.setNewLastVisitedPage("movies_recently_watched");
         PageTransitions.goToPage(2, 'movies_recently_watched');
     });
+
+
+    /* SERIES */
+
+    $('#to_series_home').click(function () {
+        reset();
+        visitedPagesStack.setNewLastVisitedPage("series_home");
+        PageTransitions.goToPage(32, 'series_home');
+    });
+
+    $('.to_series_home').click(function () {
+        reset();
+        visitedPagesStack.setNewLastVisitedPage("series_home");
+        PageTransitions.goToPage(2, 'series_home');
+    });
+
+    $('#series_news_link').click(function () {
+        reset();
+        set_series_news();
+        visitedPagesStack.setNewLastVisitedPage("series_news");
+        PageTransitions.goToPage(2, 'series_news');
+    });
+
+    $('#series_tops_link').click(function () {
+        reset();
+        set_series_tops();
+        visitedPagesStack.setNewLastVisitedPage("series_tops");
+        PageTransitions.goToPage(2, 'series_tops');
+    });
+
+    $('#series_genres_link').click(function () {
+        reset();
+        set_series_genres();
+        visitedPagesStack.setNewLastVisitedPage("series_genres");
+        PageTransitions.goToPage(2, 'series_genres');
+    });
+
+    $('.to_myseries').click(function () {
+        reset();
+        visitedPagesStack.setNewLastVisitedPage("series_myseries");
+        PageTransitions.goToPage(2, 'series_myseries');
+        send_myseries();
+    });
+
+    $('.to_series_search').click(function () {
+        reset();
+        visitedPagesStack.setNewLastVisitedPage("series_search");
+        PageTransitions.goToPage(2, 'series_search');
+
+        $(".series_keywords").each(function () {
+            val = this.value;
+            if(val !== "") {
+                reset();
+                $("#series_search").find(".series_keywords")[0].value = val;
+            }
+        });
+    });
+
+    $('#series_recently_watched_link').click(function () {
+        reset();
+        visitedPagesStack.setNewLastVisitedPage("series_recently_watched");
+        PageTransitions.goToPage(2, 'series_recently_watched');
+    });
+
 });

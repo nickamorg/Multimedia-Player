@@ -68,6 +68,17 @@ movies_video.ontimeupdate = function() {
     movie_width = percentage;
 };
 
+movies_video.onended = function() {
+    $("#movies_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
+    $(".movie_curr_dur").text("0:00");
+
+    $(".movie_bar").each( function () {
+        var movie_bar = $(this);
+        movie_bar.css("width", '0')
+    });
+    movie_width = 0;
+};
+
 let movie_stored_volume = 50;
 /*Song Volume*/
 $('.movie_muted').click(function () {
