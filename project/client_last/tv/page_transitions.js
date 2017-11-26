@@ -68,6 +68,12 @@ $(document).ready(function () {
     	PageTransitions.goToPage(2, 'song_playlist');
     });
 
+    $('#to_tv_series_home').click(function () {
+		// Tip: try other integers [1-67] at PageTransitions.goToPage function
+		// and see different animations on changing pages
+		PageTransitions.goToPage(2, 'tv_series_home');
+	});
+
     $('.to_songs_search').click(function () {
         // Tip: try other integers [1-67] at PageTransitions.goToPage function
         // and see different animations on changing pages

@@ -1,0 +1,186 @@
+.series_content {
+    height: 100%;
+    padding-bottom: 100px;
+}
+
+.img-serie {
+    width: 188px !important;
+    height: 250px !important;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+.img-serie-recently-watched {
+    width: 80px;
+    height: 107px;
+}
+
+#serie_full-screen {
+    height: 100%;
+    background: center no-repeat;
+    background-size: cover;
+    /*background-position: center;
+    background-repeat: no-repeat;*/
+}
+
+#serie_poster {
+    width: 100%;
+    max-height: 500px;
+    overflow:hidden;
+}
+
+
+img {
+    max-height: 500px;
+    overflow:hidden;
+}
+
+#series_genres_content div, #series_tops_content div, #series_news_content div, #series_by_genres_content div, #series_recently_watched_content div {
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+
+#series_genres_content img, #series_tops_content img, #series_news_content img, #series_by_genres_content img , #series_recently_watched_content img {
+    height: 500px;
+    width: 100%;
+}
+
+#myseries_content img {
+    height: 500px;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #33333F;
+    opacity: 0.8;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .5s ease;
+}
+
+.container:hover .overlay {
+    bottom: 0;
+    height: 100%;
+}
+
+.options {
+    white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.options div {
+    padding-bottom:20px;
+    cursor: pointer;
+}
+
+.options div em:hover {
+    color: #2BB4C4;
+}
+
+.results-image {
+    width: 220px;
+    height: 220px;
+    padding: 12px;
+}
+
+video {
+    width: 100%;
+}
+
+/*          Song current time bar        */
+.serie_progress {
+    width: 500px;
+    background-color: #95989A;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.serie_bar {
+    width: 0%;
+    height: 6px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.serie_progress  {
+    position:relative;
+    cursor:pointer;
+    height:6px;
+    display:inline-block;
+    margin-top:10px;
+    margin-right:10px;
+    background-color: #95989A;;
+    border-radius: 5px;
+}
+
+.serie_bar {
+    display:block;
+    height:6px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:#2BB4C4;
+    z-index:10;
+    border-radius: 5px;
+}
+
+/*          volume bar         */
+.serie_volume {
+    position:relative;
+    cursor:pointer;
+    width:100px;
+    height:6px;
+    display:inline-block;
+    margin-top:10px;
+    margin-right:10px;
+    background-color: #95989A;;
+    border-radius: 5px;
+}
+.serie_volume_bar {
+    display:block;
+    height:6px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:#2BB4C4;
+    z-index:10;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.series_controls {
+    padding:20px 0px 5px 0px;
+}
+
+.series_controls button {
+    margin: 0 30px;
+}
+
+.series_controls i {
+    padding: 0px 10px 0px 10px;
+}
