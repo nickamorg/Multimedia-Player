@@ -89,7 +89,7 @@
     <script>
         function toggle_movies_tabs(id) {
             $("#display_movies_top_results").hide();
-            $("#display_movies_genres").hide();
+            $("#display_movies_search_genres").hide();
             $("#display_movies_movies").hide();
             $("#display_movies_people").hide();
             $("#display_movies_" + id).show();
@@ -105,8 +105,8 @@
     <script>
         function toggle_series_tabs(id) {
             $("#display_series_top_results").hide();
-            $("#display_series_genres").hide();
-            $("#display_series_movies").hide();
+            $("#display_series_search_genres").hide();
+            $("#display_series_series").hide();
             $("#display_series_people").hide();
             $("#display_series_" + id).show();
 
@@ -337,7 +337,7 @@
                     <div class="col-xs-10" style="padding-right:0; margin-top:20px;">
 
                         <h1>My songs</h1>
-                        <table class="table display_songs table-striped table-borderless">
+                        <table id="mysongs_table" class="table display_songs table-striped table-borderless">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -1532,9 +1532,9 @@
                             <article class="col-md-10" style="padding-top:50px">
                                 <div class="horizontal-tabs">
                                     <a id="movies_top_results" onclick="toggle_movies_tabs('top_results')">TOP RESULTS</a>
-                                    <a id="movies_search_genres" onclick="toggle_movies_tabs('genres')">GENRE</a>
-                                    <a id="movies_artists" onclick="toggle_movies_tabs('movies')">MOVIES</a>
-                                    <a id="movies_tracks" onclick="toggle_movies_tabs('people')">PEOPLE</a>
+                                    <a id="movies_search_genres" onclick="toggle_movies_tabs('search_genres')">GENRE</a>
+                                    <a id="movies_movies" onclick="toggle_movies_tabs('movies')">MOVIES</a>
+                                    <a id="movies_people" onclick="toggle_movies_tabs('people')">PEOPLE</a>
                                 </div>
                                 <div id="display_movies_top_results">
                                     <section class="card">
@@ -1613,7 +1613,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div id="display_movies_genres">
+                                <div id="display_movies_search_genres">
                                     <section>
                                         <h3>Genre</h3>
                                         <div style="display: flex; justify-content: space-between;">
@@ -2237,32 +2237,32 @@
                             <article class="col-md-10" style="padding-top:50px">
                                 <div class="horizontal-tabs">
                                     <a id="series_top_results" onclick="toggle_series_tabs('top_results')">TOP RESULTS</a>
-                                    <a id="series_search_genres" onclick="toggle_series_tabs('genres')">GENRE</a>
-                                    <a id="series_artists" onclick="toggle_series_tabs('series')">SERIES</a>
-                                    <a id="series_tracks" onclick="toggle_series_tabs('people')">PEOPLE</a>
+                                    <a id="series_search_genres" onclick="toggle_series_tabs('search_genres')">GENRE</a>
+                                    <a id="series_series" onclick="toggle_series_tabs('series')">SERIES</a>
+                                    <a id="series_people" onclick="toggle_series_tabs('people')">PEOPLE</a>
                                 </div>
                                 <div id="display_series_top_results">
                                     <section class="card">
                                         <h3>Genre</h3>
                                         <div style="display: flex; justify-content: space-between;">
                                             <a onclick="set_series_by_genre('Horror')">
-                                                <img class="results-image" src="../ressrc/search/action_horror.jpg" alt="Action Horror">
+                                                <img class="results-image" src="../ressrc/search/Action%20Horror.jpg" alt="Action Horror">
                                                 <p class="text-center">Action Horror</p>
                                             </a>
                                             <a onclick="set_series_by_genre('Horror')">
-                                                <img class="results-image" src="../ressrc/search/comedy_horror.jpg" alt="Comedy Horror">
+                                                <img class="results-image" src="../ressrc/search/Comedy%20Horror.jpg" alt="Comedy Horror">
                                                 <p class="text-center">Comedy Horror</p>
                                             </a>
                                             <a onclick="set_series_by_genre('Horror')">
-                                                <img class="results-image" src="../ressrc/search/science_fiction_horror.jpg" alt="Science Fiction Horror">
+                                                <img class="results-image" src="../ressrc/search/Science%20Fiction%20Horror.jpg" alt="Science Fiction Horror">
                                                 <p class="text-center">Science Fiction Horror</p>
                                             </a>
                                             <a onclick="set_series_by_genre('Horror')">
-                                                <img class="results-image" src="../ressrc/search/horror_drama.jpg" alt="Horror Drama">
+                                                <img class="results-image" src="../ressrc/search/Horror%20Drama.jpg" alt="Horror Drama">
                                                 <p class="text-center">Horror Drama</p>
                                             </a>
                                             <a onclick="set_series_by_genre('Horror')">
-                                                <img class="results-image" src="../ressrc/search/psychological_horror.jpg" alt="Psychological Horror">
+                                                <img class="results-image" src="../ressrc/search/Psychological%20Horror.jpg" alt="Psychological Horror">
                                                 <p class="text-center">Psychological Horror</p>
                                             </a>
                                         </div>
@@ -2318,7 +2318,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div id="display_series_genres">
+                                <div id="display_series_search_genres">
                                     <section>
                                         <h3>Genre</h3>
                                         <div style="display: flex; justify-content: space-between;">

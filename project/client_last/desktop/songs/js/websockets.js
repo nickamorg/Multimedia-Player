@@ -240,11 +240,11 @@ function apply_filters_mysong() {
         }
     }
 
-    $(".table").find("tbody").html("");
+    $("#mysongs_table").find("tbody").html("");
     for(let i = 0; i < tmp_mysongs.length; i++) {
         if(check[i]) {
             song = playerAPI.songs[tmp_mysongs[i]];
-            $(".table").find("tbody").append(
+            $("#mysongs_table").find("tbody").append(
                 `<tr>
                     <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
                     <td><button onclick="open_playlists_modal('${tmp_mysongs[i]}');"><em class="fa fa-plus"></em></button></td>
@@ -538,7 +538,7 @@ function search_songs(keywords) {
     let  genres_counter = 0;
     let  dates = [];
     let  albums = [];
-    $(".table").find("tbody").html("");
+    $("#mysongs_table").find("tbody").html("");
     for(let i = 0; i < playerAPI.songs.crowd; i++) {
         let id = "id" + i;
         let song = playerAPI.songs[id];
@@ -548,7 +548,7 @@ function search_songs(keywords) {
         }
         dates[i] = parseInt(song.release.split(" ")[2]);
         albums[i] = song.album;
-        $(".table").find("tbody").append(
+        $("#mysongs_table").find("tbody").append(
             `<tr>
                 <td><button onclick="play_song(${id})"><em class="fa">&#xf01d;</em></button></td>
                 <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
@@ -568,7 +568,7 @@ function search_songs(keywords) {
 
     $("#search_genres_content").html("");
     for(i = 0; i < genres.length; i++) {
-        $("#search_genres_content").append('<input onchange="apply_filters_search()" type="checkbox" name="genre" value="' + genres[i] + '">' + genres[i] + '<br>');
+        $("#search_genres_content").append('<input type="checkbox" name="genre" value="' + genres[i] + '">' + genres[i] + '<br>');
     }
     tmp = artists.filter(function(item, pos) {
         return artists.indexOf(item) == pos;
@@ -576,7 +576,7 @@ function search_songs(keywords) {
     artists = tmp;
     $("#search_artists_content").html("");
     for(i = 0; i < artists.length; i++) {
-        $("#search_artists_content").append('<input onchange="apply_filters_search()" type="checkbox" name="artist" value="' + artists[i] + '">' + artists[i] + '<br>');
+        $("#search_artists_content").append('<input type="checkbox" name="artist" value="' + artists[i] + '">' + artists[i] + '<br>');
     }
     tmp = dates.filter(function(item, pos) {
         return dates.indexOf(item) == pos;
@@ -589,7 +589,7 @@ function search_songs(keywords) {
     albums = tmp;
     $("#search_albums_content").html("");
     for(i = 0; i < albums.length; i++) {
-        $("#search_albums_content").append('<input onchange="apply_filters_search()" type="checkbox" name="album" value="' + albums[i] + '">' + albums[i] + '<br>');
+        $("#search_albums_content").append('<input type="checkbox" name="album" value="' + albums[i] + '">' + albums[i] + '<br>');
     }
     $("#search_from").html("");
     $("#search_to").html("");
@@ -726,11 +726,11 @@ function apply_filters_search() {
         }
     }
 
-    $(".table").find("tbody").html("");
+    $("#").find("tbody").html("");
     for(let i = 0; i < playerAPI.songs.crowd; i++) {
         if(check[i]) {
             song = playerAPI.songs["id" + i];
-            $(".table").find("tbody").append(
+            $("#mysongs_table").find("tbody").append(
                 `<tr>
                     <td><button onclick="play_song('${"id" + i}')"><em class="fa">&#xf01d;</em></button></td>
                     <td><button onclick="open_playlists_modal('${"id" + i}')"><em class="fa">&#xf067;</em></button></td>

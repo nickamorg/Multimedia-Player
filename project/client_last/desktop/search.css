@@ -427,6 +427,7 @@ a {
 .active-tab {
     color: #2bb4c4;
 }
+
 .active-tab:hover {
     color: #2bb4c4;
     text-decoration: none;
