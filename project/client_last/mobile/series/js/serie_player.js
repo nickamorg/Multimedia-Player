@@ -162,7 +162,7 @@ function display_serie_details(serie_id) {
     new_background = 'url(\'../ressrc/series_images/' + serie.img + '\')';
     new_poster = '../ressrc/series_images/' + serie.img;
 
-    $('#full-screen').css('background-image', new_background);
+    $('#serie_full-screen').css('background-image', new_background);
     $('#serie_title').text(serie.title);
     $('#serie_info').html(`
     ${series[serie_id].release.split(" ")[0]} • ${serie.duration} • ${serie.genre} • 

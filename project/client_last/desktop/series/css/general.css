@@ -184,3 +184,30 @@ video {
 .series_controls i {
     padding: 0px 10px 0px 10px;
 }
+
+
+
+.table-episodes {
+    display: block;
+    height: 468px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.card_serie {
+    opacity: 0.95;
+}
+
+#serie_display_play_episode {
+    padding: 10px 0 0 0;
+}
+
+#serie_display_play_episode em {
+    padding:16px 0 0 0;
+}
+#serie_display_play_episode div {
+    padding:0 !important;
+
+}#serie_display_play_episode div:hover {
+     color: #2BB4C4;
+}

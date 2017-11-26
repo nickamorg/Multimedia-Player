@@ -174,6 +174,10 @@ function display_serie_details(serie_id) {
         setSeriesPlayer(serie_id);
     });
 
+    $('#serie_display_play_episode').click(function() {
+        setSeriesPlayer(serie_id);
+    });
+
     $('#serie_display_add').click(function() {
         add_to_myseries(serie_id);
     });
