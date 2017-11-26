@@ -13,6 +13,17 @@ $(document).ready(function () {
         document.getElementById("movies_video").pause();
         $('.movie_volume_bar').css('width', '50%');
 
+        setTimeout(function(){
+            $("series_bottom_menu").removeClass("special_menu");
+        }, 2500);
+
+        $("#series_bottom_menu").addClass("special_menu_none");
+
+        document.getElementById("series_video").currentTime = 0;
+        serie_width = 0;
+        document.getElementById("series_video").pause();
+        $('.serie_volume_bar').css('width', '50%');
+
     }
 	$('#to_song_home, .to_song_home').click(function () {
         reset();
@@ -21,7 +32,7 @@ $(document).ready(function () {
     	$("#bottom_menu").show();
 		PageTransitions.goToPage(2, 'song_home');
 	});
-	
+
 	$('.to_mysongs').click(function () {
         reset();
 		PageTransitions.goToPage(2, 'song_mysongs');
@@ -29,7 +40,7 @@ $(document).ready(function () {
         $("#expand_player").removeClass("in");
 		send_mysongs();
 	});
-	
+
 	$('.to_lobby').click(function () {
         reset();
         document.getElementById("playing").pause();
@@ -38,7 +49,7 @@ $(document).ready(function () {
         $("#bottom_menu").hide();
         PageTransitions.goToPage(2, 'lobby');
 	});
-	
+
 	$('.to_song_explore').click(function () {
         reset();
         $("#expand_lyrics").removeClass("in");
@@ -46,7 +57,7 @@ $(document).ready(function () {
 		PageTransitions.goToPage(2, 'song_explore');
 		playerAPI.explore_genres();
 	});
-	
+
 	$('.display_song_by_genre').click(function () {
         reset();
         $("#expand_lyrics").removeClass("in");
@@ -119,6 +130,41 @@ $(document).ready(function () {
     $('#movies_recently_watched_link').click(function () {
         reset();
         PageTransitions.goToPage(2, 'movies_recently_watched');
+    });
+
+    $('#to_series_home, .to_series_home').click(function () {
+        reset();
+        $("#series_bottom_menu").show();
+        PageTransitions.goToPage(2, 'series_home');
+    });
+
+    $('#series_news_link').click(function () {
+        reset();
+        set_series_news();
+        PageTransitions.goToPage(2, 'series_news');
+    });
+
+    $('#series_tops_link').click(function () {
+        reset();
+        set_series_tops();
+        PageTransitions.goToPage(2, 'series_tops');
+    });
+
+    $('#series_genres_link').click(function () {
+        reset();
+        set_series_genres();
+        PageTransitions.goToPage(2, 'series_genres');
+    });
+
+    $('.to_myseries').click(function () {
+        reset();
+        PageTransitions.goToPage(2, 'series_myseries');
+        send_myseries();
+    });
+
+    $('#series_recently_watched_link').click(function () {
+        reset();
+        PageTransitions.goToPage(2, 'series_recently_watched');
     });
 
 });
