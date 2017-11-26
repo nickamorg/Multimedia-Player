@@ -4,6 +4,11 @@ $(document).ready(function () {
         movie_width = 0;
         document.getElementById("movies_video").pause();
         $('.movie_volume_bar').css('width', '50%');
+
+        document.getElementById("series_video").currentTime = 0;
+        serie_width = 0;
+        document.getElementById("series_video").pause();
+        $('.serie_volume_bar').css('width', '50%');
     }
 
     $('.to_lobby').click(function () {

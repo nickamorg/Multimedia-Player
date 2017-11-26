@@ -54,7 +54,6 @@ series_video.oncanplay = function() {
 };
 
 series_video.ontimeupdate = function() {
-    var playing = document.getElementById("playing");
     var min = parseInt(series_video.currentTime / 60, 10);
     var sec = parseInt(series_video.currentTime % 60);
 

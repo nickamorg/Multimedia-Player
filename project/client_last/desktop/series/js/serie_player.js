@@ -37,7 +37,7 @@ series = {
         "release": "2011 - present",
         "duration": "57 min",
         "rate": "9.5",
-        "genre": [" Adventure", "Drama", "Fantasy"],
+        "genre": ["Adventure", "Drama", "Fantasy"],
         "img": "Game of Thrones.jpg",
         "description": "Nine noble families fight for control over the mythical lands of Westeros, while a " +
         "forgotten race returns after being dormant for thousands of years."

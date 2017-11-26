@@ -32,7 +32,6 @@ function setPlayer() {
         </div>
         
         <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
-            <button><em style="font-size:24px" class="fa">&#xf0ca;</em></button>
             <button class="expand"><em class="fa">&#xf065;</em></button>
             <button class="muted"><em class="fa">&#xf027;</em></button>
             <div style="margin-bottom:4px" class="volume"><span class="volumeBar"></span></div>

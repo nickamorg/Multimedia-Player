@@ -1240,15 +1240,15 @@
             <script>setMoviesHeader()</script>
             <div id="full-screen" class="movies_content scrollbar">
                 <div class="col-xs-3 text-center" style="margin-top: 50px; margin-bottom:120px; padding-left:0">
-                    <img id="movie_poster" class="img-responsive" style="border-radius: 38px" src="../ressrc/movies_images/spider-man_homecoming.png">
+                    <img id="movie_poster" class="img-responsive" style="border-radius: 38px" src="">
 
                     <div class="clearfix"></div>
                 </div>
 
                 <div id="movie_details" class="col-xs-6" style="margin-top: 50px; margin-bottom:120px;">
-                    <h1 id="movie_title">Spider-Man: Homecoming</h1>
-                    <p id="movie_info">2017 • 133 min • action/adventure/science-fiction/superhero/comedy • <span><img width="30" height="15" src="../ressrc/movies_images/imdb.png"></span> 7.7</p>
-                    <p id="movie_description">Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.</p>
+                    <h1 id="movie_title"></h1>
+                    <p id="movie_info"></p>
+                    <p id="movie_description"></p>
 
                     <button id="movie_display_play">
                         <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
@@ -1784,7 +1784,7 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
-                        <div>
+                        <div class="movies_controls">
                             <button onclick="playPauseMovie()">
                                 <em id="movies_play_pause" style="font-size:35px !important" class="fa fa-play-circle-o"></em>
                             </button>
@@ -1953,7 +1953,7 @@
 
                 <div id="serie_details" class="col-xs-6" style="margin-top: 50px; margin-bottom:120px;">
                     <h1 id="serie_title"></h1>
-                    <p id="serie_info"><span><img width="30" height="15" src="../ressrc/series_images/imdb.png"></span> 7.7</p>
+                    <p id="serie_info"></p>
                     <p id="serie_description"></p>
 
                     <button id="serie_display_play">
@@ -2153,7 +2153,6 @@
                                     </span>
                                         </p>
                                     </div>
-
                                     <div id="search_series_keywords_content" class="collapse in scrollbar filter_content">
                                         <input id="search_series_input_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
                                     </div>
@@ -2271,23 +2270,23 @@
                                     <section class="card">
                                         <h3>Series</h3>
                                         <div style="display: flex;  justify-content: space-between;">
-                                            <a onclick="display_serie_details('id1')">
-                                                <img class="img-serie results-image" src="../ressrc/search/the_rocky_horror_picture_show.jpg" alt="The Rocky Horror Picture Show">
-                                                <p class="text-center">The Rocky Horror Picture Show</p>
+                                            <a onclick="display_serie_details('id5')">
+                                                <img class="img-serie results-image" src="../ressrc/search/ahs.jpg" alt="American Horror Story">
+                                                <p class="text-center">American Horror Story</p>
                                             </a>
-                                            <a onclick="display_serie_details('id1')">
+                                            <a onclick="display_serie_details('id5')">
                                                 <img class="img-serie results-image" src="../ressrc/search/horror.jpg" alt="#Horror">
                                                 <p class="text-center">#Horror</p>
                                             </a>
-                                            <a onclick="display_serie_details('id1')">
+                                            <a onclick="display_serie_details('id5')">
                                                 <img class="img-serie results-image" src="../ressrc/search/a_christmas_horror_story.png" alt="A Christmas Horror Story">
                                                 <p class="text-center">A Christmas Horror Story</p>
                                             </a>
-                                            <a onclick="display_serie_details('id1')">
+                                            <a onclick="display_serie_details('id5')">
                                                 <img class="img-serie results-image" src="../ressrc/search/the_last_horror_film.jpg" alt="The Last Horror Film">
                                                 <p class="text-center">The Last Horror Film</p>
                                             </a>
-                                            <a onclick="display_serie_details('id1')">
+                                            <a onclick="display_serie_details('id5')">
                                                 <img class="img-serie results-image" src="../ressrc/search/the_amityville_horror.png" alt="The Amityville Horror">
                                                 <p class="text-center">The Amityville Horror</p>
                                             </a>
@@ -2437,22 +2436,22 @@
                             <p>The Flash</p>
                             <small>2014 - present</small>
                         </div>
-                        <div class="col-xs-3" nclick="display_serie_details('id13')">
+                        <div class="col-xs-3" onclick="display_serie_details('id13')">
                             <img class="img-responsive" src="../ressrc/series_images/The%20Good%20Fight.jpg">
                             <p>The Good Fight</p>
                             <small>2017 - present</small>
                         </div>
-                        <div class="col-xs-3" style="cursor: pointer" onclick="display_serie_details('id3')">
+                        <div class="col-xs-3" onclick="display_serie_details('id3')">
                             <img class="img-responsive" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
                             <p>Game of Thrones</p>
                             <small>2011 - present</small>
                         </div>
-                        <div class="col-xs-3" style="cursor: pointer" onclick="display_serie_details('id4')">
+                        <div class="col-xs-3" onclick="display_serie_details('id4')">
                             <img class="img-responsive" src="../ressrc/series_images/Breaking%20Bad.jpg"/>
                             <p>Breaking Bad</p>
                             <small>2008 - 2013</small>
                         </div>
-                        <div class="col-xs-3" style="cursor: pointer" onclick="display_serie_details('id9')">
+                        <div class="col-xs-3" onclick="display_serie_details('id9')">
                             <img class="img-responsive" src="../ressrc/series_images/Sherlock.jpg"/>
                             <p>Sherlock</p>
                             <small>2010 - 2017</small>
@@ -2468,7 +2467,7 @@
             <script>setSeriesHeader();</script>
             <div class="col-xs-12" style="padding:0">
                 <video id="series_video" poster="">
-                    <source src="../ressrc/series/deadpool.mp4" type="video/mp4">
+                    <source src="" type="video/mp4">
                     Your browser does not support HTML5 video.
                 </video>
                 <div class="player text-center">
@@ -2483,10 +2482,12 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
-                        <div>
+                        <div class="series_controls">
+                            <button><em class="fa">&#xf048;</em></button>
                             <button onclick="playPauseSerie()">
                                 <em id="series_play_pause" style="font-size:35px !important" class="fa fa-play-circle-o"></em>
                             </button>
+                            <button><em class="fa">&#xf051;</em></button>
                         </div>
 
                         <div>
@@ -2569,6 +2570,14 @@
     <script>
         $("#mysongs_input_keywords").on("change paste keyup", function() {
             apply_filters_mysong();
+        });
+
+        $("#mymovies_input_keywords").on("change paste keyup", function() {
+            apply_filters_mymovies();
+        });
+
+        $("#myseries_input_keywords").on("change paste keyup", function() {
+            apply_filters_myseries();
         });
     </script>
 

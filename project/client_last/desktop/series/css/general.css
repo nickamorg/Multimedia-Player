@@ -22,7 +22,6 @@ img {
     height: 100%;
     background: center no-repeat;
     background-size: cover;
-    background-image: url('../../../ressrc/series_images/background/spider-man_homecoming.png');
     /*background-position: center;
     background-repeat: no-repeat;*/
 }
@@ -99,7 +98,7 @@ img {
     cursor: pointer;
 }
 
-.options div span:hover {
+.options div em:hover {
     color: #2BB4C4;
 }
 
@@ -172,4 +171,16 @@ video {
     z-index:10;
     width: 50%;
     border-radius: 5px;
+}
+
+.series_controls {
+    padding:20px 0px 5px 0px;
+}
+
+.series_controls button {
+    margin: 0 30px;
+}
+
+.series_controls i {
+    padding: 0px 10px 0px 10px;
 }

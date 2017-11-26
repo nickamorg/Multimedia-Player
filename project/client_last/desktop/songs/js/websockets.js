@@ -15,10 +15,14 @@ function send_mysongs() {
             var albums = [];
             playerAPI.tmpPlaylist = [songs.length];
 			$(".display_songs").find("tbody").html("");
+
+            var index = songs.indexOf("");
+            songs.splice(index, 1);
             for(var i = 0; i < songs.length; i++) {
-                song = playerAPI.songs["id" + parseInt(songs[i].substring(2))];
-                playerAPI.mysongs[i] = "id" + parseInt(songs[i].substring(2));
-                playerAPI.tmpPlaylist[i] = "id" + parseInt(songs[i].substring(2));
+                id = "id" + parseInt(songs[i].substring(2));
+                song = playerAPI.songs[id];
+                playerAPI.mysongs[i] = id;
+                playerAPI.tmpPlaylist[i] = id;
                 artists[i] = song.artist;
                 for(var j = 0; j < song.genre.length; j++) {
                     genres[genres_counter++] = song.genre[j];
@@ -28,10 +32,10 @@ function send_mysongs() {
 
                 $(".display_songs").find("tbody").append(
                     `<tr>
-                            <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
-                            <td><button onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');"><em class="fa fa-plus"></em></button></td>
-                            <td><button onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this)"><em class="fa fa-minus"></em></button></td>
-                            <td><button onclick="display_song_details('${"id" + parseInt(songs[i].substring(2))}')">${song.title}</button></td>
+                            <td><button onclick="play_mysong('${i}')"><em class="fa">&#xf01d;</em></button></td>
+                            <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
+                            <td><button onclick="remove_from_mysongs('${id}', this)"><em class="fa fa-minus"></em></button></td>
+                            <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
                             <td>${song.artist}</td>
                             <td>${song.album}</td>
                             <td>${song.release}</td>
@@ -84,7 +88,7 @@ function send_mysongs() {
 
 function play_mysong(curr_song) {
     playerAPI.playlist = playerAPI.tmpPlaylist;
-    playerAPI.row = curr_song;
+    playerAPI.row = parseInt(curr_song);
     playerAPI.width = 0;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[curr_song]].file;
     $("#playing")[0].load();
@@ -444,6 +448,8 @@ function read_playlist(playlist) {
             $("#playlist_songs").find("tbody").html("");
             playerAPI.tmpPlaylist = [playlist_songs.length];
 
+            var index = playlist_songs.indexOf("");
+            playlist_songs.splice(index, 1);
             for(var i = 0; i < playlist_songs.length; i++) {
                 song = playerAPI.songs["id" + parseInt(playlist_songs[i].substring(2))];
                 id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");
