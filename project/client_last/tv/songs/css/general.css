@@ -474,3 +474,22 @@ a {
     height: 218px;
     padding: 12px;
 }
+
+#playlists p {
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+#playlists small {
+    margin-top: 2px;
+    color: #5D5D67;
+}
+
+.btn-playlist {
+    font-size: 20px !important;
+    margin-left: 150px;
+}
+
+.btn-playlist:hover {
+    color: #2BB4C4 !important;
+}

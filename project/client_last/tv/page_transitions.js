@@ -64,6 +64,10 @@ $(document).ready(function () {
         get_playlists();
     });
 
+    $('#christmas').click(function () {
+    	PageTransitions.goToPage(2, 'song_playlist');
+    });
+
     $('.to_songs_search').click(function () {
         // Tip: try other integers [1-67] at PageTransitions.goToPage function
         // and see different animations on changing pages
