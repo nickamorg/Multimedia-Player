@@ -132,7 +132,7 @@ video {
     transform-origin: bottom left;
     width: 72vh;
     /*height: 100vw;*/
-    height: 650px;
+    height: 630px;
     margin-top: -100vw;
     object-fit: cover;
 

@@ -8,6 +8,11 @@ $(document).ready(function () {
 
         $("#movies_bottom_menu").addClass("special_menu_none");
 
+        document.getElementById("movies_video").currentTime = 0;
+        movie_width = 0;
+        document.getElementById("movies_video").pause();
+        $('.movie_volume_bar').css('width', '50%');
+
     }
 	$('#to_song_home, .to_song_home').click(function () {
         reset();
@@ -27,6 +32,7 @@ $(document).ready(function () {
 	
 	$('.to_lobby').click(function () {
         reset();
+        document.getElementById("playing").pause();
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
         $("#bottom_menu").hide();
