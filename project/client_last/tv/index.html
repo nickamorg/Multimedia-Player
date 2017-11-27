@@ -75,7 +75,7 @@
 			<div class="home">
 				<div class="row" style="display: flex;">
 					<div style="margin-right: 8px;" class="card col-xs-6">
-						<h1>New releases</h1>
+						<h1 class="to_new_releases clickableElement">New releases</h1>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id0')"><img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png"/><p>Perro Fiel</p><small>Shakira</small></div>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id7')"><img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg"/><p>Rockstar</p><small>Post Malone</small></div>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id9')"><img class="img-responsive" src="../ressrc/songs_images/thunder.jpg"/><p>Thunder</p><small>Imagine Dragons</small></div>
@@ -1198,6 +1198,61 @@
 		<script>setPlayer();</script>
 	</div>
 	<!-- END PAGE 10 - MOVIE_HOME-->
+
+	<!-- BEGIN PAGE 11 - SONG_NEW_RELEASES-->
+        <div id="song_new_releases" class="pt-page">
+            <script>setHeader();</script>
+            <div class="content scrollbar">
+                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+                    <h3 style="margin-left:5px; padding:0 0 10px 10px;">New releases</h3>
+                    <div id="song_new_releases_content">
+                        <div class="col-xs-3" onclick="display_song_details('id' + 0)">
+                            <img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png">
+                            <p>Perro Fiel</p>
+                            <small>Shakira</small>
+                        </div>
+                                    
+                        <div class="col-xs-3" onclick="display_song_details('id' + 7)">
+                            <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+                            <p>Rockstar</p>
+                            <small>Post Malone</small>
+                        </div>
+                                    
+                        <div class="col-xs-3" onclick="display_song_details('id' + 8)">
+                            <img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+                            <p>Sorry Not Sorry</p>
+                            <small>Demi Lovato</small>
+                        </div>
+                                    
+                        <div class="col-xs-3" onclick="display_song_details('id' + 9)">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+                            <p>Thunder</p>
+                            <small>Imagine Dragons</small>
+                        </div>
+                                    
+                        <div class="col-xs-3" onclick="display_song_details('id' + 10)">
+                            <img class="img-responsive" src="../ressrc/songs_images/the sky is a neighborhood.jpg">
+                            <p>The Sky Is A Neighborhood</p>
+                            <small>Foo Fighters</small>
+                        </div>
+                                    
+                        <div class="col-xs-3" onclick="display_song_details('id' + 11)">
+                            <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+                            <p>Too Good At Goodbyes</p>
+                            <small>Sam Smith</small>
+                        </div>
+                                    
+                        <div class="col-xs-3" onclick="display_song_details('id' + 12)">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+                            <p>Havana</p>
+                            <small>Camila Cabello</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>setPlayer();</script>
+        </div>
+        <!-- END PAGE 10 - SONG_NEW_RELEASES-->
 
 	<!-- The Modal -->
 	<div id="playlists_modal" class="modal">
