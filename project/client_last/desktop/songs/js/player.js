@@ -81,7 +81,7 @@ function display_song_details(song_id) {
         
         <div class="clearfix"></div>
         
-        <div class="col-xs-3 text-left">
+        <div id="titles" class="col-xs-3 text-left">
             <p>Title</p>
             <p>Artist</p>
             <p>Album</p>

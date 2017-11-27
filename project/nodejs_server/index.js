@@ -283,8 +283,10 @@ wsServer.on('connection', function connection(ws) {
 const webSocketSensorServer = require('./sensorsWebSocketServer');
 
 var sensorsServer = webSocketSensorServer.startServer((channel, message) => {
-    console.log(`channel: ${channel} , message: ${JSON.stringify(message)}`);
-
+    //console.log(`channel: ${channel} , message: ${JSON.stringify(message)}`);
+if(channel !== "kinect/rotationY" && channel !== "kinect/movement" && channel !== "kinect/position") {
+	console.log(`channel: ${channel} , message: ${JSON.stringify(message)}`);
+}
     //business logic
     //handle events, choose which client to send what
 

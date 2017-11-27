@@ -51,3 +51,5 @@ id9
 id0
 id0
 id0
+id0
+idNaN
