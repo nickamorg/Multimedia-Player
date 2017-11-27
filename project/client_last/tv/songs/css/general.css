@@ -493,3 +493,8 @@ a {
 .btn-playlist:hover {
     color: #2BB4C4 !important;
 }
+
+#details button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
