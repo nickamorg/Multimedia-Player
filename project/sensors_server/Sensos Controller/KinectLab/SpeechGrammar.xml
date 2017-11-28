@@ -17,16 +17,58 @@
           <item> back </item>
         </one-of>
       </item>
+       <item>
+        <tag>PLAY</tag>
+        <one-of>
+          <item> play </item>
+          <item> play the song </item>
+          <item> play now </item>
+           <item> play music </item>
+           <item>play the movie </item>
+           <item> play the episode</item>
+        </one-of>
+      </item>
+       <item>
+        <tag>PAUSE</tag>
+        <one-of>
+          <item> pause </item>
+          <item> pause the song </item>
+          <item> pause now </item>
+             <item> pause music </item>
+              <item>pause the movie </item>
+           <item> pause the episode</item>
+        </one-of>
+      </item>
       <item>
         <tag>LEFT</tag>
         <one-of>
           <item> turn left </item>
+          <item> swipe left</item>
+          <item> next </item>
         </one-of>
       </item>
       <item>
         <tag>RIGHT</tag>
         <one-of>
           <item> turn right </item>
+          <item> swipe right </item>
+          <item>previus</item>
+        </one-of>
+      </item>
+       <item>
+        <tag>UP</tag>
+        <one-of>
+          <item> up </item>
+          <item> swipe up </item>
+          <item> volume up </item>
+        </one-of>
+      </item>
+       <item>
+        <tag>DOWN</tag>
+        <one-of>
+          <item> swipe down </item>
+          <item> down </item>
+          <item> volume down </item>
         </one-of>
       </item>
     </one-of>
