@@ -13,11 +13,10 @@ function send_mysongs() {
             var genres_counter = 0;
             var dates = [];
             var albums = [];
-            playerAPI.tmpPlaylist = [songs.length];
-			$(".display_songs").find("tbody").html("");
-
             var index = songs.indexOf("");
             songs.splice(index, 1);
+            playerAPI.tmpPlaylist = [songs.length];
+			$(".display_songs").find("tbody").html("");
             for(var i = 0; i < songs.length; i++) {
                 id = "id" + parseInt(songs[i].substring(2));
                 song = playerAPI.songs[id];

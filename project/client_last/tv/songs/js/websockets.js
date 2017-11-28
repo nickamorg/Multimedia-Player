@@ -13,6 +13,8 @@ function send_mysongs() {
             var genres_counter = 0;
             var dates = [];
             var albums = [];
+            var index = songs.indexOf("");
+            songs.splice(index, 1);
             playerAPI.tmpPlaylist = [songs.length];
 			$(".table").find("tbody").html("");
             for(var i = 0; i < songs.length; i++) {
@@ -624,4 +626,8 @@ function apply_filters_search() {
                 </tr>`);
         }
     }
+}
+
+function add_remove_mysongs_filters_option(filter, option, this_elem) {
+    $(this_elem).toggleClass('checked', 'no-checked');
 }

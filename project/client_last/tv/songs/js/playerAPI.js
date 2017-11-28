@@ -9,7 +9,7 @@ playerAPI.stored_volume = 50;
 playerAPI.tmpPlaylsit = {};
 playerAPI.repeat_flag = false;
 playerAPI.id_interval = -1;
-playerAPI.mysongs = [];
+playerAPI.mysongs = ["id1", "id3", "id4", "id5", "id8", "id2", "id9", "id6"];
 playerAPI.songs = {
         "crowd": 13,
         "id0": {

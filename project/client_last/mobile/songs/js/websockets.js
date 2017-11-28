@@ -8,6 +8,9 @@ function send_mysongs() {
         ws.onmessage = function(message) {
             songs = message.data.split("\n");
 
+            var index = songs.indexOf("");
+            songs.splice(index, 1);
+console.log(songs);
             var artists = [];
             var genres = [];
             var genres_counter = 0;

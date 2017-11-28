@@ -443,6 +443,7 @@ a {
 }
 
 .filter__item {
+    cursor: pointer;
     padding: 6px;
     font-size: 20px;
     padding-top: 50px;
@@ -515,4 +516,21 @@ a {
 #details button {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.active-tab {
+    color: #2bb4c4 !important;
+}
+
+.active-tab:hover {
+    color: #2bb4c4;
+    text-decoration: none;
+}
+
+.checked {
+    border: 5px solid cyan;
+}
+
+.no-checked {
+    border:none;
 }
