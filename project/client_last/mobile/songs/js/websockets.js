@@ -10,7 +10,7 @@ function send_mysongs() {
 
             var index = songs.indexOf("");
             songs.splice(index, 1);
-console.log(songs);
+
             var artists = [];
             var genres = [];
             var genres_counter = 0;
@@ -36,7 +36,7 @@ console.log(songs);
                         </div>
                         <div class="col-xs-7">
                             <button onclick="display_song_details('id' + ${parseInt(songs[i].substring(2))})" style="text-align:left;">
-                                <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
+                                <p style=" overflow-x: hidden; line-height:1.2; font-size:30px">${song.title}</p>
                                 <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">${song.artist}<p>
                             </button>
                         </div>
@@ -283,6 +283,7 @@ function play_song(curr_song) {
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[curr_song].file;
     $("#playing")[0].load();
     $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
+
     $("#title_artist").html(playerAPI.songs[curr_song].title + " - " + playerAPI.songs[curr_song].artist);
     $("#expand_player").find("div").find("img")[0].src = "../ressrc/songs_images/" + playerAPI.songs[curr_song].img;
     $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs[curr_song].title;
@@ -419,6 +420,7 @@ function add_recently_played_song(song_id) {
 }
 
 function read_playlist(playlist) {
+    visitedPagesStack.setNewLastVisitedPage("song_playlist");
     PageTransitions.goToPage(2, "song_playlist");
     let playlist_songs = "";
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
@@ -435,7 +437,7 @@ function read_playlist(playlist) {
             for(var i = 0; i < playlist_songs.length - 1; i++) {
                 id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");
                 song = playerAPI.songs[id];
-                $("#song_playlist").find("h1")[0].innerHTML = "Playlist - " + playlist;
+                $("#song_playlist").find("h1")[0].innerHTML = /* "Playlist - " + */playlist;
                 playerAPI.tmpPlaylist[i] = id;
                 $("#playlist_content").append(
                     `

@@ -158,6 +158,19 @@ series = {
 myseries = [];
 
 function display_serie_details(serie_id) {
+    visitedPagesStack.setNewLastVisitedPage("serie_page");
+    $("#series_video").dblclick(function() {
+        $("series_bottom_menu").removeClass("special_menu");
+        $("#series_bottom_menu").addClass("special_menu_none");
+        $("#series_video").load();
+        setTimeout(function(){
+            $("series_bottom_menu").removeClass("special_menu");
+            $("#series_bottom_menu").addClass("special_menu_none");
+            $("#series_video").load();
+        }, 2500);
+        display_serie_details(serie_id);
+    });
+
     var serie = series[serie_id];
     new_background = 'url(\'../ressrc/series_images/' + serie.img + '\')';
     new_poster = '../ressrc/series_images/' + serie.img;
@@ -307,7 +320,9 @@ function set_series_genres() {
 }
 
 function set_series_by_genre(genre) {
+    $("#series_by_genres").find("h1")[0].innerHTML = genre;
     $("#series_by_genres_content").html("");
+    visitedPagesStack.setNewLastVisitedPage("series_by_genres");
 
     for(let i = 0; i < series.crowd; i++) {
         if(series["id" + i].genre.indexOf(genre) > -1) {
@@ -534,6 +549,7 @@ function apply_filters_myseries() {
 
 
     $("#myseries_content").html("");
+    counter = 1;
     for(var i = 0; i < myseries.length; i++) {
 
         if(check[i]) {
@@ -541,26 +557,31 @@ function apply_filters_myseries() {
             serie = series[id];
 
             $("#myseries_content").append(
-                `<div class="col-xs-4 container">
-                            <img class="img-responsive" src="../ressrc/series_images/${serie.img}"/>
-                            <p>${serie.title}</p>
-                            <div class="overlay">
-                                <h3 class="text-center">${serie.title}</h3>
-                                <div class="options">
-                                    <div class="col-xs-12" onclick="display_serie_details('${id}')">
-                                        <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open series' page</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="display_serie_details('${id}')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the serie</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
-                                    </div>
-                                </div>
+                `<div class="col-xs-6 container">
+                    <img class="img-serie_gen" src="../ressrc/series_images/${serie.img}"/>
+                    <p>${serie.title}</p>
+                    <div class="overlay">
+                        <h3 class="text-center">${serie.title}</h3>
+                        <div class="options">
+                            <div class="col-xs-12" onclick="display_serie_details('${id}')">
+                                <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open series' page</span></em>
                             </div>
-                        </div>`);
+                            
+                            <div class="col-xs-12" onclick="display_serie_details('${id}')">
+                                <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the serie</span></em>
+                            </div>
+                            
+                            <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
+                                <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
+
+            if(counter % 2 == 0) {
+                $("#mymovies_content").append('<div class="clearfix" style="padding-bottom:30px"></div>');
+            }
+            counter++;
 
         }
     }
@@ -634,4 +655,34 @@ function add_to_myseries(serie_id) {
 
         ws.send(message);
     };
+}
+
+function nextSerie() {
+    seriePrevNext();
+}
+
+function prevSerie() {
+    seriePrevNext();
+}
+
+function seriePrevNext() {
+    // if(!document.getElementById("series_video").paused) {
+    //     document.getElementById("series_video").pause();
+    //     document.getElementById("series_video").load();
+    //     document.getElementById("series_video").play();
+    //     $("#series_play_pause").removeClass("fa-pause-circle-o");
+    //     $("#series_play_pause").addClass("fa-play-circle-o");
+    // } else {
+    //     $("#series_play_pause").addClass("fa-pause-circle-o");
+    //     $("#series_play_pause").removeClass("fa-play-circle-o");
+    // }
+    //
+    // $(".serie_bar").each( function () {
+    //     var movie_bar = $(this);
+    //     movie_bar.css("width", '0')
+    // });
+    // document.getElementById("series_video").pause();
+    document.getElementById("series_video").load();
+    $("#series_play_pause").removeClass("fa-pause-circle-o");
+    $("#series_play_pause").addClass("fa-play-circle-o");
 }

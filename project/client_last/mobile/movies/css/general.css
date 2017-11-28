@@ -18,7 +18,8 @@
     /*height:100%;*/
     width:100%;
     padding-bottom:30px;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
 }
 
 .img-movie {
@@ -31,35 +32,40 @@
 }
 
 .img-movie_gen {
-    width: 280px !important;
-    height: 347px !important;
+    width: 100% !important;
+    height: 417px !important;
 }
 
 #movies_genres_content div, #movies_tops_content div, #movies_news_content div, #movies_by_genres_content div, #movies_recently_watched_content div {
+    white-space: nowrap;
     padding-bottom: 30px;
 }
 
 .img-movie + h3 {
-    white-space:nowrap;
-    overflow-x: scroll;
+    /*white-space:nowrap;*/
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
     margin:0;
 }
 
 .img-movie + h5 {
-    white-space:nowrap;
-    overflow-x: scroll;
+    /*white-space:nowrap;*/
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
     margin:0;
 }
 
 .img-movie_gen + h3 {
-    white-space:nowrap;
-    overflow-x: scroll;
+    /*white-space:nowrap;*/
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
     margin:0;
 }
 
 .img-movie_gen + h5 {
-    white-space:nowrap;
-    overflow-x: scroll;
+    /*white-space:nowrap;*/
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
     margin:0;
 }
 
@@ -215,4 +221,13 @@ video {
 .special_menu_none div {
     -webkit-transform: none;
     transform: none;
+}
+
+#mymovies_content img {
+    height:417px !important;
+    width:100% !important;
+}
+
+.movies_content {
+    height:84.3%;
 }

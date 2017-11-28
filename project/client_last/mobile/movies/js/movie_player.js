@@ -153,6 +153,19 @@ movies = {
 mymovies = [];
 
 function display_movie_details(movie_id) {
+    visitedPagesStack.setNewLastVisitedPage("movie_page");
+    $("#movies_video").dblclick(function() {
+        $("movies_bottom_menu").removeClass("special_menu");
+        $("#movies_bottom_menu").addClass("special_menu_none");
+        $("#movies_video").load();
+        setTimeout(function(){
+            $("movies_bottom_menu").removeClass("special_menu");
+            $("#movies_bottom_menu").addClass("special_menu_none");
+            $("#movies_video").load();
+        }, 2500);
+        display_movie_details(movie_id);
+    });
+
     var movie = movies[movie_id];
     new_background = 'url(\'../ressrc/movies_images/' + movie.img + '\')';
     new_poster = '../ressrc/movies_images/' + movie.img;
@@ -302,7 +315,9 @@ function set_movies_genres() {
 }
 
 function set_movies_by_genre(genre) {
+    $("#movies_by_genres").find("h1")[0].innerHTML = genre;
     $("#movies_by_genres_content").html("");
+    visitedPagesStack.setNewLastVisitedPage("movies_by_genres");
 
     for(let i = 0; i < movies.crowd; i++) {
         if(movies["id" + i].genre.indexOf(genre) > -1) {
@@ -339,6 +354,7 @@ function send_mymovies() {
             var index = mymovies.indexOf("");
             mymovies.splice(index, 1);
 
+            counter = 1;
             for(var i = 0; i < mymovies.length; i++) {
                 id = "id" + parseInt(mymovies[i].substring(2));
                 if(id === "idNaN") continue;
@@ -372,6 +388,10 @@ function send_mymovies() {
                             </div>
                         </div>
                     </div>`);
+                if(counter % 2 == 0) {
+                    $("#mymovies_content").append('<div class="clearfix" style="padding-bottom:30px"></div>');
+                }
+                counter++;
             }
 
             // Filter duplicates
@@ -529,6 +549,7 @@ function apply_filters_mymovies() {
 
 
     $("#mymovies_content").html("");
+    counter = 1;
     for(var i = 0; i < mymovies.length; i++) {
 
         if(check[i]) {
@@ -536,26 +557,31 @@ function apply_filters_mymovies() {
             movie = movies[id];
 
             $("#mymovies_content").append(
-                `<div class="col-xs-4 container">
-                            <img class="img-responsive" src="../ressrc/movies_images/${movie.img}"/>
-                            <p>${movie.title}</p>
-                            <div class="overlay">
-                                <h3 class="text-center">${movie.title}</h3>
-                                <div class="options">
-                                    <div class="col-xs-12" onclick="display_movie_details('${id}')">
-                                        <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="display_movie_details('${id}')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
-                                    </div>
-                                </div>
+                `<div class="col-xs-6 container">
+                    <img class="img-serie_gen" src="../ressrc/movies_images/${movie.img}"/>
+                    <p>${movie.title}</p>
+                    <div class="overlay">
+                        <h3 class="text-center">${movie.title}</h3>
+                        <div class="options">
+                            <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
                             </div>
-                        </div>`);
+                            
+                            <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
+                            </div>
+                            
+                            <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
+                                <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
+
+            if(counter % 2 == 0) {
+                $("#mymovies_content").append('<div class="clearfix" style="padding-bottom:30px"></div>');
+            }
+            counter++;
 
         }
     }

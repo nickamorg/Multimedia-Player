@@ -25,7 +25,9 @@ class VisitedPagesStack {
     }
 
     setNewLastVisitedPage(page) {
-        this.stack[this.counter++] = page;
+        if(this.stack[this.counter - 1] !== page) {
+            this.stack[this.counter++] = page;
+        }
     }
 
 }

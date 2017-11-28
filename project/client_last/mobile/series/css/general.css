@@ -18,7 +18,8 @@
     /*height:100%;*/
     width:100%;
     padding-bottom:30px;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
 }
 
 .img-serie {
@@ -31,8 +32,8 @@
 }
 
 .img-serie_gen {
-    width: 280px !important;
-    height: 347px !important;
+    width: 100% !important;
+    height: 417px !important;
 }
 
 #series_genres_content div, #series_tops_content div, #series_news_content div, #series_by_genres_content div, #series_recently_watched_content div {
@@ -41,25 +42,29 @@
 
 .img-serie + h3 {
     white-space:nowrap;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
     margin:0;
 }
 
 .img-serie + h5 {
     white-space:nowrap;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
     margin:0;
 }
 
 .img-serie_gen + h3 {
     white-space:nowrap;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
     margin:0;
 }
 
 .img-serie_gen + h5 {
     white-space:nowrap;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
     margin:0;
 }
 
@@ -219,4 +224,8 @@ video {
 
 #series_controls button {
     transform: rotate(90deg);
+}
+
+.series_content {
+    height:84.3%;
 }

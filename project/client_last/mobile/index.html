@@ -85,9 +85,18 @@
 
         <!-- BEGIN PAGE 2 - HOME -->
         <div id="song_home" class="pt-page">
-            <div class="text-center">
-                <h1 style="margin:0; padding:20px 0 20px 0; background-color:#000000">Home</h1>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Home</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
             </div>
+
             <div class="content scrollbar">
                 <div class="clearfix" style="padding-top:25%"></div>
 
@@ -166,7 +175,7 @@
                 </div>
 
                 <div class="parent">
-                    <h2>Recently played</h2>
+                    <h2><button id="song_recently_played_link">Recently played</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="display_song_details('id2')">
                             <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"/>
@@ -331,11 +340,21 @@
 
         <!-- BEGIN PAGE 5 - SONG_BY_GENRE -->
         <div id="song_by_genre" class="pt-page">
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px"></h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
             <div class="content scrollbar">
                 <div class="text-center">
-                    <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-
-                        <h1></h1>
+                    <div class="col-xs-12" style="padding:0; margin-top:20px;">
                         <div id="display_by_genre" class="display_songs">
 
                         </div>
@@ -353,8 +372,16 @@
 
         <!-- BEGIN PAGE 7 - PLAYLISTS -->
         <div id="playlists" class="pt-page">
-            <div class="text-center">
-                <h1 style="margin:0; padding:20px 0 20px 0; background-color:#000000">Playlists</h1>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Playlists</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
             </div>
 
             <div id="playlists_content" style="margin-top:20px;">
@@ -364,10 +391,19 @@
 
         <!-- BEGIN PAGE 8 - SONG_PLAYLIST -->
         <div id="song_playlist" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-bottom: 50px; padding-right:0; margin-top:20px;">
-                    <h1 class="text-center">Playlist</h1>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
                 </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px"></h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
                 <div id="playlist_content"></div>
             </div>
         </div>
@@ -479,9 +515,20 @@
 
         <!-- BEGIN PAGE 10 - SONG_NEW_RELEASES-->
         <div id="song_new_releases" class="pt-page">
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">New releases</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
             <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="margin-left:5px; padding:0 0 10px 10px">New releases</h3>
+                <div class="col-xs-12" style="padding: 0 10px 0 10px; margin-top:20px;">
                     <div id="song_new_releases_content">
                     </div>
                 </div>
@@ -491,9 +538,20 @@
 
         <!-- BEGIN PAGE 11 - SONG_CHARTS-->
         <div id="song_charts" class="pt-page">
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Charts</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
             <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Charts</h3>
+                <div class="col-xs-12" style="padding: 0 10px 0 10px; margin-top:20px;">
                     <div id="song_charts_content">
                         <div class="col-xs-6" onclick="display_song_details('id12')">
                             <img class="img-responsive" src="../ressrc/songs_images/havana.png">
@@ -550,9 +608,20 @@
 
         <!-- BEGIN PAGE 12 - SONG_GENRES-->
         <div id="song_genres" class="pt-page">
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Genres</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
             <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Genres</h3>
+                <div class="col-xs-12" style="padding: 0 10px 0 10px; margin-top:20px;">
                     <div id="song_genres_content">
                         <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('Alternative rock')">
                             <img class="img-responsive" src="../ressrc/songs_images/genres/alternative_rock.jpg">
@@ -591,6 +660,76 @@
         </div>
         <!-- END PAGE 12 - SONG_GENRES-->
 
+        <!-- BEGIN PAGE 13 - SONG_RECENTS-->
+        <div id="song_recently_played" class="pt-page">
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Recently played</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
+                <div class="col-xs-12" style="padding: 0 10px 0 10px; margin-top:20px;">
+                    <div id="song_recently_played_content">
+                        <div class="col-xs-6" onclick="display_song_details('id12')">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+                            <p>Havana</p>
+                            <small>Camila Cabello</small>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id11')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+                            <p>Too Good At Goodbyes</p>
+                            <small>Sam Smith</small>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id7')">
+                            <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+                            <p>Rockstar</p>
+                            <small>Post Malone</small>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id8')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+                            <p>Sorry Not Sorry</p>
+                            <small>Demi Lovato</small>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id10')">
+                            <img class="img-responsive" src="../ressrc/songs_images/the sky is a neighborhood.jpg">
+                            <p>The Sky Is A Neighborhood </p>
+                            <small>Foo Fighters</small>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id2')">
+                            <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png">
+                            <p>Side To Side</p>
+                            <small>Ariana Grande</small>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id9')">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+                            <p>Thunder</p>
+                            <small>Imagine Dragons</small>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id4')">
+                            <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg">
+                            <p>Holiday</p>
+                            <small>Green Day</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 13 - SONG_RECENTS-->
+
         <!-- The Modal -->
         <div id="playlists_modal" class="modal">
 
@@ -612,13 +751,22 @@
 
         <!-- BEGIN PAGE 1 - MOVIES HOME -->
         <div id="movies_home" class="pt-page">
-            <div class="text-center">
-                <h1 style="margin:0; padding:20px 0 20px 0; background-color:#000000">Home</h1>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Home</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
             </div>
-            <div class="content scrollbar" style="padding-top:10%">
+
+            <div class="movies_content scrollbar">
                 <div class="clearfix" style="padding-top:25%"></div>
 
-                <div class="movies_parent" style="top:18%">
+                <div class="parent" style="top:18%">
                     <h2><button id="movies_news_link">New Movies</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="display_movie_details('id0')">
@@ -644,7 +792,7 @@
                     </div>
                 </div>
 
-                <div class="movies_parent">
+                <div class="parent">
                     <h2><button id="movies_tops_link">Top Movies</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="display_movie_details('id9')">
@@ -670,7 +818,7 @@
                     </div>
                 </div>
 
-                <div class="movies_parent">
+                <div class="parent">
                     <h2><button id="movies_genres_link">Genres</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="set_movies_by_genre('Action')">
@@ -692,7 +840,7 @@
                     </div>
                 </div>
 
-                <div class="movies_parent">
+                <div class="parent">
                     <h2><button id="movies_recently_watched_link">Recently watched</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="display_movie_details('id5')">
@@ -733,11 +881,21 @@
         <!-- BEGIN PAGE 2 - MOVIES MOVIE_PAGE -->
         <div id="movie_page" class="pt-page">
             <div id="full-screen" class="movies_content scrollbar">
-                <h1 id="movie_title">Spider-Man: Homecoming</h1>
+                <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                    <div class="col-xs-2" style="float:left">
+                        <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                            <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                        </a>
+                    </div>
+                    <div class="col-xs-8 text-center">
+                        <h1 id="movie_title" style="margin:0; padding-top:7px"></h1>
+                    </div>
+                    <div class="col-xs-2" style="float:left"></div>
+                </div>
 
-                <div id="movie_details" class="col-xs-12" style="    background-color: #33333F; opacity: 0.9;">
-                    <p id="movie_info">2017 • 133 min • action/adventure/science-fiction/superhero/comedy • <span><img width="30" height="15" src="../ressrc/movies_images/imdb.png"></span> 7.7</p>
-                    <p id="movie_description">Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.</p>
+                <div id="movie_details" class="col-xs-12" style="background-color: #33333F; opacity: 0.9;">
+                    <p id="movie_info"></p>
+                    <p id="movie_description"></p>
 
                     <button id="movie_display_play">
                         <h2 style="background-color:black; padding:20px; border-radius:10px; cursor:pointer">
@@ -758,9 +916,20 @@
 
         <!-- BEGIN PAGE 3 - MOVIES NEW_MOVIES -->
         <div id="movies_news" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="text-align:center; margin-left:5px; padding:0 0 10px 10px">New Movies</h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">New Movies</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="movies_news_content">
                     </div>
                 </div>
@@ -770,9 +939,20 @@
 
         <!-- BEGIN PAGE 4 - MOVIES TOP_MOVIES-->
         <div id="movies_tops" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="text-align:center; margin-left:5px; padding:0 0 10px 10px">Top Movies</h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Top Movies</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="movies_tops_content">
                     </div>
                 </div>
@@ -782,9 +962,20 @@
 
         <!-- BEGIN PAGE 5 - MOVIES GENRES_MOVIES-->
         <div id="movies_genres" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="text-align:center; margin-left:5px; padding:0 0 10px 10px">Genres</h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Genres</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="movies_genres_content">
                     </div>
                 </div>
@@ -794,9 +985,19 @@
 
         <!-- BEGIN PAGE 6 - MOVIES BY_GENRES_MOVIES-->
         <div id="movies_by_genres" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="text-align:center; margin-left:5px; padding:0 0 10px 10px"></h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px"></h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="movies_by_genres_content">
                     </div>
                 </div>
@@ -806,18 +1007,22 @@
 
         <!-- BEGIN PAGE 7 - MOVIES MYMOVIES -->
         <div id="movies_mymovies" class="pt-page">
-            <div class="content scrollbar">
-                <div style=" background-color:#000000">
-                    <div class="col-xs-12" style="padding-bottom: 50px;">
-                        <div class="col-xs-2" style="padding-top:20px"><em class="fa fa-angle-left" style="font-size:50px"></em></div>
-                        <div class="col-xs-8"><h1 class="text-center">My movies</h1></div>
-                        <div class="col-xs-2" style="padding-top:20px">
-                            <button data-toggle="collapse" data-target="#mymovies_filters">
-                                <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
-                            </button>
-                        </div>
-                    </div>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
                 </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">My movies</h1>
+                </div>
+                <div class="col-xs-2" style="float:left">
+                    <button data-toggle="collapse" data-target="#mymovies_filters">
+                        <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
+                    </button>
+                </div>
+            </div>
+            <div class="movies_content scrollbar">
 
                 <div class="clearfix"></div>
                 <div id="mymovies_filters" class="collapse">
@@ -916,9 +1121,20 @@
 
         <!-- BEGIN PAGE 9 - MOVIES RECENTLY_WATCHED-->
         <div id="movies_recently_watched" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Recently Watched</h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Recently Watched</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="movies_recently_watched_content">
                         <div class="col-xs-6" onclick="display_movie_details('id5')">
                             <img class="img-movie_gen" src="../ressrc/movies_images/wonder_woman.jpg">
@@ -976,7 +1192,7 @@
         <!-- BEGIN PAGE 10 - MOVIES PLAYER-->
         <div id="movies_player" class="pt-page">
             <div class="col-xs-12">
-                <video id="movies_video" poster="">
+                <video id="movies_video" poster="" >
                     <source src="../ressrc/movies/deadpool.mp4" type="video/mp4">
                     Your browser does not support HTML5 video.
                 </video>
@@ -999,10 +1215,19 @@
 
         <!-- BEGIN PAGE 1 - SERIES HOME -->
         <div id="series_home" class="pt-page">
-            <div class="text-center">
-                <h1 style="margin:0; padding:20px 0 20px 0; background-color:#000000">Home</h1>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Home</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
             </div>
-            <div class="content scrollbar" style="padding-top:10%">
+
+            <div class="series_content scrollbar" style="padding-top:10%">
                 <div class="clearfix" style="padding-top:25%"></div>
 
                 <div class="series_parent" style="top:18%">
@@ -1120,11 +1345,21 @@
         <!-- BEGIN PAGE 2 - SERIES SERIE_PAGE -->
         <div id="serie_page" class="pt-page">
             <div id="serie_full-screen" class="series_content scrollbar">
-                <h1 id="serie_title">Spider-Man: Homecoming</h1>
+                <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                    <div class="col-xs-2" style="float:left">
+                        <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                            <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                        </a>
+                    </div>
+                    <div class="col-xs-8 text-center">
+                        <h1 id="serie_title" style="margin:0; padding-top:7px">Home</h1>
+                    </div>
+                    <div class="col-xs-2" style="float:left"></div>
+                </div>
 
                 <div id="serie_details" class="col-xs-12" style="    background-color: #33333F; opacity: 0.9;">
-                    <p id="serie_info">2017 • 133 min • action/adventure/science-fiction/superhero/comedy • <span><img width="30" height="15" src="../ressrc/series_images/imdb.png"></span> 7.7</p>
-                    <p id="serie_description">Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.</p>
+                    <p id="serie_info"></p>
+                    <p id="serie_description"></p>
 
                     <button id="serie_display_play">
                         <h2 style="background-color:black; padding:20px; border-radius:10px; cursor:pointer">
@@ -1145,9 +1380,20 @@
 
         <!-- BEGIN PAGE 3 - SERIES NEW_SERIES -->
         <div id="series_news" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="text-align:center; margin-left:5px; padding:0 0 10px 10px">New Series</h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">New Series</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="series_news_content">
                     </div>
                 </div>
@@ -1157,9 +1403,20 @@
 
         <!-- BEGIN PAGE 4 - SERIES TOP_SERIES-->
         <div id="series_tops" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="text-align:center; margin-left:5px; padding:0 0 10px 10px">Top Series</h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Top Series</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="series_tops_content">
                     </div>
                 </div>
@@ -1169,9 +1426,20 @@
 
         <!-- BEGIN PAGE 5 - SERIES GENRES_SERIES-->
         <div id="series_genres" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="text-align:center; margin-left:5px; padding:0 0 10px 10px">Genres</h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">Genres</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="series_genres_content">
                     </div>
                 </div>
@@ -1181,9 +1449,20 @@
 
         <!-- BEGIN PAGE 6 - SERIES BY_GENRES_SERIES-->
         <div id="series_by_genres" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-                    <h3 style="text-align:center; margin-left:5px; padding:0 0 10px 10px"></h3>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px"></h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <div id="series_by_genres_content">
                     </div>
                 </div>
@@ -1193,18 +1472,23 @@
 
         <!-- BEGIN PAGE 7 - SERIES MYSERIES -->
         <div id="series_myseries" class="pt-page">
-            <div class="content scrollbar">
-                <div style=" background-color:#000000">
-                    <div class="col-xs-12" style="padding-bottom: 50px;">
-                        <div class="col-xs-2" style="padding-top:20px"><em class="fa fa-angle-left" style="font-size:50px"></em></div>
-                        <div class="col-xs-8"><h1 class="text-center">My series</h1></div>
-                        <div class="col-xs-2" style="padding-top:20px">
-                            <button data-toggle="collapse" data-target="#myseries_filters">
-                                <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
-                            </button>
-                        </div>
-                    </div>
+            <div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
                 </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">My series</h1>
+                </div>
+                <div class="col-xs-2" style="float:left">
+                    <button data-toggle="collapse" data-target="#myseries_filters">
+                        <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
+                    </button>
+                </div>
+            </div>
+
+            <div class="content scrollbar">
 
                 <div class="clearfix"></div>
                 <div id="myseries_filters" class="collapse">
@@ -1294,7 +1578,7 @@
 
                 </div>
 
-                <div class="col-xs-12">
+                <div class="col-xs-12" style="padding:0">
                     <div id="myseries_content"></div>
                 </div>
             </div>
@@ -1303,8 +1587,8 @@
 
         <!-- BEGIN PAGE 9 - SERIES RECENTLY_WATCHED-->
         <div id="series_recently_watched" class="pt-page">
-            <div class="content scrollbar">
-                <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
                     <h3 style="margin-left:5px; padding:0 0 10px 10px">Recently Watched</h3>
                     <div id="series_recently_watched_content">
                         <div class="col-xs-6" onclick="display_serie_details('id3')">
@@ -1371,9 +1655,9 @@
 
                     <div style="padding-bottom:110px">
                         <div id="series_controls" style="padding-top:10px">
-                            <button><em class="fa"></em></button>
+                            <button onclick="prevSerie()"><em class="fa"></em></button>
                             <button id="series_play_pause" class="fa fa-play-circle-o" onclick="playPauseSerie()"></button>
-                            <button><em class="fa"></em></button>
+                            <button onclick="nextSerie()"><em class="fa"></em></button>
                         </div>
                         <div style="transform: rotate(90deg); display:inline-block" class="serie_curr_dur">0:08</div>
                         <div class="serie_progress">

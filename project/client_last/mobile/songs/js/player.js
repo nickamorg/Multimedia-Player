@@ -42,7 +42,7 @@ function setPlayer() {
                         <div id="controls">
                             <button onclick="playerAPI.shuffle()"><em class="fa">&#xf074;</em></button>
                             <button onClick="playerAPI.prev()"><em class="fa">&#xf048;</em></button>
-                            <button onclick="playerAPI.playPause()"><em style="font-size:70px" class="fa">&#xf01d;</em></button>
+                            <button id="curr_play_button" onclick="playerAPI.playPause()"><em style="font-size:70px" class="fa">&#xf01d;</em></button>
                             <button onClick="playerAPI.next()"><em class="fa">&#xf051;</em></button>
                             <button onClick="playerAPI.repeat()"><em color:#9999a5" class="fa">&#xf01e;</em></button>
                         </div>
@@ -81,10 +81,11 @@ function set_songs_by_genre(genre) {
     $("#expand_lyrics").removeClass("in");
     $("#expand_player").removeClass("in");
 
+    visitedPagesStack.setNewLastVisitedPage("song_by_genre");
     PageTransitions.goToPage(2, 'song_by_genre');
 
     $("#display_by_genre").html("");
-    $("#song_by_genre").find("h1")[0].innerHTML = "Songs - " + genre.charAt(0).toUpperCase() + genre.slice(1);
+    $("#song_by_genre").find("h1")[0].innerHTML = /*"Songs - " + */genre.charAt(0).toUpperCase() + genre.slice(1);
 
     for(let i = 0; i < playerAPI.songs.crowd; i++) {
         song = playerAPI.songs["id" + i];
@@ -116,10 +117,23 @@ function set_songs_by_genre(genre) {
 }
 
 function display_song_details(song_id) {
+    visitedPagesStack.setNewLastVisitedPage("song_details");
     PageTransitions.goToPage(2, 'song_details');
     var song = playerAPI.songs[song_id];
     $("#song_details").find(".content").html(
-                    `<h1>${song.title}</h1>
+                    `<div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">
+                        <div class="col-xs-2" style="float:left">
+                            <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                                <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                            </a>
+        
+                        </div>
+                        <div class="col-xs-8 text-center">
+                            <h1 style="margin:0; padding-top:7px">${song.title}</h1>
+                        </div>
+                        <div class="col-xs-2" style="float:left"></div>
+                    </div>
+                    
                     <div class="col-xs-12">
                         <img style="width:80%" src="../ressrc/songs_images/${song.img}">
                     </div>

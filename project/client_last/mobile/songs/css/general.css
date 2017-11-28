@@ -329,7 +329,8 @@ a {
 .child h3, .child h5, .parent h3 {
     /*white-space:nowrap;
     overflow-x: hidden;*/
-    overflow-y: scroll;
+    /*overflow-x: scroll;*/
+    overflow-y: hidden;
 }
 
 .pt-page {
@@ -349,7 +350,8 @@ h1 {
 }
 
 .content {
-    height:86%
+    /*height:86%*/
+    height:80%;
 }
 
 #explore div {
@@ -357,7 +359,7 @@ h1 {
 }
 
 #song_by_genre h1 {
-    padding-bottom: 50px;
+    /*padding-bottom: 50px;*/
 }
 
 .song_title {
@@ -369,7 +371,7 @@ h1 {
 }
 
 #song_details h1 {
-    padding-bottom: 50px;
+    /*padding-bottom: 50px;*/
 }
 
 #song_details pre {
@@ -469,7 +471,8 @@ h1 {
 
 #expand_player p, .content p, #title_artist {
     white-space:nowrap;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    overflow-x: hidden;
 }
 
 #song_new_releases_content small, #song_charts_content small {
@@ -483,4 +486,8 @@ h1 {
 
 #song_new_releases_content div, #song_charts_content div, #song_genres_content div {
     padding-bottom: 40px;
+}
+
+p {
+    margin: 0 !important;
 }

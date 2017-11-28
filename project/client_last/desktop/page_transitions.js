@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     $('.to_lobby').click(function () {
         reset();
-        visitedPagesStack.setNewLastVisitedPage("lobby");
+        visitedPagesStack = new VisitedPagesStack();
         playerAPI.playing.pause();
         PageTransitions.goToPage(1, 'lobby');
     });

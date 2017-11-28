@@ -10,4 +10,35 @@ $( document ).ready(function() {
     }
     document.getElementById("from").innerHTML = html;
     document.getElementById("to").innerHTML = html;
-})
+});
+
+class VisitedPagesStack {
+
+    constructor() {
+        this.stack = ["lobby"];
+        this.counter = 1;
+    }
+
+    goToLastVisitedPage() {
+
+        if(this.stack[--this.counter] === "lobby") {
+            $("#series_bottom_menu").hide();
+            $("#movies_bottom_menu").hide();
+            $("#bottom_menu").hide();
+            playerAPI.playing.pause();
+            this.stack = ["lobby"];
+            this.counter = 1;
+            PageTransitions.goToPage(2, "lobby");
+        }
+        PageTransitions.goToPage(2, this.stack[this.counter]);
+    }
+
+    setNewLastVisitedPage(page) {
+        if(this.stack[this.counter - 1] !== page) {
+            this.stack[this.counter++] = page;
+        }
+    }
+
+}
+
+visitedPagesStack = new VisitedPagesStack();
