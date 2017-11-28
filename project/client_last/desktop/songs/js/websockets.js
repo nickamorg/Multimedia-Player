@@ -381,6 +381,7 @@ function get_playlists() {
             for(i = 0; i < playlists.length; i++) {
                 min = 0;
                 sec = 0;
+                total
                 for(j = 0; j < data[playlists[i]].length; j++) {
                     current_song = data[playlists[i]][j];
                     min += parseInt(playerAPI.songs[current_song].duration.split(":")[0]);

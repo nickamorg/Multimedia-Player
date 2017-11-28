@@ -412,13 +412,12 @@ a {
     transition: .5s ease;
 }
 
-.container:hover .overlay {
+.container .overlay {
     bottom: 0;
     height: 100%;
 }
 
 .container {
-    margin-bottom: 18px;
 }
 
 .container p {

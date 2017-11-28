@@ -29,6 +29,8 @@ $(document).ready(function () {
 		// Tip: try other integers [1-67] at PageTransitions.goToPage function
 		// and see different animations on changing pages
 		PageTransitions.goToPage(2, 'song_mysongs');
+        $(".container").addClass("clickableElement");
+        $(".container").removeClass("container");
 		send_mysongs();
 	});
 	

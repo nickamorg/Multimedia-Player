@@ -288,6 +288,7 @@ function add_new_playlist(playlist) {
 // Get the button that opens the modal
 // When the user clicks the button, open the modal
 function open_playlists_modal(song_id) {
+    $("#playlists_modal").find("h2")[0].innerHTML = "Choose a list to add the track '" + playerAPI.songs[song_id].title + "'";
     $("#add").click(function() {
         new_playlist = $("#set_new_playlist").val();
         add_new_playlist(new_playlist);
@@ -300,15 +301,17 @@ function open_playlists_modal(song_id) {
 
         ws.send(message);
         ws.onmessage = function (message) {
-            playlists = message.data.split("\n");
+            playlists = JSON.parse(message.data);
+            keys = Object.keys(playlists);
+
             html_display = `
                 <h3 style="color:#000000">Playlists</h3>
                 <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="Type a new playlist and press Add"></input></div>`;
 
-            for(i = 0; i < playlists.length; i++) {
+            for(i = 0; i < playlists.crowd; i++) {
                 html_display += `
                                 <div class="col-xs-12">
-                                    <button onclick="add_to_playlist('${song_id}', '${playlists[i].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%">${playlists[i]}</button>
+                                    <button onclick="add_to_playlist('${song_id}', '${keys[i + 1].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%">${keys[i + 1]}</button>
                                 </div>`;
             }
 
