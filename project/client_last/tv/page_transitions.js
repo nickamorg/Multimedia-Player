@@ -38,9 +38,9 @@ $(document).ready(function () {
 	});
 
 	$('.to_movies_search').click(function () {
-		PageTransitions.goToPage(21, 'song_search');
+		PageTransitions.goToPage(21, 'movies_search');
 	});
-
+	
 	$('#to_movies_home').click(function () {
 		// Tip: try other integers [1-67] at PageTransitions.goToPage function
 		// and see different animations on changing pages
@@ -105,8 +105,6 @@ $(document).ready(function () {
     $('.to_songs_search').click(function () {
         // Tip: try other integers [1-67] at PageTransitions.goToPage function
         // and see different animations on changing pages
-        search_songs($("#keywords").val());
-        apply_filters_search();
         PageTransitions.goToPage(2, 'song_search');
     });
 
