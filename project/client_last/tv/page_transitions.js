@@ -37,6 +37,10 @@ $(document).ready(function () {
 		PageTransitions.goToPage(21, 'movies_mymovies');
 	});
 
+	$('.to_movies_search').click(function () {
+		PageTransitions.goToPage(21, 'song_search');
+	});
+
 	$('#to_movies_home').click(function () {
 		// Tip: try other integers [1-67] at PageTransitions.goToPage function
 		// and see different animations on changing pages
