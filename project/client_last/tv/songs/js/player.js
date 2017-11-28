@@ -4,11 +4,11 @@ function setPlayer() {
     `<div class="player text-center">
         <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
             <div class="col-xs-3" style="padding:10px 0px 10px 0px;">
-                <img class="img" style="width:105px" src="../ressrc/icon.png">
+                <img class="img" style="width:105px">
             </div>
             <div style="font-size: 25px;" class="col-xs-9 text-left">
-				<p class="title">Read All About It <button style="font-size: 50px; margin-left: 20px; padding: 0;" class="clickableElement">+</button></p>
-				<p class="artist">Emeli Sandé</p>
+				<p class="title"></p>
+				<p class="artist"></p>
             </div>
         </div>
     
@@ -27,7 +27,7 @@ function setPlayer() {
                 <div class="myBar"></div>
             
                 </div>
-                <div class="dur" style="display:inline-block">4:37</div>
+                <div class="dur" style="display:inline-block"></div>
             </div>
         </div>
         
@@ -96,4 +96,45 @@ function display_song_details(song_id) {
             <p>${song.release}</p>
             <p>${song.duration}</p>
         </div>`);
+
+    $("#related_content").html("");
+    counter = 0;
+    common = [];
+    common_counter = 0;
+    for(i = 0; i < playerAPI.songs.crowd; i++) {
+        flag = false;
+        for(j = 0; j < playerAPI.songs["id" + i].genre.length; j++) {
+            for(k = 0; k < song.genre.length; k++) {
+                if(!flag && song_id !== ("id" + i) && (contains_word(playerAPI.songs["id" + i].genre[j], song.genre[k]) ||
+                        contains_word(song.genre[k], playerAPI.songs["id" + i].genre[j]))) {
+                    counter ++;
+                    common[common_counter++] = "id" + i;
+                    flag = true;
+                    $("#related_content").append(
+                        `<div class="col-xs-12 clickableElement" style="padding: 0 0 20px 0" onclick="display_song_details('${"id" + i}')">
+                        <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"></div>
+                        <div class="col-xs-8" style="padding-right: 0"><p>${playerAPI.songs["id" + i].title}</p><small>${playerAPI.songs["id" + i].artist}</small></div>
+                    </div>`
+                    )
+                }
+            }
+        }
+        if(counter === 5) break;
+    }
+
+    if(counter < 5) {
+        for(i = 0; i < playerAPI.songs.crowd; i++) {
+            flag = false;
+            if(!(common.indexOf(("id" + i)) > -1) && song_id !== ("id" + i) && counter < 5 && song.release.split(" ")[2] === playerAPI.songs["id" + i].release.split(" ")[2]) {
+                $("#related_content").append(
+                    `<div class="col-xs-12 clickableElement" style="padding: 0 0 20px 0" onclick="display_song_details('${"id" + i}')">
+                        <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"></div>
+                        <div class="col-xs-8" style="padding-right: 0"><p>${playerAPI.songs["id" + i].title}</p><small>${playerAPI.songs["id" + i].artist}</small></div>
+                    </div>`
+                )
+                counter++;
+            }
+            if(counter === 5) break;
+        }
+    }
 }

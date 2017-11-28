@@ -932,54 +932,38 @@ playerAPI.songs = {
 (function init() {
     playerAPI.playlist = [playerAPI.songs.crowd];
     for (i = 0; i < playerAPI.songs.crowd; i++) {
-        playerAPI.playlist[i] = playerAPI.songs["id" + i].file;
+        playerAPI.playlist[i] = "id" + i;
     }
-})();
 
-$("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[0];
-$("#playing")[0].load();
+    playerAPI.row = 0;
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button class="clickableElement"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
+    $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
+    $(".expand").each( function () {
+        var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details(playerAPI.playlist[playerAPI.row]);
+        })
+    });
+
+    $("#playing")[0].load();
+})();
 
 playerAPI.playPause = function playPause() {
     if (playerAPI.playing.paused) {
         playerAPI.playing.play();
-		$(".controls").each( function () {
-			var play_pause = $(this);
-			play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
-		});
-        playerAPI.id_interval = setInterval(frame, 10 * parseInt(playerAPI.playing.duration));
-
-        function frame() {
-            if (playerAPI.width >= 100) {
-
-                if(playerAPI.playlist.length > playerAPI.row || playerAPI.repeat_flag) {
-                    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[++playerAPI.row % playerAPI.playlist.length]].file;
-
-                    $("#playing")[0].load();
-                    $("#playing")[0].play();
-                    playerAPI.id_interval = setInterval(frame, 10 * parseInt(playerAPI.playing.duration));
-                } else {
-                    $(".controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
-                }
-                clearInterval(playerAPI.id_interval);
-                playerAPI.width = 0;
-				$( ".myBar" ).each( function () {
-					var myBar = $(this);
-					myBar.css("width", playerAPI.width + '%'
-				)});
-            } else if (!playerAPI.playing.paused) {
-                playerAPI.width++;
-				$( ".myBar" ).each( function () {
-					var myBar = $(this);
-					myBar.css("width", playerAPI.width + '%'
-				)});
-            }
-        }
+        $(".controls").each( function () {
+            var play_pause = $(this);
+            play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
+        });
     } else {
         playerAPI.playing.pause();
-		$(".controls").each( function () {
-			var play_pause = $(this);
-			play_pause.find("button").find("em")[2].innerHTML = "&#xf01d;";
-		});
+        $(".controls").each( function () {
+            var play_pause = $(this);
+            play_pause.find("button").find("em")[2].innerHTML = "&#xf01d;";
+        });
     }
 };
 
@@ -988,10 +972,16 @@ playerAPI.next = function next() {
     playerAPI.row = (playerAPI.row + 1) % playerAPI.playlist.length;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
     $('#myBar').css('width', "0");
-    playerAPI.width = 0;
     $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
+    $(".expand").each( function () {
+        var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details(playerAPI.playlist[playerAPI.row]);
+        })
+    });
 
     $("#playing")[0].load();
     if(!isPaused) {
@@ -1012,6 +1002,13 @@ playerAPI.prev = function prev() {
     $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
+    $(".expand").each( function () {
+        var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details(playerAPI.playlist[playerAPI.row]);
+        })
+    });
 
     $("#playing")[0].load();
     if(!isPaused) {
@@ -1076,6 +1073,40 @@ playerAPI.playing.ontimeupdate = function() {
     var sec = parseInt(playerAPI.playing.currentTime % 60);
 
     $(".curr").text(min + ":" + (sec > 9 ? sec : "0" + sec));
+
+    $(".myBar").each( function () {
+        percentage = playing.currentTime / playing.duration * 100;
+        var song_bar = $(this);
+        song_bar.css("width", percentage + '%'
+        )});
+};
+
+playerAPI.playing.onended = function() {
+    $(".dur").text("0:00");
+
+    $(".controls").each( function () {
+        var play_pause = $(this);
+    });
+
+    $(".curr").text("0:00");
+
+    $(".myBar").each( function () {
+        var song_bar = $(this);
+        song_bar.css("width", "0")
+    });
+
+    if(playerAPI.playlist.length > playerAPI.row || playerAPI.repeat_flag) {
+        playerAPI.row = (playerAPI.row + 1) % playerAPI.playlist.length;
+        $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
+        $("#playing")[0].load();
+        $("#playing")[0].play();
+        $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+        $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
+        $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
+    } else {
+        $(".controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
+    }
 };
 
 /*Song Volume*/

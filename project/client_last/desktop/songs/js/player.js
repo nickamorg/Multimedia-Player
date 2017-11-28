@@ -7,8 +7,8 @@ function setPlayer() {
                 <img class="img" style="width:80px" src="../ressrc/icon.png">
             </div>
             <div class="col-xs-9 text-left" style="padding-top:15px">
-				<p class="title">Read All About It <button><em class="fa">&#xf067;</em></button></p>
-				<p class="artist">Emeli Sandé</p>
+				<p class="title"><button><em class="fa">&#xf067;</em></button></p>
+				<p class="artist"></p>
             </div>
         </div>
     

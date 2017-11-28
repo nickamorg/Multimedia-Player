@@ -932,14 +932,27 @@ playerAPI.songs = {
 playerAPI.init = function init() {
     playerAPI.playlist = [playerAPI.songs.crowd];
     for (i = 0; i < playerAPI.songs.crowd; i++) {
-        playerAPI.playlist[i] = playerAPI.songs["id" + i].file;
+        playerAPI.playlist[i] = "id" + i;
     }
+
+    playerAPI.row = 0;
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button class="clickableElement"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
+    $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
+    $(".expand").each( function () {
+        var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details(playerAPI.playlist[playerAPI.row]);
+        })
+    });
+
+    $("#playing")[0].load();
 };
 
 playerAPI.init();
 
-$("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.playlist[0];
-$("#playing")[0].load();
 
 playerAPI.playPause = function playPause() {
     if (playerAPI.playing.paused) {
@@ -966,6 +979,13 @@ playerAPI.next = function next() {
     $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
 
+    $(".expand").each( function () {
+        var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details(playerAPI.playlist[playerAPI.row]);
+        })
+    });
+
     $("#playing")[0].load();
     if(!isPaused) {
         $("#playing")[0].play();
@@ -984,6 +1004,13 @@ playerAPI.prev = function prev() {
     $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
+
+    $(".expand").each( function () {
+        var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details(playerAPI.playlist[playerAPI.row]);
+        })
+    });
 
     $("#playing")[0].load();
     if(!isPaused) {
