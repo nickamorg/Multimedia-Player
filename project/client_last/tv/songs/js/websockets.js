@@ -224,7 +224,7 @@ function apply_filters_mysong() {
 }
 
 function play_song(curr_song) {
-    playerAPI.playlist = playerAPI.tmpPlaylist;
+    // playerAPI.playlist = playerAPI.tmpPlaylist;
     playerAPI.row = curr_song;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[curr_song].file;
     $("#playing")[0].load();
