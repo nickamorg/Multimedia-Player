@@ -937,22 +937,7 @@ playerAPI.songs = {
     }
 
     playerAPI.row = 0;
-    // $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
-    // $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button class="clickableElement"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
-    // $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
-    // $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
-    //
-    // $(".expand").each( function () {
-    //     var expand_button = $(this);
-    //     expand_button.click(function() {
-    //         display_song_details(playerAPI.playlist[playerAPI.row]);
-    //     })
-    // });
-    //
-    // $("#playing")[0].load();
-    //
-    // $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[curr_song].file;
-    // $("#playing")[0].load();
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
     $("#title_artist").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + " - " + playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $("#expand_player").find("div").find("img")[0].src = "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img;
     $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].title;

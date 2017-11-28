@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorsController", "KinectLab\SensorsController.csproj", "{CBE3A16E-AFB1-48DE-81CD-B50BCEAD0232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhidgetBoards", "..\PhidgetBoards\PhidgetBoards\PhidgetBoards.csproj", "{F591E812-3BC8-4713-AFD3-B68B0950D43F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fizbin.Kinect.Gestures", "..\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures.csproj", "{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBE3A16E-AFB1-48DE-81CD-B50BCEAD0232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE3A16E-AFB1-48DE-81CD-B50BCEAD0232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE3A16E-AFB1-48DE-81CD-B50BCEAD0232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE3A16E-AFB1-48DE-81CD-B50BCEAD0232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F591E812-3BC8-4713-AFD3-B68B0950D43F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F591E812-3BC8-4713-AFD3-B68B0950D43F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F591E812-3BC8-4713-AFD3-B68B0950D43F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F591E812-3BC8-4713-AFD3-B68B0950D43F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {551276FF-7560-4CBB-8E26-D90CE026044F}
+	EndGlobalSection
+EndGlobal

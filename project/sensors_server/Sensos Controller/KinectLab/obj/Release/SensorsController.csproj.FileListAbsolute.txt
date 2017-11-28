@@ -1,0 +1,4 @@
+C:\Users\aramp\Desktop\Sensos Controller\KinectLab\obj\Release\MainWindow.baml
+C:\Users\aramp\Desktop\Sensos Controller\KinectLab\obj\Release\MainWindow.g.cs
+C:\Users\aramp\Desktop\Sensos Controller\KinectLab\obj\Release\App.g.cs
+C:\Users\aramp\Desktop\Sensos Controller\KinectLab\obj\Release\SensorsController_MarkupCompile.cache

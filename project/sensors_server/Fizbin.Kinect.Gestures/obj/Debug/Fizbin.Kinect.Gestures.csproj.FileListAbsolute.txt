@@ -1,0 +1,57 @@
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\drossis\Downloads\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\drossis\Downloads\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\drossis\Downloads\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csprojResolveAssemblyReference.cache
+C:\Users\drossis\Downloads\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\drossis\Downloads\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\drossis\Desktop\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csprojResolveAssemblyReference.cache
+C:\Users\drossis\Desktop\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\drossis\Desktop\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\drossis\Desktop\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\drossis\Desktop\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\drossis\Desktop\KinectSolutions\KinectWPF\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\drossis\Desktop\KinectSolutions\KinectWPF\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\drossis\Desktop\KinectSolutions\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csprojResolveAssemblyReference.cache
+C:\Users\drossis\Desktop\KinectSolutions\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\drossis\Desktop\KinectSolutions\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+D:\CSD\564\KinectWPF\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+D:\CSD\564\KinectWPF\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+D:\CSD\564\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\ResolveAssemblyReference.cache
+D:\CSD\564\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+D:\CSD\564\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\aramp\Desktop\demo\KinectWPF\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\aramp\Desktop\demo\KinectWPF\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\aramp\Desktop\demo\KinectWPF\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.dll
+C:\Users\aramp\Desktop\demo\KinectWPF\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.xml
+C:\Users\aramp\Desktop\demo\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csprojResolveAssemblyReference.cache
+C:\Users\aramp\Desktop\demo\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csproj.CoreCompileInputs.cache
+C:\Users\aramp\Desktop\demo\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\aramp\Desktop\demo\KinectWPF\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\aramp\Desktop\project_demo\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\aramp\Desktop\project_demo\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\aramp\Desktop\project_demo\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.dll
+C:\Users\aramp\Desktop\project_demo\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.xml
+C:\Users\aramp\Desktop\project_demo\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csprojResolveAssemblyReference.cache
+C:\Users\aramp\Desktop\project_demo\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csproj.CoreCompileInputs.cache
+C:\Users\aramp\Desktop\project_demo\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\aramp\Desktop\project_demo\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\aramp\Documents\CSD\CS469\project\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\aramp\Documents\CSD\CS469\project\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\aramp\Documents\CSD\CS469\project\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.dll
+C:\Users\aramp\Documents\CSD\CS469\project\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.xml
+C:\Users\aramp\Documents\CSD\CS469\project\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csprojResolveAssemblyReference.cache
+C:\Users\aramp\Documents\CSD\CS469\project\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csproj.CoreCompileInputs.cache
+C:\Users\aramp\Documents\CSD\CS469\project\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\aramp\Documents\CSD\CS469\project\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.dll
+C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.xml
+C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csprojResolveAssemblyReference.cache
+C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csproj.CoreCompileInputs.cache
+C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb

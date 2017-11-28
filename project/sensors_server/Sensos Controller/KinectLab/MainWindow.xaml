@@ -1,0 +1,9 @@
+﻿<Window x:Class="SensorsController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WPFServer" Height="1080" Width="1920" WindowState="Minimized"
+        MinWidth="1920" MaxWidth="1920" MinHeight="1080" MaxHeight="1080">
+    <Grid Name="mainContent">
+
+    </Grid>
+</Window>

@@ -1,0 +1,8 @@
+C:\Users\aramp\source\repos\PhidgetBoards\PhidgetBoards\bin\Release\PhidgetBoards.dll
+C:\Users\aramp\source\repos\PhidgetBoards\PhidgetBoards\bin\Release\PhidgetBoards.pdb
+C:\Users\aramp\source\repos\PhidgetBoards\PhidgetBoards\bin\Release\Phidget21.NET.dll
+C:\Users\aramp\source\repos\PhidgetBoards\PhidgetBoards\bin\Release\Phidget21.NET.xml
+C:\Users\aramp\source\repos\PhidgetBoards\PhidgetBoards\obj\Release\PhidgetBoards.csproj.CoreCompileInputs.cache
+C:\Users\aramp\source\repos\PhidgetBoards\PhidgetBoards\obj\Release\PhidgetBoards.dll
+C:\Users\aramp\source\repos\PhidgetBoards\PhidgetBoards\obj\Release\PhidgetBoards.pdb
+C:\Users\aramp\source\repos\PhidgetBoards\PhidgetBoards\obj\Release\PhidgetBoards.csprojResolveAssemblyReference.cache

@@ -3,23 +3,21 @@ function setPlayer() {
 
     `<div id="bottom_menu" class="player text-center">
         <audio id="playing" class="hidden" controls="">
-            <source src="../ressrc/songs/Shakira - Perro Fiel.mp3" type="audio/mpeg">
+            <source src="" type="audio/mpeg">
                 Your browser does not support HTML5 video.
         </audio>
         <div class="col-xs-12" style="background-color:#1D1111">
             <div class="col-xs-2">
                 <button onclick="toggle_class_in('#expand_player')"><em style="font-size:50px" class="fa fa-angle-up"></em></button>
             </div>
-            <div id="title_artist" class="col-xs-8" style="padding-top:10px; font-size:24px">
-                Read All About It - Emeli Sandé
-            </div>
+            <div id="title_artist" class="col-xs-8" style="padding-top:10px; font-size:24px"></div>
             <div class="col-xs-2" style="padding-top:5px">
                 <button id="play_button" onclick="playerAPI.playPause()"><em style="font-size:40px" class="fa">&#xf01d;</em></button>
             </div>
             <div class="col-xs-12">
                 <div id="expand_player" class="collapse" style="height:1000px">
                     <div class="col-xs-12">
-                        <img style="width:80%" src="../ressrc/image.png">
+                        <img style="width:80%" src="">
                     </div>
                     <div class="col-xs-5 text-left" style="padding-left:70px">
                         <p>Title</p>

@@ -1,0 +1,5 @@
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Lighthouse.Kinect.Gestures\Lighthouse.Kinect.Gestures\bin\Debug\Lighthouse.Kinect.Gestures.dll
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Lighthouse.Kinect.Gestures\Lighthouse.Kinect.Gestures\bin\Debug\Lighthouse.Kinect.Gestures.pdb
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Lighthouse.Kinect.Gestures\Lighthouse.Kinect.Gestures\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Lighthouse.Kinect.Gestures\Lighthouse.Kinect.Gestures\obj\Debug\Lighthouse.Kinect.Gestures.dll
+C:\Users\an904c\Documents\Visual Studio 2010\Projects\Lighthouse.Kinect.Gestures\Lighthouse.Kinect.Gestures\obj\Debug\Lighthouse.Kinect.Gestures.pdb
