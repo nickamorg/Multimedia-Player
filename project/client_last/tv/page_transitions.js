@@ -25,6 +25,18 @@ $(document).ready(function () {
 		PageTransitions.goToPage(2, 'song_home');
 	});
 
+	$('.to_movie_details').click(function () {
+		PageTransitions.goToPage(21, 'movie_details');
+	});
+
+	$('.to_movies_home').click(function () {
+		PageTransitions.goToPage(2, 'movies_home');
+	});
+
+	$('.to_mymovies').click(function () {
+		PageTransitions.goToPage(21, 'movies_mymovies');
+	});
+
 	$('#to_movies_home').click(function () {
 		// Tip: try other integers [1-67] at PageTransitions.goToPage function
 		// and see different animations on changing pages
