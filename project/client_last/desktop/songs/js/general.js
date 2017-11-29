@@ -20,10 +20,7 @@ class VisitedPagesStack {
     }
 
     goToLastVisitedPage() {
-        if(this.stack[--this.counter] === "lobby") {
-            playerAPI.playing.pause();
-            visitedPagesStack = new VisitedPagesStack();
-        }
+        if(this.stack[--this.counter] === "lobby") playerAPI.playing.pause();
         PageTransitions.goToPage(2, this.stack[this.counter]);
     }
 
