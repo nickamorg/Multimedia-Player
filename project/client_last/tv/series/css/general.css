@@ -184,3 +184,9 @@ video {
 .series_controls i {
     padding: 0px 10px 0px 10px;
 }
+
+.season-episode-cell {
+    padding: 28px;
+    text-align: center;
+    font-size: 26px;
+};
