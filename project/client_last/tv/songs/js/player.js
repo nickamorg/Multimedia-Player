@@ -68,6 +68,7 @@ function set_songs_by_genre(genre) {
 
 function display_song_details(song_id) {
     song = playerAPI.songs[song_id];
+    visitedPagesStack.setNewLastVisitedPage("song_details");
     PageTransitions.goToPage(2, 'song_details');
     $("#lyrics").html("<h1>LYRICS</h1>");
     $("#lyrics").append("<pre>" + song.lyrics + "</pre>");
