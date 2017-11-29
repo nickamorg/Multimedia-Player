@@ -9,7 +9,6 @@
           <item> straight </item>
         </one-of>
       </item>
-	  
       <item>
         <tag>BACKWARD</tag>
         <one-of>
@@ -18,28 +17,21 @@
           <item> back </item>
         </one-of>
       </item>
-	  
        <item>
         <tag>PLAY</tag>
         <one-of>
-			<item> play </item>
-			<item> start </item>
-			<item> begin </item>
-			<item> continue </item>
-			<item> play the song </item>
-			<item> play </item>
-			<item> play music </item>
-			<item> play the movie </item>
-			<item> play the episode</item>
+          <item> play </item>
+          <item> play the song </item>
+          <item> play now </item>
+           <item> play music </item>
+           <item>play the movie </item>
+           <item> play the episode</item>
         </one-of>
       </item>
-	  
        <item>
         <tag>PAUSE</tag>
         <one-of>
           <item> pause </item>
-		  <item> stop </item>
-		  <item> standby </item>
           <item> pause the song </item>
           <item> pause now </item>
              <item> pause music </item>
@@ -47,7 +39,6 @@
            <item> pause the episode</item>
         </one-of>
       </item>
-	  
       <item>
         <tag>LEFT</tag>
         <one-of>
@@ -56,83 +47,28 @@
           <item> next </item>
         </one-of>
       </item>
-	  
       <item>
         <tag>RIGHT</tag>
         <one-of>
           <item> turn right </item>
           <item> swipe right </item>
-          <item> previus </item>
-		  <item> prev </item>
+          <item>previus</item>
         </one-of>
       </item>
-	  
        <item>
         <tag>UP</tag>
         <one-of>
           <item> up </item>
           <item> swipe up </item>
           <item> volume up </item>
-		  <item> increase </item>
         </one-of>
       </item>
-	  
        <item>
         <tag>DOWN</tag>
         <one-of>
           <item> swipe down </item>
           <item> down </item>
           <item> volume down </item>
-		  <item> decrease </item>
-        </one-of>
-      </item>
-	  
-	  <item>
-        <tag>LOBBY</tag>
-        <one-of>
-          <item> lobby </item>
-          <item> three player </item>
-          <item> triple player </item>
-        </one-of>
-      </item>
-	  
-	  <item>
-        <tag>EXPLORE</tag>
-        <one-of>
-          <item> Explore </item>
-          <item> Home </item>
-          <item> Songs </item>
-		  <item> movies </item>
-		  <item> series </item>
-        </one-of>
-      </item>
-	  
-	  <item>
-        <tag>Playlists</tag>
-        <one-of>
-          <item> Playlists </item>
-          <item> Playlist </item>
-          <item> list </item>
-        </one-of>
-      </item>
-	  
-	  <item>
-        <tag>My</tag>
-        <one-of>
-          <item> my </item>
-          <item> my songs </item>
-          <item> my movies </item>
-		  <item> my series </item>
-        </one-of>
-      </item>
-	  
-	  <item>
-        <tag>SEARCH</tag>
-        <one-of>
-          <item> search </item>
-          <item> find </item>
-          <item> look for </item>
-		  <item> seek </item>
         </one-of>
       </item>
     </one-of>

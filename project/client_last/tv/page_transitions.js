@@ -48,8 +48,8 @@ $(document).ready(function () {
 
     $('.playlists').click(function () {
         reset();
-        visitedPagesStack.setNewLastVisitedPage("song_playlists");
-        PageTransitions.goToPage(1, 'song_playlists');
+        visitedPagesStack.setNewLastVisitedPage("playlists");
+        PageTransitions.goToPage(1, 'playlists');
         get_playlists();
     });
 
