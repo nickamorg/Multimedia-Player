@@ -201,6 +201,10 @@ $(document).ready(function () {
         send_myseries();
     });
 
+    $('.to_series_details').click(function () {
+        PageTransitions.goToPage(1, 'series_details');
+    });
+
     $('.to_series_search').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("series_search");
