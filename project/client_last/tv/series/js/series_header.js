@@ -9,7 +9,7 @@ function setSeriesHeader() {
                 <form style="padding-top:10px" class="navbar-form navbar-left">
                     <div class="input-group">
                         <input style="padding-top:21px; padding-bottom:21px" type="text" class="keywords form-control" size="50" placeholder="Search for series">
-                        <div class="to_series_search input-group-btn">
+                        <div class="to_series_search input-group-btn clickableElement">
                             <a class="btn btn-default" type="submit">
                                 <i style="color:#000000" class="glyphicon glyphicon-search"></i>
                             </a>
@@ -17,8 +17,8 @@ function setSeriesHeader() {
                     </div>
                 </form>
             </li>
-            <li><a class="to_myseries">My series</a></li>
-            <li><a class="to_series_home">Explore</a></li>
+            <li><a class="to_myseries clickableElement">My series</a></li>
+            <li><a class="to_series_home clickableElement">Explore</a></li>
         </ul>
     </div>`);
 }
