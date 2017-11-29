@@ -96,10 +96,20 @@ $(document).ready(function () {
     	PageTransitions.goToPage(2, 'song_playlist');
     });
 
-    $('#to_tv_series_home').click(function () {
+    $('.to_series_home').click(function () {
 		// Tip: try other integers [1-67] at PageTransitions.goToPage function
 		// and see different animations on changing pages
-		PageTransitions.goToPage(2, 'tv_series_home');
+		PageTransitions.goToPage(2, 'series_home');
+	});
+
+	$('.to_myseries').click(function () {
+		PageTransitions.goToPage(21, 'series_myseries');
+	});
+
+	$('#to_tv_series_home').click(function () {
+		// Tip: try other integers [1-67] at PageTransitions.goToPage function
+		// and see different animations on changing pages
+		PageTransitions.goToPage(2, 'series_home');
 	});
 
     $('.to_songs_search').click(function () {
@@ -108,7 +118,13 @@ $(document).ready(function () {
         PageTransitions.goToPage(2, 'song_search');
     });
 
+    $('.to_series_search').click(function () {
+    	PageTransitions.goToPage(21, 'series_search');
+    });
 
+    $('.to_series_details').click(function () {
+    	PageTransitions.goToPage(21, 'series_details');
+    });
 
   //#endregion
   //---------------------------------------
