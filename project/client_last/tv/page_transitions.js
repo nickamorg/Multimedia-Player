@@ -53,6 +53,10 @@ $(document).ready(function () {
         get_playlists();
     });
 
+    $('#to_tv_series_home').click(function () {
+        PageTransitions.goToPage(1, 'series_home');
+    });
+
     $('.to_songs_search').click(function () {
         visitedPagesStack.setNewLastVisitedPage("song_search");
         PageTransitions.goToPage(1, 'song_search');
