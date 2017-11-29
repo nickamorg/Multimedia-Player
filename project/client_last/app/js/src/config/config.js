@@ -3,7 +3,7 @@
 //*******************************************
 
 var GlobalConfig = (function () {
-  var DebugMode = true;     //true/false
+  var DebugMode = false;     //true/false
 
   var Connections = {
     Sockets: 'ws://127.0.0.1:6556/', // URL of socket server
