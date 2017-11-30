@@ -172,7 +172,15 @@ var Sockets = (function () {
 				  } else if($(".pt-page-current")[0].id.includes("song")) {
 					  playerAPI.next();
 				  }
-			  } else if(msg.message["id"] === 2 || msg.message["id"] === 3) {
+			  } else if(msg.message["id"] === 2) {
+				  if($(".pt-page-current")[0].id === "movies_player") {
+					  $('.movie_muted').click();
+				  } else if($(".pt-page-current")[0].id === "series_player") {
+					  $('.serie_muted').click();
+				  } else if($(".pt-page-current")[0].id.includes("song")) {
+					  $('.muted').click();
+				  }
+			  } else if(msg.message["id"] === 3) {
 				  if($(".pt-page-current")[0].id === "movies_player") {
 					  playPauseMovie();
 				  } else if($(".pt-page-current")[0].id === "series_player") {
