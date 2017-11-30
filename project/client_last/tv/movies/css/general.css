@@ -185,3 +185,8 @@ video {
 .movies_controls i {
     padding: 0px 10px 0px 10px;
 }
+
+.movie--image {
+    width: 268px;
+    height: 402px;
+}

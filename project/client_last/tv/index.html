@@ -1615,12 +1615,12 @@
 					<div style="margin-right: 8px;" class="card col-xs-4">
 						<h1 id="movies_news_link" class="clickableElement">New Movies</h1>
 						<div class="to_movie_details col-xs-6 clickableElement" onclick="display_movie_details('id0')">
-							<img class="img-responsive" src="../ressrc/movies_images/spider-man_homecoming.png"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/spider-man_homecoming.png"/>
 							<p>Spider-Man: Homecoming</p>
 							<small>2017</small>
 						</div>
 						<div class="col-xs-6 clickableElement" onclick="display_movie_details('id4')">
-							<img class="img-responsive" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg"/>
 							<p>Valerian and the City of Thousand Planets</p>
 							<small>2017</small>
 						</div>
@@ -1628,12 +1628,12 @@
 					<div style="margin-right: 8px;" class="card col-xs-4">
 						<h1 id="movies_tops_link" class="clickableElement">Top Movies</h1>
 						<div class="col-xs-6 clickableElement" onclick="display_movie_details('id9')">
-							<img class="img-responsive" src="../ressrc/movies_images/deadpool.JPG"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/deadpool.JPG"/>
 							<p>Deadpool</p>
 							<small>2016</small>
 						</div>
 						<div class="col-xs-6 clickableElement" onclick="display_movie_details('id6')">
-							<img class="img-responsive" src="../ressrc/movies_images/the_dark_night.jpg"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/the_dark_night.jpg"/>
 							<p>The Dark Knight</p>
 							<small>2008</small>
 						</div>
@@ -1641,11 +1641,11 @@
 					<div class="card col-xs-4">
 						<h1 id="movies_genres_link" class="clickableElement">Genres</h1>
 						<div class="col-xs-6 clickableElement" style="cursor: pointer" onclick="set_movies_by_genre('Action')">
-							<img class="img-responsive" src="../ressrc/movies_images/spider-man_homecoming.png">
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/spider-man_homecoming.png">
 							<p>Action</p>
 						</div>
 						<div class="col-xs-6 clickableElement" style="cursor: pointer" onclick="set_movies_by_genre('Adventure')">
-							<img class="img-responsive" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
 							<p>Adventure</p>
 						</div>
 					</div>
@@ -1656,37 +1656,37 @@
 						<h1 id="movies_recently_watched_link" class="clickableElement" style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently Watched</h1>
 
 						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id5')">
-							<img class="img-responsive" src="../ressrc/movies_images/wonder_woman.jpg"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/wonder_woman.jpg"/>
 							<p>Wonder Woman</p>
 							<small>2017</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id9')">
-							<img class="img-responsive" src="../ressrc/movies_images/deadpool.JPG"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/deadpool.JPG"/>
 							<p>Deadpool</p>
 							<small>2016</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id1')">
-							<img class="img-responsive" src="../ressrc/movies_images/annabelle_creation.jpg"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/annabelle_creation.jpg"/>
 							<p>Annabelle Creation</p>
 							<small>2017</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id7')">
-							<img class="img-responsive" src="../ressrc/movies_images/guardians_of_the_galaxy.jpg"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/guardians_of_the_galaxy.jpg"/>
 							<p>Guardians of The Galaxy</p>
 							<small>2014</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id2')">
-							<img class="img-responsive" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg"/>
 							<p>Dead Men Tell No Tales</p>
 							<small>2017</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id8')">
-							<img class="img-responsive" src="../ressrc/movies_images/logan_lucky.jpg"/>
+							<img class="img-responsive movie--image" src="../ressrc/movies_images/logan_lucky.jpg"/>
 							<p>Logan Lucky</p>
 							<small>2017</small>
 						</div>
@@ -2080,184 +2080,31 @@
 		  <div id="serie_full-screen" class="series_content scrollbar">
 			  <div class="col-xs-3" style="margin-top: 50px; margin-bottom:120px; padding-left:0">
 				  <img id="serie_poster" class="img-responsive" style="border-radius: 38px" src="">
-				  <button id="serie_display_play">
-					  <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
-						  <em class="fa fa-play-circle-o"></em> Play where you left off
-					  </h3>
-				  </button>
-
-				  <br/>
-
-				  <button id="serie_display_add">
-					  <h3 style="float:left; margin:0; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
-						  <em class="fa fa-plus"></em> Add to My series
-					  </h3>
-				  </button>
-				  <div class="clearfix"></div>
 			  </div>
 
-			  <div id="serie_details" class="col-xs-6 card card_serie" style="margin-top: 50px">
+			  <div id="serie_details" class="col-xs-6 card card_serie" style="margin-top: 50px; opacity: 0.95; height: 500px;">
 				  <h1 id="serie_title"></h1>
 				  <p id="serie_info"></p>
 				  <p id="serie_description"></p>
 
-				  <div class="row" style="padding-top:10px">
-					  <div class="col-xs-2" style="padding-right:0">
-						  <h3 style="padding:0">Seasons</h3>
-						  <table class="table table-striped table-borderless">
-							  <tbody class="table-episodes scrollbar">
-							  <tr>
-								  <td>Season 1</td>
-							  </tr>
-							  <tr style="background-color: #2bb4c4;">
-								  <td><span>Season 2</span></td>
-							  </tr>
-							  <tr>
-								  <td>Season 3</td>
-							  </tr>
-							  <tr>
-								  <td>Season 4</td>
-							  </tr>
-							  <tr>
-								  <td>Season 5</td>
-							  </tr>
-							  <tr>
-								  <td>Season 6</td>
-							  </tr>
-							  <tr>
-								  <td>Season 7</td>
-							  </tr>
-							  <tr>
-								  <td>Season 8</td>
-							  </tr>
-							  <tr>
-								  <td>Season 9</td>
-							  </tr>
-							  <tr>
-								  <td>Season 10</td>
-							  </tr>
-							  <tr>
-								  <td>Season 11</td>
-							  </tr>
-							  <tr>
-								  <td>Season 12</td>
-							  </tr>
-							  <tr>
-								  <td>Season 13</td>
-							  </tr>
-							  </tbody>
-						  </table>
-					  </div>
-					  <div class="col-xs-6" style="padding:0">
-						  <h3 style="padding:0">Episodes</h3>
-						  <table class="table table-striped table-borderless">
-							  <tbody class="table-episodes scrollbar">
-							  <tr>
-								  <td>1</td>
-								  <td>In My Time of Dying</td>
-							  </tr>
-							  <tr style="background-color: #2bb4c4;">
-								  <td><span>2</span></td>
-								  <td><span>Everybody Loves a Clown</span></td>
-							  </tr>
-							  <tr>
-								  <td>3</td>
-								  <td>Bloodlust</td>
-							  </tr>
-							  <tr>
-								  <td>4</td>
-								  <td>Children Shouldn’t Play with Dead Things</td>
-							  </tr>
-							  <tr>
-								  <td>5</td>
-								  <td>Simon Said</td>
-							  </tr>
-							  <tr>
-								  <td>6</td>
-								  <td>No Exit</td>
-							  </tr>
-							  <tr>
-								  <td>7</td>
-								  <td>The Usual Suspects</td>
-							  </tr>
-							  <tr>
-								  <td>8</td>
-								  <td>Crossroad Blues</td>
-							  </tr>
-							  <tr>
-								  <td>9</td>
-								  <td>Croatoan</td>
-							  </tr>
-							  <tr>
-								  <td>10</td>
-								  <td>Hunted</td>
-							  </tr>
-							  <tr>
-								  <td>11</td>
-								  <td>Playthings</td>
-							  </tr>
-							  <tr>
-								  <td>12</td>
-								  <td>Nightshifter</td>
-							  </tr>
-							  <tr>
-								  <td>13</td>
-								  <td>Houses of the Holy</td>
-							  </tr>
-							  <tr>
-								  <td>14</td>
-								  <td>Born Under a Bad Sign</td>
-							  </tr>
-							  <tr>
-								  <td>15</td>
-								  <td>Tall Tales</td>
-							  </tr>
-							  <tr>
-								  <td>16</td>
-								  <td>Road Kill</td>
-							  </tr>
-							  <tr>
-								  <td>17</td>
-								  <td>Heart</td>
-							  </tr>
-							  <tr>
-								  <td>18</td>
-								  <td>Hollywood Babylon</td>
-							  </tr>
-							  <tr>
-								  <td>19</td>
-								  <td>Folsom Prison Blues</td>
-							  </tr>
-							  <tr>
-								  <td>20</td>
-								  <td>What Is and What Should Never Be</td>
-							  </tr>
-							  <tr>
-								  <td>21</td>
-								  <td>All Hell Breaks Loose (1)</td>
-							  </tr>
-							  <tr>
-								  <td>22</td>
-								  <td>All Hell Breaks Loose (2)</td>
-							  </tr>
-							  </tbody>
-						  </table>
-					  </div>
-					  <div class="col-xs-4">
-						  <h3 style="padding:0">Description</h3>
-						  <p id="serie_episode_description">A cell phone message leads Sam and Dean to a woman named Ellen, whose home serves as a gathering place for other hunters; a small-town carnival serves as a cover for a murderous clown who preys on parents.</p>
-						  <button style="margin-top: 300px; margin-left: 190px;" id="serie_display_play_episode">
-							  <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
-								  <em class="fa fa-play-circle-o"></em>
-								  Play
-							  </h3>
-						  </button>
-					  </div>
-				  </div>
+				  <button id="serie_display_play">
+                        <h3 class="clickableElement" style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+                            <em class="fa fa-play-circle-o"></em> Play s13e01
+                        </h3>
+                    </button>
+
+                    <br>
+
+                    <button id="serie_display_add">
+                        <h3 class="clickableElement" style="float:left; margin:0; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+                            <em class="fa fa-plus"></em> Add to My series
+                        </h3>
+                    </button>
+                    <div class="clearfix"></div>
 			  </div>
 
-			  <div class="col-xs-3" style="padding-right:0; opacity: 0.95">
-				  <div class="card serie_related col-xs-12">
+			  <div class="col-xs-3" style="padding-right:0; margin-top: 30px; opacity: 0.95;">
+                    <div class="card serie_related col-xs-12" style="height: 500px;">
 					  <h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Series</h3>
 
 					  <div style="height: 592px;" id="serie_related_content">
@@ -2265,6 +2112,200 @@
 					  </div>
 				  </div>
 			  </div>
+			  	<div class="col-xs-12">
+                	<div class="row text-center">
+                		<div id="season-7" class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.55; height: 173.58;" class="img-responsive" src="http://www.withanaccent.com/wp-content/uploads/2013/01/Supernatural-S07-Title-Banner.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 7
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.55; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/Pj1gi3wC0MU/maxresdefault.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 8
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.55; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/tjej1TN7be4/maxresdefault.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 9
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.55; height: 173.58;" class="img-responsive" src="http://cdn.pcwallart.com/images/supernatural-logo-season-10-wallpaper-1.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 10
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.55; height: 173.58;" class="img-responsive" src="https://thewinchesterfamilybusiness.com/images/SeasonEleven/S11Promo/S11titlecard2.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 11
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.55; height: 173.58;" class="img-responsive" src="http://cdn.playbuzz.com/cdn/4605903a-de50-434a-ba59-c409c6046f82/a3fd187f-1447-439d-b5c1-707ab80071e8.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 12
+							</span>
+                		</div>
+                	</div>
+                </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 2 - SERIES SERIE_PAGE -->
+
+	  <!-- BEGIN PAGE 2 - SERIES SERIE_PAGE -->
+	  <div id="series_episodes" class="pt-page">
+		  <script>setSeriesHeader()</script>
+		  <div id="serie_full-screen" class="series_content scrollbar" style="background-image: url('../ressrc/series_images/background/Supernatural-s07.png'); background-repeat:no-repeat; background-position: center; background-size: cover;">
+		  	<!-- style="margin-top: 50px; opacity: 0.95; height: 500px; background-image: url('https://orig00.deviantart.net/1e5b/f/2011/273/f/8/supernatural_season_7_hd_by_inickeon-d4bdbrh.jpg'); background-repeat:no-repeat; background-position: center; background-size: cover;" -->
+
+			  <div id="serie_details" class="col-xs-6 card card_serie" style="margin-top: 50px; opacity: 0.95; height: 500px;">
+
+				  <div class="row">
+				  	<div class="col-xs-11">
+				  	  <h2 id="season_title">Supernatural</h2>
+					  <p id="serie_info">2005 • 44 min • Drama,Fantasy,Horror • <span><img width="30" height="15" src="../ressrc/series_images/imdb.png"></span> 8.6</p>
+					  <h3>Season 7</h3>
+					  <p id="season_description">In season seven, the events take place right after the angel Castiel absorbed the souls of Purgatory declares himself as the new God. And the "mutated angel" goes around the planet to try and finish his "work".</p>
+
+					  <h4>2. Hello, Cruel World</h4>
+					  <p>The leviathans destroy Castiel's body and break loose. Now Sam, Dean, and Bobby have to track them all down. Meanwhile, Sam is beginning to struggle with what is real and what is a hallucination.</p>
+
+					  <button id="serie_display_play">
+	                        <h3 class="clickableElement" style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+	                            <em class="fa fa-play-circle-o"></em> Play
+	                        </h3>
+	                    </button>
+
+	                    <br>
+
+	                    <button id="serie_display_add">
+	                        <h3 class="clickableElement" style="float:left; margin:0; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+	                            <em class="fa fa-plus"></em> Add to My series
+	                        </h3>
+	                    </button>
+	                    <div class="clearfix"></div>
+				  	</div>
+				  </div>
+			  </div>
+
+			  
+			  	<div style="margin-top: 40px;" class="col-xs-12">
+			  		<h2>Episodes</h2>
+                	<div class="row text-center">
+                		<div id="season-7" class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.75; height: 173.58;" class="img-responsive" src="http://www.supernaturalwiki.com/images/thumb/a/aa/Supernatural_Season_7_Episode_1_Meet_The_New_Boss_11-3544-590-700-80.jpg/300px-Supernatural_Season_7_Episode_1_Meet_The_New_Boss_11-3544-590-700-80.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Episode 1
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement episode-active">
+                			<img style="opacity: 0.75; height: 173.58;" class="img-responsive" src="http://www.supernaturalwiki.com/images/thumb/4/45/SN703a_0400b.jpg-ff124b5a-t3.jpg/300px-SN703a_0400b.jpg-ff124b5a-t3.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Episode 2
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.75; height: 173.58;" class="img-responsive" src="http://www.supernaturalwiki.com/images/thumb/5/5e/703promostill.jpg/300px-703promostill.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Episode 3
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.75; height: 173.58;" class="img-responsive" src="http://www.supernaturalwiki.com/images/thumb/f/f1/704promotionalstill.jpg/300px-704promotionalstill.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Episode 4
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.75; height: 173.58;" class="img-responsive" src="http://www.supernaturalwiki.com/images/thumb/0/0d/Shutupdrphilpromo.jpg/300px-Shutupdrphilpromo.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Episode 5
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.75; height: 173.58;" class="img-responsive" src="http://www.supernaturalwiki.com/images/thumb/9/96/Slasfiction706promopic.jpg/300px-Slasfiction706promopic.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Episode 6
+							</span>
+                		</div>
+                	</div>
+                </div>
 		  </div>
 	  </div>
 	  <!-- END PAGE 2 - SERIES SERIE_PAGE -->
@@ -2711,12 +2752,12 @@
 					<div style="margin-right: 8px;" class="card col-xs-4">
 						<h1 id="series_news_link" class="clickableElement">New Series</h1>
 						<div class="to_series_details col-xs-6 clickableElement" onclick="display_serie_details('id0')">
-							<img class="img-responsive" src="../ressrc/series_images/The%20Punisher.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/The%20Punisher.jpg"/>
 							<p>The Punisher</p>
 							<small>2017-Present</small>
 						</div>
 						<div class="col-xs-6 clickableElement" onclick="display_serie_details('id13')">
-							<img class="img-responsive" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
 							<p>The Good Fight</p>
 							<small>2017-Present</small>
 						</div>
@@ -2724,12 +2765,12 @@
 					<div style="margin-right: 8px;" class="card col-xs-4">
 						<h1 id="series_tops_link" class="clickableElement">Top Series</h1>
 						<div class="col-xs-6 clickableElement" onclick="display_serie_details('id3')">
-							<img class="img-responsive" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
 							<p>Game of Thrones</p>
 							<small>2011-Present</small>
 						</div>
 						<div class="col-xs-6 clickableElement" onclick="display_serie_details('id9')">
-							<img class="img-responsive" src="../ressrc/series_images/Sherlock.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/Sherlock.jpg"/>
 							<p>Sherlock</p>
 							<small>2010-2017</small>
 						</div>
@@ -2737,11 +2778,11 @@
 					<div class="card col-xs-4">
 						<h1 id="series_genres_link" class="clickableElement">Genres</h1>
 						<div class="col-xs-6 clickableElement" onclick="set_series_by_genre('Action')">
-							<img class="img-responsive" src="../ressrc/series_images/Arrow.jpg">
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/Arrow.jpg">
 							<p>Action</p>
 						</div>
 						<div class="col-xs-6 clickableElement" onclick="set_series_by_genre('Horror')">
-							<img class="img-responsive" src="../ressrc/series_images/Stranger%20Things.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/Stranger%20Things.jpg"/>
 							<p>Horror</p>
 						</div>
 					</div>
@@ -2752,37 +2793,37 @@
 						<h1 id="series_recently_watched_link" class="clickableElement" style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently Watched</h1>
 
 						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id3')">
-							<img class="img-responsive" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
 							<p>Game of Thrones</p>
 							<small>2011-Present</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id7')">
-							<img class="img-responsive" src="../ressrc/series_images/Supernatural.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/Supernatural.jpg"/>
 							<p>Supernatural</p>
 							<small>2005-Present</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id11')">
-							<img class="img-responsive" src="../ressrc/series_images/Mr.%20Robot.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/Mr.%20Robot.jpg"/>
 							<p>Mr.Robot</p>
 							<small>2015-Present</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id12')">
-							<img class="img-responsive" src="../ressrc/series_images/The%20Flash.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/The%20Flash.jpg"/>
 							<p>The Flash</p>
 							<small>2014-Present</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id13')">
-							<img class="img-responsive" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
 							<p>The Good Fight</p>
 							<small>2017-present</small>
 						</div>
 
 						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id1')">
-							<img class="img-responsive" src="../ressrc/series_images/The%20Defenders.jpg"/>
+							<img class="img-responsive tv-series--image" src="../ressrc/series_images/The%20Defenders.jpg"/>
 							<p>Thr Defenders</p>
 							<small>2017</small>
 						</div>
@@ -3617,168 +3658,168 @@
 	<!-- END PAGE 16 - SERIES_SEARCH-->
 
 
-	<!--&lt;!&ndash; BEGIN PAGE 17 - SERIES_DETAILS&ndash;&gt;-->
-	<!--<div id="series_details" class="pt-page">-->
-		<!--<script>setSeriesHeader();</script>-->
-		<!--<div id="full-screen" class="movies_content scrollbar" style="background-image: url(../ressrc/series_images/background/Supernatural.jpg);">-->
-			<!--<div class="col-xs-3" style="margin-top: 50px; margin-bottom:120px; padding-left:0">-->
-                    <!--<img id="serie_poster" class="img-responsive" style="border-radius: 38px" src="../ressrc/series_images/Supernatural.jpg">-->
-                <!--</div>-->
+	<!-- BEGIN PAGE 17 - SERIES_DETAILS -->
+	<div id="series_details" class="pt-page">
+		<script>setSeriesHeader();</script>
+		<div id="full-screen" class="movies_content scrollbar" style="background-image: url(../ressrc/series_images/background/Supernatural.jpg);">
+			<div class="col-xs-3" style="margin-top: 50px; margin-bottom:120px; padding-left:0">
+                    <img id="serie_poster" class="img-responsive" style="border-radius: 38px" src="../ressrc/series_images/Supernatural.jpg">
+                </div>
 
-                <!--<div id="serie_details" class="col-xs-6 card card_serie" style="margin-top: 50px; opacity: 0.95; height: 500px;">-->
-                    <!--<h1 id="serie_title">Supernatural</h1>-->
-                    <!--<p id="serie_info">-->
-    <!--2005 • 44 min • Drama,Fantasy,Horror • -->
-    <!--<span><img width="30" height="15" src="../ressrc/series_images/imdb.png"></span> 8.6</p>-->
-                    <!--<p id="serie_description">Two brothers follow their father's footsteps as "hunters", fighting evil supernatural beings of many kinds, including monsters, demons, and gods that roam the earth.</p>-->
+                <div id="serie_details" class="col-xs-6 card card_serie" style="margin-top: 50px; opacity: 0.95; height: 500px;">
+                    <h1 id="serie_title">Supernatural</h1>
+                    <p id="serie_info">
+    2005 • 44 min • Drama,Fantasy,Horror • 
+    <span><img width="30" height="15" src="../ressrc/series_images/imdb.png"></span> 8.6</p>
+                    <p id="serie_description">Two brothers follow their father's footsteps as "hunters", fighting evil supernatural beings of many kinds, including monsters, demons, and gods that roam the earth.</p>
 
-                    <!--<button id="serie_display_play">-->
-                        <!--<h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">-->
-                            <!--<em class="fa fa-play-circle-o"></em> Play s13e01-->
-                        <!--</h3>-->
-                    <!--</button>-->
+                    <button id="serie_display_play">
+                        <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+                            <em class="fa fa-play-circle-o"></em> Play s13e01
+                        </h3>
+                    </button>
 
-                    <!--<br>-->
+                    <br>
 
-                    <!--<button id="serie_display_add">-->
-                        <!--<h3 style="float:left; margin:0; background-color:black; padding:10px; border-radius:10px; cursor:pointer">-->
-                            <!--<em class="fa fa-plus"></em> Add to My series-->
-                        <!--</h3>-->
-                    <!--</button>-->
-                    <!--<div class="clearfix"></div>-->
+                    <button id="serie_display_add">
+                        <h3 style="float:left; margin:0; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+                            <em class="fa fa-plus"></em> Add to My series
+                        </h3>
+                    </button>
+                    <div class="clearfix"></div>
 
-                    <!--&lt;!&ndash; <h3>Seasons</h3>-->
-                    <!--<div class="row">-->
-                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">1</div>-->
-                    	<!--<div style="background-color: cyan; color: black;" class="col-xs-1 clickableElement season-episode-cell">2</div>-->
-                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">3</div>-->
-                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">4</div>-->
-                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">5</div>-->
-                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">6</div>-->
-                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">7</div>-->
-                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">8</div>-->
-                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">9</div>-->
-                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">10</div>-->
-                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">11</div>-->
-                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">12</div>-->
-                    <!--</div> &ndash;&gt;-->
-                <!--</div>-->
+                    <h3>Seasons</h3>
+                    <div class="row">
+                    	<div class="col-xs-1 clickableElement season-episode-cell">1</div>
+                    	<div style="background-color: cyan; color: black;" class="col-xs-1 clickableElement season-episode-cell">2</div>
+                    	<div class="col-xs-1 clickableElement season-episode-cell">3</div>
+                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">4</div>
+                    	<div class="col-xs-1 clickableElement season-episode-cell">5</div>
+                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">6</div>
+                    	<div class="col-xs-1 clickableElement season-episode-cell">7</div>
+                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">8</div>
+                    	<div class="col-xs-1 clickableElement season-episode-cell">9</div>
+                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">10</div>
+                    	<div class="col-xs-1 clickableElement season-episode-cell">11</div>
+                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">12</div>
+                    </div>
+                </div>
 
-                <!--<div class="col-xs-3" style="padding-right:0; margin-top: 30px; opacity: 0.95;">-->
-                    <!--<div class="card serie_related col-xs-12" style="height: 500px;">-->
-                        <!--<h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Series</h3>-->
+                <div class="col-xs-3" style="padding-right:0; margin-top: 30px; opacity: 0.95;">
+                    <div class="card serie_related col-xs-12" style="height: 500px;">
+                        <h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Series</h3>
 
-                        <!--<div id="serie_related_content">-->
-                        	<!--<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id2')">-->
-	                            <!--<div class="col-xs-4" style="padding-right:0">-->
-	                                <!--<img class="img-serie-recently-watched" src="../ressrc/series_images/Emerald City.jpg">-->
-	                            <!--</div>-->
-	                            <!--<div class="col-xs-8" style="padding-right: 0">-->
-	                                <!--<p>Emerald City</p>-->
-	                                <!--<small>2016</small>-->
-	                            <!--</div>-->
-	                        <!--</div>-->
-	                        <!--<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id3')">-->
-	                            <!--<div class="col-xs-4" style="padding-right:0">-->
-	                                <!--<img class="img-serie-recently-watched" src="../ressrc/series_images/Game of Thrones.jpg">-->
-	                            <!--</div>-->
-	                            <!--<div class="col-xs-8" style="padding-right: 0">-->
-	                                <!--<p>Game of Thrones</p>-->
-	                                <!--<small>2011</small>-->
-	                            <!--</div>-->
-	                        <!--</div>-->
-	                        <!--<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id5')">-->
-	                            <!--<div class="col-xs-4" style="padding-right:0">-->
-	                                <!--<img class="img-serie-recently-watched" src="../ressrc/series_images/Stranger Things.jpg">-->
-	                            <!--</div>-->
-	                            <!--<div class="col-xs-8" style="padding-right: 0">-->
-	                                <!--<p>Stranger Things</p>-->
-	                                <!--<small>2016</small>-->
-	                            <!--</div>-->
-	                        <!--</div>-->
-	                    <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-xs-12">-->
-                	<!--<div class="row text-center">-->
-                		<!--<div class="col-xs-2 clickableElement">-->
-                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://www.withanaccent.com/wp-content/uploads/2013/01/Supernatural-S07-Title-Banner.jpg">-->
-                			<!--<span -->
-                				<!--style="-->
-                					<!--position: absolute;-->
-									<!--top: 50%;-->
-									<!--left: 50%;-->
-									<!--transform: translate(-50%, -50%);-->
-									<!--font-size: 28px;-->
-								<!--">Season 7-->
-							<!--</span>-->
-                		<!--</div>-->
-                		<!--<div class="col-xs-2 clickableElement">-->
-                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/Pj1gi3wC0MU/maxresdefault.jpg">-->
-                			<!--<span -->
-                				<!--style="-->
-                					<!--position: absolute;-->
-									<!--top: 50%;-->
-									<!--left: 50%;-->
-									<!--transform: translate(-50%, -50%);-->
-									<!--font-size: 28px;-->
-								<!--">Season 8-->
-							<!--</span>-->
-                		<!--</div>-->
-                		<!--<div class="col-xs-2 clickableElement">-->
-                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/tjej1TN7be4/maxresdefault.jpg">-->
-                			<!--<span -->
-                				<!--style="-->
-                					<!--position: absolute;-->
-									<!--top: 50%;-->
-									<!--left: 50%;-->
-									<!--transform: translate(-50%, -50%);-->
-									<!--font-size: 28px;-->
-								<!--">Season 9-->
-							<!--</span>-->
-                		<!--</div>-->
-                		<!--<div class="col-xs-2 clickableElement">-->
-                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://cdn.pcwallart.com/images/supernatural-logo-season-10-wallpaper-1.jpg">-->
-                			<!--<span -->
-                				<!--style="-->
-                					<!--position: absolute;-->
-									<!--top: 50%;-->
-									<!--left: 50%;-->
-									<!--transform: translate(-50%, -50%);-->
-									<!--font-size: 28px;-->
-								<!--">Season 10-->
-							<!--</span>-->
-                		<!--</div>-->
-                		<!--<div class="col-xs-2 clickableElement">-->
-                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://thewinchesterfamilybusiness.com/images/SeasonEleven/S11Promo/S11titlecard2.jpg">-->
-                			<!--<span -->
-                				<!--style="-->
-                					<!--position: absolute;-->
-									<!--top: 50%;-->
-									<!--left: 50%;-->
-									<!--transform: translate(-50%, -50%);-->
-									<!--font-size: 28px;-->
-								<!--">Season 11-->
-							<!--</span>-->
-                		<!--</div>-->
-                		<!--<div class="col-xs-2 clickableElement">-->
-                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://cdn.playbuzz.com/cdn/4605903a-de50-434a-ba59-c409c6046f82/a3fd187f-1447-439d-b5c1-707ab80071e8.jpg">-->
-                			<!--<span -->
-                				<!--style="-->
-                					<!--position: absolute;-->
-									<!--top: 50%;-->
-									<!--left: 50%;-->
-									<!--transform: translate(-50%, -50%);-->
-									<!--font-size: 28px;-->
-								<!--">Season 12-->
-							<!--</span>-->
-                		<!--</div>-->
-                	<!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-	<!--</div>-->
-	<!--&lt;!&ndash; END PAGE 17 - SERIES_DETAILS&ndash;&gt;-->
+                        <div id="serie_related_content">
+                        	<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id2')">
+	                            <div class="col-xs-4" style="padding-right:0">
+	                                <img class="img-serie-recently-watched" src="../ressrc/series_images/Emerald City.jpg">
+	                            </div>
+	                            <div class="col-xs-8" style="padding-right: 0">
+	                                <p>Emerald City</p>
+	                                <small>2016</small>
+	                            </div>
+	                        </div>
+	                        <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id3')">
+	                            <div class="col-xs-4" style="padding-right:0">
+	                                <img class="img-serie-recently-watched" src="../ressrc/series_images/Game of Thrones.jpg">
+	                            </div>
+	                            <div class="col-xs-8" style="padding-right: 0">
+	                                <p>Game of Thrones</p>
+	                                <small>2011</small>
+	                            </div>
+	                        </div>
+	                        <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id5')">
+	                            <div class="col-xs-4" style="padding-right:0">
+	                                <img class="img-serie-recently-watched" src="../ressrc/series_images/Stranger Things.jpg">
+	                            </div>
+	                            <div class="col-xs-8" style="padding-right: 0">
+	                                <p>Stranger Things</p>
+	                                <small>2016</small>
+	                            </div>
+	                        </div>
+	                    </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                	<div class="row text-center">
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://www.withanaccent.com/wp-content/uploads/2013/01/Supernatural-S07-Title-Banner.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 7
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/Pj1gi3wC0MU/maxresdefault.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 8
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/tjej1TN7be4/maxresdefault.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 9
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://cdn.pcwallart.com/images/supernatural-logo-season-10-wallpaper-1.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 10
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://thewinchesterfamilybusiness.com/images/SeasonEleven/S11Promo/S11titlecard2.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 11
+							</span>
+                		</div>
+                		<div class="col-xs-2 clickableElement">
+                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://cdn.playbuzz.com/cdn/4605903a-de50-434a-ba59-c409c6046f82/a3fd187f-1447-439d-b5c1-707ab80071e8.jpg">
+                			<span 
+                				style="
+                					position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									font-size: 28px;
+								">Season 12
+							</span>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<!-- END PAGE 17 - SERIES_DETAILS -->
 
 
 	<!-- The Modal -->
