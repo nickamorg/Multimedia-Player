@@ -54,6 +54,8 @@ $(document).ready(function () {
     });
 
     $('#to_tv_series_home').click(function () {
+        reset();
+        visitedPagesStack.setNewLastVisitedPage("series_home");
         PageTransitions.goToPage(1, 'series_home');
     });
 
