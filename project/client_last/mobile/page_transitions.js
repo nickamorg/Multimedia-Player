@@ -106,14 +106,14 @@ $(document).ready(function () {
 
     $('#season-7').click(function () {
         reset();
-        visitedPagesStack.setNewLastVisitedPage("serie_episodes");
-        PageTransitions.goToPage(1, 'episode_page');
+        visitedPagesStack.setNewLastVisitedPage("serie_page");
+        PageTransitions.goToPage(1, 'serie_episodes');
     });
 
     $('#episode-2').click(function () {
         reset();
-        visitedPagesStack.setNewLastVisitedPage("serie-page");
-        PageTransitions.goToPage(1, 'serie_episodes');
+        visitedPagesStack.setNewLastVisitedPage("serie_episodes");
+        PageTransitions.goToPage(1, 'episode_details');
     });
 
     $('#to_movies_home, .to_movies_home').click(function () {
