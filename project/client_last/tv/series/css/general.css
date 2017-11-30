@@ -190,3 +190,12 @@ video {
     text-align: center;
     font-size: 26px;
 };
+
+.season-episode-image {
+    position: absolute;
+    max-width: 100%;
+    height: auto;
+    max-height: 50px;
+    object-fit: cover;
+    opacity: 0;
+}
