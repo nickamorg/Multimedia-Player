@@ -219,7 +219,8 @@ $(document).ready(function () {
         });
     });
 
-    $('#season-7').click(function() {
+    $('.season').click(function() {
+        visitedPagesStack.setNewLastVisitedPage("series_episodes");
         PageTransitions.goToPage(22, 'series_episodes');
     });
 
