@@ -225,3 +225,8 @@ video {
 }#serie_display_play_episode div:hover {
      color: #2BB4C4;
  }
+
+.tv-series--image {
+    width: 268px;
+    height: 402px;
+}
