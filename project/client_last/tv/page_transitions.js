@@ -72,7 +72,7 @@ $(document).ready(function () {
 
     $('#song_new_releases_link').click(function () {
         reset();
-        set_song_new_releases();
+        // set_song_new_releases();
         visitedPagesStack.setNewLastVisitedPage("song_new_releases");
         PageTransitions.goToPage(1, 'song_new_releases');
     });
@@ -127,8 +127,8 @@ $(document).ready(function () {
     $('#movies_genres_link').click(function () {
         reset();
         set_movies_genres();
-        visitedPagesStack.setNewLastVisitedPage("movies_genres");
-        PageTransitions.goToPage(1, 'movies_genres');
+        visitedPagesStack.setNewLastVisitedPage("home_movies_genres");
+        PageTransitions.goToPage(1, 'home_movies_genres');
     });
 
     $('.to_mymovies').click(function () {
@@ -190,8 +190,8 @@ $(document).ready(function () {
     $('#series_genres_link').click(function () {
         reset();
         set_series_genres();
-        visitedPagesStack.setNewLastVisitedPage("series_genres");
-        PageTransitions.goToPage(1, 'series_genres');
+        visitedPagesStack.setNewLastVisitedPage("home_series_genres");
+        PageTransitions.goToPage(1, 'home_series_genres');
     });
 
     $('.to_myseries').click(function () {

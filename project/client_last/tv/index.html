@@ -230,6 +230,73 @@
         }
 	</script>
 
+	<script>
+        function toggle_series_tabs(id) {
+            $("#display_series_genres").hide();
+            $("#display_series_release_date").hide();
+            $("#display_series_artists").hide();
+            $("#display_series_albums").hide();
+            $("#display_myseries").hide();
+            $("#display_series_" + id).show();
+
+            $("#series_genres").removeClass("active-tab");
+            $("#series_release_date").removeClass("active-tab");
+            $("#series_artists").removeClass("active-tab");
+            $("#series_albums").removeClass("active-tab");
+            $("#series_apply").removeClass("active-tab");
+            $("#series_" + id).addClass("active-tab");
+        }
+	</script>
+
+	<script>
+        function toggle_series_search_tabs(id) {
+            $("#display_series_search_genres").hide();
+            $("#display_series_search_release_date").hide();
+            $("#display_series_search_artists").hide();
+            $("#display_series_search_albums").hide();
+            $("#display_series_search").hide();
+            $("#display_series_search_" + id).show();
+
+            $("#series_search_genres").removeClass("active-tab");
+            $("#series_search_release_date").removeClass("active-tab");
+            $("#series_search_artists").removeClass("active-tab");
+            $("#series_search_albums").removeClass("active-tab");
+            $("#series_search_apply").removeClass("active-tab");
+            $("#series_search_" + id).addClass("active-tab");
+        }
+	</script>
+
+	<script>
+        function myseries_apply() {
+            $("#display_series_genres").hide();
+            $("#display_series_release_date").hide();
+            $("#display_series_artists").hide();
+            $("#display_series_albums").hide();
+            $("#display_myseries").show();
+
+            $("#series_genres").removeClass("active-tab");
+            $("#series_release_date").removeClass("active-tab");
+            $("#series_artists").removeClass("active-tab");
+            $("#series_albums").removeClass("active-tab");
+            $("#series_apply").addClass("active-tab");
+        }
+	</script>
+
+	<script>
+        function series_search_apply() {
+            $("#display_series_search_genres").hide();
+            $("#display_series_search_release_date").hide();
+            $("#display_series_search_artists").hide();
+            $("#display_series_search_albums").hide();
+            $("#display_series_search").show();
+
+            $("#series_search_genres").removeClass("active-tab");
+            $("#series_search_release_date").removeClass("active-tab");
+            $("#series_search_artists").removeClass("active-tab");
+            $("#series_search_albums").removeClass("active-tab");
+            $("#series_search_apply").addClass("active-tab");
+        }
+	</script>
 </head>
 
 <body>
@@ -252,13 +319,13 @@
 			<div class="home">
 				<div class="row" style="display: flex;">
 					<div style="margin-right: 8px;" class="card col-xs-6">
-						<h1 class="to_new_releases clickableElement">New releases</h1>
+						<h1 id ="song_new_releases_link" class="clickableElement">New releases</h1>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id0')"><img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png"/><p>Perro Fiel</p><small>Shakira</small></div>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id7')"><img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg"/><p>Rockstar</p><small>Post Malone</small></div>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id9')"><img class="img-responsive" src="../ressrc/songs_images/thunder.jpg"/><p>Thunder</p><small>Imagine Dragons</small></div>
 					</div>
 					<div style="margin-left: 8px;" class="card col-xs-6">
-						<h1>Charts</h1>
+						<h1 id="song_charts_link" class="clickableElement">Charts</h1>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id12')"><img class="img-responsive" src="../ressrc/songs_images/havana.png"/><p>Havana</p><small>Camila Cabello</small></div>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id11')"><img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg"/><p>Too Good At Goodbyes</p><small>Sam Smith</small></div>
 						<div class="col-xs-4 clickableElement" style="cursor: pointer" onclick="display_song_details('id7')"><img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg"/><p>Rockstar</p><small>Post Malone</small></div>
@@ -267,7 +334,7 @@
 
 				<section class="row">
 					<div class="card col-xs-12">
-						<h1 style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently played</h1>
+						<h1 id ="song_recently_played_link" class="clickableElement" style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently played</h1>
 
 						<div class="col-xs-2 clickableElement" style="cursor: pointer" onclick="display_song_details('id2')"><img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"/><p>Side To Side</p><small>Ariana Grande</small></div>
 
@@ -814,168 +881,168 @@
 
 			  <h2>Christmas Playlist</h2>
 						<div class="col-xs-2 container">
-	                        <img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png"/>
-	                        <p>Perro Fiel</p>
-	                        <small>Shakira</small>
-	                        <div class="overlay">
-	                            <h3 class="text-center">Perro Fiel - Shakira</h3>
-	                            <div class="options">
-	                                <div>
-	                                	<em class="fa fa-external-link" aria-hidden="true"></em>
-	                                	<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-	                                	<em class="fa fa-minus" aria-hidden="true"></em>
-		                            </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-2 container">
-	                        <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg"/>
-	                        <p>Rockstar</p>
-	                        <small>Post Malone</small>
-	                        <div class="overlay">
-	                            <h3 class="text-center">Rockstar - Post Malone</h3>
-	                            <div class="options">
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4 play-icon">
-	                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-minus" aria-hidden="true"></em>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-2 container">
-	                        <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg"/>
-	                        <p>Thunder</p>
-	                        <small>Imagine Dragons</small>
-	                        <div class="overlay">
-	                            <h3 class="text-center">Thunder - Imagine Dragons</h3>
-	                            <div class="options">
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4 play-icon">
-	                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-minus" aria-hidden="true"></em>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-2 container">
-	                        <img class="img-responsive" src="../ressrc/songs_images/havana.png"/>
-	                        <p>Havana</p>
-	                        <small>Camila Cabello</small>
-	                        <div class="overlay">
-	                            <h3 class="text-center">Havana - Camila Cabello</h3>
-	                            <div class="options">
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4 play-icon">
-	                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-minus" aria-hidden="true"></em>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-2 container">
-	                        <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg"/>
-	                        <p>Too Good At Goodbyeyes</p>
-	                        <small>Sam Smith</small>
-	                        <div class="overlay">
-	                            <h3 class="text-center">Too Good At Goodbyeyes - Sam Smith</h3>
-	                            <div class="options">
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4 play-icon">
-	                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-minus" aria-hidden="true"></em>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-2 container">
-	                        <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"/>
-	                        <p>Side To Side</p>
-	                        <small>Ariana Grande</small>
-	                        <div class="overlay">
-	                            <h3 class="text-center">Side To Side - Ariana Grande</h3>
-	                            <div class="options">
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4 play-icon">
-	                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-minus" aria-hidden="true"></em>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-2 container">
-	                        <img class="img-responsive" src="../ressrc/songs_images/like%20a%20star.jpg"/>
-	                        <p>Like A Star</p>
-	                        <small>Fly Project</small>
-	                        <div class="overlay">
-	                            <h3 class="text-center">Like A Star - Fly Project</h3>
-	                            <div class="options">
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4 play-icon">
-	                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-minus" aria-hidden="true"></em>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-2 container">
-	                        <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg"/>
-	                        <p>Holiday</p>
-	                        <small>Green Day</small>
-	                        <div class="overlay">
-	                            <h3 class="text-center">Holiday - Green Day</h3>
-	                            <div class="options">
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4 play-icon">
-	                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-	                                </div>
-	                                
-	                                <div class="col-xs-4">
-	                                    <em class="fa fa-minus" aria-hidden="true"></em>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-			  
+							<img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png"/>
+							<p>Perro Fiel</p>
+							<small>Shakira</small>
+							<div class="overlay">
+								<h3 class="text-center">Perro Fiel - Shakira</h3>
+								<div class="options">
+									<div>
+										<em class="fa fa-external-link" aria-hidden="true"></em>
+										<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										<em class="fa fa-minus" aria-hidden="true"></em>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2 container">
+							<img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg"/>
+							<p>Rockstar</p>
+							<small>Post Malone</small>
+							<div class="overlay">
+								<h3 class="text-center">Rockstar - Post Malone</h3>
+								<div class="options">
+									<div class="col-xs-4">
+										<em class="fa fa-external-link" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4 play-icon">
+										<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4">
+										<em class="fa fa-minus" aria-hidden="true"></em>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2 container">
+							<img class="img-responsive" src="../ressrc/songs_images/thunder.jpg"/>
+							<p>Thunder</p>
+							<small>Imagine Dragons</small>
+							<div class="overlay">
+								<h3 class="text-center">Thunder - Imagine Dragons</h3>
+								<div class="options">
+									<div class="col-xs-4">
+										<em class="fa fa-external-link" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4 play-icon">
+										<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4">
+										<em class="fa fa-minus" aria-hidden="true"></em>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2 container">
+							<img class="img-responsive" src="../ressrc/songs_images/havana.png"/>
+							<p>Havana</p>
+							<small>Camila Cabello</small>
+							<div class="overlay">
+								<h3 class="text-center">Havana - Camila Cabello</h3>
+								<div class="options">
+									<div class="col-xs-4">
+										<em class="fa fa-external-link" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4 play-icon">
+										<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4">
+										<em class="fa fa-minus" aria-hidden="true"></em>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2 container">
+							<img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg"/>
+							<p>Too Good At Goodbyeyes</p>
+							<small>Sam Smith</small>
+							<div class="overlay">
+								<h3 class="text-center">Too Good At Goodbyeyes - Sam Smith</h3>
+								<div class="options">
+									<div class="col-xs-4">
+										<em class="fa fa-external-link" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4 play-icon">
+										<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4">
+										<em class="fa fa-minus" aria-hidden="true"></em>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2 container">
+							<img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"/>
+							<p>Side To Side</p>
+							<small>Ariana Grande</small>
+							<div class="overlay">
+								<h3 class="text-center">Side To Side - Ariana Grande</h3>
+								<div class="options">
+									<div class="col-xs-4">
+										<em class="fa fa-external-link" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4 play-icon">
+										<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4">
+										<em class="fa fa-minus" aria-hidden="true"></em>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2 container">
+							<img class="img-responsive" src="../ressrc/songs_images/like%20a%20star.jpg"/>
+							<p>Like A Star</p>
+							<small>Fly Project</small>
+							<div class="overlay">
+								<h3 class="text-center">Like A Star - Fly Project</h3>
+								<div class="options">
+									<div class="col-xs-4">
+										<em class="fa fa-external-link" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4 play-icon">
+										<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4">
+										<em class="fa fa-minus" aria-hidden="true"></em>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2 container">
+							<img class="img-responsive" src="../ressrc/songs_images/holiday.jpg"/>
+							<p>Holiday</p>
+							<small>Green Day</small>
+							<div class="overlay">
+								<h3 class="text-center">Holiday - Green Day</h3>
+								<div class="options">
+									<div class="col-xs-4">
+										<em class="fa fa-external-link" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4 play-icon">
+										<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+									</div>
+
+									<div class="col-xs-4">
+										<em class="fa fa-minus" aria-hidden="true"></em>
+									</div>
+								</div>
+							</div>
+						</div>
+
 		  </div>
 	  </div>
 	  <script>setPlayer();</script>
@@ -1319,89 +1386,306 @@
 	  </div>
 	  <!-- END PAGE 9 - SONG_SEARCH-->
 
+	  <!-- BEGIN PAGE 11 - SONG_CHARTS-->
+	  <div id="song_charts" class="pt-page">
+		  <script>setHeader();</script>
+		  <div class="content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h3 style="margin-left:5px; padding:0 0 10px 10px">Charts</h3>
+				  <div id="song_charts_content">
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id12')">
+						  <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+						  <p>Havana</p>
+						  <small>Camila Cabello</small>
+					  </div>
 
-	  <!-- BEGIN PAGE 10 - MOVIE_HOME-->
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id11')">
+						  <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+						  <p>Too Good At Goodbyes</p>
+						  <small>Sam Smith</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id7')">
+						  <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+						  <p>Rockstar</p>
+						  <small>Post Malone</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id8')">
+						  <img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+						  <p>Sorry Not Sorry</p>
+						  <small>Demi Lovato</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id10')">
+						  <img class="img-responsive" src="../ressrc/songs_images/the sky is a neighborhood.jpg">
+						  <p>The Sky Is A Neighborhood </p>
+						  <small>Foo Fighters</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id2')">
+						  <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png">
+						  <p>Side To Side</p>
+						  <small>Ariana Grande</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id9')">
+						  <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+						  <p>Thunder</p>
+						  <small>Imagine Dragons</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id4')">
+						  <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg">
+						  <p>Holiday</p>
+						  <small>Green Day</small>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+		  <script>setPlayer();</script>
+	  </div>
+	  <!-- END PAGE 11 - SONG_CHARTS-->
+
+	  <!-- BEGIN PAGE 13 - SONG_RECENTLY_PLAYED-->
+	  <div id="song_recently_played" class="pt-page">
+		  <script>setHeader();</script>
+		  <div class="content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h3 style="margin-left:5px; padding:0 0 10px 10px">Recently played</h3>
+				  <div id="song_recently_played_content">
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id2')">
+						  <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png">
+						  <p>Side To Side</p>
+						  <small>Ariana Grande</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id9')">
+						  <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+						  <p>Thunder</p>
+						  <small>Imagine Dragons</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id12')">
+						  <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+						  <p>Havana</p>
+						  <small>Camila Cabello</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id1')">
+						  <img class="img-responsive" src="../ressrc/songs_images/like%20a%20star.jpg">
+						  <p>Like A Star</p>
+						  <small>Fly Project</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id4')">
+						  <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg">
+						  <p>Holiday</p>
+						  <small>Green Day</small>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+		  <script>setPlayer();</script>
+	  </div>
+	  <!-- END PAGE 13 - SONG_RECENTLY_PLAYED-->
+
+	  <!-- BEGIN PAGE 14 - SONG_NEW_RELEASES-->
+	  <div id="song_new_releases" class="pt-page">
+		  <script>setHeader();</script>
+		  <div class="content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h3 style="margin-left:5px; padding:0 0 10px 10px;">New releases</h3>
+				  <div id="song_new_releases_content">
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id' + 0)">
+						  <img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png">
+						  <p>Perro Fiel</p>
+						  <small>Shakira</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id' + 7)">
+						  <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+						  <p>Rockstar</p>
+						  <small>Post Malone</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id' + 8)">
+						  <img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+						  <p>Sorry Not Sorry</p>
+						  <small>Demi Lovato</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id' + 9)">
+						  <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+						  <p>Thunder</p>
+						  <small>Imagine Dragons</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id' + 10)">
+						  <img class="img-responsive" src="../ressrc/songs_images/the sky is a neighborhood.jpg">
+						  <p>The Sky Is A Neighborhood</p>
+						  <small>Foo Fighters</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id' + 11)">
+						  <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+						  <p>Too Good At Goodbyes</p>
+						  <small>Sam Smith</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_song_details('id' + 12)">
+						  <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+						  <p>Havana</p>
+						  <small>Camila Cabello</small>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+		  <script>setPlayer();</script>
+	  </div>
+	  <!-- END PAGE 14 - SONG_NEW_RELEASES-->
+
+
+	  <!-- BEGIN PAGE 9 - MOVIES RECENTLY_WATCHED-->
+	  <div id="movies_recently_watched" class="pt-page">
+		  <script>setMoviesHeader();</script>
+		  <div class="movies_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h1 style="margin-left:5px; padding:0 0 10px 10px">Recently Watched</h1>
+				  <div id="movies_recently_watched_content">
+					  <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + 5)">
+						  <img class="img-responsive" src="../ressrc/movies_images/wonder_woman.jpg">
+						  <p>Wonder Woman</p>
+						  <small>8 June 2017</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + 10)">
+						  <img class="img-responsive" src="../ressrc/movies_images/suicide_squard.jpg">
+						  <p>Suicide Squad</p>
+						  <small>25 August 2016</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + 9)">
+						  <img class="img-responsive" src="../ressrc/movies_images/deadpool.JPG">
+						  <p>Deadpool</p>
+						  <small>18 February 2016</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + 1)">
+						  <img class="img-responsive" src="../ressrc/movies_images/annabelle_creation.jpg">
+						  <p>Annabelle: Creation</p>
+						  <small>14 September 2017</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + 2)">
+						  <img class="img-responsive" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
+						  <p>Pirates of the Caribbean: Dead Men Tell No Tales</p>
+						  <small>25 May 2017</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + 3)">
+						  <img class="img-responsive" src="../ressrc/movies_images/the_hitmans_bodyguard.jpg">
+						  <p>The Hitman's Bodyguard</p>
+						  <small>17 August 2017</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + 4)">
+						  <img class="img-responsive" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg">
+						  <p>Valerian and the City of a Thousand Planets</p>
+						  <small>31 August 2017</small>
+					  </div>
+
+					  <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + 8)">
+						  <img class="img-responsive" src="../ressrc/movies_images/logan_lucky.jpg">
+						  <p>Logan Lucky</p>
+						  <small>31 August 2017</small>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 9 - MOVIES RECENTLY_WATCHED -->
+
+	<!-- BEGIN PAGE 10 - MOVIE_HOME-->
 	<div id="movies_home" class="pt-page">
 		<script>setMoviesHeader();</script>
 		<div class="movies_content scrollbar">
 			<div class="home">
 				<div class="row" style="display: flex;">
 					<div style="margin-right: 8px;" class="card col-xs-4">
-						<h1 class="clickableElement">New releases</h1>
-						<div class="to_movie_details col-xs-6 clickableElement" style="cursor: pointer">
+						<h1 id="movies_news_link" class="clickableElement">New Movies</h1>
+						<div class="to_movie_details col-xs-6 clickableElement" onclick="display_movie_details('id0')">
 							<img class="img-responsive" src="../ressrc/movies_images/spider-man_homecoming.png"/>
 							<p>Spider-Man: Homecoming</p>
 							<small>2017</small>
 						</div>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
+						<div class="col-xs-6 clickableElement" onclick="display_movie_details('id4')">
 							<img class="img-responsive" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg"/>
 							<p>Valerian and the City of Thousand Planets</p>
 							<small>2017</small>
 						</div>
 					</div>
 					<div style="margin-right: 8px;" class="card col-xs-4">
-						<h1>Top Movies</h1>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
+						<h1 id="movies_tops_link" class="clickableElement">Top Movies</h1>
+						<div class="col-xs-6 clickableElement" onclick="display_movie_details('id9')">
 							<img class="img-responsive" src="../ressrc/movies_images/deadpool.JPG"/>
 							<p>Deadpool</p>
 							<small>2016</small>
 						</div>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
+						<div class="col-xs-6 clickableElement" onclick="display_movie_details('id6')">
 							<img class="img-responsive" src="../ressrc/movies_images/the_dark_night.jpg"/>
 							<p>The Dark Knight</p>
 							<small>2008</small>
 						</div>
 					</div>
 					<div class="card col-xs-4">
-						<h1>Genres</h1>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
-							<img class="img-responsive" src="https://previews.123rf.com/images/pedrolieb/pedrolieb1210/pedrolieb121000023/16084899-Clap-film-of-cinema-action-genre-clapperboard-text-illustration--Stock-Illustration.jpg"/>
+						<h1 id="movies_genres_link" class="clickableElement">Genres</h1>
+						<div class="col-xs-6 clickableElement" style="cursor: pointer" onclick="set_movies_by_genre('Action')">
+							<img class="img-responsive" src="../ressrc/movies_images/spider-man_homecoming.png">
 							<p>Action</p>
-							 
 						</div>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
-							<img class="img-responsive" src="http://www.filmsite.org/images/horror-genre.jpg"/>
-							<p>Horror</p>
-							 
+						<div class="col-xs-6 clickableElement" style="cursor: pointer" onclick="set_movies_by_genre('Adventure')">
+							<img class="img-responsive" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
+							<p>Adventure</p>
 						</div>
 					</div>
 				</div>
 
 				<section class="row">
 					<div class="card col-xs-12">
-						<h1 style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently Watched</h1>
+						<h1 id="movies_recently_watched_link" class="clickableElement" style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently Watched</h1>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer">
+						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id5')">
 							<img class="img-responsive" src="../ressrc/movies_images/wonder_woman.jpg"/>
 							<p>Wonder Woman</p>
 							<small>2017</small>
 						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer">
+						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id9')">
 							<img class="img-responsive" src="../ressrc/movies_images/deadpool.JPG"/>
 							<p>Deadpool</p>
 							<small>2016</small>
 						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer">
+						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id1')">
 							<img class="img-responsive" src="../ressrc/movies_images/annabelle_creation.jpg"/>
 							<p>Annabelle Creation</p>
 							<small>2017</small>
 						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer">
+						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id7')">
 							<img class="img-responsive" src="../ressrc/movies_images/guardians_of_the_galaxy.jpg"/>
 							<p>Guardians of The Galaxy</p>
 							<small>2014</small>
 						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer">
+						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id2')">
 							<img class="img-responsive" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg"/>
 							<p>Dead Men Tell No Tales</p>
 							<small>2017</small>
 						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer">
+						<div class="col-xs-2 clickableElement" onclick="display_movie_details('id8')">
 							<img class="img-responsive" src="../ressrc/movies_images/logan_lucky.jpg"/>
 							<p>Logan Lucky</p>
 							<small>2017</small>
@@ -1424,9 +1708,9 @@
 			</div>
 
 			<div id="movie_details" class="col-xs-6" style="margin-top: 50px; margin-bottom:120px;">
-				<h1 id="movie_title">Spider-Man: Homecoming</h1>
-				<p id="movie_info">2017 • 2:13:00 • Action,Adventure,Science fiction,Fantasy • <img width="30" height="15" src="../ressrc/movies_images/imdb.png"> 7.6</p>
-				<p id="movie_description">Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.</p>
+				<h1 id="movie_title"></h1>
+				<p id="movie_info"></p>
+				<p id="movie_description"></p>
 
 				<button id="movie_display_play">
 					<h3 class="clickableElement" style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
@@ -1449,42 +1733,7 @@
 					<h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Movies</h3>
 
 					<div id="movie_related_content">
-						<div class="clickableElement col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id2')">
-							<div class="col-xs-4" style="padding-right:0">
-								<img class="img-movie-recently-watched" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
-							</div>
-							<div class="col-xs-8" style="padding-right: 0">
-								<p>Pirates of the Caribbean: Dead Men Tell No Tales</p>
-								<small>2017</small>
-							</div>
-						</div>
-						<div class="clickableElement col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id3')">
-							<div class="col-xs-4" style="padding-right:0">
-								<img class="img-movie-recently-watched" src="../ressrc/movies_images/the_hitmans_bodyguard.jpg">
-							</div>
-							<div class="col-xs-8" style="padding-right: 0">
-								<p>The Hitman's Bodyguard</p>
-								<small>2017</small>
-							</div>
-						</div>
-						<div class="clickableElement col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id4')">
-							<div class="col-xs-4" style="padding-right:0">
-								<img class="img-movie-recently-watched" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg">
-							</div>
-							<div class="col-xs-8" style="padding-right: 0">
-								<p>Valerian and the City of a Thousand Planets</p>
-								<small>2017</small>
-							</div>
-						</div>
-						<div class="clickableElement col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id5')">
-							<div class="col-xs-4" style="padding-right:0">
-								<img class="img-movie-recently-watched" src="../ressrc/movies_images/wonder_woman.jpg">
-							</div>
-							<div class="col-xs-8" style="padding-right: 0">
-								<p>Wonder Woman</p>
-								<small>2017</small>
-							</div>
-						</div>
+
 					</div>
 				</div>
 			</div>
@@ -1825,6 +2074,252 @@
 	</div>
 	<!-- END PAGE 12 - MOVIE_MYMOVIE-->
 
+	  <!-- BEGIN PAGE 2 - SERIES SERIE_PAGE -->
+	  <div id="serie_page" class="pt-page">
+		  <script>setSeriesHeader()</script>
+		  <div id="serie_full-screen" class="series_content scrollbar">
+			  <div class="col-xs-3" style="margin-top: 50px; margin-bottom:120px; padding-left:0">
+				  <img id="serie_poster" class="img-responsive" style="border-radius: 38px" src="">
+				  <button id="serie_display_play">
+					  <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+						  <em class="fa fa-play-circle-o"></em> Play where you left off
+					  </h3>
+				  </button>
+
+				  <br/>
+
+				  <button id="serie_display_add">
+					  <h3 style="float:left; margin:0; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+						  <em class="fa fa-plus"></em> Add to My series
+					  </h3>
+				  </button>
+				  <div class="clearfix"></div>
+			  </div>
+
+			  <div id="serie_details" class="col-xs-6 card card_serie" style="margin-top: 50px">
+				  <h1 id="serie_title"></h1>
+				  <p id="serie_info"></p>
+				  <p id="serie_description"></p>
+
+				  <div class="row" style="padding-top:10px">
+					  <div class="col-xs-2" style="padding-right:0">
+						  <h3 style="padding:0">Seasons</h3>
+						  <table class="table table-striped table-borderless">
+							  <tbody class="table-episodes scrollbar">
+							  <tr>
+								  <td>Season 1</td>
+							  </tr>
+							  <tr style="background-color: #2bb4c4;">
+								  <td><span>Season 2</span></td>
+							  </tr>
+							  <tr>
+								  <td>Season 3</td>
+							  </tr>
+							  <tr>
+								  <td>Season 4</td>
+							  </tr>
+							  <tr>
+								  <td>Season 5</td>
+							  </tr>
+							  <tr>
+								  <td>Season 6</td>
+							  </tr>
+							  <tr>
+								  <td>Season 7</td>
+							  </tr>
+							  <tr>
+								  <td>Season 8</td>
+							  </tr>
+							  <tr>
+								  <td>Season 9</td>
+							  </tr>
+							  <tr>
+								  <td>Season 10</td>
+							  </tr>
+							  <tr>
+								  <td>Season 11</td>
+							  </tr>
+							  <tr>
+								  <td>Season 12</td>
+							  </tr>
+							  <tr>
+								  <td>Season 13</td>
+							  </tr>
+							  </tbody>
+						  </table>
+					  </div>
+					  <div class="col-xs-6" style="padding:0">
+						  <h3 style="padding:0">Episodes</h3>
+						  <table class="table table-striped table-borderless">
+							  <tbody class="table-episodes scrollbar">
+							  <tr>
+								  <td>1</td>
+								  <td>In My Time of Dying</td>
+							  </tr>
+							  <tr style="background-color: #2bb4c4;">
+								  <td><span>2</span></td>
+								  <td><span>Everybody Loves a Clown</span></td>
+							  </tr>
+							  <tr>
+								  <td>3</td>
+								  <td>Bloodlust</td>
+							  </tr>
+							  <tr>
+								  <td>4</td>
+								  <td>Children Shouldn’t Play with Dead Things</td>
+							  </tr>
+							  <tr>
+								  <td>5</td>
+								  <td>Simon Said</td>
+							  </tr>
+							  <tr>
+								  <td>6</td>
+								  <td>No Exit</td>
+							  </tr>
+							  <tr>
+								  <td>7</td>
+								  <td>The Usual Suspects</td>
+							  </tr>
+							  <tr>
+								  <td>8</td>
+								  <td>Crossroad Blues</td>
+							  </tr>
+							  <tr>
+								  <td>9</td>
+								  <td>Croatoan</td>
+							  </tr>
+							  <tr>
+								  <td>10</td>
+								  <td>Hunted</td>
+							  </tr>
+							  <tr>
+								  <td>11</td>
+								  <td>Playthings</td>
+							  </tr>
+							  <tr>
+								  <td>12</td>
+								  <td>Nightshifter</td>
+							  </tr>
+							  <tr>
+								  <td>13</td>
+								  <td>Houses of the Holy</td>
+							  </tr>
+							  <tr>
+								  <td>14</td>
+								  <td>Born Under a Bad Sign</td>
+							  </tr>
+							  <tr>
+								  <td>15</td>
+								  <td>Tall Tales</td>
+							  </tr>
+							  <tr>
+								  <td>16</td>
+								  <td>Road Kill</td>
+							  </tr>
+							  <tr>
+								  <td>17</td>
+								  <td>Heart</td>
+							  </tr>
+							  <tr>
+								  <td>18</td>
+								  <td>Hollywood Babylon</td>
+							  </tr>
+							  <tr>
+								  <td>19</td>
+								  <td>Folsom Prison Blues</td>
+							  </tr>
+							  <tr>
+								  <td>20</td>
+								  <td>What Is and What Should Never Be</td>
+							  </tr>
+							  <tr>
+								  <td>21</td>
+								  <td>All Hell Breaks Loose (1)</td>
+							  </tr>
+							  <tr>
+								  <td>22</td>
+								  <td>All Hell Breaks Loose (2)</td>
+							  </tr>
+							  </tbody>
+						  </table>
+					  </div>
+					  <div class="col-xs-4">
+						  <h3 style="padding:0">Description</h3>
+						  <p id="serie_episode_description">A cell phone message leads Sam and Dean to a woman named Ellen, whose home serves as a gathering place for other hunters; a small-town carnival serves as a cover for a murderous clown who preys on parents.</p>
+						  <button style="margin-top: 300px; margin-left: 190px;" id="serie_display_play_episode">
+							  <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
+								  <em class="fa fa-play-circle-o"></em>
+								  Play
+							  </h3>
+						  </button>
+					  </div>
+				  </div>
+			  </div>
+
+			  <div class="col-xs-3" style="padding-right:0; opacity: 0.95">
+				  <div class="card serie_related col-xs-12">
+					  <h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Series</h3>
+
+					  <div style="height: 592px;" id="serie_related_content">
+
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 2 - SERIES SERIE_PAGE -->
+
+	  <!-- BEGIN PAGE 3 - MOVIES NEW_MOVIES-->
+	  <div id="movies_news" class="pt-page">
+		  <script>setMoviesHeader();</script>
+		  <div class="movies_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h1 style="margin-left:5px; padding:0 0 10px 10px">New Movies</h1>
+				  <div id="movies_news_content">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 3 - MOVIES NEW_MOVIES -->
+
+	  <!-- BEGIN PAGE 4 - MOVIES TOP_MOVIES-->
+	  <div id="movies_tops" class="pt-page">
+		  <script>setMoviesHeader();</script>
+		  <div class="movies_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h1 style="margin-left:5px; padding:0 0 10px 10px">Top Movies</h1>
+				  <div id="movies_tops_content">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 4 - MOVIES TOP_MOVIES -->
+
+	  <!-- BEGIN PAGE 5 - MOVIES GENRES_MOVIES-->
+	  <div id="home_movies_genres" class="pt-page">
+		  <script>setMoviesHeader();</script>
+		  <div class="movies_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h1 style="margin-left:5px; padding:0 0 10px 10px">Genres</h1>
+				  <div id="movies_genres_content">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 5 - MOVIES GENRES_MOVIES -->
+
+	  <!-- BEGIN PAGE 6 - MOVIES BY_GENRES_MOVIES-->
+	  <div id="movies_by_genres" class="pt-page">
+		  <script>setMoviesHeader();</script>
+		  <div class="movies_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h1 style="margin-left:5px; padding:0 0 10px 10px"></h1>
+				  <div id="movies_by_genres_content">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 6 - MOVIES BY_GENRES_MOVIES -->
 
 	  <!-- BEGIN PAGE 8 - MOVIES SEARCH-->
 	  <div id="movies_search" class="pt-page">
@@ -2161,103 +2656,92 @@
 		  </div>
 	  </div>
 
-	<!-- BEGIN PAGE 13 - SONG_NEW_RELEASES-->
-	<div id="song_new_releases" class="pt-page">
-		<script>setHeader();</script>
-		<div class="content scrollbar">
-			<div class="col-xs-12" style="padding-right:0; margin-top:20px;">
-				<h3 style="margin-left:5px; padding:0 0 10px 10px;">New releases</h3>
-				<div id="song_new_releases_content">
-					<div class="col-xs-3" onclick="display_song_details('id' + 0)">
-						<img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png">
-						<p>Perro Fiel</p>
-						<small>Shakira</small>
-					</div>
 
-					<div class="col-xs-3" onclick="display_song_details('id' + 7)">
-						<img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
-						<p>Rockstar</p>
-						<small>Post Malone</small>
-					</div>
+	  <!-- BEGIN PAGE 10 - MOVIES PLAYER-->
+	  <div id="movies_player" class="pt-page">
+		  <script>setMoviesHeader();</script>
+		  <div class="col-xs-12" style="padding:0">
+			  <video id="movies_video" poster="">
+				  <source src="../ressrc/movies/deadpool.mp4" type="video/mp4">
+				  Your browser does not support HTML5 video.
+			  </video>
+			  <div class="player text-center">
+				  <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
+					  <button id="movie_player_img" class="col-xs-3" style="padding:10px 0px 10px 0px;">
+						  <img style="width:80px" src="../ressrc/icon.png">
+					  </button>
+					  <div class="col-xs-9 text-left" style="padding-top:15px">
+						  <p id="movie_player_title">Read All About It <button><em class="fa">&#xf067;</em></button></p>
+						  <p id="movie_player_year">Emeli Sandé</p>
+					  </div>
+				  </div>
 
-					<div class="col-xs-3" onclick="display_song_details('id' + 8)">
-						<img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
-						<p>Sorry Not Sorry</p>
-						<small>Demi Lovato</small>
-					</div>
+				  <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
+					  <div class="movies_controls">
+						  <button onclick="playPauseMovie()">
+							  <em id="movies_play_pause" style="font-size:35px !important" class="fa fa-play-circle-o"></em>
+						  </button>
+					  </div>
 
-					<div class="col-xs-3" onclick="display_song_details('id' + 9)">
-						<img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
-						<p>Thunder</p>
-						<small>Imagine Dragons</small>
-					</div>
+					  <div>
+						  <div class="movie_curr_dur" style="display:inline-block">0:00</div>
+						  <div style="display:inline-block" class="movie_progress">
+							  <div class="movie_bar"></div>
 
-					<div class="col-xs-3" onclick="display_song_details('id' + 10)">
-						<img class="img-responsive" src="../ressrc/songs_images/the sky is a neighborhood.jpg">
-						<p>The Sky Is A Neighborhood</p>
-						<small>Foo Fighters</small>
-					</div>
+						  </div>
+						  <div class="movie_dur" style="display:inline-block">4:37</div>
+					  </div>
+				  </div>
 
-					<div class="col-xs-3" onclick="display_song_details('id' + 11)">
-						<img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
-						<p>Too Good At Goodbyes</p>
-						<small>Sam Smith</small>
-					</div>
-
-					<div class="col-xs-3" onclick="display_song_details('id' + 12)">
-						<img class="img-responsive" src="../ressrc/songs_images/havana.png">
-						<p>Havana</p>
-						<small>Camila Cabello</small>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script>setPlayer();</script>
-	</div>
-	<!-- END PAGE 11 - SONG_NEW_RELEASES-->
-
+				  <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
+					  <button class="movie_muted"><em class="fa">&#xf027;</em></button>
+					  <div style="margin-bottom:4px" class="movie_volume"><span class="movie_volume_bar"></span></div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 10 - MOVIES PLAYER -->
 
 	<!-- BEGIN PAGE 14 - SERIES_HOME-->
 	<div id="series_home" class="pt-page">
 		<script>setSeriesHeader();</script>
-		<div class="content scrollbar">
+		<div class="series_content scrollbar">
 			<div class="home">
 				<div class="row" style="display: flex;">
 					<div style="margin-right: 8px;" class="card col-xs-4">
-						<h1 class="clickableElement">New Series</h1>
-						<div class="to_series_details col-xs-6 clickableElement" style="cursor: pointer">
+						<h1 id="series_news_link" class="clickableElement">New Series</h1>
+						<div class="to_series_details col-xs-6 clickableElement" onclick="display_serie_details('id0')">
 							<img class="img-responsive" src="../ressrc/series_images/The%20Punisher.jpg"/>
 							<p>The Punisher</p>
 							<small>2017-Present</small>
 						</div>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
+						<div class="col-xs-6 clickableElement" onclick="display_serie_details('id13')">
 							<img class="img-responsive" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
 							<p>The Good Fight</p>
 							<small>2017-Present</small>
 						</div>
 					</div>
 					<div style="margin-right: 8px;" class="card col-xs-4">
-						<h1>Top Series</h1>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
+						<h1 id="series_tops_link" class="clickableElement">Top Series</h1>
+						<div class="col-xs-6 clickableElement" onclick="display_serie_details('id3')">
 							<img class="img-responsive" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
 							<p>Game of Thrones</p>
 							<small>2011-Present</small>
 						</div>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
+						<div class="col-xs-6 clickableElement" onclick="display_serie_details('id9')">
 							<img class="img-responsive" src="../ressrc/series_images/Sherlock.jpg"/>
 							<p>Sherlock</p>
 							<small>2010-2017</small>
 						</div>
 					</div>
 					<div class="card col-xs-4">
-						<h1>Genres</h1>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
-							<img class="img-responsive" src="https://image.slidesharecdn.com/genrenew-120430081506-phpapp01/95/action-genre-1-728.jpg?cb=1335773773"/>
+						<h1 id="series_genres_link" class="clickableElement">Genres</h1>
+						<div class="col-xs-6 clickableElement" onclick="set_series_by_genre('Action')">
+							<img class="img-responsive" src="../ressrc/series_images/Arrow.jpg">
 							<p>Action</p>
-						 
 						</div>
-						<div class="col-xs-6 clickableElement" style="cursor: pointer">
-							<img class="img-responsive" src="http://www.filmsite.org/images/horror-genre.jpg"/>
+						<div class="col-xs-6 clickableElement" onclick="set_series_by_genre('Horror')">
+							<img class="img-responsive" src="../ressrc/series_images/Stranger%20Things.jpg"/>
 							<p>Horror</p>
 						</div>
 					</div>
@@ -2265,190 +2749,298 @@
 
 				<section class="row">
 					<div class="card col-xs-12">
-						<h1 style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently Watched</h1>
+						<h1 id="series_recently_watched_link" class="clickableElement" style="margin-top:0; padding-left:15px; padding-bottom:20px">Recently Watched</h1>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer"><img class="img-responsive" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/><p>Game of Thrones</p><small>2011-Present</small></div>
+						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id3')">
+							<img class="img-responsive" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
+							<p>Game of Thrones</p>
+							<small>2011-Present</small>
+						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer"><img class="img-responsive" src="../ressrc/series_images/Supernatural.jpg"/><p>Supernatural</p><small>2005-Present</small></div>
+						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id7')">
+							<img class="img-responsive" src="../ressrc/series_images/Supernatural.jpg"/>
+							<p>Supernatural</p>
+							<small>2005-Present</small>
+						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer"><img class="img-responsive" src="../ressrc/series_images/Mr.%20Robot.jpg"/><p>Mr.Robot</p><small>2015-Present</small></div>
+						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id11')">
+							<img class="img-responsive" src="../ressrc/series_images/Mr.%20Robot.jpg"/>
+							<p>Mr.Robot</p>
+							<small>2015-Present</small>
+						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer"><img class="img-responsive" src="../ressrc/series_images/The%20Flash.jpg"/><p>The Flash</p><small>2014-Present</small></div>
+						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id12')">
+							<img class="img-responsive" src="../ressrc/series_images/The%20Flash.jpg"/>
+							<p>The Flash</p>
+							<small>2014-Present</small>
+						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer"><img class="img-responsive" src="../ressrc/series_images/The%20Good%20Fight.jpg"/><p>The Good Fight</p><small>2017-present</small></div>
+						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id13')">
+							<img class="img-responsive" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
+							<p>The Good Fight</p>
+							<small>2017-present</small>
+						</div>
 
-						<div class="col-xs-2 clickableElement" style="cursor: pointer"><img class="img-responsive" src="../ressrc/series_images/The%20Defenders.jpg"/><p>Thr Defenders</p><small>2017</small></div>
+						<div class="col-xs-2 clickableElement" onclick="display_serie_details('id1')">
+							<img class="img-responsive" src="../ressrc/series_images/The%20Defenders.jpg"/>
+							<p>Thr Defenders</p>
+							<small>2017</small>
+						</div>
 					</div>
 				</section>
 			</div>
 		</div>
-		<script>setPlayer();</script>
 	</div>
 	<!-- END PAGE 14 - SERIES_HOME-->
 
+	  <!-- BEGIN PAGE 3 - SERIES NEW_SERIES-->
+	  <div id="series_news" class="pt-page">
+		  <script>setSeriesHeader();</script>
+		  <div class="series_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h3 style="margin-left:5px; padding:0 0 10px 10px">New Series</h3>
+				  <div id="series_news_content">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 3 - SERIES NEW_SERIES -->
+
+	  <!-- BEGIN PAGE 4 - SERIES TOP_SERIES-->
+	  <div id="series_tops" class="pt-page">
+		  <script>setSeriesHeader();</script>
+		  <div class="series_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h3 style="margin-left:5px; padding:0 0 10px 10px">Top Series</h3>
+				  <div id="series_tops_content">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 4 - SERIES TOP_SERIES -->
+
+	  <!-- BEGIN PAGE 5 - SERIES GENRES_SERIES-->
+	  <div id="home_series_genres" class="pt-page">
+		  <script>setSeriesHeader();</script>
+		  <div class="series_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h3 style="margin-left:5px; padding:0 0 10px 10px">Genres</h3>
+				  <div id="series_genres_content">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 5 - SERIES GENRES_SERIES -->
+
+	  <!-- BEGIN PAGE 6 - SERIES BY_GENRES_SERIES-->
+	  <div id="series_by_genres" class="pt-page">
+		  <script>setSeriesHeader();</script>
+		  <div class="series_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h3 style="margin-left:5px; padding:0 0 10px 10px"></h3>
+				  <div id="series_by_genres_content">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 6 - SERIES BY_GENRES_SERIES -->
+
+	  <!-- BEGIN PAGE 9 - SERIES RECENTLY_WATCHED-->
+	  <div id="series_recently_watched" class="pt-page">
+		  <script>setSeriesHeader();</script>
+		  <div class="series_content scrollbar">
+			  <div class="col-xs-12" style="padding-right:0; margin-top:20px;">
+				  <h3 style="margin-left:5px; padding:0 0 10px 10px">Recently Watched</h3>
+				  <div id="series_recently_watched_content">
+					  <div class="col-xs-3" onclick="display_serie_details('id3')">
+						  <img class="img-responsive" src="../ressrc/series_images/Game%20of%20Thrones.jpg">
+						  <p>Game of Thrones</p>
+						  <small>2011 - present</small>
+					  </div>
+					  <div class="col-xs-3" onclick="display_serie_details('id7')">
+						  <img class="img-responsive" src="../ressrc/series_images/Supernatural.jpg">
+						  <p>Supernatural</p>
+						  <small>2005 - present</small>
+					  </div>
+					  <div class="col-xs-3" onclick="display_serie_details('id11')">
+						  <img class="img-responsive" src="../ressrc/series_images/Mr.%20Robot.jpg">
+						  <p>Mr. Robot</p>
+						  <small>2015 - present</small>
+					  </div>
+					  <div class="col-xs-3" onclick="display_serie_details('id12')">
+						  <img class="img-responsive" src="../ressrc/series_images/The%20Flash.jpg">
+						  <p>The Flash</p>
+						  <small>2014 - present</small>
+					  </div>
+					  <div class="col-xs-3" onclick="display_serie_details('id13')">
+						  <img class="img-responsive" src="../ressrc/series_images/The%20Good%20Fight.jpg">
+						  <p>The Good Fight</p>
+						  <small>2017 - present</small>
+					  </div>
+					  <div class="col-xs-3" onclick="display_serie_details('id3')">
+						  <img class="img-responsive" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
+						  <p>Game of Thrones</p>
+						  <small>2011 - present</small>
+					  </div>
+					  <div class="col-xs-3" onclick="display_serie_details('id4')">
+						  <img class="img-responsive" src="../ressrc/series_images/Breaking%20Bad.jpg"/>
+						  <p>Breaking Bad</p>
+						  <small>2008 - 2013</small>
+					  </div>
+					  <div class="col-xs-3" onclick="display_serie_details('id9')">
+						  <img class="img-responsive" src="../ressrc/series_images/Sherlock.jpg"/>
+						  <p>Sherlock</p>
+						  <small>2010 - 2017</small>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 9 - SERIES RECENTLY_WATCHED -->
+
+	  <!-- BEGIN PAGE 10 - SERIES PLAYER-->
+	  <div id="series_player" class="pt-page">
+		  <script>setSeriesHeader();</script>
+		  <div class="col-xs-12" style="padding:0">
+			  <video id="series_video" poster="">
+				  <source src="" type="video/mp4">
+				  Your browser does not support HTML5 video.
+			  </video>
+			  <div class="player text-center">
+				  <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
+					  <button id="serie_player_img" class="col-xs-3" style="padding:10px 0px 10px 0px;">
+						  <img style="width:80px" src="../ressrc/icon.png">
+					  </button>
+					  <div class="col-xs-9 text-left" style="padding-top:15px">
+						  <p id="serie_player_title">Read All About It <button><em class="fa">&#xf067;</em></button></p>
+						  <p id="serie_player_year">Emeli Sandé</p>
+					  </div>
+				  </div>
+
+				  <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6" style="padding:0">
+					  <div class="series_controls">
+						  <button><em class="fa">&#xf048;</em></button>
+						  <button onclick="playPauseSerie()">
+							  <em id="series_play_pause" style="font-size:35px !important" class="fa fa-play-circle-o"></em>
+						  </button>
+						  <button><em class="fa">&#xf051;</em></button>
+					  </div>
+
+					  <div>
+						  <div class="serie_curr_dur" style="display:inline-block">0:00</div>
+						  <div style="display:inline-block" class="serie_progress">
+							  <div class="serie_bar"></div>
+
+						  </div>
+						  <div class="serie_dur" style="display:inline-block">4:37</div>
+					  </div>
+				  </div>
+
+				  <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
+					  <button class="serie_muted"><em class="fa">&#xf027;</em></button>
+					  <div style="margin-bottom:4px" class="serie_volume"><span class="serie_volume_bar"></span></div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- END PAGE 10 - SERIES PLAYER -->
 
 	<!-- BEGIN PAGE 15 - SERIES_MYSERIES-->
 	<div id="series_myseries" class="pt-page">
 		<script>setSeriesHeader();</script>
-		<div class="content scrollbar">
-			<div class="mysongs">
+		<div class="series_content scrollbar">
+			<div>
 				<div class="col-xs-2">
 					<h3 style="margin-top: 50px; margin-bottom: 40px;">Filter by</h3>
-					<div id="songs_genres" class="clickableElement filter__item" onclick="toggle_songs_tabs('genres')">
+					<div id="series_genres" class="clickableElement filter__item" onclick="toggle_series_tabs('genres')">
 						Genres
 					</div>
-					<div id="songs_release_date" class="clickableElement filter__item" onclick="toggle_songs_tabs('release_date')">
+					<div id="series_release_date" class="clickableElement filter__item" onclick="toggle_series_tabs('release_date')">
 						Release Date
 					</div>
-					<div id="songs_artists" class="clickableElement filter__item" onclick="toggle_songs_tabs('artists')">
+					<div id="series_artists" class="clickableElement filter__item" onclick="toggle_series_tabs('artists')">
 						Artists
 					</div>
-					<div id="songs_albums" class="clickableElement filter__item" onclick="toggle_songs_tabs('albums')">
+					<div id="series_albums" class="clickableElement filter__item" onclick="toggle_series_tabs('albums')">
 						Albums
 					</div>
 
-					<div id="songs_apply" class="clickableElement filter__item" onclick="mysongs_apply()">
+					<div id="series_apply" class="clickableElement filter__item" onclick="myseries_apply()">
 						Apply
 					</div>
-					<!-- <div id="genres">
-						<div class="filter_category">
-							<p style="margin:0">
-								<span>Genres</span>
-								<span style="float:right">
-									<button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
-										<em class="fa fa-long-arrow-up"></em>
-									</button>
-								</span>
-							</p>
-						</div>
-						<div id="genres_content" class="collapse in scrollbar filter_content">
-						</div>
-					</div>
-					<div id="release">
-						<div class="filter_category">
-							<p style="margin:0">
-								<span>Release Date</span>
-								<span style="float:right">
-									<button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
-										<em class="fa fa-long-arrow-up"></em>
-									</button>
-								</span>
-							</p>
-						</div>
-						<div id="release_content" class="collapse in filter_content form-inline text-center">
-							<div class="form-group" style="padding-right:20px">
-								<label class="control-label">From</label>
-								<select onchange="apply_filters_mysong()" id="from"  class="form-control">
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="control-label">To</label>
-								<select onchange="apply_filters_mysong()" id="to"  class="form-control">
-								</select>
-							</div>
-						</div>
-					</div>
-					<div id="artists">
-						<div class="filter_category">
-							<p style="margin:0">
-								<span>Artists</span>
-								<span style="float:right">
-									<button class="clickableElement" onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#artists_content">
-										<em class="fa fa-long-arrow-up"></em>
-									</button>
-								</span>
-							</p>
-						</div>
-						<div id="artists_content" class="collapse in scrollbar filter_content">
-						</div>
-					</div>
-					<div id="albums">
-						<div class="filter_category">
-							<p style="margin:0">
-								<span>Albums</span>
-								<span style="float:right">
-									<button class="clickableElement" onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
-										<em class="fa fa-long-arrow-up"></em>
-									</button>
-								</span>
-							</p>
-						</div>
-						<div id="albums_content" class="collapse in scrollbar filter_content">
-						</div>
-					</div> -->
 				</div>
 				<div class="col-xs-10">
 					<div class="card">
-						<div id="display_songs_genres">
+						<div id="display_series_genres">
 							<h1>Genres</h1>
 							<div class="filter--content">
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock.jpg" alt="Rock" onclick="add_remove_mysongs_filters_option('genre', 'Rock', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock.jpg" alt="Rock" onclick="add_remove_myseries_filters_option('genre', 'Rock', this)">
 									<p class="text-center">Rock</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="http://www.southernmuseumofmusic.com/Spotlight/01-Genre/0-images/Soul-01.png" alt="Soul" onclick="add_remove_mysongs_filters_option('genre', 'Soul', this)">
+									<img class="clickableElement img-circle filter--image" src="http://www.southernmuseumofmusic.com/Spotlight/01-Genre/0-images/Soul-01.png" alt="Soul" onclick="add_remove_myseries_filters_option('genre', 'Soul', this)">
 									<p class="text-center">Soul</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/downtempo.jpg" alt="Downtempo" onclick="add_remove_mysongs_filters_option('genre', 'Downtempo', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/series_images/genres/downtempo.jpg" alt="Downtempo" onclick="add_remove_myseries_filters_option('genre', 'Downtempo', this)">
 									<p class="text-center">Downtempo</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/alternative_rock.jpg" alt="Alternative Rock" onclick="add_remove_mysongs_filters_option('genre', 'Alternative Rock', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/series_images/genres/alternative_rock.jpg" alt="Alternative Rock" onclick="add_remove_myseries_filters_option('genre', 'Alternative Rock', this)">
 									<p class="text-center">Alternative Rock</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/punk_rock.jpg" alt="Punk Rock" onclick="add_remove_mysongs_filters_option('genre', 'Punk rock', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/series_images/genres/punk_rock.jpg" alt="Punk Rock" onclick="add_remove_myseries_filters_option('genre', 'Punk rock', this)">
 									<p class="text-center">Punk Rock</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="http://mindequalsblown.net/wp-content/uploads/2011/10/Pop-Punk-A-Genre-or-a-Lifestyle.jpg" alt="Pop Punk" onclick="add_remove_mysongs_filters_option('pop Punk', 'Rock', this)">
+									<img class="clickableElement img-circle filter--image" src="http://mindequalsblown.net/wp-content/uploads/2011/10/Pop-Punk-A-Genre-or-a-Lifestyle.jpg" alt="Pop Punk" onclick="add_remove_myseries_filters_option('pop Punk', 'Rock', this)">
 									<p class="text-center">Pop Punk</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/pop.jpg" alt="Pop" onclick="add_remove_mysongs_filters_option('genre', 'Pop', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/series_images/genres/pop.jpg" alt="Pop" onclick="add_remove_myseries_filters_option('genre', 'Pop', this)">
 									<p class="text-center">Pop</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="https://s3.amazonaws.com/broadtime_thumbnails/049/418456283049/418456283049%3A500.jpg" alt="Reggae-Pop" onclick="add_remove_mysongs_filters_option('genre', 'Reggae-pop', this)">
+									<img class="clickableElement img-circle filter--image" src="https://s3.amazonaws.com/broadtime_thumbnails/049/418456283049/418456283049%3A500.jpg" alt="Reggae-Pop" onclick="add_remove_myseries_filters_option('genre', 'Reggae-pop', this)">
 									<p class="text-center">Reggae-Pop</p>
 								</div>
-								 <div>
-									<img class="clickableElement img-circle filter--image" src="http://assets.laut.fm/f4636e91afdf315ea3793aad7e19e37b?t=_640x640" alt="Synth-Pop" onclick="add_remove_mysongs_filters_option('genre', 'Synth-pop', this)">
+								<div>
+									<img class="clickableElement img-circle filter--image" src="http://assets.laut.fm/f4636e91afdf315ea3793aad7e19e37b?t=_640x640" alt="Synth-Pop" onclick="add_remove_myseries_filters_option('genre', 'Synth-pop', this)">
 									<p class="text-center">Synth-Pop</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="https://e.snmc.io/lk/f/s/214fed197e9474874f271214d5a08c5a/6190226.jpg" alt="Hard Rock" onclick="add_remove_mysongs_filters_option('genre', 'Hard Rock', this)">
+									<img class="clickableElement img-circle filter--image" src="https://e.snmc.io/lk/f/s/214fed197e9474874f271214d5a08c5a/6190226.jpg" alt="Hard Rock" onclick="add_remove_myseries_filters_option('genre', 'Hard Rock', this)">
 									<p class="text-center">Hard Rock</p>
 								</div>
 							</div>
 						</div>
 
-						<div id="display_songs_release_date">
+						<div id="display_series_release_date">
 							<h1>Release Date</h1>
 							<div class="filter--content">
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '1984', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '1984', this)">
 									<p>
 										1984
 									</p>
 								</div>
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2004', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '2004', this)">
 									<p>
 										2004
 									</p>
 								</div>
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2005', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '2005', this)">
 									<p>
 										2005
 									</p>
 								</div>
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2016', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '2016', this)">
 									<p>
 										2016
 									</p>
 								</div>
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '2017', this)">
 									<p>
 										2017
 									</p>
@@ -2456,138 +3048,138 @@
 							</div>
 						</div>
 
-						<div id="display_songs_artists">
+						<div id="display_series_artists">
 							<h1>Artists</h1>
 							<div class="filter--content">
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/elvis-presley.jpg" alt="elvis-presley" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/elvis-presley.jpg" alt="elvis-presley" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">Elvis Presley</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/A$AP-Rocky.jpg" alt="A$AP Rocky" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/A$AP-Rocky.jpg" alt="A$AP Rocky" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">A$AP Rocky</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Stage-Rockers.jpg" alt="Stage-Rockers" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Stage-Rockers.jpg" alt="Stage-Rockers" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">Stage-Rockers</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/ONE-OK-ROCK.jpg" alt="ONE-OK-ROCK" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/ONE-OK-ROCK.jpg" alt="ONE-OK-ROCK" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">ONE-OK-ROCK</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/PnB-Rock.jpg" alt="PnB Rock" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/PnB-Rock.jpg" alt="PnB Rock" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">PnB Rock</p>
 								</div>
 							</div>
 						</div>
 
-						<div id="display_songs_albums">
+						<div id="display_series_albums">
 							<h1>Albums</h1>
 							<div class="filter--content">
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock-or-burst-by-ac-dc.jpg" alt="Rock or Burst" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock-or-burst-by-ac-dc.jpg" alt="Rock or Burst" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">Rock or Burst</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rockstar-by-post-malone.jpg" alt="Rockstar" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rockstar-by-post-malone.jpg" alt="Rockstar" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">Rockstar</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/let-there-be-rock-by-ac-dc.jpg" alt="let-there-be-rock-by-ac-dc" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/let-there-be-rock-by-ac-dc.jpg" alt="let-there-be-rock-by-ac-dc" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">Let There Be Rock</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Rockabye-(feat.-Sean-Paul-&-&Anne-Marie)-by-Clean-Bandit.jpg" alt="Rockabye" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Rockabye-(feat.-Sean-Paul-&-&Anne-Marie)-by-Clean-Bandit.jpg" alt="Rockabye" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">Rockabye</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/In-Rock-by-Stelios-Rokkos.jpg" alt="In Rock" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/In-Rock-by-Stelios-Rokkos.jpg" alt="In Rock" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">In Rock</p>
 								</div>
 							</div>
 						</div>
-						<div id="display_mysongs" style="height: 800px;">
-							<h1>My songs</h1>
+						<div id="display_myseries" style="height: 800px;">
+							<h1>My series</h1>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png"/>
+								<img class="img-responsive" src="../ressrc/series_images/perro_fiel.png"/>
 								<p>Perro Fiel</p>
 								<small>Shakira</small>
 								<div class="overlay">
 									<h3 class="text-center">Perro Fiel - Shakira</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id0')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id0')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id0', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/rockstar.jpg"/>
 								<p>Rockstar</p>
 								<small>Post Malone</small>
 								<div class="overlay">
 									<h3 class="text-center">Rockstar - Post Malone</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id7')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id7')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id7')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id7')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id7', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id7', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/thunder.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/thunder.jpg"/>
 								<p>Thunder</p>
 								<small>Imagine Dragons</small>
 								<div class="overlay">
 									<h3 class="text-center">Thunder - Imagine Dragons</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id9')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id9')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id9')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id9')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id9', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id9', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/havana.png"/>
+								<img class="img-responsive" src="../ressrc/series_images/havana.png"/>
 								<p>Havana</p>
 								<small>Camila Cabello</small>
 								<div class="overlay">
 									<h3 class="text-center">Havana - Camila Cabello</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id12')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id12')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id12')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id12')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id12', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id12', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
@@ -2597,84 +3189,84 @@
 							<div class="clearfix" style="padding-bottom:20px"></div>
 
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/Too_Good_at_Goodbyes.jpg"/>
 								<p>Too Good At Goodbyeyes</p>
 								<small>Sam Smith</small>
 								<div class="overlay">
 									<h3 class="text-center">Too Good At Goodbyeyes - Sam Smith</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id12')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id12')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id12')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id12')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id12', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id12', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"/>
+								<img class="img-responsive" src="../ressrc/series_images/side%20to%20side.png"/>
 								<p>Side To Side</p>
 								<small>Ariana Grande</small>
 								<div class="overlay">
 									<h3 class="text-center">Side To Side - Ariana Grande</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id2')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id2')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id2')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id2')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id2', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id2', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/like%20a%20star.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/like%20a%20star.jpg"/>
 								<p>Like A Star</p>
 								<small>Fly Project</small>
 								<div class="overlay">
 									<h3 class="text-center">Like A Star - Fly Project</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id1')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id1')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id1')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id1')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id1', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id1', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/holiday.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/holiday.jpg"/>
 								<p>Holiday</p>
 								<small>Green Day</small>
 								<div class="overlay">
 									<h3 class="text-center">Holiday - Green Day</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id4')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id4')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id4')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id4')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id4', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id4', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
@@ -2682,11 +3274,9 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
-		<script>setPlayer();</script>
 	</div>
 	<!-- END PAGE 15 - SERIES_MYSERIES-->
 
@@ -2695,164 +3285,98 @@
 	<div id="series_search" class="pt-page">
 		<script>setSeriesHeader();</script>
 		<div class="content scrollbar">
-			<div class="mysongs">
+			<div>
 				<div class="col-xs-2">
 					<h3 style="margin-top: 50px; margin-bottom: 40px;">Filter by</h3>
-					<div id="songs_genres" class="clickableElement filter__item" onclick="toggle_songs_tabs('genres')">
+					<div id="series_search_genres" class="clickableElement filter__item" onclick="toggle_series_search_tabs('genres')">
 						Genres
 					</div>
-					<div id="songs_release_date" class="clickableElement filter__item" onclick="toggle_songs_tabs('release_date')">
+					<div id="series_search_release_date" class="clickableElement filter__item" onclick="toggle_series_search_tabs('release_date')">
 						Release Date
 					</div>
-					<div id="songs_artists" class="clickableElement filter__item" onclick="toggle_songs_tabs('artists')">
+					<div id="series_search_artists" class="clickableElement filter__item" onclick="toggle_series_search_tabs('artists')">
 						Artists
 					</div>
-					<div id="songs_albums" class="clickableElement filter__item" onclick="toggle_songs_tabs('albums')">
+					<div id="series_search_albums" class="clickableElement filter__item" onclick="toggle_series_search_tabs('albums')">
 						Albums
 					</div>
 
-					<div id="songs_apply" class="clickableElement filter__item" onclick="mysongs_apply()">
+					<div id="series_search_apply" class="clickableElement filter__item" onclick="myseries_search_apply()">
 						Apply
 					</div>
-					<!-- <div id="genres">
-						<div class="filter_category">
-							<p style="margin:0">
-								<span>Genres</span>
-								<span style="float:right">
-									<button class="clickableElement" onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
-										<em class="fa fa-long-arrow-up"></em>
-									</button>
-								</span>
-							</p>
-						</div>
-						<div id="genres_content" class="collapse in scrollbar filter_content">
-						</div>
-					</div>
-					<div id="release">
-						<div class="filter_category">
-							<p style="margin:0">
-								<span>Release Date</span>
-								<span style="float:right">
-									<button class="clickableElement" onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
-										<em class="fa fa-long-arrow-up"></em>
-									</button>
-								</span>
-							</p>
-						</div>
-						<div id="release_content" class="collapse in filter_content form-inline text-center">
-							<div class="form-group" style="padding-right:20px">
-								<label class="control-label">From</label>
-								<select onchange="apply_filters_mysong()" id="from"  class="form-control">
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="control-label">To</label>
-								<select onchange="apply_filters_mysong()" id="to"  class="form-control">
-								</select>
-							</div>
-						</div>
-					</div>
-					<div id="artists">
-						<div class="filter_category">
-							<p style="margin:0">
-								<span>Artists</span>
-								<span style="float:right">
-									<button class="clickableElement" onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#artists_content">
-										<em class="fa fa-long-arrow-up"></em>
-									</button>
-								</span>
-							</p>
-						</div>
-						<div id="artists_content" class="collapse in scrollbar filter_content">
-						</div>
-					</div>
-					<div id="albums">
-						<div class="filter_category">
-							<p style="margin:0">
-								<span>Albums</span>
-								<span style="float:right">
-									<button class="clickableElement" onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
-										<em class="fa fa-long-arrow-up"></em>
-									</button>
-								</span>
-							</p>
-						</div>
-						<div id="albums_content" class="collapse in scrollbar filter_content">
-						</div>
-					</div> -->
 				</div>
 				<div class="col-xs-10">
 					<div class="card">
-						<div id="display_songs_genres">
+						<div id="display_series_search_genres">
 							<h1>Genres</h1>
 							<div class="filter--content">
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock.jpg" alt="Rock" onclick="add_remove_mysongs_filters_option('genre', 'Rock', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock.jpg" alt="Rock" onclick="add_remove_myseries_filters_option('genre', 'Rock', this)">
 									<p class="text-center">Rock</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="http://www.southernmuseumofmusic.com/Spotlight/01-Genre/0-images/Soul-01.png" alt="Soul" onclick="add_remove_mysongs_filters_option('genre', 'Soul', this)">
+									<img class="clickableElement img-circle filter--image" src="http://www.southernmuseumofmusic.com/Spotlight/01-Genre/0-images/Soul-01.png" alt="Soul" onclick="add_remove_myseries_filters_option('genre', 'Soul', this)">
 									<p class="text-center">Soul</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/downtempo.jpg" alt="Downtempo" onclick="add_remove_mysongs_filters_option('genre', 'Downtempo', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/series_images/genres/downtempo.jpg" alt="Downtempo" onclick="add_remove_myseries_filters_option('genre', 'Downtempo', this)">
 									<p class="text-center">Downtempo</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/alternative_rock.jpg" alt="Alternative Rock" onclick="add_remove_mysongs_filters_option('genre', 'Alternative Rock', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/series_images/genres/alternative_rock.jpg" alt="Alternative Rock" onclick="add_remove_myseries_filters_option('genre', 'Alternative Rock', this)">
 									<p class="text-center">Alternative Rock</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/punk_rock.jpg" alt="Punk Rock" onclick="add_remove_mysongs_filters_option('genre', 'Punk rock', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/series_images/genres/punk_rock.jpg" alt="Punk Rock" onclick="add_remove_myseries_filters_option('genre', 'Punk rock', this)">
 									<p class="text-center">Punk Rock</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="http://mindequalsblown.net/wp-content/uploads/2011/10/Pop-Punk-A-Genre-or-a-Lifestyle.jpg" alt="Pop Punk" onclick="add_remove_mysongs_filters_option('pop Punk', 'Rock', this)">
+									<img class="clickableElement img-circle filter--image" src="http://mindequalsblown.net/wp-content/uploads/2011/10/Pop-Punk-A-Genre-or-a-Lifestyle.jpg" alt="Pop Punk" onclick="add_remove_myseries_filters_option('pop Punk', 'Rock', this)">
 									<p class="text-center">Pop Punk</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/pop.jpg" alt="Pop" onclick="add_remove_mysongs_filters_option('genre', 'Pop', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/series_images/genres/pop.jpg" alt="Pop" onclick="add_remove_myseries_filters_option('genre', 'Pop', this)">
 									<p class="text-center">Pop</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="https://s3.amazonaws.com/broadtime_thumbnails/049/418456283049/418456283049%3A500.jpg" alt="Reggae-Pop" onclick="add_remove_mysongs_filters_option('genre', 'Reggae-pop', this)">
+									<img class="clickableElement img-circle filter--image" src="https://s3.amazonaws.com/broadtime_thumbnails/049/418456283049/418456283049%3A500.jpg" alt="Reggae-Pop" onclick="add_remove_myseries_filters_option('genre', 'Reggae-pop', this)">
 									<p class="text-center">Reggae-Pop</p>
 								</div>
-								 <div>
-									<img class="clickableElement img-circle filter--image" src="http://assets.laut.fm/f4636e91afdf315ea3793aad7e19e37b?t=_640x640" alt="Synth-Pop" onclick="add_remove_mysongs_filters_option('genre', 'Synth-pop', this)">
+								<div>
+									<img class="clickableElement img-circle filter--image" src="http://assets.laut.fm/f4636e91afdf315ea3793aad7e19e37b?t=_640x640" alt="Synth-Pop" onclick="add_remove_myseries_filters_option('genre', 'Synth-pop', this)">
 									<p class="text-center">Synth-Pop</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="https://e.snmc.io/lk/f/s/214fed197e9474874f271214d5a08c5a/6190226.jpg" alt="Hard Rock" onclick="add_remove_mysongs_filters_option('genre', 'Hard Rock', this)">
+									<img class="clickableElement img-circle filter--image" src="https://e.snmc.io/lk/f/s/214fed197e9474874f271214d5a08c5a/6190226.jpg" alt="Hard Rock" onclick="add_remove_myseries_filters_option('genre', 'Hard Rock', this)">
 									<p class="text-center">Hard Rock</p>
 								</div>
 							</div>
 						</div>
 
-						<div id="display_songs_release_date">
+						<div id="display_series_search_release_date">
 							<h1>Release Date</h1>
 							<div class="filter--content">
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '1984', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '1984', this)">
 									<p>
 										1984
 									</p>
 								</div>
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2004', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '2004', this)">
 									<p>
 										2004
 									</p>
 								</div>
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2005', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '2005', this)">
 									<p>
 										2005
 									</p>
 								</div>
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2016', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '2016', this)">
 									<p>
 										2016
 									</p>
 								</div>
-								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_myseries_filters_option('release_date', '2017', this)">
 									<p>
 										2017
 									</p>
@@ -2860,138 +3384,138 @@
 							</div>
 						</div>
 
-						<div id="display_songs_artists">
+						<div id="display_series_search_artists">
 							<h1>Artists</h1>
 							<div class="filter--content">
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/elvis-presley.jpg" alt="elvis-presley" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/elvis-presley.jpg" alt="elvis-presley" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">Elvis Presley</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/A$AP-Rocky.jpg" alt="A$AP Rocky" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/A$AP-Rocky.jpg" alt="A$AP Rocky" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">A$AP Rocky</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Stage-Rockers.jpg" alt="Stage-Rockers" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Stage-Rockers.jpg" alt="Stage-Rockers" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">Stage-Rockers</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/ONE-OK-ROCK.jpg" alt="ONE-OK-ROCK" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/ONE-OK-ROCK.jpg" alt="ONE-OK-ROCK" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">ONE-OK-ROCK</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/PnB-Rock.jpg" alt="PnB Rock" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/PnB-Rock.jpg" alt="PnB Rock" onclick="add_remove_myseries_filters_option('artist', ' ', this)">
 									<p class="text-center">PnB Rock</p>
 								</div>
 							</div>
 						</div>
 
-						<div id="display_songs_albums">
+						<div id="display_series_search_albums">
 							<h1>Albums</h1>
 							<div class="filter--content">
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock-or-burst-by-ac-dc.jpg" alt="Rock or Burst" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock-or-burst-by-ac-dc.jpg" alt="Rock or Burst" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">Rock or Burst</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rockstar-by-post-malone.jpg" alt="Rockstar" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rockstar-by-post-malone.jpg" alt="Rockstar" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">Rockstar</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/let-there-be-rock-by-ac-dc.jpg" alt="let-there-be-rock-by-ac-dc" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/let-there-be-rock-by-ac-dc.jpg" alt="let-there-be-rock-by-ac-dc" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">Let There Be Rock</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Rockabye-(feat.-Sean-Paul-&-&Anne-Marie)-by-Clean-Bandit.jpg" alt="Rockabye" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Rockabye-(feat.-Sean-Paul-&-&Anne-Marie)-by-Clean-Bandit.jpg" alt="Rockabye" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">Rockabye</p>
 								</div>
 								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/In-Rock-by-Stelios-Rokkos.jpg" alt="In Rock" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
+									<img class="clickableElement img-circle filter--image" src="../ressrc/search/In-Rock-by-Stelios-Rokkos.jpg" alt="In Rock" onclick="add_remove_myseries_filters_option('album', ' ', this)">
 									<p class="text-center">In Rock</p>
 								</div>
 							</div>
 						</div>
-						<div id="display_mysongs" style="height: 800px;">
-							<h1>My songs</h1>
+						<div id="display_series_search" style="height: 800px;">
+							<h1>My series</h1>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png"/>
+								<img class="img-responsive" src="../ressrc/series_images/perro_fiel.png"/>
 								<p>Perro Fiel</p>
 								<small>Shakira</small>
 								<div class="overlay">
 									<h3 class="text-center">Perro Fiel - Shakira</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id0')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id0')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id0', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/rockstar.jpg"/>
 								<p>Rockstar</p>
 								<small>Post Malone</small>
 								<div class="overlay">
 									<h3 class="text-center">Rockstar - Post Malone</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id7')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id7')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id7')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id7')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id7', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id7', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/thunder.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/thunder.jpg"/>
 								<p>Thunder</p>
 								<small>Imagine Dragons</small>
 								<div class="overlay">
 									<h3 class="text-center">Thunder - Imagine Dragons</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id9')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id9')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id9')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id9')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id9', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id9', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/havana.png"/>
+								<img class="img-responsive" src="../ressrc/series_images/havana.png"/>
 								<p>Havana</p>
 								<small>Camila Cabello</small>
 								<div class="overlay">
 									<h3 class="text-center">Havana - Camila Cabello</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id12')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id12')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id12')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id12')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id12', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id12', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
@@ -3001,262 +3525,260 @@
 							<div class="clearfix" style="padding-bottom:20px"></div>
 
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/Too_Good_at_Goodbyes.jpg"/>
 								<p>Too Good At Goodbyeyes</p>
 								<small>Sam Smith</small>
 								<div class="overlay">
 									<h3 class="text-center">Too Good At Goodbyeyes - Sam Smith</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id12')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id12')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id12')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id12')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id12', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id12', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"/>
+								<img class="img-responsive" src="../ressrc/series_images/side%20to%20side.png"/>
 								<p>Side To Side</p>
 								<small>Ariana Grande</small>
 								<div class="overlay">
 									<h3 class="text-center">Side To Side - Ariana Grande</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id2')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id2')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id2')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id2')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id2', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id2', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/like%20a%20star.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/like%20a%20star.jpg"/>
 								<p>Like A Star</p>
 								<small>Fly Project</small>
 								<div class="overlay">
 									<h3 class="text-center">Like A Star - Fly Project</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id1')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id1')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id1')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id1')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id1', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id1', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="img-responsive" src="../ressrc/songs_images/holiday.jpg"/>
+								<img class="img-responsive" src="../ressrc/series_images/holiday.jpg"/>
 								<p>Holiday</p>
 								<small>Green Day</small>
 								<div class="overlay">
 									<h3 class="text-center">Holiday - Green Day</h3>
 									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_song_details('id4')">
+										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id4')">
 											<em class="fa fa-external-link" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_song('id4')">
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id4')">
 											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
 										</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id4', this)">
+										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id4', this)">
 											<em class="fa fa-minus" aria-hidden="true"></em>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-
-				</div>
 			</div>
 		</div>
-		<script>setPlayer();</script>
+			</div>
+		</div>
 	</div>
 	<!-- END PAGE 16 - SERIES_SEARCH-->
 
 
-	<!-- BEGIN PAGE 17 - SERIES_DETAILS-->
-	<div id="series_details" class="pt-page">
-		<script>setSeriesHeader();</script>
-		<div id="full-screen" class="movies_content scrollbar" style="background-image: url(../ressrc/series_images/background/Supernatural.jpg);">
-			<div class="col-xs-3" style="margin-top: 50px; margin-bottom:120px; padding-left:0">
-                    <img id="serie_poster" class="img-responsive" style="border-radius: 38px" src="../ressrc/series_images/Supernatural.jpg">
-                </div>
+	<!--&lt;!&ndash; BEGIN PAGE 17 - SERIES_DETAILS&ndash;&gt;-->
+	<!--<div id="series_details" class="pt-page">-->
+		<!--<script>setSeriesHeader();</script>-->
+		<!--<div id="full-screen" class="movies_content scrollbar" style="background-image: url(../ressrc/series_images/background/Supernatural.jpg);">-->
+			<!--<div class="col-xs-3" style="margin-top: 50px; margin-bottom:120px; padding-left:0">-->
+                    <!--<img id="serie_poster" class="img-responsive" style="border-radius: 38px" src="../ressrc/series_images/Supernatural.jpg">-->
+                <!--</div>-->
 
-                <div id="serie_details" class="col-xs-6 card card_serie" style="margin-top: 50px; opacity: 0.95; height: 500px;">
-                    <h1 id="serie_title">Supernatural</h1>
-                    <p id="serie_info">
-    2005 • 44 min • Drama,Fantasy,Horror • 
-    <span><img width="30" height="15" src="../ressrc/series_images/imdb.png"></span> 8.6</p>
-                    <p id="serie_description">Two brothers follow their father's footsteps as "hunters", fighting evil supernatural beings of many kinds, including monsters, demons, and gods that roam the earth.</p>
+                <!--<div id="serie_details" class="col-xs-6 card card_serie" style="margin-top: 50px; opacity: 0.95; height: 500px;">-->
+                    <!--<h1 id="serie_title">Supernatural</h1>-->
+                    <!--<p id="serie_info">-->
+    <!--2005 • 44 min • Drama,Fantasy,Horror • -->
+    <!--<span><img width="30" height="15" src="../ressrc/series_images/imdb.png"></span> 8.6</p>-->
+                    <!--<p id="serie_description">Two brothers follow their father's footsteps as "hunters", fighting evil supernatural beings of many kinds, including monsters, demons, and gods that roam the earth.</p>-->
 
-                    <button id="serie_display_play">
-                        <h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
-                            <em class="fa fa-play-circle-o"></em> Play s13e01
-                        </h3>
-                    </button>
+                    <!--<button id="serie_display_play">-->
+                        <!--<h3 style="float:left; background-color:black; padding:10px; border-radius:10px; cursor:pointer">-->
+                            <!--<em class="fa fa-play-circle-o"></em> Play s13e01-->
+                        <!--</h3>-->
+                    <!--</button>-->
 
-                    <br>
+                    <!--<br>-->
 
-                    <button id="serie_display_add">
-                        <h3 style="float:left; margin:0; background-color:black; padding:10px; border-radius:10px; cursor:pointer">
-                            <em class="fa fa-plus"></em> Add to My series
-                        </h3>
-                    </button>
-                    <div class="clearfix"></div>
+                    <!--<button id="serie_display_add">-->
+                        <!--<h3 style="float:left; margin:0; background-color:black; padding:10px; border-radius:10px; cursor:pointer">-->
+                            <!--<em class="fa fa-plus"></em> Add to My series-->
+                        <!--</h3>-->
+                    <!--</button>-->
+                    <!--<div class="clearfix"></div>-->
 
-                    <!-- <h3>Seasons</h3>
-                    <div class="row">
-                    	<div class="col-xs-1 clickableElement season-episode-cell">1</div>
-                    	<div style="background-color: cyan; color: black;" class="col-xs-1 clickableElement season-episode-cell">2</div>
-                    	<div class="col-xs-1 clickableElement season-episode-cell">3</div>
-                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">4</div>
-                    	<div class="col-xs-1 clickableElement season-episode-cell">5</div>
-                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">6</div>
-                    	<div class="col-xs-1 clickableElement season-episode-cell">7</div>
-                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">8</div>
-                    	<div class="col-xs-1 clickableElement season-episode-cell">9</div>
-                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">10</div>
-                    	<div class="col-xs-1 clickableElement season-episode-cell">11</div>
-                    	<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">12</div>
-                    </div> -->
-                </div>
+                    <!--&lt;!&ndash; <h3>Seasons</h3>-->
+                    <!--<div class="row">-->
+                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">1</div>-->
+                    	<!--<div style="background-color: cyan; color: black;" class="col-xs-1 clickableElement season-episode-cell">2</div>-->
+                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">3</div>-->
+                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">4</div>-->
+                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">5</div>-->
+                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">6</div>-->
+                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">7</div>-->
+                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">8</div>-->
+                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">9</div>-->
+                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">10</div>-->
+                    	<!--<div class="col-xs-1 clickableElement season-episode-cell">11</div>-->
+                    	<!--<div style="background-color: #222235;" class="col-xs-1 clickableElement season-episode-cell">12</div>-->
+                    <!--</div> &ndash;&gt;-->
+                <!--</div>-->
 
-                <div class="col-xs-3" style="padding-right:0; margin-top: 30px; opacity: 0.95;">
-                    <div class="card serie_related col-xs-12" style="height: 500px;">
-                        <h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Series</h3>
+                <!--<div class="col-xs-3" style="padding-right:0; margin-top: 30px; opacity: 0.95;">-->
+                    <!--<div class="card serie_related col-xs-12" style="height: 500px;">-->
+                        <!--<h3 style="margin-top:0; padding-left:15px; padding-bottom:20px">Related Series</h3>-->
 
-                        <div id="serie_related_content">
-                        	<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id2')">
-	                            <div class="col-xs-4" style="padding-right:0">
-	                                <img class="img-serie-recently-watched" src="../ressrc/series_images/Emerald City.jpg">
-	                            </div>
-	                            <div class="col-xs-8" style="padding-right: 0">
-	                                <p>Emerald City</p>
-	                                <small>2016</small>
-	                            </div>
-	                        </div>
-	                        <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id3')">
-	                            <div class="col-xs-4" style="padding-right:0">
-	                                <img class="img-serie-recently-watched" src="../ressrc/series_images/Game of Thrones.jpg">
-	                            </div>
-	                            <div class="col-xs-8" style="padding-right: 0">
-	                                <p>Game of Thrones</p>
-	                                <small>2011</small>
-	                            </div>
-	                        </div>
-	                        <div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id5')">
-	                            <div class="col-xs-4" style="padding-right:0">
-	                                <img class="img-serie-recently-watched" src="../ressrc/series_images/Stranger Things.jpg">
-	                            </div>
-	                            <div class="col-xs-8" style="padding-right: 0">
-	                                <p>Stranger Things</p>
-	                                <small>2016</small>
-	                            </div>
-	                        </div>
-	                    </div>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                	<div class="row text-center">
-                		<div class="col-xs-2 clickableElement">
-                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://www.withanaccent.com/wp-content/uploads/2013/01/Supernatural-S07-Title-Banner.jpg">
-                			<span 
-                				style="
-                					position: absolute;
-									top: 50%;
-									left: 50%;
-									transform: translate(-50%, -50%);
-									font-size: 28px;
-								">Season 7
-							</span>
-                		</div>
-                		<div class="col-xs-2 clickableElement">
-                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/Pj1gi3wC0MU/maxresdefault.jpg">
-                			<span 
-                				style="
-                					position: absolute;
-									top: 50%;
-									left: 50%;
-									transform: translate(-50%, -50%);
-									font-size: 28px;
-								">Season 8
-							</span>
-                		</div>
-                		<div class="col-xs-2 clickableElement">
-                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/tjej1TN7be4/maxresdefault.jpg">
-                			<span 
-                				style="
-                					position: absolute;
-									top: 50%;
-									left: 50%;
-									transform: translate(-50%, -50%);
-									font-size: 28px;
-								">Season 9
-							</span>
-                		</div>
-                		<div class="col-xs-2 clickableElement">
-                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://cdn.pcwallart.com/images/supernatural-logo-season-10-wallpaper-1.jpg">
-                			<span 
-                				style="
-                					position: absolute;
-									top: 50%;
-									left: 50%;
-									transform: translate(-50%, -50%);
-									font-size: 28px;
-								">Season 10
-							</span>
-                		</div>
-                		<div class="col-xs-2 clickableElement">
-                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://thewinchesterfamilybusiness.com/images/SeasonEleven/S11Promo/S11titlecard2.jpg">
-                			<span 
-                				style="
-                					position: absolute;
-									top: 50%;
-									left: 50%;
-									transform: translate(-50%, -50%);
-									font-size: 28px;
-								">Season 11
-							</span>
-                		</div>
-                		<div class="col-xs-2 clickableElement">
-                			<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://cdn.playbuzz.com/cdn/4605903a-de50-434a-ba59-c409c6046f82/a3fd187f-1447-439d-b5c1-707ab80071e8.jpg">
-                			<span 
-                				style="
-                					position: absolute;
-									top: 50%;
-									left: 50%;
-									transform: translate(-50%, -50%);
-									font-size: 28px;
-								">Season 12
-							</span>
-                		</div>
-                	</div>
-                </div>
-            </div>
-        </div>
-	</div>
-	<!-- END PAGE 17 - SERIES_DETAILS-->
+                        <!--<div id="serie_related_content">-->
+                        	<!--<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id2')">-->
+	                            <!--<div class="col-xs-4" style="padding-right:0">-->
+	                                <!--<img class="img-serie-recently-watched" src="../ressrc/series_images/Emerald City.jpg">-->
+	                            <!--</div>-->
+	                            <!--<div class="col-xs-8" style="padding-right: 0">-->
+	                                <!--<p>Emerald City</p>-->
+	                                <!--<small>2016</small>-->
+	                            <!--</div>-->
+	                        <!--</div>-->
+	                        <!--<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id3')">-->
+	                            <!--<div class="col-xs-4" style="padding-right:0">-->
+	                                <!--<img class="img-serie-recently-watched" src="../ressrc/series_images/Game of Thrones.jpg">-->
+	                            <!--</div>-->
+	                            <!--<div class="col-xs-8" style="padding-right: 0">-->
+	                                <!--<p>Game of Thrones</p>-->
+	                                <!--<small>2011</small>-->
+	                            <!--</div>-->
+	                        <!--</div>-->
+	                        <!--<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_serie_details('id5')">-->
+	                            <!--<div class="col-xs-4" style="padding-right:0">-->
+	                                <!--<img class="img-serie-recently-watched" src="../ressrc/series_images/Stranger Things.jpg">-->
+	                            <!--</div>-->
+	                            <!--<div class="col-xs-8" style="padding-right: 0">-->
+	                                <!--<p>Stranger Things</p>-->
+	                                <!--<small>2016</small>-->
+	                            <!--</div>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xs-12">-->
+                	<!--<div class="row text-center">-->
+                		<!--<div class="col-xs-2 clickableElement">-->
+                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://www.withanaccent.com/wp-content/uploads/2013/01/Supernatural-S07-Title-Banner.jpg">-->
+                			<!--<span -->
+                				<!--style="-->
+                					<!--position: absolute;-->
+									<!--top: 50%;-->
+									<!--left: 50%;-->
+									<!--transform: translate(-50%, -50%);-->
+									<!--font-size: 28px;-->
+								<!--">Season 7-->
+							<!--</span>-->
+                		<!--</div>-->
+                		<!--<div class="col-xs-2 clickableElement">-->
+                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/Pj1gi3wC0MU/maxresdefault.jpg">-->
+                			<!--<span -->
+                				<!--style="-->
+                					<!--position: absolute;-->
+									<!--top: 50%;-->
+									<!--left: 50%;-->
+									<!--transform: translate(-50%, -50%);-->
+									<!--font-size: 28px;-->
+								<!--">Season 8-->
+							<!--</span>-->
+                		<!--</div>-->
+                		<!--<div class="col-xs-2 clickableElement">-->
+                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://i.ytimg.com/vi/tjej1TN7be4/maxresdefault.jpg">-->
+                			<!--<span -->
+                				<!--style="-->
+                					<!--position: absolute;-->
+									<!--top: 50%;-->
+									<!--left: 50%;-->
+									<!--transform: translate(-50%, -50%);-->
+									<!--font-size: 28px;-->
+								<!--">Season 9-->
+							<!--</span>-->
+                		<!--</div>-->
+                		<!--<div class="col-xs-2 clickableElement">-->
+                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://cdn.pcwallart.com/images/supernatural-logo-season-10-wallpaper-1.jpg">-->
+                			<!--<span -->
+                				<!--style="-->
+                					<!--position: absolute;-->
+									<!--top: 50%;-->
+									<!--left: 50%;-->
+									<!--transform: translate(-50%, -50%);-->
+									<!--font-size: 28px;-->
+								<!--">Season 10-->
+							<!--</span>-->
+                		<!--</div>-->
+                		<!--<div class="col-xs-2 clickableElement">-->
+                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="https://thewinchesterfamilybusiness.com/images/SeasonEleven/S11Promo/S11titlecard2.jpg">-->
+                			<!--<span -->
+                				<!--style="-->
+                					<!--position: absolute;-->
+									<!--top: 50%;-->
+									<!--left: 50%;-->
+									<!--transform: translate(-50%, -50%);-->
+									<!--font-size: 28px;-->
+								<!--">Season 11-->
+							<!--</span>-->
+                		<!--</div>-->
+                		<!--<div class="col-xs-2 clickableElement">-->
+                			<!--<img style="opacity: 0.35; height: 173.58;" class="img-responsive" src="http://cdn.playbuzz.com/cdn/4605903a-de50-434a-ba59-c409c6046f82/a3fd187f-1447-439d-b5c1-707ab80071e8.jpg">-->
+                			<!--<span -->
+                				<!--style="-->
+                					<!--position: absolute;-->
+									<!--top: 50%;-->
+									<!--left: 50%;-->
+									<!--transform: translate(-50%, -50%);-->
+									<!--font-size: 28px;-->
+								<!--">Season 12-->
+							<!--</span>-->
+                		<!--</div>-->
+                	<!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+	<!--</div>-->
+	<!--&lt;!&ndash; END PAGE 17 - SERIES_DETAILS&ndash;&gt;-->
 
 
 	<!-- The Modal -->
@@ -3296,8 +3818,10 @@
   <!-- BEGIN JAVASCRIPT AFTER LOADING -->
   <script language="javascript" type="text/javascript" src="../app/js/ami_libs/pagetransitions.js"></script>
   <!-- END JAVASCRIPT AFTER LOADING -->
-  
+
   <script type="application/javascript" src="songs/js/playerAPI.js"></script>
+  <script type="application/javascript" src="movies/js/movie_player_control.js"></script>
+  <script type="application/javascript" src="series/js/serie_player_control.js"></script>
 
   <script>
       // Get the modal
@@ -3327,8 +3851,10 @@
 
   <script>mysongs_apply();</script>
   <script>mymovies_apply();</script>
+  <script>myseries_apply();</script>
   <script>songs_search_apply();</script>
   <script>movies_search_apply();</script>
+  <script>series_search_apply();</script>
 
   <script>
       $("#inside_keywords").on("change paste keyup", function() {

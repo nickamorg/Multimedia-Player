@@ -191,7 +191,7 @@ function display_movie_details(movie_id) {
                     common[common_counter++] = "id" + i;
                     flag = true;
                     $("#movie_related_content").append(
-                        `<div class="col-xs-12" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id${i}')">
+                        `<div class="col-xs-12 clickableElement" style="padding: 0 0 20px 0; cursor:pointer" onclick="display_movie_details('id${i}')">
                             <div class="col-xs-4" style="padding-right:0">
                                 <img class="img-movie-recently-watched" src="../ressrc/movies_images/${movies['id' + i].img}">
                             </div>
@@ -234,7 +234,7 @@ function set_movies_news() {
     for(let i = 0; i < movies.crowd; i++) {
         if (movies["id" + i].release.split(" ")[2] === (new Date()).getFullYear().toString()) {
             $("#movies_news_content").append(`
-                <div class="col-xs-3" onclick="display_movie_details('id' + ${i})">
+                <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + ${i})">
                     <img class="img-responsive" src="../ressrc/movies_images/${movies["id" + i].img}"/>
                     <p>${movies["id" + i].title}</p>
                     <small>${movies["id" + i].release}</small>
@@ -254,7 +254,7 @@ function set_movies_tops() {
     for(let i = 0; i < movies.crowd; i++) {
         if (parseFloat(movies["id" + i].rate) >= 7.0) {
             $("#movies_tops_content").append(`
-                <div class="col-xs-3" onclick="display_movie_details('id' + ${i})">
+                <div class="col-xs-3 clickableElement" onclick="display_movie_details('id' + ${i})">
                     <img class="img-responsive" src="../ressrc/movies_images/${movies["id" + i].img}"/>
                     <p>${movies["id" + i].title}</p>
                     <small>${movies["id" + i].release}</small>
@@ -295,7 +295,7 @@ function set_movies_genres() {
         for(let j = 0; j < movies.crowd; j++) {
             if(current_movies.indexOf("id" + j) == -1 && movies["id" + j].genre.indexOf(genres[i]) > -1) {
                 $("#movies_genres_content").append(`
-                    <div class="col-xs-3" onclick="set_movies_by_genre('${genres[i]}')">
+                    <div class="col-xs-3 clickableElement" onclick="set_movies_by_genre('${genres[i]}')">
                         <img class="img-responsive" src="../ressrc/movies_images/${movies["id" + j].img}"/>
                         <p>${genres[i]}</p>
                     </div>

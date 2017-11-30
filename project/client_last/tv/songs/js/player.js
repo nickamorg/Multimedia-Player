@@ -71,7 +71,7 @@ function display_song_details(song_id) {
     visitedPagesStack.setNewLastVisitedPage("song_details");
     PageTransitions.goToPage(2, 'song_details');
     $("#lyrics").html("<h1>LYRICS</h1>");
-    $("#lyrics").append("<pre>" + song.lyrics + "</pre>");
+    $("#lyrics").append("<pre class='scrollbar' style='font-size:20px; max-height: 550px'>" + song.lyrics + "</pre>");
     $("#song_title").html(song.title);
 
     $("#details").html(
