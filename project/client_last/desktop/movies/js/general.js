@@ -1,5 +1,5 @@
 function expand_filter(this_elem) {
-    $("#" + this_elem).find("em").toggleClass("fa-long-arrow-up fa-long-arrow-down");
+    $("#" + this_elem).find("em").toggleClass("fa-angle-right  fa-angle-down");
 }
 
 
