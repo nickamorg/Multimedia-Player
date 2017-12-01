@@ -1,7 +1,6 @@
-function setHeader() {
+function setHeader(active) {
     document.write(
-
-    `<div>
+        `<div>
         <ul style="margin: 0; position:relative">
             <li style="float:left" class="clickableElement"><a onclick="visitedPagesStack.goToLastVisitedPage()" style="padding-right:0"><em class="fa fa-arrow-left" aria-hidden="true" style="padding-top:9px;"></em></a></li>
             <li style="float:left"><a class="to_lobby clickableElement">3Player</a></li>
@@ -17,9 +16,9 @@ function setHeader() {
                     </div>
                 </form>
             </li>
-            <li><a class="playlists clickableElement">Playlists</a></li>
-            <li><a class="to_mysongs clickableElement">My songs</a></li>
-            <li><a class="to_song_home clickableElement">Explore</a></li>
+            <li><a class="playlists clickableElement ${(active === 'playlists') ? 'active-tab' : ''}">Playlists</a></li>
+            <li><a class="to_mysongs clickableElement ${(active === 'mysongs') ? 'active-tab' : ''}">My songs</a></li>
+            <li><a class="to_song_home clickableElement ${(active === 'explore') ? 'active-tab' : ''}">Explore</a></li>
         </ul>
     </div>`);
 }

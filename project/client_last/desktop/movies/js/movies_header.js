@@ -1,4 +1,4 @@
-function setMoviesHeader() {
+function setMoviesHeader(active) {
     document.write(
 
         `<div>
@@ -17,8 +17,8 @@ function setMoviesHeader() {
                     </div>
                 </form>
             </li>
-            <li><a class="to_mymovies">My movies</a></li>
-            <li><a class="to_movies_home">Explore</a></li>
+            <li><a class="to_mymovies ${(active === 'mymovies')?'active-tab':''}">My movies</a></li>
+            <li><a class="to_movies_home ${(active === 'explore')?'active-tab':''}">Explore</a></li>
         </ul>
     </div>`);
 }

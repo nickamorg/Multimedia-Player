@@ -1,4 +1,4 @@
-function setHeader() {
+function setHeader(active) {
     document.write(
 
     `<div>
@@ -17,9 +17,9 @@ function setHeader() {
                     </div>
                 </form>
             </li>
-            <li><a class="playlists">Playlists</a></li>
-            <li><a class="to_mysongs">My songs</a></li>
-            <li><a class="to_song_home">Explore</a></li>
+            <li><a class="playlists ${(active === 'playlists')?'active-tab':''}">Playlists</a></li>
+            <li><a class="to_mysongs ${(active === 'mysongs')?'active-tab':''}">My songs</a></li>
+            <li><a class="to_song_home ${(active === 'explore')?'active-tab':''}">Explore</a></li>
         </ul>
     </div>`);
 }

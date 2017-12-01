@@ -1,4 +1,4 @@
-function setSeriesHeader() {
+function setSeriesHeader(active) {
     document.write(
 
         `<div>
@@ -17,8 +17,8 @@ function setSeriesHeader() {
                     </div>
                 </form>
             </li>
-            <li><a class="to_myseries">My series</a></li>
-            <li><a class="to_series_home">Explore</a></li>
+            <li><a class="to_myseries ${(active === 'myseries')?'active-tab':''}">My series</a></li>
+            <li><a class="to_series_home ${(active === 'explore')?'active-tab':''}">Explore</a></li>
         </ul>
     </div>`);
 }
