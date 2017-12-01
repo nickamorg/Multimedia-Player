@@ -374,15 +374,17 @@
 					<div id="songs_albums" class="clickableElement filter__item" onclick="toggle_songs_tabs('albums')">
 						Albums
 					</div>
-
-					<div id="songs_apply" class="clickableElement filter__item" onclick="mysongs_apply()">
-						Apply
-					</div>
 				</div>
 				<div class="col-xs-10">
 					<div class="card">
 						<div id="display_songs_genres">
-							<h1>Genres</h1>
+							<div style="display: flex; justify-content: space-between;">
+                                <h1>Genres</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="mysongs_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                              </div>
 							<div class="filter--content">
 								<div>
 									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock.jpg" alt="Rock" onclick="add_remove_mysongs_filters_option('genre', 'Rock', this)">
@@ -428,7 +430,13 @@
 						</div>
 
 						<div id="display_songs_release_date">
-							<h1>Release Date</h1>
+							<div style="display: flex; justify-content: space-between;">
+                                <h1>Genres</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="mysongs_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
 							<div class="filter--content">
 								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '1984', this)">
 									<p>
@@ -459,7 +467,13 @@
 						</div>
 
 						<div id="display_songs_artists">
-							<h1>Artists</h1>
+							<div style="display: flex; justify-content: space-between;">
+                                <h1>Genres</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="mysongs_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
 							<div class="filter--content">
 								<div>
 									<img class="clickableElement img-circle filter--image" src="../ressrc/search/elvis-presley.jpg" alt="elvis-presley" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
@@ -485,7 +499,13 @@
 						</div>
 
 						<div id="display_songs_albums">
-							<h1>Albums</h1>
+							<div style="display: flex; justify-content: space-between;">
+                                <h1>Genres</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="mysongs_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
 							<div class="filter--content">
 								<div>
 									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock-or-burst-by-ac-dc.jpg" alt="Rock or Burst" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
