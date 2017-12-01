@@ -178,6 +178,7 @@ function display_serie_details(serie_id) {
         add_to_myseries(serie_id);
     });
 
+    visitedPagesStack.setNewLastVisitedPage('serie_page');
     PageTransitions.goToPage(2, 'serie_page');
 
     $("#serie_related_content").html("");
@@ -295,7 +296,6 @@ function set_series_genres() {
     current_series = [];
     series_counter = 0;
     var counter = 1;
-    console.log(genres);
     for(let i = 0; i < genres.length; i++) {
         for(let j = 0; j < series.crowd; j++) {
             if(current_series.indexOf("id" + j) == -1 && series["id" + j].genre.indexOf(genres[i]) > -1) {
@@ -318,7 +318,6 @@ function set_series_genres() {
 
 function set_series_by_genre(genre) {
     $("#series_by_genres_content").html("");
-
     let counter = 1;
     for(let i = 0; i < series.crowd; i++) {
         if(series["id" + i].genre.indexOf(genre) > -1) {

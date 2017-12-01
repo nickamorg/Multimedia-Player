@@ -14,6 +14,17 @@ class VisitedPagesStack {
             playerAPI.playing.pause();
             visitedPagesStack = new VisitedPagesStack();
         }
+
+        document.getElementById("movies_video").currentTime = 0;
+        movie_width = 0;
+        document.getElementById("movies_video").pause();
+        $('.movie_volume_bar').css('width', '50%');
+
+        document.getElementById("series_video").currentTime = 0;
+        serie_width = 0;
+        document.getElementById("series_video").pause();
+        $('.serie_volume_bar').css('width', '50%');
+
         PageTransitions.goToPage(2, this.stack[this.counter]);
 
     }
