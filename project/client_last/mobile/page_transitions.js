@@ -137,6 +137,12 @@ $(document).ready(function () {
         PageTransitions.goToPage(1, 'movies_tops');
     });
 
+    $('.to_movies_search').click(function () {
+        reset();
+        visitedPagesStack.setNewLastVisitedPage('movie_search');
+        PageTransitions.goToPage(1, 'movie_search');
+    });
+
     $('#movies_genres_link').click(function () {
         reset();
         set_movies_genres();
