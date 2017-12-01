@@ -1,6 +1,7 @@
 let series_video = document.getElementById("series_video");
 
 function setSeriesPlayer(serie_id) {
+
     PageTransitions.goToPage(2, 'series_player');
     serie = series[serie_id];
     $("#series_video").find("source")[0].src = "../ressrc/series/" + serie.file;

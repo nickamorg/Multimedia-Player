@@ -9,6 +9,8 @@ var Sockets = (function () {
    */
   function Connect() {
     socketConnection = new WebSocket(GlobalConfig.Connections.Sockets);
+		season_value = 0;
+		episode_value = 0;
 
     socketConnection.onopen = function () {
       console.info("Sockets connected!");
@@ -207,24 +209,22 @@ var Sockets = (function () {
 			  
 			  if(msg.message["serialNumber"] === 65317) {
 				  if($(".pt-page-current")[0].id === "movies_player") {
-					document.getElementById("movies_video").volume = value;
-					$(".movie_volume_bar").width(value * 100);
+						document.getElementById("movies_video").volume = value;
+						$(".movie_volume_bar").width(value * 100);
 				  } else if($(".pt-page-current")[0].id === "series_player") {
-					document.getElementById("series_video").volume = value;
-					$(".serie_volume_bar").width(value * 100);
+						document.getElementById("series_video").volume = value;
+						$(".serie_volume_bar").width(value * 100);
 				  } else if($(".pt-page-current")[0].id.includes("song") === true) {
-					playerAPI.playing.volume = value;
-					$(".volumeBar").width(value * 100);
+						playerAPI.playing.volume = value;
+						$(".volumeBar").width(value * 100);
 				  }
 			  } else if(msg.message["serialNumber"] === 65451) {
 				  if($(".pt-page-current")[0].id === "movies_player") {
-					document.getElementById("movies_video").volume = value;
-					$(".movie_volume_bar").width(value * 100);
+						$(".pt-page-current").find(".movies_content ").scrollTop($(".pt-page-current").find(".movies_content").height() * (1 - value));
 				  } else if($(".pt-page-current")[0].id === "series_player") {
-					document.getElementById("series_video").volume = value;
-					$(".serie_volume_bar").width(value * 100);
+						$(".pt-page-current").find(".series_content").scrollTop($(".pt-page-current").find(".series_content").height() * (1 - value));
 				  } else if($(".pt-page-current")[0].id.includes("song") === true) {
-					$(".pt-page-current").find(".content").scrollTop($(".pt-page-current").find(".content").height() * (1 - value));
+							$(".pt-page-current").find(".content").scrollTop($(".pt-page-current").find(".content").height() * (1 - value));
 				  }
 				  
 			  }
@@ -243,16 +243,35 @@ var Sockets = (function () {
 				  playerAPI.playPause();
 			  }
 		  } else if(msg.message["gestureType"] === "SwipeLeft") {
-			  if($(".pt-page-current")[0].id === "series_player") {
-				  /*		*/
-			  } else if($(".pt-page-current")[0].id.includes("song")) {
+			  if($(".pt-page-current")[0].id.includes("song")) {
 				  playerAPI.prev();
+			  } else if($(".pt-page-current")[0].id === "serie_page") {
+					season_value += 100;
+					season_value = season_value>$( "#serie_full-screen .scrollBar" ).width()?$( "#serie_full-screen .scrollBar" ).width():season_value;
+					//$( "#serie_full-screen .scrollBar" ).scrollLeft($( "#serie_full-screen .scrollBar" ).width() * 0.9 );
+					$( "#serie_full-screen .scrollBar" ).scrollLeft(season_value);
+				}  else if($(".pt-page-current")[0].id === "series_episodes") {
+					episode_value += 100;
+					episode_value = episode_value>$( "#series_episodes .scrollBar" ).width()?$( "#series_episodes .scrollBar" ).width():episode_value;
+					//$( "#serie_full-screen .scrollBar" ).scrollLeft($( "#serie_full-screen .scrollBar" ).width() * 0.9 );
+					$( "#series_episodes .scrollBar" ).scrollLeft(season_value);
+				} else if($(".pt-page-current")[0].id === "series_player") {
+				  /*		*/
 			  }
 		  } else if(msg.message["gestureType"] === "SwipeRight") {
-			  if($(".pt-page-current")[0].id === "series_player") {
-				  /*		*/
-			  } else if($(".pt-page-current")[0].id.includes("song")) {
+			  if($(".pt-page-current")[0].id.includes("song")) {
 				  playerAPI.next();
+			  } else if($(".pt-page-current")[0].id === "serie_page") {
+					season_value -= 100;
+					season_value = season_value>0?season_value:0;
+					//$( "#serie_full-screen .scrollBar" ).scrollLeft($( "#serie_full-screen .scrollBar" ).width() * 0.9 );
+					$( "#serie_full-screen .scrollBar" ).scrollLeft(season_value);
+				} else if($(".pt-page-current")[0].id === "series_episodes") {
+					episode_value -= 100;
+					episode_value = episode_value>0?episode_value:0;
+					$( "#series_episodes .scrollBar" ).scrollLeft(episode_value);
+				} else if($(".pt-page-current")[0].id === "series_player") {
+				  /*		*/
 			  }
 		  } else if(msg.message["gestureType"].includes("SwipeUp")) {
 			  if($(".pt-page-current")[0].id === "movies_player") {
