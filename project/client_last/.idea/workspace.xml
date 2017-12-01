@@ -14,10 +14,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tv/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
+            <state relative-caret-position="559">
               <caret line="1745" column="42" lean-forward="false" selection-start-line="1745" selection-start-column="42" selection-end-line="1745" selection-end-column="42" />
               <folding>
                 <element signature="n#script#23;n#head#0;n#html#0;n#!!top" expanded="false" />
@@ -67,6 +67,27 @@
                 <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#3;n#div#0;n#div#33;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#4;n#div#0;n#div#3;n#div#0;n#div#33;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#5;n#div#0;n#div#3;n#div#0;n#div#33;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="playerAPI.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tv/songs/js/playerAPI.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="970" column="21" lean-forward="true" selection-start-line="970" selection-start-column="21" selection-end-line="970" selection-end-column="21" />
+              <folding>
+                <marker date="1512159477342" expanded="true" signature="41950:41964" ph="..." />
+                <marker date="1512159477342" expanded="true" signature="41977:41985" ph="..." />
+                <marker date="1512159477342" expanded="true" signature="45327:45341" ph="..." />
+                <marker date="1512159477342" expanded="true" signature="45354:45362" ph="..." />
+                <marker date="1512159477342" expanded="true" signature="46353:46367" ph="..." />
+                <marker date="1512159477342" expanded="true" signature="46380:46388" ph="..." />
+                <marker date="1512159477342" expanded="true" signature="48339:48592" ph="..." />
+                <marker date="1512159477342" expanded="false" signature="48467:48533" ph="..." />
+                <marker date="1512159477342" expanded="true" signature="50035:50049" ph="..." />
+                <marker date="1512159477342" expanded="true" signature="50062:50070" ph="..." />
               </folding>
             </state>
           </provider>
@@ -515,7 +536,6 @@
         <option value="$PROJECT_DIR$/mobile/series/js/series_header.js" />
         <option value="$PROJECT_DIR$/desktop/series/js/serie_player.js" />
         <option value="$PROJECT_DIR$/tv/songs/css/general.css" />
-        <option value="$PROJECT_DIR$/tv/songs/js/playerAPI.js" />
         <option value="$PROJECT_DIR$/desktop/songs/js/playerAPI.js" />
         <option value="$PROJECT_DIR$/tv/songs/js/websockets.js" />
         <option value="$PROJECT_DIR$/desktop/songs/js/websockets.js" />
@@ -555,6 +575,7 @@
         <option value="$PROJECT_DIR$/tv/movies/js/movies_header.js" />
         <option value="$PROJECT_DIR$/tv/series/js/series_header.js" />
         <option value="$PROJECT_DIR$/tv/index.html" />
+        <option value="$PROJECT_DIR$/tv/songs/js/playerAPI.js" />
       </list>
     </option>
   </component>
@@ -811,12 +832,12 @@
       <workItem from="1512027994694" duration="5407000" />
       <workItem from="1512059635246" duration="300000" />
       <workItem from="1512073935547" duration="4946000" />
-      <workItem from="1512149316093" duration="5852000" />
+      <workItem from="1512149316093" duration="6652000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250788000" />
+    <option name="totallyTimeSpent" value="251588000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
@@ -1444,14 +1465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tv/songs/js/playerAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1124" column="23" lean-forward="false" selection-start-line="1124" selection-start-column="23" selection-end-line="1124" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tv/songs/js/websockets.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -1618,19 +1631,6 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#em#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#3;n#div#0;n#div#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#32;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#em#0;n#button#0;n#div#2;n#div#0;n#div#32;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#32;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -2168,7 +2168,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tv/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
+        <state relative-caret-position="559">
           <caret line="1745" column="42" lean-forward="false" selection-start-line="1745" selection-start-column="42" selection-end-line="1745" selection-end-column="42" />
           <folding>
             <element signature="n#script#23;n#head#0;n#html#0;n#!!top" expanded="false" />
@@ -2218,6 +2218,25 @@
             <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#3;n#div#0;n#div#33;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#4;n#div#0;n#div#3;n#div#0;n#div#33;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#5;n#div#0;n#div#3;n#div#0;n#div#33;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tv/songs/js/playerAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="970" column="21" lean-forward="true" selection-start-line="970" selection-start-column="21" selection-end-line="970" selection-end-column="21" />
+          <folding>
+            <marker date="1512159477342" expanded="true" signature="41950:41964" ph="..." />
+            <marker date="1512159477342" expanded="true" signature="41977:41985" ph="..." />
+            <marker date="1512159477342" expanded="true" signature="45327:45341" ph="..." />
+            <marker date="1512159477342" expanded="true" signature="45354:45362" ph="..." />
+            <marker date="1512159477342" expanded="true" signature="46353:46367" ph="..." />
+            <marker date="1512159477342" expanded="true" signature="46380:46388" ph="..." />
+            <marker date="1512159477342" expanded="true" signature="48339:48592" ph="..." />
+            <marker date="1512159477342" expanded="false" signature="48467:48533" ph="..." />
+            <marker date="1512159477342" expanded="true" signature="50035:50049" ph="..." />
+            <marker date="1512159477342" expanded="true" signature="50062:50070" ph="..." />
           </folding>
         </state>
       </provider>
