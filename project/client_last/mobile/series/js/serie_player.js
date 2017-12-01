@@ -182,6 +182,8 @@ function display_serie_details(serie_id) {
     <span><img width="30" height="15" src="../ressrc/series_images/imdb.png"></span> ${serie.rate}`);
     $('#serie_description').text(serie.description);
 
+    $('#serie_landscape_img').attr("src", `../ressrc/series_images/background/${serie.img}`);
+
     $('#serie_display_play').click(function() {
         setSeriesPlayer(serie_id);
     });

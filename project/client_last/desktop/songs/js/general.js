@@ -34,7 +34,7 @@ class VisitedPagesStack {
         serie_width = 0;
         document.getElementById("series_video").pause();
         $('.serie_volume_bar').css('width', '50%');
-        
+
         PageTransitions.goToPage(2, this.stack[this.counter]);
     }
 

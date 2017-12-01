@@ -106,7 +106,7 @@ $(document).ready(function () {
 
     $('#season-7').click(function () {
         reset();
-        visitedPagesStack.setNewLastVisitedPage("serie_page");
+        visitedPagesStack.setNewLastVisitedPage("serie_episodes");
         PageTransitions.goToPage(1, 'serie_episodes');
     });
 
