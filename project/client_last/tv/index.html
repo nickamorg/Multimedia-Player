@@ -1794,20 +1794,19 @@
 					Release Date
 				</div>
 				<div id="movies_artists" class="clickableElement filter__item" onclick="toggle_movies_tabs('artists')">
-					Artists
-				</div>
-				<div id="movies_albums" class="clickableElement filter__item" onclick="toggle_movies_tabs('albums')">
-					Albums
-				</div>
-
-				<div id="movies_apply" class="clickableElement filter__item" onclick="mymovies_apply()">
-					Apply
+					Rating
 				</div>
 			</div>
 			<div class="col-xs-10">
 				<div class="card">
 					<div id="display_movies_genres">
-						<h1>Genres</h1>
+						<div style="display: flex; justify-content: space-between;">
+                            <h1>Genres</h1>
+                            <div style="font-size: 24px !important;">
+                                <button onclick="mymovies_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
 						<div class="filter--content">
 							<div>
 								<img class="clickableElement img-circle filter--image" src="../ressrc/search/action_horror.jpg" alt="Action Horror">
@@ -1845,7 +1844,13 @@
 					</div>
 
 					<div id="display_movies_release_date">
-						<h1>Release Date</h1>
+						<div style="display: flex; justify-content: space-between;">
+                            <h1>Rlease Date</h1>
+                            <div style="font-size: 24px !important;">
+                                <button onclick="mymovies_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
 						<div class="filter--content">
 							<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '1984', this)">
 								<p>
@@ -1876,7 +1881,13 @@
 					</div>
 
 					<div id="display_movies_artists">
-						<h1>Artists</h1>
+						<div style="display: flex; justify-content: space-between;">
+                            <h1>Rating</h1>
+                            <div style="font-size: 24px !important;">
+                                <button onclick="mymovies_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
 						<div class="filter--content">
 							<div>
 								<img class="clickableElement img-circle filter--image" src="../ressrc/search/elvis-presley.jpg" alt="elvis-presley" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
