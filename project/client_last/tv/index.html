@@ -3303,20 +3303,20 @@
 						Release Date
 					</div>
 					<div id="series_search_artists" class="clickableElement filter__item" onclick="toggle_series_search_tabs('artists')">
-						Artists
-					</div>
-					<div id="series_search_albums" class="clickableElement filter__item" onclick="toggle_series_search_tabs('albums')">
-						Albums
+						Rating
 					</div>
 
-					<div id="series_search_apply" class="clickableElement filter__item" onclick="myseries_search_apply()">
-						Apply
-					</div>
 				</div>
 				<div class="col-xs-10">
 					<div class="card">
 						<div id="display_series_search_genres">
-							<h1>Genres</h1>
+							<div style="display: flex; justify-content: space-between;">
+                                <h1>Genres</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="myseries_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
 							<div class="filter--content">
 								<div>
 									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock.jpg" alt="Rock" onclick="add_remove_mysongs_filters_option('genre', 'Rock', this)">
@@ -3362,7 +3362,13 @@
 						</div>
 
 						<div id="display_series_search_release_date">
-							<h1>Release Date</h1>
+							<div style="display: flex; justify-content: space-between;">
+                                <h1>Release Date</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="myseries_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
 							<div class="filter--content">
 								<div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '1984', this)">
 									<p>
@@ -3393,7 +3399,13 @@
 						</div>
 
 						<div id="display_series_search_artists">
-							<h1>Artists</h1>
+							<div style="display: flex; justify-content: space-between;">
+                                <h1>Rating</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="myseries_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
 							<div class="filter--content">
 								<div>
 									<img class="clickableElement img-circle filter--image" src="../ressrc/search/elvis-presley.jpg" alt="elvis-presley" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
@@ -3414,32 +3426,6 @@
 								<div>
 									<img class="clickableElement img-circle filter--image" src="../ressrc/search/PnB-Rock.jpg" alt="PnB Rock" onclick="add_remove_mysongs_filters_option('artist', ' ', this)">
 									<p class="text-center">PnB Rock</p>
-								</div>
-							</div>
-						</div>
-
-						<div id="display_series_search_albums">
-							<h1>Albums</h1>
-							<div class="filter--content">
-								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rock-or-burst-by-ac-dc.jpg" alt="Rock or Burst" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
-									<p class="text-center">Rock or Burst</p>
-								</div>
-								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/rockstar-by-post-malone.jpg" alt="Rockstar" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
-									<p class="text-center">Rockstar</p>
-								</div>
-								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/let-there-be-rock-by-ac-dc.jpg" alt="let-there-be-rock-by-ac-dc" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
-									<p class="text-center">Let There Be Rock</p>
-								</div>
-								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/Rockabye-(feat.-Sean-Paul-&-&Anne-Marie)-by-Clean-Bandit.jpg" alt="Rockabye" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
-									<p class="text-center">Rockabye</p>
-								</div>
-								<div>
-									<img class="clickableElement img-circle filter--image" src="../ressrc/search/In-Rock-by-Stelios-Rokkos.jpg" alt="In Rock" onclick="add_remove_mysongs_filters_option('album', ' ', this)">
-									<p class="text-center">In Rock</p>
 								</div>
 							</div>
 						</div>
