@@ -23,8 +23,9 @@
 }
 
 .img-movie {
-    width: 188px !important;
+    width: 100% !important;
     height: 250px !important;
+    display: block;
 }
 
 .child {
@@ -230,4 +231,9 @@ video {
 
 .movies_content {
     height:84.3%;
+}
+
+.movie {
+    width: 25%;
+    padding: 10px;
 }
