@@ -324,7 +324,7 @@ function add_new_playlist(playlist) {
 // Get the button that opens the modal
 // When the user clicks the button, open the modal
 function open_playlists_modal(song_id) {
-    $("#playlists_modal").find("h2")[0].innerHTML = "Choose playlist for '" + playerAPI.songs[song_id].title + "'";
+    $("#playlists_modal").find("h3")[0].innerHTML = "Choose playlist for '" + playerAPI.songs[song_id].title + "'";
     $("#add").click(function() {
         new_playlist = $("#set_new_playlist").val();
         add_new_playlist(new_playlist);
@@ -340,9 +340,7 @@ function open_playlists_modal(song_id) {
             playlists = JSON.parse(message.data);
             keys = Object.keys(playlists);
 
-            html_display = `
-                <h3 style="color: white;">Playlists</h3>
-                <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="New Plalist"></input></div>`;
+            html_display = ``;
 
             for(i = 0; i < playlists.crowd; i++) {
                 html_display += `
@@ -351,9 +349,15 @@ function open_playlists_modal(song_id) {
                                 </div>`;
             }
 
+
             html_display += `
                 <div class="col-xs-12"><button style="width:100%; color: white;">My songs</button></div>
                 <div class="clearfix"></div>`;
+
+             html_display += `
+                            <h3>Add to new Playlist</h3>
+                            <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="New Plalist"></input></div>`;
+
             $(".modal-body")[0].innerHTML = html_display;
             $("#playlists_modal").css("display", "block");
         };
