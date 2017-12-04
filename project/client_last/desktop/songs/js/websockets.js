@@ -31,7 +31,7 @@ function send_mysongs() {
 
                 $(".display_songs").find("tbody").append(
                     `<tr>
-                            <td><button onclick="play_mysong('${i}')"><em class="fa">&#xf01d;</em></button></td>
+                            <td><button onclick="play_mysong('${i}')" class="fa fa-play-circle-o ${playerAPI.mysongs[i]}"></button></td>
                             <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
                             <td><button onclick="remove_from_mysongs('${id}', this)"><em class="fa fa-minus"></em></button></td>
                             <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
@@ -109,6 +109,10 @@ function play_mysong(curr_song) {
         myBar.css("width", "0");
     });
     $("#playing")[0].play();
+    $(".fa-pause-circle-o").addClass("fa-play-circle-o");
+    $(".fa-pause-circle-o").removeClass("fa-pause-circle-o");
+    $("." + playerAPI.playlist[curr_song]).removeClass("fa-play-circle-o");
+    $("." + playerAPI.playlist[curr_song]).addClass("fa-pause-circle-o");
     $(".title").html(playerAPI.songs[playerAPI.playlist[curr_song]].title + '<button onclick="open_playlists_modal(\'' + playerAPI.playlist[curr_song] + '\')"><em class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[curr_song]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[curr_song]].img);
@@ -245,7 +249,7 @@ function apply_filters_mysong() {
             song = playerAPI.songs[tmp_mysongs[i]];
             $("#mysongs_table").find("tbody").append(
                 `<tr>
-                    <td><button onclick="play_mysong(${i})"><em class="fa">&#xf01d;</em></button></td>
+                    <td><button onclick="play_mysong(${i})" class="fa fa-play-circle-o ${playerAPI.mysongs[i]}"></button></td>
                     <td><button onclick="open_playlists_modal('${tmp_mysongs[i]}');"><em class="fa fa-plus"></em></button></td>
                     <td><button onclick="remove_playlist('${tmp_mysongs[i]}', this)"><em class="fa fa-minus"></em></button></td>
                     <td><button onclick="display_song_details('${tmp_mysongs[i]}')">${song.title}</button></td>
@@ -459,7 +463,7 @@ function read_playlist(playlist) {
                 playerAPI.tmpPlaylist[i] = id;
                 $("#playlist_songs").find("tbody").append(
                     `<tr>
-                            <td><button onclick="play_mysong('${i}')"><em class="fa">&#xf01d;</em></button></td>
+                            <td><button onclick="play_mysong('${i}')" class="fa fa-play-circle-o ${id}"></button></td>
                             <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
                             <td><button onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-minus"></em></button></td>
                             <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
@@ -553,7 +557,7 @@ function search_songs(keywords) {
         albums[i] = song.album;
         $("#mysongs_table").find("tbody").append(
             `<tr>
-                <td><button onclick="play_song(${id})"><em class="fa">&#xf01d;</em></button></td>
+                <td><button onclick="play_song(${id})" class="fa fa-play-circle-o ${"id" + i}"></button></td>
                 <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
                 <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
                 <td>${song.artist}</td>
@@ -735,7 +739,7 @@ function apply_filters_search() {
             song = playerAPI.songs["id" + i];
             $("#mysongs_table").find("tbody").append(
                 `<tr>
-                    <td><button onclick="play_song('${"id" + i}')"><em class="fa">&#xf01d;</em></button></td>
+                    <td><button onclick="play_song('${"id" + i}')" class="fa fa-play-circle-o ${"id" + i}"></button></td>
                     <td><button onclick="open_playlists_modal('${"id" + i}')"><em class="fa">&#xf067;</em></button></td>
                     <td><button onclick="display_song_details('${"id" + i}')">${song.title}</button></td>
                     <td>${song.artist}</td>
