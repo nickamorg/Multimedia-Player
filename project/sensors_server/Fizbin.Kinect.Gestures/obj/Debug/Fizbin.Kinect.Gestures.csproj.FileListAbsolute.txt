@@ -55,3 +55,11 @@ C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Ki
 C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csproj.CoreCompileInputs.cache
 C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
 C:\Users\nicks\Desktop\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\nicks\github\csd\hy469\project\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\nicks\github\csd\hy469\project\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.pdb
+C:\Users\nicks\github\csd\hy469\project\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.dll
+C:\Users\nicks\github\csd\hy469\project\sensors_server\Fizbin.Kinect.Gestures\bin\Debug\Microsoft.Kinect.xml
+C:\Users\nicks\github\csd\hy469\project\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csprojResolveAssemblyReference.cache
+C:\Users\nicks\github\csd\hy469\project\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.csproj.CoreCompileInputs.cache
+C:\Users\nicks\github\csd\hy469\project\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.dll
+C:\Users\nicks\github\csd\hy469\project\sensors_server\Fizbin.Kinect.Gestures\obj\Debug\Fizbin.Kinect.Gestures.pdb

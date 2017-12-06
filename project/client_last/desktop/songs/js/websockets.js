@@ -264,7 +264,12 @@ function apply_filters_mysong() {
 
 function play_song(curr_song) {
     add_recently_played_song(curr_song);
-    playerAPI.playlist = playerAPI.tmpPlaylist;
+    // playerAPI.playlist = playerAPI.tmpPlaylist;
+    for (i = 0; i < playerAPI.songs.crowd; i++) {
+        playerAPI.playlist[i] = "id" + i;
+        playerAPI.tmpPlaylsit[i] = "id" + i;
+    }
+    playerAPI.row = playerAPI.playlist.indexOf(curr_song);
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[curr_song].file;
     $("#playing")[0].load();
 

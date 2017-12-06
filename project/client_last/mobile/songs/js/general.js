@@ -42,3 +42,47 @@ class VisitedPagesStack {
 }
 
 visitedPagesStack = new VisitedPagesStack();
+
+var interaction = new WebSocket('ws://' + "localhost" + ':6556');
+
+interaction.onmessage = function (message) {
+    json = JSON.parse(message.data);
+
+    if(json["category"] === "play") {
+        if(json["device"] === "mobile") {
+            if($(".pt-page-current")[0].id === "movies_player") {
+                setMoviesPlayer(json["id"]);
+            } else if($(".pt-page-current")[0].id === "series_player") {
+                setSeriesPlayer(json["id"]);
+            } else if($(".pt-page-current")[0].id.includes("song")) {
+                play_song(json["id"]);
+            }
+        } else {
+            playerAPI.playing.pause();
+            movies_video.pause();
+            series_video.pause();
+        }
+    }
+    // play_song("id1");
+    $('#interaction_modal').css('display', 'none');
+    console.log(JSON.parse(message.data));
+};
+
+function open_interaction_modal() {
+    $('#interaction_modal').css('display', 'block');
+}
+
+function remote_playing(device) {
+    let id = 0;
+    if($(".pt-page-current")[0].id === "movies_player") {
+        id = curr_movie_id;
+    } else if($(".pt-page-current")[0].id === "series_player") {
+        id = curr_serie_id;
+    } else if($(".pt-page-current")[0].id.includes("song")) {
+        id = playerAPI.playlist[playerAPI.row];
+    }
+
+    let json = `{ "type": "interaction", "category": "play", "device": "${device}", "id":"` + id + '"}';
+
+    interaction.send(json);
+}

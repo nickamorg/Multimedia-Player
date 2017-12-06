@@ -21,7 +21,7 @@ function isJSON(str) {
 }
 
 wsServer.on('connection', function connection(ws) {
-    console.log("perfect");
+    console.log("perfect   "   + clients.length);
     //new client connected - add client to list
     clients.push(ws);
 
@@ -40,6 +40,7 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
+                clients.pop(ws);
             } else if(message["type"] === "add to my movies") {
                 var fs = require('fs');
                 fs.appendFile("data/mymovies.txt", message["movie_id"] + "\n", function(err) {
@@ -49,6 +50,7 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
+                clients.pop(ws);
             } else if(message["type"] === "add to my series") {
                 var fs = require('fs');
                 fs.appendFile("data/myseries.txt", message["serie_id"] + "\n", function(err) {
@@ -58,6 +60,7 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
+                clients.pop(ws);
             } else if(message["type"] === "add to playlist") {
                 var fs = require('fs');
                 fs.appendFile("data/playlists/" + message["playlist"] + ".txt", message["song_id"] + "\r\n", function(err) {
@@ -67,6 +70,7 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
+                clients.pop(ws);
             } else if(message["type"] === "new playlist") {
                 var fs = require('fs');
 				fs.closeSync(fs.openSync("data/playlists/" + message["playlist"] + ".txt", 'w'));
@@ -77,6 +81,7 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
+                clients.pop(ws);
             } else  if(message["type"] === "new recent") {
                 var fs = require('fs');
                 fs.appendFile("data/recently_played.txt", message["song_id"] + "\n", function(err) {
@@ -86,6 +91,7 @@ wsServer.on('connection', function connection(ws) {
 
                     console.log("The file was saved!");
                 }); 
+                clients.pop(ws);
 			} else  if(message["type"] === "playlist") {
                 var fs = require('fs');
                 fs.readFile("data/playlists/" + message["title"] + ".txt", function read(err, data) {
@@ -94,6 +100,7 @@ wsServer.on('connection', function connection(ws) {
                     }
                     ws.send("" + data);
                 });
+                clients.pop(ws);
 			} else if(message["type"] === "remove playlist") {
                 var fs = require('fs');
 				fs.readFile("data/playlists.txt", 'utf8', function (err,data) {
@@ -115,7 +122,8 @@ wsServer.on('connection', function connection(ws) {
 					fs.writeFile("data/playlists.txt", data, 'utf8', function (err) {
 						if (err) return console.log(err);
 					});
-				});
+                });
+                clients.pop(ws);
             } else if(message["type"] === "remove from playlist") {
                 var fs = require('fs');
 				fs.readFile("data/playlists/" + message["playlist"] + ".txt", 'utf8', function (err,data) {
@@ -137,7 +145,8 @@ wsServer.on('connection', function connection(ws) {
 					fs.writeFile("data/playlists/" + message["playlist"] + ".txt", data, 'utf8', function (err) {
 						if (err) return console.log(err);
 					});
-				});
+                });
+                clients.pop(ws);
             } else if(message["type"] === "remove from mysongs") {
                 var fs = require('fs');
 				fs.readFile("data/mysongs.txt", 'utf8', function (err,data) {
@@ -159,7 +168,8 @@ wsServer.on('connection', function connection(ws) {
 					fs.writeFile("data/mysongs.txt", data, 'utf8', function (err) {
 						if (err) return console.log(err);
 					});
-				});
+                });
+                clients.pop(ws);
 			} else if(message["type"] === "remove from mymovies") {
                 var fs = require('fs');
 				fs.readFile("data/mymovies.txt", 'utf8', function (err,data) {
@@ -181,7 +191,8 @@ wsServer.on('connection', function connection(ws) {
 					fs.writeFile("data/mymovies.txt", data, 'utf8', function (err) {
 						if (err) return console.log(err);
 					});
-				});
+                });
+                clients.pop(ws);
 			} else if(message["type"] === "remove from myseries") {
                 var fs = require('fs');
 				fs.readFile("data/myseries.txt", 'utf8', function (err,data) {
@@ -203,8 +214,15 @@ wsServer.on('connection', function connection(ws) {
 					fs.writeFile("data/myseries.txt", data, 'utf8', function (err) {
 						if (err) return console.log(err);
 					});
-				});
-			}
+                });
+                clients.pop(ws);
+			} else if(message["type"] === "interaction") {
+                console.log("OK   " + clients.length);
+                clients.forEach(client => {
+                    console.log("in");
+                    client.send(JSON.stringify(message));
+                });
+            }
         } else {
             if(message === "mysongs") {
                 var fs = require('fs');
@@ -214,6 +232,7 @@ wsServer.on('connection', function connection(ws) {
                     }
                     ws.send("" + data);
                 });
+                clients.pop(ws);
             } else if(message === "playlists") {
                 var fs = require('fs');
                 fs.readFile("data/playlists.txt", function read(err, data) {
@@ -249,6 +268,7 @@ wsServer.on('connection', function connection(ws) {
 					console.log(json_data);
                     ws.send(json_data);
                 });
+                clients.pop(ws);
             } else if(message === "mymovies") {
                 var fs = require('fs');
                 fs.readFile("data/mymovies.txt", function read(err, data) {
@@ -257,6 +277,7 @@ wsServer.on('connection', function connection(ws) {
                     }
                     ws.send("" + data);
                 });
+                clients.pop(ws);
             }  else if(message === "myseries") {
                 var fs = require('fs');
                 fs.readFile("data/myseries.txt", function read(err, data) {
@@ -265,6 +286,7 @@ wsServer.on('connection', function connection(ws) {
                     }
                     ws.send("" + data);
                 });
+                clients.pop(ws);
             }
         }
 
