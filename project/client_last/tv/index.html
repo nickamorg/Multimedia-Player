@@ -1096,50 +1096,32 @@
                                 <h1>Genres</h1>
                                 <div style="font-size: 24px !important;">
                                     <button onclick="mysongs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
-                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                    <button onclick="mysongs_search_apply()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
                                 </div>
                               </div>
 							  <div class="filter--content">
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="../ressrc/search/rock.jpg" alt="Rock" onclick="add_remove_mysongs_filters_option('genre', 'Rock', this)">
-									  <p class="text-center">Rock</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="http://www.southernmuseumofmusic.com/Spotlight/01-Genre/0-images/Soul-01.png" alt="Soul" onclick="add_remove_mysongs_filters_option('genre', 'Soul', this)">
-									  <p class="text-center">Soul</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/downtempo.jpg" alt="Downtempo" onclick="add_remove_mysongs_filters_option('genre', 'Downtempo', this)">
-									  <p class="text-center">Downtempo</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/alternative_rock.jpg" alt="Alternative Rock" onclick="add_remove_mysongs_filters_option('genre', 'Alternative Rock', this)">
-									  <p class="text-center">Alternative Rock</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/punk_rock.jpg" alt="Punk Rock" onclick="add_remove_mysongs_filters_option('genre', 'Punk rock', this)">
-									  <p class="text-center">Punk Rock</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="http://mindequalsblown.net/wp-content/uploads/2011/10/Pop-Punk-A-Genre-or-a-Lifestyle.jpg" alt="Pop Punk" onclick="add_remove_mysongs_filters_option('pop Punk', 'Rock', this)">
-									  <p class="text-center">Pop Punk</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="../ressrc/songs_images/genres/pop.jpg" alt="Pop" onclick="add_remove_mysongs_filters_option('genre', 'Pop', this)">
-									  <p class="text-center">Pop</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="https://s3.amazonaws.com/broadtime_thumbnails/049/418456283049/418456283049%3A500.jpg" alt="Reggae-Pop" onclick="add_remove_mysongs_filters_option('genre', 'Reggae-pop', this)">
-									  <p class="text-center">Reggae-Pop</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="http://assets.laut.fm/f4636e91afdf315ea3793aad7e19e37b?t=_640x640" alt="Synth-Pop" onclick="add_remove_mysongs_filters_option('genre', 'Synth-pop', this)">
-									  <p class="text-center">Synth-Pop</p>
-								  </div>
-								  <div>
-									  <img class="clickableElement img-circle filter--image" src="https://e.snmc.io/lk/f/s/214fed197e9474874f271214d5a08c5a/6190226.jpg" alt="Hard Rock" onclick="add_remove_mysongs_filters_option('genre', 'Hard Rock', this)">
-									  <p class="text-center">Hard Rock</p>
-								  </div>
+								    <div style="display: flex; justify-content: space-between;">
+                                        <a href="#">
+                                            <img class="clickableElement img-circle results-image" src="../ressrc/search/rock.jpg" alt="Rock">
+                                            <p class="text-center">Rock</p>
+                                        </a>
+                                        <a href="#">
+                                            <img class="clickableElement img-circle results-image" src="../ressrc/search/alternative-rock.jpg" alt="Alternative Rock">
+                                            <p class="text-center">Alternative Rock</p>
+                                        </a>
+                                        <a href="#">
+                                            <img class="clickableElement img-circle results-image" src="../ressrc/search/hard-rock.jpg" alt="Hard Rock">
+                                            <p class="text-center">Hard Rock</p>
+                                        </a>
+                                        <a href="#">
+                                            <img class="clickableElement img-circle results-image" src="../ressrc/search/progressive-rock.jpg" alt="Progressive Rock">
+                                            <p class="text-center">Progressive Rock</p>
+                                        </a>
+                                        <a href="#">
+                                            <img class="clickableElement img-circle results-image" src="../ressrc/search/punk-rock.jpg" alt="Punk Rock">
+                                            <p class="text-center">Punk Rock</p>
+                                        </a>
+                                    </div>
 							  </div>
 						  </div>
 
@@ -1248,9 +1230,8 @@
 							  <article style="padding-top:50px;">
                                 <div style="margin-bottom: 30px;" class="horizontal-tabs">
                                     <a class="active-tab">TOP RESULTS</a>
-                                    <a class="clickableElement" style="color: white; text-decoration: none;">GENRE</a>
-                                    <a class="clickableElement" style="color: white; text-decoration: none;">ARTISTS</a>
                                     <a class="clickableElement" style="color: white; text-decoration: none;">TRACKS</a>
+                                    <a class="clickableElement" style="color: white; text-decoration: none;">ARTISTS</a>
                                     <a class="clickableElement" style="color: white; text-decoration: none;">ALBUMS</a>
                                 </div>
 
@@ -1513,13 +1494,13 @@
                                 <div style="display: none;">
                                     <section>
                                         <h4>Tracks</h4>
-                                        <div style="display: flex; justify-content: space-between;">
+                                        <div class="text-center" style="display: flex; justify-content: space-between;">
                                             <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/perro_fiel.png"/>
-                                                <p>Perro Fiel</p>
-                                                <small>Shakira</small>
+                                                <img class="results-image" src="../ressrc/songs_images/rockabye.jpg"/>
+                                                <p>Rockabye (feat. Sean Paul & Anne-Marie)</p>
+                                                <small>Clean Bandit, Sean Paul, Anne-Marie</small>
                                                 <div class="overlay">
-                                                    <h3 class="text-center">Perro Fiel - Shakira</h3>
+                                                    <h3 class="text-center">Rockabye (feat. Sean Paul & Anne-Marie) - Clean Bandit, Sean Paul, Anne-Marie</h3>
                                                     <div class="options">
                                                         <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
@@ -1536,11 +1517,11 @@
                                                 </div>
                                             </div>
                                             <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/perro_fiel.png"/>
-                                                <p>Perro Fiel</p>
-                                                <small>Shakira</small>
+                                                <img class="results-image" src="../ressrc/songs_images/we-will-rock-you.jpg"/>
+                                                <p>We Will Rock You - Remastered 2011</p>
+                                                <small>Queen</small>
                                                 <div class="overlay">
-                                                    <h3 class="text-center">Perro Fiel - Shakira</h3>
+                                                    <h3 class="text-center">We Will Rock You - Remastered 2011 - Quenn</h3>
                                                     <div class="options">
                                                         <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
@@ -1557,11 +1538,11 @@
                                                 </div>
                                             </div>
                                             <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/perro_fiel.png"/>
-                                                <p>Perro Fiel</p>
-                                                <small>Shakira</small>
+                                                <img class="results-image" src="../ressrc/songs_images/rock-you-like-a-hurricane.jpeg"/>
+                                                <p>Rock You Like a Hurricane</p>
+                                                <small>Scorpions</small>
                                                 <div class="overlay">
-                                                    <h3 class="text-center">Perro Fiel - Shakira</h3>
+                                                    <h3 class="text-center">Rock You Like a Hurricane - Scorpions</h3>
                                                     <div class="options">
                                                         <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
@@ -1578,11 +1559,11 @@
                                                 </div>
                                             </div>
                                             <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/perro_fiel.png"/>
-                                                <p>Perro Fiel</p>
-                                                <small>Shakira</small>
+                                                <img class="results-image" src="../ressrc/songs_images/rockstar.jpg"/>
+                                                <p>rockstar</p>
+                                                <small>Post Malone, 21 Savage</small>
                                                 <div class="overlay">
-                                                    <h3 class="text-center">Perro Fiel - Shakira</h3>
+                                                    <h3 class="text-center">rockstar - Post Malone, 21 Savage</h3>
                                                     <div class="options">
                                                         <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
@@ -1599,11 +1580,11 @@
                                                 </div>
                                             </div>
                                             <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/perro_fiel.png"/>
-                                                <p>Perro Fiel</p>
-                                                <small>Shakira</small>
+                                                <img class="results-image" src="../ressrc/songs_images/rock-the-casbah.jpg"/>
+                                                <p>Rock the Casbah - Remastered</p>
+                                                <small>The Clash</small>
                                                 <div class="overlay">
-                                                    <h3 class="text-center">Perro Fiel - Shakira</h3>
+                                                    <h3 class="text-center">Rock the Casbah - Remastered - The Clash</h3>
                                                     <div class="options">
                                                         <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
