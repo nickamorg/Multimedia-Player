@@ -47,7 +47,7 @@ var interaction = new WebSocket('ws://' + "localhost" + ':6556');
 
 interaction.onmessage = function (message) {
     json = JSON.parse(message.data);
-
+console.log(json);
     if(json["category"] === "play") {
         if(json["device"] === "mobile") {
             if($(".pt-page-current")[0].id === "movies_player") {
@@ -62,6 +62,9 @@ interaction.onmessage = function (message) {
             movies_video.pause();
             series_video.pause();
         }
+    } else if(json["category"] === "search") {
+        console.log("lala");
+        PageTransitions.goToPage(1, 'search_inter');
     }
     // play_song("id1");
     $('#interaction_modal').css('display', 'none');
@@ -83,6 +86,13 @@ function remote_playing(device) {
     }
 
     let json = `{ "type": "interaction", "category": "play", "device": "${device}", "id":"` + id + '"}';
+
+    interaction.send(json);
+}
+
+function search_input() {
+
+    let json = `{ "type": "interaction", "category": "search",  "message":"` + $("#search").val() + '"}';
 
     interaction.send(json);
 }

@@ -7,9 +7,9 @@ function setHeader(active) {
             <li style="float: left">
                 <form style="padding-top:10px" class="navbar-form navbar-left">
                     <div class="input-group">
-                        <input id="keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="Search for music">
-                        <div class="to_songs_search input-group-btn" style="background-color:#ffffff">
-                            <a style="padding-top:0; padding-bottom:0" class="clickableElement" type="submit">
+                        <input onclick="search_inter()" style="padding-top:21px; padding-bottom:21px" type="text" class="keywords clickableElement form-control" size="50" placeholder="Search for music">
+                        <div class="to_songs_search input-group-btn clickableElement" style="background-color:#ffffff">
+                            <a class="btn btn-default" type="submit">
                                 <i style="color:#000000" class="glyphicon glyphicon-search"></i>
                             </a>
                         </div>

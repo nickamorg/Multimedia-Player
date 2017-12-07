@@ -2288,6 +2288,17 @@
             </div>
         </div>
         <!-- END PAGE 10 - SERIES PLAYER -->
+
+        <div id="search_inter" class="pt-page">
+            <input id="search" style="padding: 30px 30px" class="form-control" placeholder="keywords" value="rock"/>
+            <div class="player text-center" style="display: block;">
+                <div class="col-xs-12">
+                    <div class="to_song_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-music"></em><p style="font-size:24px">Explore</p></button></div>
+                    <div class="to_movies_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-film"></em><p style="font-size:24px">My movies</p></button></div>
+                    <div class="to_series_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-tv"></em><p style="font-size:24px">My series</p></button></div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- END PAGES -->
     <script>
@@ -2341,6 +2352,13 @@
     <script>
         $("#mysongs_input_keywords").on("change paste keyup", function() {
             apply_filters_mysong();
+        });
+    </script>
+
+    <script>
+        $("#search").on("change paste keyup", function() {
+            console.log($("#search").val());
+            search_input();
         });
     </script>
 </body>

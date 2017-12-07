@@ -67,6 +67,15 @@ interaction.onmessage = function (message) {
             movies_video.pause();
             series_video.pause();
         }
+    } else if(json["category"] === "search") {
+        if($(".pt-page-current")[0].id.includes("movie")) {
+            $(".keywords_movies").val(json["message"]);
+        } else if($(".pt-page-current")[0].id.includes("serie")) {
+            $(".keywords_series").val(json["message"]);
+        } else if($(".pt-page-current")[0].id.includes("song")) {
+            $(".keywords").val(json["message"]);
+        }
+        console.log("ok");
     }
     // play_song("id1");
     $('#interaction_modal').css('display', 'none');
@@ -91,3 +100,8 @@ function remote_playing(device) {
 
     interaction.send(json);
 }
+
+function search_inter() {
+    let json = '{ "type": "interaction", "category": "search"}';
+    interaction.send(json);
+};

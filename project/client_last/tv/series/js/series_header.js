@@ -8,7 +8,7 @@ function setSeriesHeader(active) {
             <li style="float: left">
                 <form style="padding-top:10px" class="navbar-form navbar-left">
                     <div class="input-group">
-                        <input style="padding-top:21px; padding-bottom:21px" type="text" class="keywords form-control" size="50" placeholder="Search for series">
+                        <input onclick="search_inter()" style="padding-top:21px; padding-bottom:21px" type="text" class="keywords_series form-control" size="50" placeholder="Search for series">
                         <div class="to_series_search input-group-btn clickableElement">
                             <a class="btn btn-default" type="submit">
                                 <i style="color:#000000" class="glyphicon glyphicon-search"></i>
