@@ -50,12 +50,16 @@ interaction.onmessage = function (message) {
 console.log(json);
     if(json["category"] === "play") {
         if(json["device"] === "mobile") {
-            if($(".pt-page-current")[0].id === "movies_player") {
+            show_hide_menu(json["subcat"]);
+            if(json["subcat"] === "movies") {
                 setMoviesPlayer(json["id"]);
-            } else if($(".pt-page-current")[0].id === "series_player") {
+            } if(json["subcat"] === "series") {
                 setSeriesPlayer(json["id"]);
-            } else if($(".pt-page-current")[0].id.includes("song")) {
+                $("#bottom_menu").hide();
+            } else if(json["subcat"] === "songs") {
                 play_song(json["id"]);
+                display_song_details(json["id"]);
+                $("#bottom_menu").show();
             }
         } else {
             playerAPI.playing.pause();
@@ -77,15 +81,19 @@ function open_interaction_modal() {
 
 function remote_playing(device) {
     let id = 0;
+    let subcat = "";
     if($(".pt-page-current")[0].id === "movies_player") {
         id = curr_movie_id;
+        subcat ="movies";
     } else if($(".pt-page-current")[0].id === "series_player") {
         id = curr_serie_id;
+        subcat = "series";
     } else if($(".pt-page-current")[0].id.includes("song")) {
         id = playerAPI.playlist[playerAPI.row];
+        subcat = "songs";
     }
 
-    let json = `{ "type": "interaction", "category": "play", "device": "${device}", "id":"` + id + '"}';
+    let json = `{ "type": "interaction", "category": "play", "subcat": "${subcat}", "device": "${device}", "id":"` + id + '"}';
 
     interaction.send(json);
 }
@@ -95,4 +103,26 @@ function search_input() {
     let json = `{ "type": "interaction", "category": "search",  "message":"` + $("#search").val() + '"}';
 
     interaction.send(json);
+}
+
+function show_hide_menu(curr) {
+    $("movies_bottom_menu").removeClass("special_menu");
+    $("series_bottom_menu").removeClass("special_menu");
+    document.getElementById("movies_video").load();
+    document.getElementById("series_video").load();
+    playerAPI.playing.load();
+
+    if(curr === "songs") {
+        $("#movies_bottom_menu").hide();
+        $("#series_bottom_menu").hide();
+        $("#bottom_menu").show();
+    } else if(curr === "movies") {
+        $("#movies_bottom_menu").show();
+        $("#series_bottom_menu").hide();
+        $("#bottom_menu").hide();
+    } else if(curr === "series") {
+        $("#movies_bottom_menu").hide();
+        $("#series_bottom_menu").show();
+        $("#bottom_menu").hide();
+    }
 }

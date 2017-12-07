@@ -32,6 +32,7 @@ function setPlayer() {
         </div>
         
         <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
+            <button class="remote clickableElement" onclick="open_interaction_modal()"><em class="fa fa-flash" style="font-size:40px"></em></button>
             <button class="expand clickableElement"><em style="font-size:40px" class="fa">&#xf065;</em></button>
             <button class="clickableElement muted"><em style="font-size:40px" class="fa">&#xf027;</em></button>
             <div style="margin-bottom:4px" class="volume">	<span class="volumeBar"></span></div>

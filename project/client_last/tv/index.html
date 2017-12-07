@@ -3176,7 +3176,8 @@
 				  </div>
 
 				  <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
-					  <button class="movie_muted"><em class="fa">&#xf027;</em></button>
+					  <button class="remote clickableElement" onclick="open_interaction_modal()"><em class="fa fa-flash" style="font-size:40px"></em></button>
+					  <button class="movie_muted clickableElement"><em class="fa" style="font-size:40px">&#xf027;</em></button>
 					  <div style="margin-bottom:4px" class="movie_volume"><span class="movie_volume_bar"></span></div>
 				  </div>
 			  </div>
@@ -3419,7 +3420,8 @@
 				  </div>
 
 				  <div class="col-xs-3 col-sm-2 col-lg-3" style="padding-top:30px">
-					  <button class="serie_muted"><em class="fa">&#xf027;</em></button>
+					  <button class="remote clickableElement" onclick="open_interaction_modal()"><em class="fa fa-flash" style="font-size:40px"></em></button>
+					  <button class="serie_muted clickableElement"><em class="fa" style="font-size:40px">&#xf027;</em></button>
 					  <div style="margin-bottom:4px" class="serie_volume"><span class="serie_volume_bar"></span></div>
 				  </div>
 			  </div>
@@ -4112,7 +4114,6 @@
 		</div>
 			</div>
 		</div>
-	</div>
 	<!-- END PAGE 16 - SERIES_SEARCH-->
 
 
@@ -4276,7 +4277,6 @@
                 </div>
             </div>
         </div>
-	</div>
 	<!-- END PAGE 17 - SERIES_DETAILS -->
 
 
@@ -4294,6 +4294,25 @@
 			  <div class="modal-footer">
 				  <button id="add"><h3>Add</h3></button>
 			  </div>
+		  </div>
+	  </div>
+
+  <!-- Modal - Playlists -->
+  <div id="interaction_modal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+		  <div class="modal-header">
+			  <span id="close_interaction" class="close">&times;</span>
+			  <h3>Remote access</h3>
+		  </div>
+		  <div class="modal-body scrollbar">
+			  <button id="song_player_tv" onclick="remote_playing('tv')" style="width:100%">To TV</button>
+			  <button id="song_player_desktop" onclick="remote_playing('desktop')" style="width:100%">To Desktop</button>
+			  <button id="song_player_mobile" onclick="remote_playing('mobile')" style="width:100%">To Mobile</button>
+		  </div>
+		  <div class="modal-footer">
+			  <button id="cancel"><h3>Cancel</h3></button>
 		  </div>
 	  </div>
   </div>
@@ -4334,12 +4353,28 @@
           modal.style.display = "none";
       };
 
+      // Get the interaction modal
+      var interaction_modal = document.getElementById('interaction_modal');
+
+      // Get the <span> element that closes the modal
+      var interaction_modal_span = document.getElementById("close_interaction");
+
+      // When the user clicks on <span> (x), close the modal
+      interaction_modal_span.onclick = function() {
+          interaction_modal.style.display = "none";
+      };
+
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
           if (event.target == modal) {
               modal.style.display = "none";
           }
-      }
+
+          if (event.target == interaction_modal) {
+              interaction_modal.style.display = "none";
+          }
+      };
+
   </script>
 
   <script>

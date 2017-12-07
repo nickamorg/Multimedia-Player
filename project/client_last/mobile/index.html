@@ -1088,7 +1088,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="close">&times;</span>
+                    <span id="close_playlists" class="close">&times;</span>
                     <h2>Choose the destination list of the track</h2>
                 </div>
                 <div class="modal-body scrollbar">
@@ -1551,6 +1551,10 @@
                 <div class="player text-center">
 
                     <div style="padding-top:30px; padding-bottom:120px;">
+                        <div class="col-xs-12">
+                            <button class="remote" onclick="open_interaction_modal()"><em class="fa fa-flash"></em></button>
+                            <button id="movies_play_pause" class="fa fa-play-circle-o" onclick="playPauseMovie()"></button>
+                        </div>
                         <div style="transform: rotate(90deg); display:inline-block" class="movie_curr_dur">0:00</div>
                         <div class="movie_progress" style="display:inline-block">
                             <div style="width: 2.4193%;" class="movie_bar"></div>
@@ -2275,6 +2279,7 @@
                             <button onclick="prevSerie()"><em class="fa"></em></button>
                             <button id="series_play_pause" class="fa fa-play-circle-o" onclick="playPauseSerie()"></button>
                             <button onclick="nextSerie()"><em class="fa"></em></button>
+                            <button class="remote" onclick="open_interaction_modal()"><em class="fa fa-flash"></em></button>
                         </div>
                         <div style="transform: rotate(90deg); display:inline-block" class="serie_curr_dur">0:08</div>
                         <div class="serie_progress">
@@ -2290,12 +2295,32 @@
         <!-- END PAGE 10 - SERIES PLAYER -->
 
         <div id="search_inter" class="pt-page">
-            <input id="search" style="padding: 30px 30px" class="form-control" placeholder="keywords" value="rock"/>
+            <input id="search" style="padding: 30px 30px" class="form-control" placeholder="keywords" value="search for ..."/>
             <div class="player text-center" style="display: block;">
                 <div class="col-xs-12">
                     <div class="to_song_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-music"></em><p style="font-size:24px">Explore</p></button></div>
                     <div class="to_movies_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-film"></em><p style="font-size:24px">My movies</p></button></div>
                     <div class="to_series_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-tv"></em><p style="font-size:24px">My series</p></button></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal - Playlists -->
+        <div id="interaction_modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="close_interaction" class="close">&times;</span>
+                    <h3>Remote access</h3>
+                </div>
+                <div class="modal-body scrollbar">
+                    <button id="song_player_tv" onclick="remote_playing('tv')" style="width:100%">To TV</button>
+                    <button id="song_player_desktop" onclick="remote_playing('desktop')" style="width:100%">To Desktop</button>
+                    <button id="song_player_mobile" onclick="remote_playing('mobile')" style="width:100%">To Mobile</button>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel"><h3>Cancel</h3></button>
                 </div>
             </div>
         </div>
@@ -2318,24 +2343,55 @@
     <script type="application/javascript" src="series/js/serie_player_control.js"></script>
 
     <script>
-        // Get the modal
-        var modal = document.getElementById('playlists_modal');
+        // Get the playlists modal
+        var playlists_modal = document.getElementById('playlists_modal');
 
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementById("close_playlists");
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
-            modal.style.display = "none";
+            playlists_modal.style.display = "none";
+        };
+
+//        // Get the new playlist modal
+//        var new_playlist_modal = document.getElementById('new_playlist_modal');
+//
+//        // Get the <span> element that closes the modal
+//        var new_playlist_modal_span = document.getElementById("close");
+//
+//        // When the user clicks on <span> (x), close the modal
+//        new_playlist_modal_span.onclick = function() {
+//            new_playlist_modal.style.display = "none";
+//        };
+
+        // Get the interaction modal
+        var interaction_modal = document.getElementById('interaction_modal');
+
+        // Get the <span> element that closes the modal
+        var interaction_modal_span = document.getElementById("close_interaction");
+
+        // When the user clicks on <span> (x), close the modal
+        interaction_modal_span.onclick = function() {
+            interaction_modal.style.display = "none";
         };
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == playlists_modal) {
+                playlists_modal.style.display = "none";
             }
-        }
+
+//            if (event.target == new_playlist_modal) {
+//                new_playlist_modal.style.display = "none";
+//            }
+
+            if (event.target == interaction_modal) {
+                interaction_modal.style.display = "none";
+            }
+        };
     </script>
+
 
     <script>
         function expand_filter(this_elem) {

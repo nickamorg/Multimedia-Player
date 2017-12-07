@@ -55,12 +55,13 @@ interaction.onmessage = function (message) {
 
     if(json["category"] === "play") {
         if(json["device"] === "desktop") {
-            if($(".pt-page-current")[0].id === "movies_player") {
+            if(json["subcat"] === "movies") {
                 setMoviesPlayer(json["id"]);
-            } else if($(".pt-page-current")[0].id === "series_player") {
+            } if(json["subcat"] === "series") {
                 setSeriesPlayer(json["id"]);
-            } else if($(".pt-page-current")[0].id.includes("song")) {
+            } else if(json["subcat"] === "songs") {
                 play_song(json["id"]);
+                display_song_details(json["id"]);
             }
         } else {
             playerAPI.playing.pause();
@@ -81,15 +82,19 @@ function open_interaction_modal() {
 
 function remote_playing(device) {
     let id = 0;
+    let subcat = "";
     if($(".pt-page-current")[0].id === "movies_player") {
         id = curr_movie_id;
+        subcat ="movies";
     } else if($(".pt-page-current")[0].id === "series_player") {
         id = curr_serie_id;
+        subcat = "series";
     } else if($(".pt-page-current")[0].id.includes("song")) {
         id = playerAPI.playlist[playerAPI.row];
+        subcat = "songs";
     }
 
-    let json = `{ "type": "interaction", "category": "play", "device": "${device}", "id":"` + id + '"}';
+    let json = `{ "type": "interaction", "category": "play", "subcat": "${subcat}", "device": "${device}", "id":"` + id + '"}';
 
     interaction.send(json);
 }
