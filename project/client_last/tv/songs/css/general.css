@@ -491,6 +491,7 @@ a {
 
 .filter__content--release-date:not(:last-child) {
     margin-right: 8px;
+    margin-bottom: 8px;
 }
 
 #playlists p {
