@@ -124,6 +124,7 @@
             $("#search_page_2").hide();
             $("#search_page_3").hide();
             $("#search_page_4").hide();
+            $("#search_page_5").hide();
             $("#search_page_" + id).show();
 
             $("#search_tab_1").removeClass("active-tab");
@@ -134,6 +135,8 @@
             $("#search_tab_3").addClass("clickableElement");
             $("#search_tab_4").removeClass("active-tab");
             $("#search_tab_4").addClass("clickableElement");
+            $("#search_tab_5").removeClass("active-tab");
+            $("#search_tab_5").addClass("clickableElement");
             $("#search_tab_" + id).addClass("active-tab");
             $("#search_tab_" + id).removeClass("clickableElement");
         }
@@ -1288,9 +1291,10 @@
 							  <article style="padding-top:50px;">
                                 <div style="margin-bottom: 30px;" class="horizontal-tabs">
                                     <a onclick="songs_1234(1)" id="search_tab_1" style="color: white; text-decoration: none;" class="active-tab">TOP RESULTS</a>
-                                    <a onclick="songs_1234(2)" id="search_tab_2" class="clickableElement" style="color: white; text-decoration: none;">TRACKS</a>
-                                    <a onclick="songs_1234(3)" id="search_tab_3" class="clickableElement" style="color: white; text-decoration: none;">ARTISTS</a>
-                                    <a onclick="songs_1234(4)" id="search_tab_4" class="clickableElement" style="color: white; text-decoration: none;">ALBUMS</a>
+                                    <a onclick="songs_1234(2)" id="search_tab_2" class="clickableElement" style="color: white; text-decoration: none;">GENRES</a>
+                                    <a onclick="songs_1234(3)" id="search_tab_3" class="clickableElement" style="color: white; text-decoration: none;">TRACKS</a>
+                                    <a onclick="songs_1234(4)" id="search_tab_4" class="clickableElement" style="color: white; text-decoration: none;">ARTISTS</a>
+                                    <a onclick="songs_1234(5)" id="search_tab_5" class="clickableElement" style="color: white; text-decoration: none;">ALBUMS</a>
                                 </div>
 
                                 <div id="search_page_1" style="display: block;">
@@ -1306,7 +1310,7 @@
                                                 <p class="text-center">Alternative Rock</p>
                                             </a>
                                             <a href="#">
-                                                <img class="clickableElement img-circle results-image" src="../ressrc/search/hard-rock.jpg" alt="Hard Rock">
+                                                <img class="img-circle results-image clickableElement" src="../ressrc/search/hard-rock.jpg" alt="Hard Rock">
                                                 <p class="text-center">Hard Rock</p>
                                             </a>
                                             <a href="#">
@@ -1495,7 +1499,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div style="display: none;">
+                                <div id="search_page_2" style="display: none;">
                                     <section>
                                         <h4>Genre</h4>
                                         <div style="display: flex; justify-content: space-between;">
@@ -1508,7 +1512,7 @@
                                                 <p class="text-center">Alternative Rock</p>
                                             </a>
                                             <a href="#">
-                                                <img class="clickableElementimg-circle results-image" src="../ressrc/search/hard-rock.jpg" alt="Hard Rock">
+                                                <img class="clickableElement img-circle results-image" src="../ressrc/search/hard-rock.jpg" alt="Hard Rock">
                                                 <p class="text-center">Hard Rock</p>
                                             </a>
                                             <a href="#">
@@ -1522,7 +1526,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div id="search_page_3" style="display: none;">
+                                <div id="search_page_4" style="display: none;">
                                     <section>
                                         <h4>Artists</h4>
                                         <div style="display: flex;  justify-content: space-between;">
@@ -1549,7 +1553,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div id="search_page_2" style="display: none;">
+                                <div id="search_page_3" style="display: none;">
                                     <section>
                                         <h4>Tracks</h4>
                                         <div class="text-center" style="display: flex; justify-content: space-between;">
@@ -1661,7 +1665,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div id="search_page_4" style="display: none;">
+                                <div id="search_page_5" style="display: none;">
                                     <section>
                                         <h4>Albums</h4>
                                         <div style="display: flex;  justify-content: space-between;">
