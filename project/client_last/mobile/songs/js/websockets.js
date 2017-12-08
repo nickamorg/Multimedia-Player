@@ -297,6 +297,30 @@ function play_song(curr_song) {
     $("#playing")[0].play();
 }
 
+function play_playlist_song(curr_song) {
+    playerAPI.playlist = playerAPI.tmpPlaylist;
+
+    for (i = 0; i < playerAPI.songs.crowd; i++) {
+        playerAPI.tmpPlaylsit[i] = "id" + i;
+    }
+    playerAPI.row = playerAPI.playlist.indexOf(curr_song);
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[curr_song].file;
+    $("#playing")[0].load();
+    $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
+
+    $("#title_artist").html(playerAPI.songs[curr_song].title + " - " + playerAPI.songs[curr_song].artist);
+    $("#expand_player").find("div").find("img")[0].src = "../ressrc/songs_images/" + playerAPI.songs[curr_song].img;
+    $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs[curr_song].title;
+    $("#expand_player").find("div").find("p")[7].innerHTML = playerAPI.songs[curr_song].artist;
+    $("#expand_player").find("div").find("p")[8].innerHTML = playerAPI.songs[curr_song].genre;
+    $("#expand_player").find("div").find("p")[9].innerHTML = playerAPI.songs[curr_song].album;
+    $("#expand_player").find("div").find("p")[10].innerHTML = playerAPI.songs[curr_song].release;
+    $("#expand_player").find("div").find("p")[11].innerHTML = playerAPI.songs[curr_song].duration;
+    $("#expand_lyrics").html("<pre>" + playerAPI.songs[curr_song].lyrics + "</pre>");
+    playerAPI.currentID = playerAPI.mysongs[curr_song];
+    $("#playing")[0].play();
+}
+
 function add_to_mysongs(song_id) {
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
 
@@ -398,7 +422,7 @@ function get_playlists() {
                             </button>
                         </div>
                         <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
-                            <button><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                            <button onclick="play_playlist('${playlists[i]}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
                         </div>
                         <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
                             <button onclick="remove_playlist('${playlists[i]}', this)"  style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
@@ -437,7 +461,7 @@ function read_playlist(playlist) {
             for(var i = 0; i < playlist_songs.length - 1; i++) {
                 id = playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"");
                 song = playerAPI.songs[id];
-                $("#song_playlist").find("h1")[0].innerHTML = /* "Playlist - " + */playlist;
+                $("#song_playlist").find("h1")[0].innerHTML = "Playlist - " + playlist;
                 playerAPI.tmpPlaylist[i] = id;
                 $("#playlist_content").append(
                     `
@@ -452,7 +476,7 @@ function read_playlist(playlist) {
                                 </button>
                             </div>
                             <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
-                                <button onclick="play_song('${id}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
+                                <button onclick="play_playlist_song('${id}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
                             </div>
                             <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
                                 <button onclick="open_playlists_modal('${id}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
@@ -462,6 +486,30 @@ function read_playlist(playlist) {
                             </div>
                         </div>`);
             }
+        };
+    };
+}
+
+function play_playlist(playlist) {
+    let playlist_songs = "";
+    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+
+    ws.onopen = function() {
+        message = '{ "type": "playlist", "title":"' + playlist + '"}';
+
+        ws.send(message);
+        ws.onmessage = function (message) {
+            playlist_songs = message.data.split("\n");
+            playerAPI.tmpPlaylist = [];
+            playerAPI.playlist = [];
+            for(var i = 0; i < playlist_songs.length; i++) {
+
+                if(playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"") === "") continue;
+                playerAPI.tmpPlaylist[i] = "id" + parseInt(playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"").substring(2));
+                playerAPI.playlist[i] = "id" + parseInt(playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"").substring(2));
+            }
+            playerAPI.row = 0;
+            play_playlist_song(playerAPI.playlist[0]);
         };
     };
 }

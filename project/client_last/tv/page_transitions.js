@@ -39,7 +39,7 @@ $(document).ready(function () {
         $(".container").removeClass("container");
         send_mysongs();
     });
-expand_filter()
+
     $('.display_song_by_genre').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("song_by_genre");

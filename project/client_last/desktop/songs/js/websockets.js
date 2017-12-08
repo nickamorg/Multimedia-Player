@@ -17,6 +17,7 @@ function send_mysongs() {
             songs.splice(index, 1);
             playerAPI.tmpPlaylist = [songs.length];
 			$(".display_songs").find("tbody").html("");
+
             for(var i = 0; i < songs.length; i++) {
                 id = "id" + parseInt(songs[i].substring(2));
                 song = playerAPI.songs[id];
@@ -263,7 +264,7 @@ function apply_filters_mysong() {
 }
 
 function play_song(curr_song) {
-    add_recently_played_song(curr_song);
+    // add_recently_played_song(curr_song);
     // playerAPI.playlist = playerAPI.tmpPlaylist;
     for (i = 0; i < playerAPI.songs.crowd; i++) {
         playerAPI.playlist[i] = "id" + i;
@@ -291,6 +292,37 @@ function play_song(curr_song) {
 	});
     $("#playing")[0].play();
     $(".title").html(playerAPI.songs[curr_song].title + '<button onclick="open_playlists_modal(\'' + curr_song + '\')"><em class="fa">&#xf067;</em></button>');
+    $(".artist").text(playerAPI.songs[curr_song].artist);
+    $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[curr_song].img);
+}
+
+function play_playlist_song(curr_song) {
+    playerAPI.playlist = playerAPI.tmpPlaylist;
+
+    for (i = 0; i < playerAPI.songs.crowd; i++) {
+        playerAPI.tmpPlaylsit[i] = "id" + i;
+    }
+    playerAPI.row = playerAPI.playlist.indexOf(curr_song);
+    $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[curr_song].file;
+    $("#playing")[0].load();
+    $(".controls").each( function () {
+        var play_pause = $(this);
+        play_pause.find("button").find("em")[2].innerHTML = "&#xf28c;";
+    });
+
+    $(".expand").each( function () {
+        var expand_button = $(this);
+        expand_button.click(function() {
+            display_song_details(curr_song);
+        })
+    });
+
+    $( ".myBar" ).each( function () {
+        var myBar = $(this);
+        myBar.css("width", "0");
+    });
+    $("#playing")[0].play();
+    $(".title").html(playerAPI.songs[curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[curr_song].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[curr_song].img);
 }
@@ -353,19 +385,18 @@ function open_playlists_modal(song_id) {
 
             for(i = 0; i < playlists.crowd; i++) {
                 html_display += `
-                                <div class="col-xs-12">
-                                    <button onclick="add_to_playlist('${song_id}', '${keys[i + 1].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%; color: white;">${keys[i + 1]}</button>
-                                </div>`;
+                    <div class="col-xs-12">
+                        <button onclick="add_to_playlist('${song_id}', '${keys[i + 1].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%; color: white;">${keys[i + 1]}</button>
+                    </div>`;
             }
 
-
             html_display += `
-                <div class="col-xs-12"><button style="width:100%; color: white;">My songs</button></div>
+                <div class="col-xs-12"><button onclick="add_to_mysongs('${song_id}')" style="width:100%; color: white;">My songs</button></div>
                 <div class="clearfix"></div>`;
 
              html_display += `
-                            <h3>Add to new Playlist</h3>
-                            <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="New Plalist"></input></div>`;
+                <h3>Add to new Playlist</h3>
+                <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="New Plalist"></input></div>`;
 
             $(".modal-body")[0].innerHTML = html_display;
             $("#playlists_modal").css("display", "block");
@@ -468,7 +499,7 @@ function read_playlist(playlist) {
                 playerAPI.tmpPlaylist[i] = id;
                 $("#playlist_songs").find("tbody").append(
                     `<tr>
-                            <td><button onclick="play_mysong('${i}')" class="fa fa-play-circle-o ${id}"></button></td>
+                            <td><button onclick="play_playlist_song('${id}')" class="fa fa-play-circle-o ${id}"></button></td>
                             <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
                             <td><button onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-minus"></em></button></td>
                             <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
@@ -494,15 +525,15 @@ function play_playlist(playlist) {
         ws.onmessage = function (message) {
             playlist_songs = message.data.split("\n");
             playerAPI.tmpPlaylist = [];
-
+            playerAPI.playlist = [];
             for(var i = 0; i < playlist_songs.length; i++) {
 
                 if(playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"") === "") continue;
                 playerAPI.tmpPlaylist[i] = "id" + parseInt(playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"").substring(2));
+                playerAPI.playlist[i] = "id" + parseInt(playlist_songs[i].replace(/(\r\n|\n|\r)/gm,"").substring(2));
             }
             playerAPI.row = 0;
-            console.log(playerAPI.playlist);
-            play_song(playerAPI.tmpPlaylist[0]);
+            play_playlist_song(playerAPI.playlist[0]);
         };
     };
 }
@@ -762,12 +793,12 @@ function set_song_new_releases() {
     for(let i = 0; i < playerAPI.songs.crowd; i++) {
         if (playerAPI.songs["id" + i].release.split(" ")[2] === (new Date()).getFullYear().toString()) {
             $("#song_new_releases_content").append(`
-                                    <div class="col-xs-3" onclick="display_song_details('id' + ${i})">
-                                        <img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"/>
-                                        <p>${playerAPI.songs["id" + i].title}</p>
-                                        <small>${playerAPI.songs["id" + i].artist}</small>
-                                    </div>
-                                    `)
+                        <div class="col-xs-3" onclick="display_song_details('id' + ${i})">
+                            <img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"/>
+                            <p>${playerAPI.songs["id" + i].title}</p>
+                            <small>${playerAPI.songs["id" + i].artist}</small>
+                        </div>
+                        `)
         }
     }
 }
