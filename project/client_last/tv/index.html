@@ -103,13 +103,28 @@
         }
 	</script>
 
+    <script>
+        function songs_search_apply() {
+            $("#display_songs_search_genres").hide();
+            $("#display_songs_search_release_date").hide();
+            $("#display_songs_search_artists").hide();
+            $("#display_songs_search_albums").hide();
+            $("#display_songs_search_content").show();
+
+            $("#songs_search_genres").removeClass("active-tab");
+            $("#songs_search_release_date").removeClass("active-tab");
+            $("#songs_search_artists").removeClass("active-tab");
+            $("#songs_search_albums").removeClass("active-tab");
+        }
+    </script>
+
 	<script>
         function toggle_songs_search_tabs(id) {
             $("#display_songs_search_genres").hide();
             $("#display_songs_search_release_date").hide();
             $("#display_songs_search_artists").hide();
             $("#display_songs_search_albums").hide();
-            $("#display_songs_search").hide();
+            $("#display_songs_search_content").hide();
             $("#display_songs_search_" + id).show();
 
             $("#songs_search_genres").removeClass("active-tab");
@@ -134,22 +149,6 @@
             $("#songs_artists").removeClass("active-tab");
             $("#songs_albums").removeClass("active-tab");
             $("#songs_apply").addClass("active-tab");
-		}
-	</script>
-
-	<script>
-		function songs_search_apply() {
-			$("#display_songs_search_genres").hide();
-			$("#display_songs_search_release_date").hide();
-			$("#display_songs_search_artists").hide();
-			$("#display_songs_search_albums").hide();
-			$("#display_songs_search").show();
-
-            $("#songs_search_genres").removeClass("active-tab");
-            $("#songs_search_release_date").removeClass("active-tab");
-            $("#songs_search_artists").removeClass("active-tab");
-            $("#songs_search_albums").removeClass("active-tab");
-            $("#songs_search_apply").addClass("active-tab");
 		}
 	</script>
 
@@ -1133,8 +1132,8 @@
 							  <div style="display: flex; justify-content: space-between;">
                                 <h1>Genres</h1>
                                 <div style="font-size: 24px !important;">
-                                    <button onclick="mysongs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
-                                    <button onclick="mysongs_search_apply()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                    <button onclick="songs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button onclick="songs_search_apply()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
                                 </div>
                               </div>
 							  <div class="filter--content">
@@ -1167,8 +1166,8 @@
 							  <div style="display: flex; justify-content: space-between;">
                                 <h1>Release Date</h1>
                                 <div style="font-size: 24px !important;">
-                                    <button onclick="mysongs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
-                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                    <button onclick="songs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button onclick="songs_search_apply()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
                                 </div>
                               </div>
 							  <div class="filter--content">
@@ -1204,8 +1203,8 @@
 							  <div style="display: flex; justify-content: space-between;">
                                 <h1>Artists</h1>
                                 <div style="font-size: 24px !important;">
-                                    <button onclick="mysongs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
-                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                    <button onclick="songs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button onclick="songs_search_apply()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
                                 </div>
                               </div>
 							  <div class="filter--content">
@@ -1236,8 +1235,8 @@
 							  <div style="display: flex; justify-content: space-between;">
                                 <h1>Albums</h1>
                                 <div style="font-size: 24px !important;">
-                                    <button onclick="mysongs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
-                                    <button>Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                    <button onclick="songs_search_apply()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button onclick="songs_search_apply()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
                                 </div>
                               </div>
 							  <div class="filter--content">
