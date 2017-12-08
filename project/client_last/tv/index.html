@@ -118,6 +118,27 @@
         }
     </script>
 
+    <script>
+        function songs_1234(id) {
+            $("#search_page_1").hide();
+            $("#search_page_2").hide();
+            $("#search_page_3").hide();
+            $("#search_page_4").hide();
+            $("#search_page_" + id).show();
+
+            $("#search_tab_1").removeClass("active-tab");
+            $("#search_tab_1").addClass("clickableElement");
+            $("#search_tab_2").removeClass("active-tab");
+            $("#search_tab_2").addClass("clickableElement");
+            $("#search_tab_3").removeClass("active-tab");
+            $("#search_tab_3").addClass("clickableElement");
+            $("#search_tab_4").removeClass("active-tab");
+            $("#search_tab_4").addClass("clickableElement");
+            $("#search_tab_" + id).addClass("active-tab");
+            $("#search_tab_" + id).removeClass("clickableElement");
+        }
+    </script>
+
 	<script>
         function toggle_songs_search_tabs(id) {
             $("#display_songs_search_genres").hide();
@@ -1266,13 +1287,13 @@
 						  <div id="display_songs_search_content" style="height: 1375px;">
 							  <article style="padding-top:50px;">
                                 <div style="margin-bottom: 30px;" class="horizontal-tabs">
-                                    <a class="active-tab">TOP RESULTS</a>
-                                    <a class="clickableElement" style="color: white; text-decoration: none;">TRACKS</a>
-                                    <a class="clickableElement" style="color: white; text-decoration: none;">ARTISTS</a>
-                                    <a class="clickableElement" style="color: white; text-decoration: none;">ALBUMS</a>
+                                    <a onclick="songs_1234(1)" id="search_tab_1" style="color: white; text-decoration: none;" class="active-tab">TOP RESULTS</a>
+                                    <a onclick="songs_1234(2)" id="search_tab_2" class="clickableElement" style="color: white; text-decoration: none;">TRACKS</a>
+                                    <a onclick="songs_1234(3)" id="search_tab_3" class="clickableElement" style="color: white; text-decoration: none;">ARTISTS</a>
+                                    <a onclick="songs_1234(4)" id="search_tab_4" class="clickableElement" style="color: white; text-decoration: none;">ALBUMS</a>
                                 </div>
 
-                                <div style="display: block;">
+                                <div id="search_page_1" style="display: block;">
                                     <section style="margin-bottom: 30px;">
                                         <h4>Genre</h4>
                                         <div style="display: flex; justify-content: space-between;">
@@ -1501,7 +1522,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div style="display: none;">
+                                <div id="search_page_3" style="display: none;">
                                     <section>
                                         <h4>Artists</h4>
                                         <div style="display: flex;  justify-content: space-between;">
@@ -1528,7 +1549,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div style="display: none;">
+                                <div id="search_page_2" style="display: none;">
                                     <section>
                                         <h4>Tracks</h4>
                                         <div class="text-center" style="display: flex; justify-content: space-between;">
@@ -1640,7 +1661,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div style="display: none;">
+                                <div id="search_page_4" style="display: none;">
                                     <section>
                                         <h4>Albums</h4>
                                         <div style="display: flex;  justify-content: space-between;">
