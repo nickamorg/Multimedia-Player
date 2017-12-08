@@ -205,6 +205,27 @@
         }
 	</script>
 
+    <script>
+        function movies_1234(id) {
+            $("#movie_page_1").hide();
+            $("#movie_page_2").hide();
+            $("#movie_page_3").hide();
+            $("#movie_page_4").hide();
+            $("#movie_page_" + id).show();
+
+            $("#movie_tab_1").removeClass("active-tab");
+            $("#movie_tab_1").addClass("clickableElement");
+            $("#movie_tab_2").removeClass("active-tab");
+            $("#movie_tab_2").addClass("clickableElement");
+            $("#movie_tab_3").removeClass("active-tab");
+            $("#movie_tab_3").addClass("clickableElement");
+            $("#movie_tab_4").removeClass("active-tab");
+            $("#movie_tab_4").addClass("clickableElement");
+            $("#movie_tab_" + id).addClass("active-tab");
+            $("#movie_tab_" + id).removeClass("clickableElement");
+        }
+    </script>
+
 	<script>
         function toggle_movies_tabs(id) {
             $("#display_movies_genres").hide();
@@ -2785,13 +2806,13 @@
                         <div id="display_movies_search" style="height: 1275px;">
                               <article style="padding-top:50px;">
                                 <div style="margin-bottom: 30px;" class="horizontal-tabs">
-                                    <a class="active-tab">TOP RESULTS</a>
-                                    <a class="clickableElement" style="color: white; text-decoration: none;">GENRE</a>
-                                    <a class="clickableElement" style="color: white; text-decoration: none;">MOVIES</a>
-                                    <a class="clickableElement" style="color: white; text-decoration: none;">PEOPLE</a>
+                                    <a id="movie_tab_1" onclick="movies_1234(1)" class="active-tab" style="color: white; text-decoration: none;">TOP RESULTS</a>
+                                    <a id="movie_tab_2" onclick="movies_1234(2)" class="clickableElement" style="color: white; text-decoration: none;">GENRE</a>
+                                    <a id="movie_tab_3" onclick="movies_1234(3)" class="clickableElement" style="color: white; text-decoration: none;">MOVIES</a>
+                                    <a id="movie_tab_4" onclick="movies_1234(4)" class="clickableElement" style="color: white; text-decoration: none;">PEOPLE</a>
                                 </div>
 
-                                <div style="display: block;">
+                                <div id="movie_page_1" style="display: block;">
                                     <section style="margin-bottom: 30px;">
                                         <h4>Genre</h4>
                                         <div style="display: flex; justify-content: space-between;">
@@ -2953,7 +2974,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div style="display: none;">
+                                <div id="movie_page_2" style="display: none;">
                                     <section>
                                         <h4>Genre</h4>
                                         <div style="display: flex; justify-content: space-between;">
@@ -2980,7 +3001,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div style="display: none;">
+                                <div id="movie_page_3" style="display: none;">
                                     <section>
                                         <h4>Movies</h4>
                                         <div style="display: flex; justify-content: space-between;">
@@ -3092,7 +3113,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div style="display: none;">
+                                <div id="movie_page_4" style="display: none;">
                                     <section>
                                         <h4>People</h4>
                                         <div style="display: flex;  justify-content: space-between;">
