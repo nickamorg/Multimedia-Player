@@ -131,7 +131,7 @@ function play_mysong(curr_song) {
     $(".expand").each( function () {
         var expand_button = $(this);
         expand_button.click(function() {
-            display_song_details(playerAPI.playlist[curr_song]);
+            display_song_expand_details(playerAPI.playlist[curr_song]);
         })
     });
 
@@ -271,7 +271,7 @@ function play_song(curr_song) {
     $(".expand").each( function () {
         var expand_button = $(this);
         expand_button.click(function() {
-            display_song_details(curr_song);
+            display_song_expand_details(curr_song);
         })
     });
 
@@ -302,7 +302,7 @@ function play_playlist_song(curr_song) {
     $(".expand").each( function () {
         var expand_button = $(this);
         expand_button.click(function() {
-            display_song_details(curr_song);
+            display_song_expand_details(curr_song);
         })
     });
 

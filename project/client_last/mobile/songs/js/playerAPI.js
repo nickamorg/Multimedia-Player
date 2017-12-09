@@ -1103,15 +1103,15 @@ playerAPI.playing.ontimeupdate = function() {
 };
 
 playerAPI.playing.onended = function() {
-    $("#dur").text("0:00");
+    $("#curr").text("0:00");
 
     $("#myBar").css("width", "0");
 
     if(playerAPI.playlist.length > playerAPI.row || playerAPI.repeat_flag) {
         playerAPI.row = (playerAPI.row + 1) % playerAPI.playlist.length;
         $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
-        $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
-        $("#curr_play_button").find("em")[0].innerHTML = "&#xf28c;";
+        $("#playing")[0].load();
+        $("#playing")[0].play();
         $("#title_artist").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + " - " + playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
         $("#expand_player").find("div").find("img")[0].src = "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img;
         $("#expand_player").find("div").find("p")[6].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].title;

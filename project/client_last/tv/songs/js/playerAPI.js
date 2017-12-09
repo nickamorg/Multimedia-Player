@@ -944,7 +944,7 @@ playerAPI.songs = {
     $(".expand").each( function () {
         var expand_button = $(this);
         expand_button.click(function() {
-            display_song_details(playerAPI.playlist[playerAPI.row]);
+            display_song_expand_details(playerAPI.playlist[playerAPI.row]);
         })
     });
 
@@ -1027,9 +1027,13 @@ playerAPI.next = function next() {
     $(".expand").each( function () {
         var expand_button = $(this);
         expand_button.click(function() {
-            display_song_details(playerAPI.playlist[playerAPI.row]);
+            display_song_expand_details(playerAPI.playlist[playerAPI.row]);
         })
     });
+
+    if($(".pt-page-current")[0].id === "song_expand_details") {
+        display_song_expand_details(playerAPI.playlist[playerAPI.row]);
+    }
 
     $("#playing")[0].load();
     if(!isPaused) {
@@ -1054,9 +1058,13 @@ playerAPI.prev = function prev() {
     $(".expand").each( function () {
         var expand_button = $(this);
         expand_button.click(function() {
-            display_song_details(playerAPI.playlist[playerAPI.row]);
+            display_song_expand_details(playerAPI.playlist[playerAPI.row]);
         })
     });
+
+    if($(".pt-page-current")[0].id === "song_expand_details") {
+        display_song_expand_details(playerAPI.playlist[playerAPI.row]);
+    }
 
     $("#playing")[0].load();
     if(!isPaused) {
@@ -1130,7 +1138,7 @@ playerAPI.playing.ontimeupdate = function() {
 };
 
 playerAPI.playing.onended = function() {
-    $(".dur").text("0:00");
+    $(".curr").text("0:00");
 
     $(".controls").each( function () {
         var play_pause = $(this);
@@ -1152,6 +1160,9 @@ playerAPI.playing.onended = function() {
         $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
         $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
 
+        if($(".pt-page-current")[0].id === "song_expand_details") {
+            display_song_expand_details(playerAPI.playlist[playerAPI.row]);
+        }
     } else {
         $(".controls").find("button").find("em")[2].innerHTML = "&#xf01d;";
     }

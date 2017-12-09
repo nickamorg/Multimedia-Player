@@ -133,7 +133,81 @@ function display_song_details(song_id) {
                         <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"></div>
                         <div class="col-xs-8" style="padding-right: 0"><p>${playerAPI.songs["id" + i].title}</p><small>${playerAPI.songs["id" + i].artist}</small></div>
                     </div>`
-                )
+                );
+                counter++;
+            }
+            if(counter === 5) break;
+        }
+    }
+}
+
+function display_song_expand_details(song_id) {
+    song = playerAPI.songs[song_id];
+    visitedPagesStack.setNewLastVisitedPage("song_expand_details");
+    PageTransitions.goToPage(2, 'song_expand_details');
+    $("#expand_lyrics").html("<h1>LYRICS</h1>");
+    $("#expand_lyrics").append("<pre class='scrollbar' style='font-size:20px; max-height: 550px'>" + song.lyrics + "</pre>");
+    $("#song_expand_title").html(song.title);
+
+    $("#expand_details").html(
+        `<img class="img-responsive" style="border-radius: 38px" src="../ressrc/songs_images/${song.img}"/>
+        <button onclick="play_song('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf01d;</em></button>
+        <button onclick="open_playlists_modal('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf067;</em></button>
+        
+        <div class="clearfix"></div>
+        
+        <div class="col-xs-3 text-left">
+            <p>Title</p>
+            <p>Artist</p>
+            <p>Album</p>
+            <p>Genre</p>
+            <p>Release</p>
+            <p>Duration</p>
+        </div>
+        <div id="details" class="col-xs-9 text-left">
+            <p>${song.title}</p>
+            <p>${song.artist}</p>
+            <p>${song.album}</p>
+            <p>${song.genre}</p>
+            <p>${song.release}</p>
+            <p>${song.duration}</p>
+        </div>`);
+
+    $("#related_expand_content").html("");
+    counter = 0;
+    common = [];
+    common_counter = 0;
+    for(i = 0; i < playerAPI.songs.crowd; i++) {
+        flag = false;
+        for(j = 0; j < playerAPI.songs["id" + i].genre.length; j++) {
+            for(k = 0; k < song.genre.length; k++) {
+                if(!flag && song_id !== ("id" + i) && (contains_word(playerAPI.songs["id" + i].genre[j], song.genre[k]) ||
+                        contains_word(song.genre[k], playerAPI.songs["id" + i].genre[j]))) {
+                    counter ++;
+                    common[common_counter++] = "id" + i;
+                    flag = true;
+                    $("#related_expand_content").append(
+                        `<div class="col-xs-12 clickableElement" style="padding: 0 0 20px 0" onclick="display_song_details('${"id" + i}')">
+                        <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"></div>
+                        <div class="col-xs-8" style="padding-right: 0"><p>${playerAPI.songs["id" + i].title}</p><small>${playerAPI.songs["id" + i].artist}</small></div>
+                    </div>`
+                    )
+                }
+            }
+        }
+        if(counter === 5) break;
+    }
+
+    if(counter < 5) {
+        for(i = 0; i < playerAPI.songs.crowd; i++) {
+            flag = false;
+            if(!(common.indexOf(("id" + i)) > -1) && song_id !== ("id" + i) && counter < 5 && song.release.split(" ")[2] === playerAPI.songs["id" + i].release.split(" ")[2]) {
+                $("#related_expand_content").append(
+                    `<div class="col-xs-12 clickableElement" style="padding: 0 0 20px 0" onclick="display_song_details('${"id" + i}')">
+                        <div class="col-xs-4" style="padding-right:0"><img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"></div>
+                        <div class="col-xs-8" style="padding-right: 0"><p>${playerAPI.songs["id" + i].title}</p><small>${playerAPI.songs["id" + i].artist}</small></div>
+                    </div>`
+                );
                 counter++;
             }
             if(counter === 5) break;
