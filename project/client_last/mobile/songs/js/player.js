@@ -37,6 +37,7 @@ function setPlayer() {
                     </div>
                     <div class="col-xs-12 style="padding:0">
                     <button id="add_from_expand" style="float:left;"><em class="fa fa-plus"></em></button>
+                    <button class="remote" onclick="open_interaction_modal()" style="float:right;"><em class="material-icons"></em></button>
                         <div id="controls">
                             <button onclick="playerAPI.shuffle()"><em class="fa">&#xf074;</em></button>
                             <button onClick="playerAPI.prev()"><em class="fa">&#xf048;</em></button>
@@ -166,4 +167,9 @@ function display_song_details(song_id) {
                         <pre>${song.lyrics}</pre>
                         </div>
                     </div>`);
+
+    $("#add_from_expand").click(function() {
+        toggle_class_in('#expand_player');
+        open_playlists_modal('${song_id}');
+    });
 }

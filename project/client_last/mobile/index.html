@@ -26,6 +26,7 @@
         <!-- OUR IMPORTS -->
         <!--<link type="text/css" rel="stylesheet" href="search.css">-->
         <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -1552,8 +1553,8 @@
 
                     <div style="padding-top:30px; padding-bottom:120px;">
                         <div class="col-xs-12">
-                            <button class="remote" onclick="open_interaction_modal()"><em class="fa fa-flash"></em></button>
-                            <button id="movies_play_pause" class="fa fa-play-circle-o" onclick="playPauseMovie()"></button>
+                            <button id="movies_play_pause" class="fa fa-play-circle-o" onclick="playPauseMovie()" style="transform: rotate(90deg)"></button>
+                            <button class="remote" onclick="open_interaction_modal()"><em class="material-icons" style="transform: rotate(90deg)">&#xe1b1;</em></button>
                         </div>
                         <div style="transform: rotate(90deg); display:inline-block" class="movie_curr_dur">0:00</div>
                         <div class="movie_progress" style="display:inline-block">
@@ -1758,7 +1759,6 @@
         </div>
         <!-- END PAGE 2 - SERIES SERIE_PAGE -->
 
-
         <!-- BEGIN PAGE 2 - SERIES SERIE_PAGE -->
         <div id="serie_episodes" class="pt-page">
             <div class="series_content scrollbar">
@@ -1854,7 +1854,6 @@
         </div>
         <!-- END PAGE 2 - SERIES SERIE_PAGE -->
 
-
         <!-- BEGIN PAGE 2 - SERIES SERIE_PAGE -->
         <div id="episode_details" class="pt-page">
             <div id="serie_full-screen" class="series_content scrollbar">
@@ -1893,7 +1892,6 @@
             </div>
         </div>
         <!-- END PAGE 2 - SERIES SERIE_PAGE -->
-
 
         <!-- BEGIN PAGE 3 - SERIES NEW_SERIES -->
         <div id="series_news" class="pt-page">
@@ -2175,7 +2173,7 @@
                             <button onclick="prevSerie()"><em class="fa"></em></button>
                             <button id="series_play_pause" class="fa fa-play-circle-o" onclick="playPauseSerie()"></button>
                             <button onclick="nextSerie()"><em class="fa"></em></button>
-                            <button class="remote" onclick="open_interaction_modal()"><em class="fa fa-flash"></em></button>
+                            <button class="remote" onclick="open_interaction_modal()"><em class="material-icons">&#xe1b1;</em></button>
                         </div>
                         <div style="transform: rotate(90deg); display:inline-block" class="serie_curr_dur">0:08</div>
                         <div class="serie_progress">

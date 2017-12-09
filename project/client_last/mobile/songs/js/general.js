@@ -49,25 +49,46 @@ interaction.onmessage = function (message) {
     json = JSON.parse(message.data);
 console.log(json);
     if(json["category"] === "play") {
+        playerAPI.playing.pause();
+        document.getElementById("series_video").pause();
+        document.getElementById("movies_video").pause();
+
+        $("#play_button").find("em")[0].innerHTML = "&#xf01d;";
+        $("#curr_play_button").find("em")[0].innerHTML = "&#xf01d;";
+        $("#movies_play_pause").removeClass("fa-pause-circle-o");
+        $("#movies_play_pause").addClass("fa-play-circle-o");
+        $("#series_play_pause").removeClass("fa-pause-circle-o");
+        $("#series_play_pause").addClass("fa-play-circle-o");
+
         if(json["device"] === "mobile") {
             show_hide_menu(json["subcat"]);
             if(json["subcat"] === "movies") {
                 setMoviesPlayer(json["id"]);
+                document.getElementById("movies_video").currentTime = json["currTime"];
+                if(json["isPaused"]) {
+                    playPauseMovie();
+                }
             } if(json["subcat"] === "series") {
                 setSeriesPlayer(json["id"]);
+                document.getElementById("series_video").currentTime = json["currTime"];
+                if(json["isPaused"]) {
+                    playPauseSerie();
+                }
                 $("#bottom_menu").hide();
             } else if(json["subcat"] === "songs") {
                 play_song(json["id"]);
                 display_song_details(json["id"]);
+                $("#play_button").find("em")[0].innerHTML = "&#xf28c;";
+                $("#curr_play_button").find("em")[0].innerHTML = "&#xf28c;";
+                document.getElementById("playing").currentTime = json["currTime"];
+                if(json["isPaused"]) {
+                    playerAPI.playPause();
+                }
                 $("#bottom_menu").show();
+                toggle_class_in('#expand_player');
             }
-        } else {
-            playerAPI.playing.pause();
-            movies_video.pause();
-            series_video.pause();
         }
     } else if(json["category"] === "search") {
-        console.log("lala");
         PageTransitions.goToPage(1, 'search_inter');
     }
     // play_song("id1");
@@ -76,25 +97,43 @@ console.log(json);
 };
 
 function open_interaction_modal() {
+    if($(".pt-page-current")[0].id.includes("song")) {
+        toggle_class_in('#expand_player');
+    }
+
     $('#interaction_modal').css('display', 'block');
 }
 
 function remote_playing(device) {
     let id = 0;
     let subcat = "";
+    let currTime = 0;
+    let isPaused = true;
     if($(".pt-page-current")[0].id === "movies_player") {
         id = curr_movie_id;
         subcat ="movies";
+        currTime = document.getElementById("movies_video").currentTime;
+        isPaused = document.getElementById("movies_video").paused;
     } else if($(".pt-page-current")[0].id === "series_player") {
         id = curr_serie_id;
         subcat = "series";
+        currTime = document.getElementById("series_video").currentTime;
+        isPaused =document.getElementById("series_video").paused;
     } else if($(".pt-page-current")[0].id.includes("song")) {
         id = playerAPI.playlist[playerAPI.row];
         subcat = "songs";
+        currTime = document.getElementById("playing").currentTime;
+        isPaused = document.getElementById("playing").paused;
     }
 
-    let json = `{ "type": "interaction", "category": "play", "subcat": "${subcat}", "device": "${device}", "id":"` + id + '"}';
+    $("#play_button").find("em")[0].innerHTML = "&#xf01d;";
+    $("#curr_play_button").find("em")[0].innerHTML = "&#xf01d;";
+    $("#movies_play_pause").removeClass("fa-pause-circle-o");
+    $("#movies_play_pause").addClass("fa-play-circle-o");
+    $("#series_play_pause").removeClass("fa-pause-circle-o");
+    $("#series_play_pause").addClass("fa-play-circle-o");
 
+    let json = `{ "type": "interaction", "category": "play", "subcat": "${subcat}", "device": "${device}", "id": "${id}", "currTime": ${currTime}, "isPaused": ${isPaused} }`;
     interaction.send(json);
 }
 
