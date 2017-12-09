@@ -52,7 +52,7 @@ var interaction = new WebSocket('ws://' + "localhost" + ':6556');
 
 interaction.onmessage = function (message) {
     json = JSON.parse(message.data);
-
+console.log(json);
     if(json["category"] === "play") {
         playerAPI.playing.pause();
         document.getElementById("series_video").pause();
@@ -89,7 +89,7 @@ interaction.onmessage = function (message) {
                 }
             }
         }
-    } else if(json["category"] === "search") {
+    } else if(json["category"] === "search input") {
         if($(".pt-page-current")[0].id.includes("movie")) {
             $(".keywords_movies").val(json["message"]);
         } else if($(".pt-page-current")[0].id.includes("serie")) {
@@ -98,6 +98,16 @@ interaction.onmessage = function (message) {
             $(".keywords").val(json["message"]);
         }
         console.log("ok");
+    } else if(json["category"] === "search results") {
+            console.log("hereee");
+        if(json["kind"] === "movies") {
+            $(".keywords_movies").val(json["message"]);
+        } else if(json["kind"] === "series") {
+            $(".keywords_series").val(json["message"]);
+        } else if(json["kind"] === "songs") {
+            $(".keywords").val(json["message"]);
+        }
+        $(".to_" + json["kind"] + "_search").click();
     }
     // play_song("id1");
     $('#interaction_modal').css('display', 'none');
@@ -144,6 +154,21 @@ function remote_playing(device) {
 }
 
 function search_inter() {
-    let json = '{ "type": "interaction", "category": "search"}';
+    let kind = "song";
+    if($(".pt-page-current")[0].id.includes("movie")) {
+        kind = "movies";
+    } else if($(".pt-page-current")[0].id.includes("serie")) {
+        kind = "series";
+    } else if($(".pt-page-current")[0].id.includes("song")) {
+        kind = "songs";
+    }
+
+    let json = `{ "type": "interaction", "category": "search", "kind": "${kind}"}`;
     interaction.send(json);
-};
+
+    $("#interaction_note_modal").css('display', 'block');
+
+    setTimeout(function() {
+        $("#interaction_note_modal").css('display', 'none');
+    }, 1500)
+}

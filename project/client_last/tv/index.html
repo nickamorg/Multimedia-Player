@@ -4414,25 +4414,34 @@
 		  </div>
 	  </div>
 
-  <!-- Modal - Playlists -->
-  <div id="interaction_modal" class="modal">
+	  <!-- Modal - Playlists -->
+	  <div id="interaction_modal" class="modal">
 
-	  <!-- Modal content -->
-	  <div class="modal-content">
-		  <div class="modal-header">
-			  <span id="close_interaction" class="close">&times;</span>
-			  <h3>Remote access</h3>
-		  </div>
-		  <div class="modal-body scrollbar">
-			  <button id="song_player_tv" onclick="remote_playing('tv')" style="width:100%">To TV</button>
-			  <button id="song_player_desktop" onclick="remote_playing('desktop')" style="width:100%">To Desktop</button>
-			  <button id="song_player_mobile" onclick="remote_playing('mobile')" style="width:100%">To Mobile</button>
-		  </div>
-		  <div class="modal-footer">
-			  <button id="cancel"><h3>Cancel</h3></button>
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			  <div class="modal-header">
+				  <span id="close_interaction" class="close">&times;</span>
+				  <h3>Remote access</h3>
+			  </div>
+			  <div class="modal-body scrollbar">
+				  <button id="song_player_tv" onclick="remote_playing('tv')" style="width:100%">To TV</button>
+				  <button id="song_player_desktop" onclick="remote_playing('desktop')" style="width:100%">To Desktop</button>
+				  <button id="song_player_mobile" onclick="remote_playing('mobile')" style="width:100%">To Mobile</button>
+			  </div>
+			  <div class="modal-footer">
+				  <button id="cancel"><h3>Cancel</h3></button>
+			  </div>
 		  </div>
 	  </div>
-  </div>
+
+	  <div id="interaction_note_modal" class="modal">
+		  <!-- Modal content -->
+		  <div style="top:40%; width:30%" class="modal-content">
+			  <div class="modal-body">
+				  <h3 style="display:inline; color:black">Use your mobile phone in order to type something</h3>
+			  </div>
+		  </div>
+	  </div>
 
   </div>
   <!-- END PAGES -->
@@ -4443,6 +4452,7 @@
 	Your browser does not support HTML5 video.
    </audio>
 <!-- END AUDIO ELEMENT -->
+
   <!-- BEGIN CURSOR -->
   <div id="cursor" style="top: 250px; left: 715px;">
     <span class="cursor right"></span>
@@ -4489,6 +4499,10 @@
 
           if (event.target == interaction_modal) {
               interaction_modal.style.display = "none";
+          }
+
+          if (event.target == interaction_note_modal) {
+              interaction_note_modal.style.display = "none";
           }
       };
 

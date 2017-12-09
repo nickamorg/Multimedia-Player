@@ -47,7 +47,7 @@ var interaction = new WebSocket('ws://' + "localhost" + ':6556');
 
 interaction.onmessage = function (message) {
     json = JSON.parse(message.data);
-console.log(json);
+    console.log(json);
     if(json["category"] === "play") {
         playerAPI.playing.pause();
         document.getElementById("series_video").pause();
@@ -89,9 +89,27 @@ console.log(json);
             }
         }
     } else if(json["category"] === "search") {
+        $("#search").focus();
+        $( "#search" ).attr("placeholder", "Search for " + json["kind"]);
+        $("#to_mobile").click(function() {
+            if($("#search").attr("placeholder").split(" ")[2] === "movies") {
+                $("#keywords_movies").val($( "#search").val());
+            } else if($("#search").attr("placeholder").split(" ")[2] === "series") {
+                $("#keywords_series").val($( "#search").val());
+            } else if($("#search").attr("placeholder").split(" ")[2] === "songs") {
+                $("#keywords").val($( "#search").val());
+            }
+            $(".to_" + $( "#search" ).attr("placeholder").split(" ")[2] + "_search").click();
+        });
+
+        $("#to_tv").click(function() {
+            let response = `{ "type": "interaction", "category": "search results", "kind": "` + $( "#search" ).attr("placeholder").split(" ")[2] + `", "message": "${$("#search").val()}"}`;
+            interaction.send(response);
+        });
+
+        visitedPagesStack.setNewLastVisitedPage("search_inter");
         PageTransitions.goToPage(1, 'search_inter');
     }
-    // play_song("id1");
     $('#interaction_modal').css('display', 'none');
     console.log(JSON.parse(message.data));
 };
@@ -139,7 +157,7 @@ function remote_playing(device) {
 
 function search_input() {
 
-    let json = `{ "type": "interaction", "category": "search",  "message":"` + $("#search").val() + '"}';
+    let json = `{ "type": "interaction", "category": "search input",  "message":"` + $("#search").val() + '"}';
 
     interaction.send(json);
 }

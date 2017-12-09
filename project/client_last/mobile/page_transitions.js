@@ -81,6 +81,7 @@ $(document).ready(function () {
         visitedPagesStack.setNewLastVisitedPage("song_search");
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
+        $("#bottom_menu").show();
         search_songs();
         PageTransitions.goToPage(2, 'song_search');
     });
@@ -139,6 +140,7 @@ $(document).ready(function () {
 
     $('.to_movies_search').click(function () {
         reset();
+        $("#movies_bottom_menu").show();
         visitedPagesStack.setNewLastVisitedPage('movie_search');
         PageTransitions.goToPage(1, 'movie_search');
     });
@@ -208,6 +210,13 @@ $(document).ready(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("series_recently_watched");
         PageTransitions.goToPage(1, 'series_recently_watched');
+    });
+
+    $('.to_series_search').click(function () {
+        reset();
+        $("#series_bottom_menu").show();
+        visitedPagesStack.setNewLastVisitedPage('serie_search');
+        PageTransitions.goToPage(1, 'serie_search');
     });
 
 });
