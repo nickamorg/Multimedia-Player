@@ -190,3 +190,7 @@ video {
     width: 268px;
     height: 402px;
 }
+
+.movie--img {
+    height: 500px;
+}
