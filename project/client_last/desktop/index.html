@@ -1766,13 +1766,15 @@
 
         <!-- BEGIN PAGE 10 - MOVIES PLAYER-->
         <div id="movies_player" class="pt-page">
-            <script>setMoviesHeader();</script>
+            <div id="movies_header">
+                <script>setMoviesHeader();</script>
+            </div>
             <div class="col-xs-12" style="padding:0">
                 <video id="movies_video" poster="">
                     <source src="../ressrc/movies/deadpool.mp4" type="video/mp4">
                     Your browser does not support HTML5 video.
                 </video>
-                <div class="player text-center">
+                <div id="movies_footer" class="player text-center">
                     <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
                         <button id="movie_player_img" class="col-xs-3" style="padding:10px 0px 10px 0px;">
                             <img style="width:80px" src="../ressrc/icon.png">
@@ -2616,13 +2618,15 @@
 
         <!-- BEGIN PAGE 10 - SERIES PLAYER-->
         <div id="series_player" class="pt-page">
-            <script>setSeriesHeader();</script>
+            <div id="series_header">
+                <script>setSeriesHeader();</script>
+            </div>
             <div class="col-xs-12" style="padding:0">
                 <video id="series_video" poster="">
                     <source src="" type="video/mp4">
                     Your browser does not support HTML5 video.
                 </video>
-                <div class="player text-center">
+                <div id="series_footer" class="player text-center">
                     <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
                         <button id="serie_player_img" class="col-xs-3" style="padding:10px 0px 10px 0px;">
                             <img style="width:80px" src="../ressrc/icon.png">

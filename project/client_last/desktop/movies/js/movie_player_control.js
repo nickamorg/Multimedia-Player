@@ -55,6 +55,7 @@ movies_video.oncanplay = function() {
     $(".movie_dur").text(min + ":" + sec);
 };
 
+movies_counter = 0;
 movies_video.ontimeupdate = function() {
     var min = parseInt(movies_video.currentTime / 60, 10);
     var sec = parseInt(movies_video.currentTime % 60);
@@ -67,7 +68,19 @@ movies_video.ontimeupdate = function() {
         movie_bar.css("width", percentage + '%'
         )});
     movie_width = percentage;
+
+    movies_counter = (movies_counter + 1) % 5;
+    if(movies_counter === 0) {
+        $("#movies_header").css("visibility", "hidden");
+        $("#movies_footer").css("visibility", "hidden");
+    }
 };
+
+$("#movies_player").mousemove(function() {
+    series_counter = 0;
+    $("#movies_header").css("visibility", "visible");
+    $("#movies_footer").css("visibility", "visible");
+});
 
 movies_video.onended = function() {
     $("#movies_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
@@ -78,6 +91,14 @@ movies_video.onended = function() {
         movie_bar.css("width", '0')
     });
     movie_width = 0;
+
+    $("#movies_header").css("visibility", "visible");
+    $("#movies_footer").css("visibility", "visible");
+};
+
+movies_video.onpause = function() {
+    $("#movies_header").css("visibility", "visible");
+    $("#movies_footer").css("visibility", "visible");
 };
 
 let movie_stored_volume = 50;

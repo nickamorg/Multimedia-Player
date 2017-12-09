@@ -55,6 +55,7 @@ series_video.oncanplay = function() {
     $(".serie_dur").text(min + ":" + sec);
 };
 
+series_counter = 0;
 series_video.ontimeupdate = function() {
     var min = parseInt(series_video.currentTime / 60, 10);
     var sec = parseInt(series_video.currentTime % 60);
@@ -67,7 +68,19 @@ series_video.ontimeupdate = function() {
         serie_bar.css("width", percentage + '%'
         )});
     serie_width = percentage;
+
+    series_counter = (series_counter + 1) % 5;
+    if(series_counter === 0) {
+        $("#series_header").css("visibility", "hidden");
+        $("#series_footer").css("visibility", "hidden");
+    }
 };
+
+$("#series_player").mousemove(function() {
+    series_counter = 0;
+    $("#series_header").show();
+    $("#series_footer").show();
+});
 
 series_video.onended = function() {
     $("#series_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
@@ -78,8 +91,15 @@ series_video.onended = function() {
         serie_bar.css("width", '0')
     });
     serie_width = 0;
+    
+    $("#series_header").css("visibility", "visible");
+    $("#series_footer").css("visibility", "visible");
 };
 
+series_video.onpause = function() {
+    $("#series_header").css("visibility", "visible");
+    $("#series_footer").css("visibility", "visible");
+};
 
 let serie_stored_volume = 50;
 /*Song Volume*/
