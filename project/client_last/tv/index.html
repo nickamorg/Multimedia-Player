@@ -307,8 +307,7 @@
         function toggle_series_search_tabs(id) {
             $("#display_series_search_genres").hide();
             $("#display_series_search_release_date").hide();
-            $("#display_series_search_artists").hide();
-            $("#display_series_search_albums").hide();
+            $("#display_series_search_rating").hide();
             $("#display_series_search").hide();
             $("#display_series_search_" + id).show();
 
@@ -320,6 +319,41 @@
             $("#series_search_" + id).addClass("active-tab");
         }
 	</script>
+
+    <script>
+        function series_filter_1234(id) {
+            $("#filter_page_1").hide();
+            $("#filter_page_2").hide();
+            $("#filter_page_3").hide();
+            $("#filter_page_4").hide();
+            $("#filter_page_" + id).show();
+
+            $("#filter_tab_1").removeClass("active-tab");
+            $("#filter_tab_1").addClass("clickableElement");
+            $("#filter_tab_2").removeClass("active-tab");
+            $("#filter_tab_2").addClass("clickableElement");
+            $("#filter_tab_3").removeClass("active-tab");
+            $("#filter_tab_3").addClass("clickableElement");
+            $("#filter_tab_" + id).removeClass("clickableElement");
+            $("#filter_tab_" + id).addClass("active-tab");
+        }
+    </script>
+
+    <script>
+        function series_filter_4_apply_close() {
+            $("#filter_page_1").hide();
+            $("#filter_page_2").hide();
+            $("#filter_page_3").hide();
+            $("#filter_page_4").show();
+
+            $("#filter_tab_1").removeClass("active-tab");
+            $("#filter_tab_1").addClass("clickableElement");
+            $("#filter_tab_2").removeClass("active-tab");
+            $("#filter_tab_2").addClass("clickableElement");
+            $("#filter_tab_3").removeClass("active-tab");
+            $("#filter_tab_3").addClass("clickableElement");
+        }
+    </script>
 
 	<script>
         function myseries_apply() {
@@ -3907,20 +3941,150 @@
 			<div>
 				<div class="col-xs-2">
 					<h3 style="margin-top: 50px; margin-bottom: 40px;">Filter by</h3>
-					<div id="series_search_genres" class="clickableElement filter__item" onclick="toggle_series_search_tabs('genres')">
+					<div id="filter_tab_1" class="clickableElement filter__item" onclick="series_filter_1234('1')">
 						Genres
 					</div>
-					<div id="series_search_release_date" class="clickableElement filter__item" onclick="toggle_series_search_tabs('release_date')">
+					<div id="filter_tab_2" class="clickableElement filter__item" onclick="series_filter_1234('2')">
 						Release Date
 					</div>
-					<div id="series_search_artists" class="clickableElement filter__item" onclick="toggle_series_search_tabs('artists')">
+					<div id="filter_tab_3" class="clickableElement filter__item" onclick="series_filter_1234('3')">
 						Rating
 					</div>
 				</div>
 				<div class="col-xs-10">
 					<div class="card">
-                        <div style="height: 1275px;">
-                              <article style="padding-top:50px;">
+                        <div id="filter_page_1" style="display: none;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h1>Genres</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="series_filter_4_apply_close()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button onclick="series_filter_4_apply_close()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <a href="#">
+                                        <img class="clickableElement results-image" src="../ressrc/search/Action Horror.jpg" alt="Action Horror">
+                                        <p class="text-center">Action Horror</p>
+                                    </a>
+                                    <a href="#">
+                                        <img class="clickableElement results-image" src="../ressrc/search/Comedy Horror.jpg" alt="Comedy Horror">
+                                        <p class="text-center">Comedy Horror</p>
+                                    </a>
+                                    <a href="#">
+                                        <img class="clickableElement results-image" src="../ressrc/search/Science Fiction Horror.jpg" alt="Science Fiction Horror">
+                                        <p class="text-center">Science Fiction Horror</p>
+                                    </a>
+                                    <a href="#">
+                                        <img class="clickableElement results-image" src="../ressrc/search/Horror Drama.jpg" alt="Horror Drama">
+                                        <p class="text-center">Horror Drama</p>
+                                    </a>
+                                    <a href="#">
+                                        <img class="clickableElement results-image" src="../ressrc/search/Psychological Horror.jpg" alt="Psychological Horror">
+                                        <p class="text-center">Psychological Horror</p>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div id="filter_page_2" style="display: none;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <h1>Release Date</h1>
+                                    <div style="font-size: 24px !important;">
+                                        <button onclick="series_filter_4_apply_close()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                        <button onclick="series_filter_4_apply_close()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                                <div class="filter--content">
+                                    <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '1984', this)">
+                                        <p>
+                                            1984
+                                        </p>
+                                    </div>
+                                    <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2004', this)">
+                                        <p>
+                                            2004
+                                        </p>
+                                    </div>
+                                    <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2005', this)">
+                                        <p>
+                                            2005
+                                        </p>
+                                    </div>
+                                    <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2016', this)">
+                                        <p>
+                                            2016
+                                        </p>
+                                    </div>
+                                    <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+                                        <p>
+                                            2017
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                          <div id="filter_page_3" style="display: none;">
+                              <div style="display: flex; justify-content: space-between;">
+                                <h1>Rating</h1>
+                                <div style="font-size: 24px !important;">
+                                    <button onclick="series_filter_4_apply_close()">Apply <i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button onclick="series_filter_4_apply_close()">Close <i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                              </div>
+                              <div class="filter--content">
+                                  <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '1984', this)">
+                                <p>
+                                    1★
+                                </p>
+                            </div>
+                            <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2004', this)">
+                                <p>
+                                    2★
+                                </p>
+                            </div>
+                            <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2005', this)">
+                                <p>
+                                    3★
+                                </p>
+                            </div>
+                            <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2016', this)">
+                                <p>
+                                    4★
+                                </p>
+                            </div>
+                            <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+                                <p>
+                                    5★
+                                </p>
+                            </div>
+                            <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+                                <p>
+                                    6★
+                                </p>
+                            </div>
+                             <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+                                <p>
+                                    7★
+                                </p>
+                            </div>
+                             <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+                                <p>
+                                    8★
+                                </p>
+                            </div>
+                             <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+                                <p>
+                                    9★
+                                </p>
+                            </div>
+                             <div class="clickableElement img-circle filter--image filter__content--release-date" onclick="add_remove_mysongs_filters_option('release_date', '2017', this)">
+                                <p>
+                                    10★
+                                </p>
+                            </div>
+                              </div>
+                          </div>
+                        <div id="filter_page_4" style="height: 1275px;">
+                            <article style="padding-top:50px;">
                                 <div style="margin-bottom: 30px;" class="horizontal-tabs">
                                     <a id="series_tab_1" onclick="series_1234(1)" class="active-tab" style="color: white; text-decoration: none;">TOP RESULTS</a>
                                     <a id="series_tab_2" onclick="series_1234(2)" class="clickableElement" style="color: white; text-decoration: none;">GENRE</a>
