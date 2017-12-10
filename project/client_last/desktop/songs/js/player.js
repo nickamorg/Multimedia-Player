@@ -72,8 +72,8 @@ function display_song_details(song_id) {
     song = playerAPI.songs[song_id];
     visitedPagesStack.setNewLastVisitedPage("song_details");
     goToPage('song_details');
-    $("#lyrics").html("<h1>LYRICS</h1>");
-    $("#lyrics").append("<pre class='scrollbar' style='max-height: 550px'>" + song.lyrics + "</pre>");
+    $("#lyrics").html("<h1 class='text-center'>LYRICS</h1>");
+    $("#lyrics").append("<pre class='text-center scrollbar' style='max-height: 550px'>" + song.lyrics + "</pre>");
     $("#song_title").html(song.title);
 
     $("#details").html(

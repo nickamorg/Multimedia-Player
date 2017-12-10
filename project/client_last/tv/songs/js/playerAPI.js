@@ -952,46 +952,38 @@ playerAPI.songs = {
 
     function scrolling() {
         let bottom_counter = 0;
-        let bottom = 100;
         let top_counter = 0;
-        let top = 150;
         setInterval(function() {
             if($("#cursor").offset().top < 60) {
                 bottom_counter = 0;
-                bottom = 100;
                 top_counter++;
-                if(top_counter === 5) {
+                if(top_counter === 2) {
                     top_counter = 0;
                     if($(".pt-page-current")[0].id.includes("movie")) {
-                        $(".pt-page-current").find(".movies_content").scrollTop(top);
+                        $(".pt-page-current").find(".movies_content").scrollTop($(".pt-page-current").find(".content").scrollTop() - 100);
                     } else if($(".pt-page-current")[0].id.includes("serie")) {
-                        $(".pt-page-current").find(".series_content").scrollTop(top);
+                        $(".pt-page-current").find(".series_content").scrollTop($(".pt-page-current").find(".content").scrollTop() - 100);
                     } else if($(".pt-page-current")[0].id.includes("song") === true) {
-                        $(".pt-page-current").find(".content").scrollTop(top);
+                        $(".pt-page-current").find(".content").scrollTop($(".pt-page-current").find(".content").scrollTop() - 100);
                     }
-                    top = top - 100;
                 }
 
             } else if($("#cursor").offset().top > 620) {
                 top_counter = 0;
-                top = 100;
                 bottom_counter++;
-                if(bottom_counter === 5) {
+                if(bottom_counter === 2) {
                     bottom_counter = 0;
                     if($(".pt-page-current")[0].id.includes("movie")) {
-                        $(".pt-page-current").find(".movies_content").scrollTop(bottom);
+                        $(".pt-page-current").find(".movies_content").scrollTop($(".pt-page-current").find(".content").scrollTop() + 100);
                     } else if($(".pt-page-current")[0].id.includes("serie")) {
-                        $(".pt-page-current").find(".series_content").scrollTop(bottom);
+                        $(".pt-page-current").find(".series_content").scrollTop($(".pt-page-current").find(".content").scrollTop() + 100);
                     } else if($(".pt-page-current")[0].id.includes("song") === true) {
-                        $(".pt-page-current").find(".content").scrollTop(bottom);
+                        $(".pt-page-current").find(".content").scrollTop($(".pt-page-current").find(".content").scrollTop() + 100);
                     }
-                    bottom = bottom + 100;
                 }
             } else {
                 bottom_counter = 0;
-                bottom = 100;
                 top_counter = 0;
-                top = 100;
             }
         }, 1000);
     }

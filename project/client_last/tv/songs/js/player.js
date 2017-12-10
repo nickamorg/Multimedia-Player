@@ -71,8 +71,8 @@ function display_song_details(song_id) {
     song = playerAPI.songs[song_id];
     visitedPagesStack.setNewLastVisitedPage("song_details");
     goToPage('song_details');
-    $("#lyrics").html("<h1>LYRICS</h1>");
-    $("#lyrics").append("<pre class='scrollbar' style='font-size:20px; max-height: 550px'>" + song.lyrics + "</pre>");
+    $("#lyrics").html("<h2 class='text-center'>LYRICS</h2>");
+    $("#lyrics").append("<pre class='text-center' style='font-size:20px;'>" + song.lyrics + "</pre>");
     $("#song_title").html(song.title);
 
     $("#details").html(
@@ -145,8 +145,8 @@ function display_song_expand_details(song_id) {
     song = playerAPI.songs[song_id];
     visitedPagesStack.setNewLastVisitedPage("song_expand_details");
     goToPage('song_expand_details');
-    $("#expand_lyrics").html("<h1>LYRICS</h1>");
-    $("#expand_lyrics").append("<pre class='scrollbar' style='font-size:20px; max-height: 550px'>" + song.lyrics + "</pre>");
+    $("#expand_lyrics").html("<h2>LYRICS</h2>");
+    $("#expand_lyrics").append("<pre class='text-center' style='font-size:20px;'>" + song.lyrics + "</pre>");
     $("#song_expand_title").html(song.title);
 
     $("#expand_details").html(
