@@ -31,30 +31,30 @@ function send_mysongs() {
 
                 $("#display_mysongs_content").append(
                     `<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="img-responsive" src="../ressrc/songs_images/${song.img}">
-                            <p>${song.title}</p>
-                            <small>${song.artist}</small>
-                            <div class="overlay">
-                                <h3 class="text-center">${song.title} - ${song.artist}</h3>
-                                <div class="options">
-                                    <div class="col-xs-3 clickableElement" onclick="display_song_details('${"id" + parseInt(songs[i].substring(2))}')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
-                        
-                                    <div class="col-xs-3 play-icon clickableElement" onclick="play_mysong(${i})">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
-                        
-                                    <div class="col-xs-3 clickableElement" onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');">
-                                        <em class="fa fa-plus" aria-hidden="true"></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-3 clickableElement" onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
+                        <img class="img-responsive" src="../ressrc/songs_images/${song.img}">
+                        <p>${song.title}</p>
+                        <small>${song.artist}</small>
+                        <div class="overlay">
+                            <h3 class="text-center">${song.title} - ${song.artist}</h3>
+                            <div class="options">
+                                <div class="col-xs-3 clickableElement" onclick="display_song_details('${"id" + parseInt(songs[i].substring(2))}')">
+                                    <em class="fa fa-external-link" aria-hidden="true"></em>
+                                </div>
+                    
+                                <div class="col-xs-3 play-icon clickableElement" onclick="play_mysong(${i})">
+                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
+                                </div>
+                    
+                                <div class="col-xs-3 clickableElement" onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');">
+                                    <em class="fa fa-plus" aria-hidden="true"></em>
+                                </div>
+                                
+                                <div class="col-xs-3 clickableElement" onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this)">
+                                    <em class="fa fa-minus" aria-hidden="true"></em>
                                 </div>
                             </div>
-                        </div>`);
+                        </div>
+                    </div>`);
 
                 if(counter++ % 4 === 0) {
                     $("#display_mysongs_content").append("<div class='clearfix'></div>");

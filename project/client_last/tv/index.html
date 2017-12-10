@@ -2344,177 +2344,179 @@
 					</div>
 					<div id="display_mymovies" style="height: 1000px;">
                         <h1>My movies</h1>
-                        <div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="movie--image" src="../ressrc/movies_images/spider-man_homecoming.png"/>
-                            <p>Spider-Man: Homecoming</p>
-                            <small>2017</small>
-                            <div class="overlay">
-                                <h3 class="text-center">Spider-Man: Homecoming</h3>
-                                <div class="options">
-                                    <div class="col-xs-4 clickableElement" onclick="display_movie_details('id0')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
+						<div id="display_mymovies_content">
+							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+								<img class="movie--image" src="../ressrc/movies_images/spider-man_homecoming.png"/>
+								<p>Spider-Man: Homecoming</p>
+								<small>2017</small>
+								<div class="overlay">
+									<h3 class="text-center">Spider-Man: Homecoming</h3>
+									<div class="options">
+										<div class="col-xs-4 clickableElement" onclick="display_movie_details('id0')">
+											<em class="fa fa-external-link" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id0')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id0')">
+											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id0', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="movie--image" src="../ressrc/movies_images/guardians_of_the_galaxy.jpg"/>
-                            <p>Guardians of The Galaxy</p>
-                            <small>2014</small>
-                            <div class="overlay">
-                                <h3 class="text-center">Guardians of The Galaxy</h3>
-                                <div class="options">
-                                    <div class="col-xs-4 clickableElement" onclick="display_movie_details('id7')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id0', this)">
+											<em class="fa fa-minus" aria-hidden="true"></em>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+								<img class="movie--image" src="../ressrc/movies_images/guardians_of_the_galaxy.jpg"/>
+								<p>Guardians of The Galaxy</p>
+								<small>2014</small>
+								<div class="overlay">
+									<h3 class="text-center">Guardians of The Galaxy</h3>
+									<div class="options">
+										<div class="col-xs-4 clickableElement" onclick="display_movie_details('id7')">
+											<em class="fa fa-external-link" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id7')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id7')">
+											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id7', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="movie--image" src="../ressrc/movies_images/deadpool.JPG"/>
-                            <p>Deadpool</p>
-                            <small>2016</small>
-                            <div class="overlay">
-                                <h3 class="text-center">Deadpool</h3>
-                                <div class="options">
-                                    <div class="col-xs-4 clickableElement" onclick="display_movie_details('id9')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id7', this)">
+											<em class="fa fa-minus" aria-hidden="true"></em>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+								<img class="movie--image" src="../ressrc/movies_images/deadpool.JPG"/>
+								<p>Deadpool</p>
+								<small>2016</small>
+								<div class="overlay">
+									<h3 class="text-center">Deadpool</h3>
+									<div class="options">
+										<div class="col-xs-4 clickableElement" onclick="display_movie_details('id9')">
+											<em class="fa fa-external-link" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id9')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id9')">
+											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id9', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="movie--image" src="../ressrc/movies_images/it_comes_at_night.jpg"/>
-                            <p>It comes At Night</p>
-                            <small>2017</small>
-                            <div class="overlay">
-                                <h3 class="text-center">It comes At Night</h3>
-                                <div class="options">
-                                    <div class="col-xs-4 clickableElement" onclick="display_movie_details('id12')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id9', this)">
+											<em class="fa fa-minus" aria-hidden="true"></em>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+								<img class="movie--image" src="../ressrc/movies_images/it_comes_at_night.jpg"/>
+								<p>It comes At Night</p>
+								<small>2017</small>
+								<div class="overlay">
+									<h3 class="text-center">It comes At Night</h3>
+									<div class="options">
+										<div class="col-xs-4 clickableElement" onclick="display_movie_details('id12')">
+											<em class="fa fa-external-link" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id12')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id12')">
+											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id12', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+										<div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id12', this)">
+											<em class="fa fa-minus" aria-hidden="true"></em>
+										</div>
+									</div>
+								</div>
+							</div>
 
-                        <div class="clearfix" style="padding-bottom:20px"></div>
+							<div class="clearfix" style="padding-bottom:20px"></div>
 
-                        <div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="movie--image" src="../ressrc/movies_images/wonder_woman.jpg"/>
-                            <p>Wonder Woman</p>
-                            <small>2017</small>
-                            <div class="overlay">
-                                <h3 class="text-center">Wonder Woman</h3>
-                                <div class="options">
-                                    <div class="col-xs-4 clickableElement" onclick="display_movie_details('id12')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
+							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+								<img class="movie--image" src="../ressrc/movies_images/wonder_woman.jpg"/>
+								<p>Wonder Woman</p>
+								<small>2017</small>
+								<div class="overlay">
+									<h3 class="text-center">Wonder Woman</h3>
+									<div class="options">
+										<div class="col-xs-4 clickableElement" onclick="display_movie_details('id12')">
+											<em class="fa fa-external-link" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id12')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id12')">
+											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id12', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="movie--image" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
-                          <p>Pirates of the Caribbean: Dead Men Tell No Tales</p>
-                          <small>25 May 2017</small>
-                            <div class="overlay">
-                                <h3 class="text-center">Pirates of the Caribbean: Dead Men Tell No Tales</h3>
-                                <div class="options">
-                                    <div class="col-xs-4 clickableElement" onclick="display_movie_details('id2')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id12', this)">
+											<em class="fa fa-minus" aria-hidden="true"></em>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+								<img class="movie--image" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
+							  <p>Pirates of the Caribbean: Dead Men Tell No Tales</p>
+							  <small>25 May 2017</small>
+								<div class="overlay">
+									<h3 class="text-center">Pirates of the Caribbean: Dead Men Tell No Tales</h3>
+									<div class="options">
+										<div class="col-xs-4 clickableElement" onclick="display_movie_details('id2')">
+											<em class="fa fa-external-link" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id2')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id2')">
+											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id2', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="movie--image" src="../ressrc/movies_images/annabelle_creation.jpg"/>
-                            <p>Annabelle Creation</p>
-                            <small>2017</small>
-                            <div class="overlay">
-                                <h3 class="text-center">Annabelle Creation</h3>
-                                <div class="options">
-                                    <div class="col-xs-4 clickableElement" onclick="display_movie_details('id1')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id2', this)">
+											<em class="fa fa-minus" aria-hidden="true"></em>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+								<img class="movie--image" src="../ressrc/movies_images/annabelle_creation.jpg"/>
+								<p>Annabelle Creation</p>
+								<small>2017</small>
+								<div class="overlay">
+									<h3 class="text-center">Annabelle Creation</h3>
+									<div class="options">
+										<div class="col-xs-4 clickableElement" onclick="display_movie_details('id1')">
+											<em class="fa fa-external-link" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id1')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id1')">
+											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id1', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="movie--image" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg"/>
-                            <p>Valerian and the City of Thousand Planets</p>
-                            <small>2017</small>
-                            <div class="overlay">
-                                <h3 class="text-center">Valerian and the City of Thousand Planets</h3>
-                                <div class="options">
-                                    <div class="col-xs-4 clickableElement" onclick="display_movie_details('id4')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id1', this)">
+											<em class="fa fa-minus" aria-hidden="true"></em>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+								<img class="movie--image" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg"/>
+								<p>Valerian and the City of Thousand Planets</p>
+								<small>2017</small>
+								<div class="overlay">
+									<h3 class="text-center">Valerian and the City of Thousand Planets</h3>
+									<div class="options">
+										<div class="col-xs-4 clickableElement" onclick="display_movie_details('id4')">
+											<em class="fa fa-external-link" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id4')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
+										<div class="col-xs-4 play-icon clickableElement" onclick="play_movie('id4')">
+											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+										</div>
 
-                                    <div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id4', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+										<div class="col-xs-4 clickableElement" onclick="remove_from_mymovies('id4', this)">
+											<em class="fa fa-minus" aria-hidden="true"></em>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
                     </div>
 				</div>
 			</div>
@@ -3703,165 +3705,167 @@
 						</div>
 						<div id="display_myseries" style="height: 1150px;">
 							<h1>My series</h1>
-							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="movie--img" src="../ressrc/series_images/The Defenders.jpg"/>
-								<p>The Defenders</p>
-								<div class="overlay">
-									<h3 class="text-center">The Defenders</h3>
-									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id0')">
-											<em class="fa fa-external-link" aria-hidden="true"></em>
-										</div>
+							<div id="display_myseries_content">
+								<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+									<img class="movie--img" src="../ressrc/series_images/The Defenders.jpg"/>
+									<p>The Defenders</p>
+									<div class="overlay">
+										<h3 class="text-center">The Defenders</h3>
+										<div class="options">
+											<div class="col-xs-4 clickableElement" onclick="display_serie_details('id0')">
+												<em class="fa fa-external-link" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id0')">
-											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-										</div>
+											<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id0')">
+												<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id0', this)">
-											<em class="fa fa-minus" aria-hidden="true"></em>
+											<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id0', this)">
+												<em class="fa fa-minus" aria-hidden="true"></em>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="movie--img" src="../ressrc/series_images/Stranger Things.jpg"/>
-								<p>Stranger Things</p>
-								<div class="overlay">
-									<h3 class="text-center">Stranger Things</h3>
-									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id7')">
-											<em class="fa fa-external-link" aria-hidden="true"></em>
-										</div>
+								<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+									<img class="movie--img" src="../ressrc/series_images/Stranger Things.jpg"/>
+									<p>Stranger Things</p>
+									<div class="overlay">
+										<h3 class="text-center">Stranger Things</h3>
+										<div class="options">
+											<div class="col-xs-4 clickableElement" onclick="display_serie_details('id7')">
+												<em class="fa fa-external-link" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id7')">
-											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-										</div>
+											<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id7')">
+												<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id7', this)">
-											<em class="fa fa-minus" aria-hidden="true"></em>
+											<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id7', this)">
+												<em class="fa fa-minus" aria-hidden="true"></em>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="movie--img" src="../ressrc/series_images/Friends.jpg"/>
-								<p>Friends</p>
-								<div class="overlay">
-									<h3 class="text-center">Friends</h3>
-									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id9')">
-											<em class="fa fa-external-link" aria-hidden="true"></em>
-										</div>
+								<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+									<img class="movie--img" src="../ressrc/series_images/Friends.jpg"/>
+									<p>Friends</p>
+									<div class="overlay">
+										<h3 class="text-center">Friends</h3>
+										<div class="options">
+											<div class="col-xs-4 clickableElement" onclick="display_serie_details('id9')">
+												<em class="fa fa-external-link" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id9')">
-											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-										</div>
+											<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id9')">
+												<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id9', this)">
-											<em class="fa fa-minus" aria-hidden="true"></em>
+											<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id9', this)">
+												<em class="fa fa-minus" aria-hidden="true"></em>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="movie--img" src="../ressrc/series_images/Emerald City.jpg"/>
-								<p>Emerald City</p>
-								<div class="overlay">
-									<h3 class="text-center">Emerald City</h3>
-									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id12')">
-											<em class="fa fa-external-link" aria-hidden="true"></em>
-										</div>
+								<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+									<img class="movie--img" src="../ressrc/series_images/Emerald City.jpg"/>
+									<p>Emerald City</p>
+									<div class="overlay">
+										<h3 class="text-center">Emerald City</h3>
+										<div class="options">
+											<div class="col-xs-4 clickableElement" onclick="display_serie_details('id12')">
+												<em class="fa fa-external-link" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id12')">
-											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-										</div>
+											<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id12')">
+												<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id12', this)">
-											<em class="fa fa-minus" aria-hidden="true"></em>
+											<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id12', this)">
+												<em class="fa fa-minus" aria-hidden="true"></em>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="clearfix" style="padding-bottom:20px"></div>
+								<div class="clearfix" style="padding-bottom:20px"></div>
 
-							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="movie--img" src="../ressrc/series_images/Sherlock.jpg"/>
-								<p>Sherlock</p>
-								<div class="overlay">
-									<h3 class="text-center">Sherlock</h3>
-									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id12')">
-											<em class="fa fa-external-link" aria-hidden="true"></em>
-										</div>
+								<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+									<img class="movie--img" src="../ressrc/series_images/Sherlock.jpg"/>
+									<p>Sherlock</p>
+									<div class="overlay">
+										<h3 class="text-center">Sherlock</h3>
+										<div class="options">
+											<div class="col-xs-4 clickableElement" onclick="display_serie_details('id12')">
+												<em class="fa fa-external-link" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id12')">
-											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-										</div>
+											<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id12')">
+												<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id12', this)">
-											<em class="fa fa-minus" aria-hidden="true"></em>
+											<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id12', this)">
+												<em class="fa fa-minus" aria-hidden="true"></em>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="movie--img" src="../ressrc/series_images/Mindhunter.jpg"/>
-								<p>Mindhunter</p>
-								<div class="overlay">
-									<h3 class="text-center">Mindhunter</h3>
-									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id2')">
-											<em class="fa fa-external-link" aria-hidden="true"></em>
-										</div>
+								<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+									<img class="movie--img" src="../ressrc/series_images/Mindhunter.jpg"/>
+									<p>Mindhunter</p>
+									<div class="overlay">
+										<h3 class="text-center">Mindhunter</h3>
+										<div class="options">
+											<div class="col-xs-4 clickableElement" onclick="display_serie_details('id2')">
+												<em class="fa fa-external-link" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id2')">
-											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-										</div>
+											<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id2')">
+												<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id2', this)">
-											<em class="fa fa-minus" aria-hidden="true"></em>
+											<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id2', this)">
+												<em class="fa fa-minus" aria-hidden="true"></em>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="movie--img" src="../ressrc/series_images/The Flash.jpg"/>
-								<p>The Flash</p>
-								<div class="overlay">
-									<h3 class="text-center">The Flash</h3>
-									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id1')">
-											<em class="fa fa-external-link" aria-hidden="true"></em>
-										</div>
+								<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+									<img class="movie--img" src="../ressrc/series_images/The Flash.jpg"/>
+									<p>The Flash</p>
+									<div class="overlay">
+										<h3 class="text-center">The Flash</h3>
+										<div class="options">
+											<div class="col-xs-4 clickableElement" onclick="display_serie_details('id1')">
+												<em class="fa fa-external-link" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id1')">
-											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-										</div>
+											<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id1')">
+												<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id1', this)">
-											<em class="fa fa-minus" aria-hidden="true"></em>
+											<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id1', this)">
+												<em class="fa fa-minus" aria-hidden="true"></em>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-								<img class="movie--img" src="../ressrc/series_images/Arrow.jpg"/>
-								<p>Arrow</p>
-								<div class="overlay">
-									<h3 class="text-center">Arrow</h3>
-									<div class="options">
-										<div class="col-xs-4 clickableElement" onclick="display_serie_details('id4')">
-											<em class="fa fa-external-link" aria-hidden="true"></em>
-										</div>
+								<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+									<img class="movie--img" src="../ressrc/series_images/Arrow.jpg"/>
+									<p>Arrow</p>
+									<div class="overlay">
+										<h3 class="text-center">Arrow</h3>
+										<div class="options">
+											<div class="col-xs-4 clickableElement" onclick="display_serie_details('id4')">
+												<em class="fa fa-external-link" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id4')">
-											<em class="fa fa-play-circle-o" aria-hidden="true"></em>
-										</div>
+											<div class="col-xs-4 play-icon clickableElement" onclick="play_serie('id4')">
+												<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+											</div>
 
-										<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id4', this)">
-											<em class="fa fa-minus" aria-hidden="true"></em>
+											<div class="col-xs-4 clickableElement" onclick="remove_from_myseries('id4', this)">
+												<em class="fa fa-minus" aria-hidden="true"></em>
+											</div>
 										</div>
 									</div>
 								</div>

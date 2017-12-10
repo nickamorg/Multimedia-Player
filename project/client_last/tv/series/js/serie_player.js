@@ -353,7 +353,7 @@ function send_myseries() {
             var genres = [];
             var genres_counter = 0;
             var dates = [];
-            $("#myseries_content").html("");
+            $("#display_myseries_content").html("");
 
             var index = myseries.indexOf("");
             myseries.splice(index, 1);
@@ -369,22 +369,22 @@ function send_myseries() {
 
                 dates[i] = parseInt(serie.release.split(" ")[0]);
                 rates[i] = parseFloat(serie.rate);
-                $("#myseries_content").append(
-                    `<div class="col-xs-4 container">
-                        <img class="img-responsive" src="../ressrc/series_images/${serie.img}"/>
+                $("#display_myseries_content").append(
+                    `<div class="col-xs-4 clickableElement" style="margin-bottom:20px" onclick="toggleContainer(this)">
+                        <img class="img-responsive" style="height:500px" src="../ressrc/series_images/${serie.img}"/>
                         <p>${serie.title}</p>
                         <div class="overlay">
                             <h3 class="text-center">${serie.title}</h3>
                             <div class="options">
-                                <div class="col-xs-12" onclick="display_serie_details('${id}')">
+                                <div class="col-xs-12 clickableElement" onclick="display_serie_details('${id}')">
                                     <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open series' page</span></em>
                                 </div>
                                 
-                                <div class="col-xs-12" onclick="setSeriesPlayer('${id}')">
+                                <div class="col-xs-12 clickableElement" onclick="setSeriesPlayer('${id}')">
                                     <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the serie</span></em>
                                 </div>
                                 
-                                <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
+                                <div class="col-xs-12 clickableElement" onclick="remove_from_myseries('${id}', this)">
                                     <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
                                 </div>
                             </div>

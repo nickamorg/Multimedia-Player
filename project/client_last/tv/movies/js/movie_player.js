@@ -349,8 +349,8 @@ function send_mymovies() {
             var genres = [];
             var genres_counter = 0;
             var dates = [];
-            $("#mymovies_content").html("");
-
+            $("#display_mymovies_content").html("");
+            console.log(mymovies);
             var index = mymovies.indexOf("");
             mymovies.splice(index, 1);
 
@@ -365,22 +365,22 @@ function send_mymovies() {
 
                 dates[i] = parseInt(movie.release.split(" ")[2]);
                 rates[i] = parseFloat(movie.rate);
-                $("#mymovies_content").append(
-                    `<div class="col-xs-4 container">
+                $("#display_mymovies_content").append(
+                    `<div class="col-xs-4 clickableElement" style="margin-bottom:20px" onclick="toggleContainer(this)">
                         <img class="img-responsive" src="../ressrc/movies_images/${movie.img}"/>
                         <p>${movie.title}</p>
                         <div class="overlay">
                             <h3 class="text-center">${movie.title}</h3>
                             <div class="options">
-                                <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                <div class="col-xs-12 clickableElement" onclick="display_movie_details('${id}')">
                                     <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
                                 </div>
                                 
-                                <div class="col-xs-12" onclick="setMoviesPlayer('${id}')">
+                                <div class="col-xs-12 clickableElement" onclick="setMoviesPlayer('${id}')">
                                     <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
                                 </div>
                                 
-                                <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
+                                <div class="col-xs-12 clickableElement" onclick="remove_from_mymovies('${id}', this)">
                                     <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
                                 </div>
                             </div>
