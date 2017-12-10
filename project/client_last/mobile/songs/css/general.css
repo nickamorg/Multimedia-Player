@@ -319,8 +319,7 @@ a {
 
 .child {
     width: 200px; height: 100%;
-    margin-right: 30px;
-    padding: 25px;
+    padding: 25px 0 25px 25px;
     box-sizing: border-box;
     /* background: #3b3b3b; */
     display:inline-block;

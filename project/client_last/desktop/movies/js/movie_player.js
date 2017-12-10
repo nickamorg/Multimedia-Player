@@ -116,7 +116,7 @@ movies = {
     "id10": {
         "file": "Suicide Squad.mp4",
         "title": "Suicide Squad",
-        "release": " 25 August 2016",
+        "release": "25 August 2016",
         "duration": "123 min",
         "rate": "6.2",
         "genre": ["Action", "Adventure", "Fantasy"],
