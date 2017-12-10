@@ -174,9 +174,15 @@ function search_inter() {
 }
 
 function goToPage(page) {
+    $("#movies_header").css("visibility", "");
+    $("#movies_footer").css("visibility", "");
+    $("#series_header").css("visibility", "");
+    $("#series_footer").css("visibility", "");
     setTimeout(function() {
-        $("#series_footer").css("visibility", "hidden");
-        $("#movies_footer").css("visibility", "hidden");
+        $("#movies_header").css("visibility", "");
+        $("#movies_footer").css("visibility", "");
+        $("#series_header").css("visibility", "");
+        $("#series_footer").css("visibility", "");
     }, 500);
     $(".pt-page").removeClass("pt-page-current");
     $("#" + page).addClass("pt-page-current");

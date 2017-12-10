@@ -10,6 +10,11 @@ $(document).ready(function () {
         serie_width = 0;
         document.getElementById("series_video").pause();
         $('.serie_volume_bar').css('width', '50%');
+
+        setTimeout(function() {
+            document.getElementById("movies_video").pause();
+            document.getElementById("series_video").pause();
+        }, 2300);
     }
 
     $('.to_lobby').click(function () {

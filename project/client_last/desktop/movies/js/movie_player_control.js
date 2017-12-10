@@ -21,7 +21,7 @@ function setMoviesPlayer(movie_id) {
     movies_video.load();
 
     setTimeout(function(){
-        if(movies_video.paused) {
+        if(movies_video.paused && $(".pt-page-current")[0].id.includes("movie")) {
             movies_video.play();
             $("#movies_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
         }

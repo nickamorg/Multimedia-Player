@@ -21,7 +21,7 @@ function setSeriesPlayer(serie_id) {
     series_video.load();
 
     setTimeout(function(){
-        if(series_video.paused) {
+        if(series_video.paused && $(".pt-page-current")[0].id.includes("serie")) {
             series_video.play();
             $("#series_play_pause").addClass("fa-pause-circle-o");
             $("#series_play_pause").removeClass("fa-play-circle-o");
