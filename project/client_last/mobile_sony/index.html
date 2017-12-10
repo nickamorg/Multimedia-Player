@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>3Player</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Cache-control" content="no-cache">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <!-- BEGIN CSS LIBRARIES -->
+        <link rel="stylesheet" type="text/css" href="../app/css/libs/animations.css">
+        <link rel="stylesheet" type="text/css" href="../app/css/libs/page_transitions.css">
+        <!-- END CSS LIBRARIES -->
+
+        <!-- BEGIN JAVASCRIPT LIBRARIES -->
+        <script language="javascript" type="text/javascript" src="../app/js/libs/jquery-1.11.3.min.js"></script>
+        <script language="javascript" type="text/javascript" src="../app/js/libs/modernizr.custom.js"></script>
+        <!-- END JAVASCRIPT LIBRARIES -->
+
+        <!-- BEGIN CONFIG -->
+        <script language="javascript" type="text/javascript" src="../app/js/src/config/config.js"></script>
+        <!-- END CONFIG -->
+
+        <!-- BEGIN APPLICATION SCRIPTS -->
+        <script language="javascript" type="text/javascript" src="page_transitions.js"></script>
+        <!-- END APPLICATION SCRIPTS -->
+
+        <!-- OUR IMPORTS -->
+        <!--<link type="text/css" rel="stylesheet" href="search.css">-->
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- SONGS -->
+        <link type="text/css" rel="stylesheet" href="songs/css/general.css">
+        <script type="application/javascript" src="songs/js/header.js"></script>
+        <script type="application/javascript" src="songs/js/player.js"></script>
+        <script type="application/javascript" src="songs/js/general.js"></script>
+        <script type="application/javascript" src="songs/js/websockets.js"></script>
+
+        <!-- MOVIES -->
+        <link type="text/css" rel="stylesheet" href="movies/css/general.css">
+        <script type="application/javascript" src="movies/js/movies_header.js"></script>
+        <script type="application/javascript" src="movies/js/movie_player.js"></script>
+
+        <!-- SERIES -->
+        <link type="text/css" rel="stylesheet" href="series/css/general.css">
+        <script type="application/javascript" src="series/js/series_header.js"></script>
+        <script type="application/javascript" src="series/js/serie_player.js"></script>
+
+        <style>
+            #mysongs_content>div:nth-child(odd) {
+                background-color: #222235;
+            }
+
+            #playlists_content>div:nth-child(odd) {
+                background-color: #222235;
+            }
+
+            #playlist_content>div:nth-child(odd) {
+                background-color: #222235;
+            }
+
+            .table-striped>tbody>tr:nth-child(odd)>td,
+            .table-striped>tbody>tr:nth-child(odd)>th {
+                background-color: #222235;
+            }
+            .table-borderless > tbody > tr > td,
+            .table-borderless > tbody > tr > th,
+            .table-borderless > tfoot > tr > td,
+            .table-borderless > tfoot > tr > th,
+            .table-borderless > thead > tr > td,
+            .table-borderless > thead > tr > th {
+                border: none;
+            }
+        </style>
+    </head>
+
+    <body>
+    <!-- BEGIN PAGES -->
+    <div id="pt-main" class="pt-perspective">
+        <!-- BEGIN PAGE 1 -->
+        <div id="lobby" class="pt-page">
+            <div class="scrollbar">
+                <div class="wrapper">
+                    <div id="to_song_home"><img class="img-responsive" src="../ressrc/song.png"/><h1>Songs</h1></div>
+                    <div id="to_movies_home"><img class="img-responsive" src="../ressrc/movie.png"/><h1>Movies</h1></div>
+                    <div id="to_series_home"><img class="img-responsive" src="../ressrc/serie.png"/><h1>Series</h1></div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 1 -->
+
+        <!-- BEGIN PAGE 2 - HOME -->
+        <div id="song_home" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Home</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
+                <div class="clearfix" style="padding-top:35%"></div>
+
+                <div class="parent" style="top:18%">
+                    <h2><button id="song_new_releases_link">New releases</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_song_details('id0')">
+                            <img class="img-responsive" src="../ressrc/songs_images/perro_fiel.png">
+                            <h3>Perro Fiel</h3>
+                            <h5>Shakira</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id7')">
+                            <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+                            <h3>Rockstar</h3>
+                            <h5>Post Malone</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id9')">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+                            <h3>Thunder</h3>
+                            <h5>Imagine Dragons</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id10')">
+                            <img class="img-responsive" src="../ressrc/songs_images/the%20sky%20is%20a%20neighborhood.jpg">
+                            <h3>The Sky Is a Neighborhood</h3>
+                            <h5>Foo Fighters</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parent">
+                    <h2><button id="song_charts_link">Charts</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_song_details('id12')">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+                            <h3>Havana</h3>
+                            <h5>Camila Cabello</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id11')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+                            <h3>Too Good At Goodbyes</h3>
+                            <h5>Sam Smith</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id7')">
+                            <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+                            <h3>Rockstar</h3>
+                            <h5>Post Malone</h5>
+                        </div>
+                        <div class="child" onclick="display_song_details('id8')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+                            <h3>Sorry Not Sorry</h3>
+                            <h5>Demi Lovato</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parent">
+                    <h2><button id="song_genres_link">Genres</button></h2>
+                    <div class="scrollBar">
+                        <div class="child display_song_by_genre" onclick="set_songs_by_genre('Alternative rock')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/alternative_rock.jpg">
+                            <h3>Alternative rock</h3>
+                        </div>
+                        <div class="child display_song_by_genre" onclick="set_songs_by_genre('downtempo')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/downtempo.jpg">
+                            <h3>Downtempo</h3>
+                        </div>
+                        <div class="child display_song_by_genre" onclick="set_songs_by_genre('pop')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/pop.jpg">
+                            <h3>Pop</h3>
+                        </div>
+                        <div class="child display_song_by_genre" onclick="set_songs_by_genre('Punk rock')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/punk_rock.jpg">
+                            <h3>Punk rock</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parent">
+                    <h2><button id="song_recently_played_link">Recently played</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_song_details('id2')">
+                            <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png"/>
+                            <h3>Side To Side</h3>
+                            <h5>Ariana Grande</h5>
+                        </div>
+
+                        <div class="child" onclick="display_song_details('id9')">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg"/>
+                            <h3>Thunder</h3>
+                            <h5>Imagine Dragons</h5>
+                        </div>
+
+                        <div class="child" onclick="display_song_details('id12')">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png"/>
+                            <h3>Havana</h3>
+                            <h5>Camila Cabello</h5>
+                        </div>
+
+                        <div class="child" onclick="display_song_details('id1')">
+                            <img class="img-responsive" src="../ressrc/songs_images/like%20a%20star.jpg"/>
+                            <h3>Like A Star</h3>
+                            <h5>Fly Project</h5>
+                        </div>
+
+                        <div class="child" onclick="display_song_details('id4')">
+                            <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg"/>
+                            <h3>Holiday</h3>
+                            <h5>Green Day</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BEGIN PAGE 2 - HOME -->
+
+        <!-- BEGIN PAGE 3 - SONG_MYSONGS-->
+        <div id="song_mysongs" class="pt-page">
+            <div class="content scrollbar">
+                <div class="mysongs">
+                    <div style=" background-color:#000000">
+                        <div class="col-xs-12" style="padding-bottom: 50px;">
+                            <div class="col-xs-2" style="padding-top:20px"><em class="fa fa-angle-left" style="font-size:50px"></em></div>
+                            <div class="col-xs-8"><h1 class="text-center">My songs</h1></div>
+                            <div class="col-xs-2" style="padding-top:20px">
+                                <button data-toggle="collapse" data-target="#mysongs_filters">
+                                    <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div id="mysongs_filters" class="collapse">
+                        <div id="mysongs_keywords">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Keywords</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('mysongs_keywords');" type="button" data-toggle="collapse" data-target="#mysongs_keywords_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="mysongs_keywords_content" class="collapse scrollbar filter_content">
+                                <input id="mysongs_input_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
+                            </div>
+                        </div>
+
+                        <div id="genres">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Genres</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#genres_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="genres_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="release">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Release Date</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#release_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="release_content" class="collapse filter_content form-inline text-center">
+                                <div class="form-group" style="padding-right:20px">
+                                    <label class="control-label">From</label>
+                                    <select onchange="apply_filters_mysong()" id="from"  class="form-control">
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">To</label>
+                                    <select onchange="apply_filters_mysong()" id="to"  class="form-control">
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="artists">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Artists</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#artists_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="artists_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="albums">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Albums</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#albums_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="albums_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mysongs_content"></div>
+                </div>
+            </div>
+        </div>
+        <!-- BEGIN PAGE 3 - SONG_MYSONGS-->
+
+        <!-- BEGIN PAGE 4 - SONG_EXPLORE-->
+        <div id="song_explore" class="pt-page">
+            <div class="content scrollbar">
+                <div id="explore" class="text-center"></div>
+            </div>
+        </div>
+        <!-- END PAGE 4 - SONG_EXPLORE-->
+
+        <!-- BEGIN PAGE 5 - SONG_BY_GENRE -->
+        <div id="song_by_genre" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px"></h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
+                <div class="text-center">
+                    <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                        <div id="display_by_genre" class="display_songs">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 5 - SONG_BY_GENRE -->
+
+        <!-- BEGIN PAGE 6 - SONG_PAGE -->
+        <div id="song_details" class="pt-page">
+            <div class="content scrollbar"></div>
+        </div>
+        <!-- END PAGE 6 - SONG_PAGE -->
+
+        <!-- BEGIN PAGE 7 - PLAYLISTS -->
+        <div id="playlists" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Playlists</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div id="playlists_content" style="margin-top:20px;">
+            </div>
+        </div>
+        <!-- END PAGE 7 - PLAYLISTS -->
+
+        <!-- BEGIN PAGE 8 - SONG_PLAYLIST -->
+        <div id="song_playlist" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px"></h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
+                <div id="playlist_content"></div>
+            </div>
+        </div>
+        <!-- END PAGE 8 - SONG_PLAYLIST -->
+
+        <!-- BEGIN PAGE 9 - SONG_SEARCH -->
+        <div id="song_search" class="pt-page">
+            <div class="content scrollbar">
+                <div class="search_songs">
+                    <div style="background-color:#000000">
+                        <div class="col-xs-12" style="padding-bottom: 50px;">
+                            <div class="col-xs-2" style="padding-top:20px"><em class="fa fa-angle-left" style="font-size:50px"></em></div>
+                            <div class="col-xs-8"><h1 class="text-center">Search</h1></div>
+                            <div class="col-xs-2" style="padding-top:20px">
+                                <button data-toggle="collapse" data-target="#search_filters">
+                                    <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div id="search_filters" class="collapse">
+                        <div id="search_genres">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Genres</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('genres');" type="button" data-toggle="collapse" data-target="#search_genres_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_genres_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="search_release">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Release Date</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('release');" type="button" data-toggle="collapse" data-target="#search_release_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_release_content" class="collapse filter_content form-inline text-center">
+                                <div class="form-group" style="padding-right:20px">
+                                    <label class="control-label">From</label>
+                                    <select onchange="apply_filters_mysong()" id="search_from"  class="form-control">
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">To</label>
+                                    <select onchange="apply_filters_mysong()" id="search_to"  class="form-control">
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="search_artists">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Artists</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('artists');" type="button" data-toggle="collapse" data-target="#search_artists_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_artists_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+
+                        <div id="search_albums">
+                            <div class="filter_category">
+                                <p style="margin:0">
+                                    <span>Albums</span>
+                                    <span style="float:right">
+                                        <button onclick="expand_filter('albums');" type="button" data-toggle="collapse" data-target="#search_albums_content">
+                                            <em class="fa fa-angle-right"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="search_albums_content" class="collapse scrollbar filter_content">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding-left:30px; padding-right:30px" class="col-xs-12">
+                        <input style="padding: 30px 30px" id="keywords" class="form-control" placeholder="keywords" value="rock" />
+                    </div>
+                    <div>
+                        <h2 style="padding: 18px !important;" class="text-center">Genre</h2>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 style="padding: 18px !important;" class="text-center">Tracks</h2>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                    <button onclick="play_song('id0')"><em class="fa" style="font-size:40px"></em></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                    <button onclick="play_song('id0')"><em class="fa" style="font-size:40px"></em></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                    <button onclick="play_song('id0')"><em class="fa" style="font-size:40px"></em></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                    <button onclick="play_song('id0')"><em class="fa" style="font-size:40px"></em></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                    <button onclick="play_song('id0')"><em class="fa" style="font-size:40px"></em></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 style="padding: 18px !important;" class="text-center">Artists</h2>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 style="padding: 18px !important;" class="text-center">Artists</h2>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-2" style="height:100px; line-height:100px;">
+                                    <img style="width:80px" src="../ressrc/songs_images/perro_fiel.png">
+                                </div>
+                                <div class="col-xs-8">
+                                    <button onclick="display_song_details('id0')" style="text-align:left;">
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">rockstar</p>
+                                        <p style="white-space:nowrap; overflow-x: hidden; line-height:1.2; font-size:30px">Post Malone</p><p>
+                                    </p></button>
+                                </div>
+                                <div class="col-xs-1" style="padding:0;  height:100px; line-height:100px;">
+                                </div>
+                                <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
+                                    <button onclick="open_playlists_modal('id0');" style="float:right"><em class="fa fa-chevron-right" style="font-size:40px"></em></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 9 - SONG_SEARCH -->
+
+
+        <!-- BEGIN PAGE 10 - SONG_NEW_RELEASES-->
+        <div id="song_new_releases" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">New releases</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
+                <div class="col-xs-12" style="padding: 0 10px 0 10px; margin-top:20px;">
+                    <div id="song_new_releases_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 10 - SONG_NEW_RELEASES-->
+
+        <!-- BEGIN PAGE 11 - SONG_CHARTS-->
+        <div id="song_charts" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Charts</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
+                <div class="col-xs-12" style="padding: 0 10px 0 10px; margin-top:20px;">
+                    <div id="song_charts_content">
+                        <div class="col-xs-6" onclick="display_song_details('id12')">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+                            <p>Havana</p>
+                            <p class="small">Camila Cabello</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id11')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+                            <p>Too Good At Goodbyes</p>
+                            <p class="small">Sam Smith</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id7')">
+                            <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+                            <p>Rockstar</p>
+                            <p class="small">Post Malone</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id8')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+                            <p>Sorry Not Sorry</p>
+                            <p class="small">Demi Lovato</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id10')">
+                            <img class="img-responsive" src="../ressrc/songs_images/the sky is a neighborhood.jpg">
+                            <p>The Sky Is A Neighborhood </p>
+                            <p class="small">Foo Fighters</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id2')">
+                            <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png">
+                            <p>Side To Side</p>
+                            <p class="small">Ariana Grande</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id9')">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+                            <p>Thunder</p>
+                            <p class="small">Imagine Dragons</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id4')">
+                            <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg">
+                            <p>Holiday</p>
+                            <p class="small">Green Day</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 11 - SONG_CHARTS-->
+
+        <!-- BEGIN PAGE 12 - SONG_GENRES-->
+        <div id="song_genres" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Genres</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
+                <div class="col-xs-12" style="padding: 0 10px 0 10px; margin-top:20px;">
+                    <div id="song_genres_content">
+                        <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('Alternative rock')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/alternative_rock.jpg">
+                            <p>Alternative rock</p></div>
+                        <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('downtempo')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/downtempo.jpg">
+                            <p>Downtempo</p>
+                        </div>
+                        <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('pop')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/pop.jpg">
+                            <p>Pop</p>
+                        </div>
+                        <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('Punk rock')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/punk_rock.jpg">
+                            <p>Punk rock</p>
+                        </div>
+                        <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('reggaeton')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/reggaeton.png">
+                            <p>Reggaeton</p>
+                        </div>
+                        <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('trap')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/trap.jpg">
+                            <p>Trap</p>
+                        </div>
+                        <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('latin')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/latin.jpg">
+                            <p>Latin</p>
+                        </div>
+                        <div class="col-xs-6 display_song_by_genre" onclick="set_songs_by_genre('Reggae-pop')">
+                            <img class="img-responsive" src="../ressrc/songs_images/genres/reggae_pop.jpg">
+                            <p>Reggae-pop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 12 - SONG_GENRES-->
+
+        <!-- BEGIN PAGE 13 - SONG_RECENTS-->
+        <div id="song_recently_played" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Recently played</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="content scrollbar">
+                <div class="col-xs-12" style="padding: 0 10px 0 10px; margin-top:20px;">
+                    <div id="song_recently_played_content">
+                        <div class="col-xs-6" onclick="display_song_details('id12')">
+                            <img class="img-responsive" src="../ressrc/songs_images/havana.png">
+                            <p>Havana</p>
+                            <p class="small">Camila Cabello</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id11')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Too_Good_at_Goodbyes.jpg">
+                            <p>Too Good At Goodbyes</p>
+                            <p class="small">Sam Smith</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id7')">
+                            <img class="img-responsive" src="../ressrc/songs_images/rockstar.jpg">
+                            <p>Rockstar</p>
+                            <p class="small">Post Malone</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id8')">
+                            <img class="img-responsive" src="../ressrc/songs_images/Sorry_Not_Sorry.png">
+                            <p>Sorry Not Sorry</p>
+                            <p class="small">Demi Lovato</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id10')">
+                            <img class="img-responsive" src="../ressrc/songs_images/the sky is a neighborhood.jpg">
+                            <p>The Sky Is A Neighborhood </p>
+                            <p class="small">Foo Fighters</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id2')">
+                            <img class="img-responsive" src="../ressrc/songs_images/side%20to%20side.png">
+                            <p>Side To Side</p>
+                            <p class="small">Ariana Grande</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id9')">
+                            <img class="img-responsive" src="../ressrc/songs_images/thunder.jpg">
+                            <p>Thunder</p>
+                            <p class="small">Imagine Dragons</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_song_details('id4')">
+                            <img class="img-responsive" src="../ressrc/songs_images/holiday.jpg">
+                            <p>Holiday</p>
+                            <p class="small">Green Day</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 13 - SONG_RECENTS-->
+
+        <!-- The Modal -->
+        <div id="playlists_modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="close_playlists" class="close">&times;</span>
+                    <h2>Choose the destination list of the track</h2>
+                </div>
+                <div class="modal-body scrollbar">
+                </div>
+                <div class="modal-footer">
+                    <button id="add"><h3>Add</h3></button>
+                </div>
+            </div>
+        </div>
+
+        <!--    END OF SONGS PAGES -->
+
+        <!-- BEGIN PAGE 1 - MOVIES HOME -->
+        <div id="movies_home" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Home</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="clearfix" style="padding-top:35%"></div>
+
+                <div class="parent" style="top:18%">
+                    <h2><button id="movies_news_link">New Movies</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_movie_details('id0')">
+                            <img class="img-movie" src="../ressrc/movies_images/spider-man_homecoming.png">
+                            <h3>Spider-Man: Homecoming</h3>
+                            <h5>2017</h5>
+                        </div>
+                        <div class="child" onclick="display_movie_details('id4')">
+                            <img class="img-movie" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg">
+                            <h3>Valerian and the City of a Thousand Planets</h3>
+                            <h5>2017</h5>
+                        </div>
+                        <div class="child" onclick="display_movie_details('id3')">
+                            <img class="img-movie" src="../ressrc/movies_images/the_hitmans_bodyguard.jpg">
+                            <h3>The Hitman's Bodyguard</h3>
+                            <h5>2017</h5>
+                        </div>
+                        <div class="child" onclick="display_movie_details('id8')">
+                            <img class="img-movie" src="../ressrc/movies_images/logan_lucky.jpg">
+                            <h3>Logan Lucky</h3>
+                            <h5>2017</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parent">
+                    <h2><button id="movies_tops_link">Top Movies</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_movie_details('id9')">
+                            <img class="img-movie" src="../ressrc/movies_images/deadpool.JPG">
+                            <h3>Deadpool</h3>
+                            <h5>2016</h5>
+                        </div>
+                        <div class="child" onclick="display_movie_details('id7')">
+                            <img class="img-movie" src="../ressrc/movies_images/guardians_of_the_galaxy.jpg">
+                            <h3>Guardians of the Galaxy</h3>
+                            <h5>2017</h5>
+                        </div>
+                        <div class="child" onclick="display_movie_details('id6')">
+                            <img class="img-movie" src="../ressrc/movies_images/the_dark_night.jpg">
+                            <h3>The Dark Knight</h3>
+                            <h5>2008</h5>
+                        </div>
+                        <div class="child" onclick="display_movie_details('id10')">
+                            <img class="img-movie" src="../ressrc/movies_images/suicide_squard.jpg">
+                            <h3>Suicide Squad</h3>
+                            <h5>2006</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parent">
+                    <h2><button id="movies_genres_link">Genres</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="set_movies_by_genre('Action')">
+                            <img class="img-movie" src="../ressrc/movies_images/spider-man_homecoming.png">
+                            <h3>Action</h3>
+                        </div>
+                        <div class="child" onclick="set_movies_by_genre('Adventure')">
+                            <img class="img-movie" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
+                            <h3>Adventure</h3>
+                        </div>
+                        <div class="child" onclick="set_movies_by_genre('Fantasy')">
+                            <img class="img-movie" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg">
+                            <h3>Fantasy</h3>
+                        </div>
+                        <div class="child" onclick="set_movies_by_genre('Punk rock')">
+                            <img class="img-movie" src="../ressrc/movies_images/annabelle_creation.jpg">
+                            <h3>Horror</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parent">
+                    <h2><button id="movies_recently_watched_link">Recently watched</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_movie_details('id5')">
+                            <img class="img-movie" src="../ressrc/movies_images/wonder_woman.jpg"/>
+                            <h3>Wonder Woman</h3>
+                            <h5>2017</h5>
+                        </div>
+
+                        <div class="child" onclick="display_movie_details('id10')">
+                            <img class="img-movie" src="../ressrc/movies_images/suicide_squard.jpg"/>
+                            <h3>Suicide Squad</h3>
+                            <h5>2016s</h5>
+                        </div>
+
+                        <div class="child" onclick="display_movie_details('id9')">
+                            <img class="img-movie" src="../ressrc/movies_images/deadpool.JPG"/>
+                            <h3>Deadpool</h3>
+                            <h5>2016</h5>
+                        </div>
+
+                        <div class="child" onclick="display_movie_details('id1')">
+                            <img class="img-movie" src="../ressrc/movies_images/annabelle_creation.jpg"/>
+                            <h3>Annabelle Creation</h3>
+                            <h5>2017</h5>
+                        </div>
+
+                        <div class="child" onclick="display_movie_details('id2')">
+                            <img class="img-movie" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg"/>
+                            <h3>Dead Men Tell No Tale</h3>
+                            <h5>2017</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 1 - MOVIES HOME -->
+
+        <!-- BEGIN PAGE 2 - MOVIES MOVIE_PAGE -->
+        <div id="movie_page" class="pt-page">
+            <div id="full-screen" class="movies_content scrollbar">
+                <div class="clearfix" style="background-color:#000000">
+                    <div class="col-xs-2" style="float:left">
+                        <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                            <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                        </a>
+                    </div>
+                    <div class="col-xs-8 text-center" style="padding:0">
+                        <h1 id="movie_title" style="margin:0; padding-top:7px"></h1>
+                    </div>
+                    <div class="col-xs-2" style="float:left"></div>
+                </div>
+
+                <div id="movie_details" class="col-xs-12">
+                    <p id="movie_info"></p>
+                    <br/>
+                    <p id="movie_description"></p>
+
+                    <button id="movie_display_play">
+                        <h2 style="background-color:black; padding:20px; border-radius:10px">
+                            <em class="fa fa-play-circle-o"></em> Play the movie
+                        </h2>
+                    </button>
+
+                    <button id="movie_display_add">
+                        <h2 style="background-color:black; padding:20px; border-radius:10px">
+                            <em class="fa fa-plus"></em> Add to My movies
+                        </h2>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 2 - MOVIES MOVIE_PAGE -->
+
+        <!-- BEGIN PAGE 3 - MOVIES NEW_MOVIES -->
+        <div id="movies_news" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">New Movies</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="movies_news_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 3 - MOVIES NEW_MOVIES -->
+
+        <!-- BEGIN PAGE 4 - MOVIES TOP_MOVIES-->
+        <div id="movies_tops" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Top Movies</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="movies_tops_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 4 - MOVIES TOP_MOVIES -->
+
+        <!-- BEGIN PAGE 5 - MOVIES GENRES_MOVIES-->
+        <div id="movies_genres" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Genres</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="movies_genres_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 5 - MOVIES GENRES_MOVIES -->
+
+        <!-- BEGIN PAGE 6 - MOVIES BY_GENRES_MOVIES-->
+        <div id="movies_by_genres" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px"></h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="movies_by_genres_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 6 - MOVIES BY_GENRES_MOVIES -->
+
+        <!-- BEGIN PAGE 7 - MOVIES MYMOVIES -->
+        <div id="movies_mymovies" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">My movies</h1>
+                </div>
+                <div class="col-xs-2" style="float:left">
+                    <button data-toggle="collapse" data-target="#mymovies_filters">
+                        <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
+                    </button>
+                </div>
+            </div>
+            <div class="movies_content scrollbar">
+
+                <div class="clearfix"></div>
+                <div id="mymovies_filters" class="collapse">
+                    <div id="mymovies_keywords">
+                        <div class="filter_category" onclick="expand_filter('mymovies_keywords');" type="button" data-toggle="collapse" data-target="#mymovies_keywords_content">
+                            <p style="margin:0">
+                                <span>Keywords</span>
+                                <span style="float:right">
+                                    <em class="fa fa-angle-right"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="mymovies_keywords_content" class="collapse in scrollbar filter_content">
+                            <input id="mymovies_input_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
+                        </div>
+                    </div>
+
+                    <div id="mymovies_genres">
+                        <div class="filter_category" onclick="expand_filter('mymovies_genres');" type="button" data-toggle="collapse" data-target="#mymovies_genres_content">
+                            <p style="margin:0">
+                                <span>Genres</span>
+                                <span style="float:right">
+                                    <em class="fa fa-angle-right"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="mymovies_genres_content" class="collapse in scrollbar filter_content">
+                        </div>
+                    </div>
+
+                    <div id="mymovies_release">
+                        <div class="filter_category" onclick="expand_filter('mymovies_release');" type="button" data-toggle="collapse" data-target="#mymovies_release_content">
+                            <p style="margin:0">
+                                <span>Release</span>
+                                <span style="float:right">
+                                    <em class="fa fa-angle-right"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="mymovies_release_content" class="collapse in filter_content form-inline">
+                            <div class="col-xs-12">
+                                <label class="control-label">From</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="mymovies_release_from" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <label class="control-label">To</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="mymovies_release_to" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div id="mymovies_rate">
+                        <div class="filter_category" onclick="expand_filter('mymovies_rate');" type="button" data-toggle="collapse" data-target="#mymovies_rate_content">
+                            <p style="margin:0">
+                                <span>Rate</span>
+                                <span style="float:right">
+                                    <em class="fa fa-angle-right"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="mymovies_rate_content" class="collapse in filter_content form-inline">
+                            <div class="col-xs-12">
+                                <label class="control-label">From</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="mymovies_rate_from" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <label class="control-label">To</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="mymovies_rate_to" onchange="apply_filters_mymovies()" class="form-control" style="width:100%"></select>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12">
+                    <div id="mymovies_content"></div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 7 - MOVIES MYMOVIES -->
+
+        <!-- BEGIN PAGE 9 - MOVIES RECENTLY_WATCHED-->
+        <div id="movies_recently_watched" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Recently Watched</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="movies_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="movies_recently_watched_content">
+                        <div class="col-xs-6" onclick="display_movie_details('id5')">
+                            <img class="img-movie_gen" src="../ressrc/movies_images/wonder_woman.jpg">
+                            <h3>Wonder Woman</h3>
+                            <h5>8 June 2017</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_movie_details('id10')">
+                            <img class="img-movie_gen" src="../ressrc/movies_images/suicide_squard.jpg">
+                            <h3>Suicide Squad</h3>
+                            <h5>25 August 2016</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_movie_details('id9')">
+                            <img class="img-movie_gen" src="../ressrc/movies_images/deadpool.JPG">
+                            <h3>Deadpool</h3>
+                            <h5>18 February 2016</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_movie_details('id1')">
+                            <img class="img-movie_gen" src="../ressrc/movies_images/annabelle_creation.jpg">
+                            <h3>Annabelle: Creation</h3>
+                            <p class="small">14 September 2017</p>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_movie_details('id2')">
+                            <img class="img-movie_gen" src="../ressrc/movies_images/dead_men_tell_no_tales.jpg">
+                            <h3>Pirates of the Caribbean: Dead Men Tell No Tales</h3>
+                            <h5>25 May 2017</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_movie_details('id3')">
+                            <img class="img-movie_gen" src="../ressrc/movies_images/the_hitmans_bodyguard.jpg">
+                            <h3>The Hitman's Bodyguard</h3>
+                            <h5>17 August 2017</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_movie_details('id4')">
+                            <img class="img-movie_gen" src="../ressrc/movies_images/valerian_and_the_city_of_a_thousand_planets.jpg">
+                            <h3>Valerian and the City of a Thousand Planets</h3>
+                            <h5>31 August 2017</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_movie_details('id8')">
+                            <img class="img-movie_gen" src="../ressrc/movies_images/logan_lucky.jpg">
+                            <h3>Logan Lucky</h3>
+                            <h5>31 August 2017</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 9 - MOVIES RECENTLY_WATCHED -->
+
+        <!-- BEGIN PAGE 10 - MOVIES PLAYER-->
+        <div id="movies_player" class="pt-page">
+            <div class="col-xs-12">
+                <video id="movies_video" poster="">
+                    <source src="../ressrc/movies/deadpool.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="player text-center">
+
+                    <div>
+                        <div style="font-size:20px" class="col-xs-12">
+                            <button id="movies_play_pause" class="fa fa-play-circle-o" onclick="playPauseMovie()" style="transform: rotate(90deg)"></button>
+                            <button class="remote" onclick="open_interaction_modal()"><em class="material-icons" style="transform: rotate(90deg)">&#xe1b1;</em></button>
+                        </div>
+                        <div style="font-size:11px; padding-bottom:70px" class="col-xs-12 text-center">
+                            <div style="font-size:11px; transform: rotate(90deg); display:inline-block" class="movie_curr_dur">0:00</div>
+                            <div class="movie_progress" style="display:inline-block">
+                                <div style="width: 08%;" class="movie_bar"></div>
+
+                            </div><div style="font-size:11px; transform: rotate(90deg); display:inline-block" class="movie_dur">2:21</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 10 - MOVIES PLAYER -->
+
+        <!--    END OF MOVIES PAGES -->
+
+        <!-- BEGIN PAGE 1 - SERIES HOME -->
+        <div id="series_home" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Home</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar" style="padding-top:10%">
+                <div class="clearfix" style="padding-top:35%"></div>
+
+                <div class="series_parent" style="top:18%">
+                    <h2><button id="series_news_link">New Series</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_serie_details('id0')">
+                            <img class="img-serie" src="../ressrc/series_images/The%20Punisher.jpg"/>
+                            <h3>The Punisher</h3>
+                            <h5>2017</h5>
+                        </div>
+                        <div class="child" onclick="display_serie_details('id13')">
+                            <img class="img-serie" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
+                            <h3>The Good Fight</h3>
+                            <h5>2017</h5>
+                        </div>
+                        <div class="child" onclick="display_serie_details('id1')">
+                            <img class="img-serie" src="../ressrc/series_images/The%20Defenders.jpg"/>
+                            <h3>The Defenders</h3>
+                            <h5>2017</h5>
+                        </div>
+                        <div class="child" onclick="display_serie_details('id2')">
+                            <img class="img-serie" src="../ressrc/series_images/Emerald%20City.jpg"/>
+                            <h3>Emerald City</h3>
+                            <h5>2017</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="series_parent">
+                    <h2><button id="series_tops_link">Top Series</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_serie_details('id3')">
+                            <img class="img-serie" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
+                            <h3>Game of Thrones</h3>
+                            <h5>2011 - present</h5>
+                        </div>
+                        <div class="child" onclick="display_serie_details('id4')">
+                            <img class="img-serie" src="../ressrc/series_images/Breaking%20Bad.jpg"/>
+                            <h3>Breaking Bad</h3>
+                            <h5>2008 - 2013</h5>
+                        </div>
+                        <div class="child" onclick="display_serie_details('id9')">
+                            <img class="img-serie" src="../ressrc/series_images/Sherlock.jpg"/>
+                            <h3>Sherlock</h3>
+                            <h5>2010 - 2017</h5>
+                        </div>
+                        <div class="child" onclick="display_serie_details('id7')">
+                            <img class="img-serie" src="../ressrc/series_images/Supernatural.jpg"/>
+                            <h3>Supernatural</h3>
+                            <h5>2005 - present</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="series_parent">
+                    <h2><button id="series_genres_link">Genres</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="set_series_by_genre('Horror')">
+                            <img class="img-serie" src="../ressrc/series_images/Stranger%20Things.jpg"/>
+                            <h3>Horror</h3>
+                        </div>
+                        <div class="child" onclick="set_series_by_genre('Comedy')">
+                            <img class="img-serie" src="../ressrc/series_images/Friends.jpg"/>
+                            <h3>Comedy</h3>
+                        </div>
+                        <div class="child" onclick="set_series_by_genre('Action')">
+                            <img class="img-serie" src="../ressrc/series_images/Arrow.jpg">
+                            <h3>Action</h3>
+                        </div>
+                        <div class="child" onclick="set_series_by_genre('Crime')">
+                            <img class="img-serie" src="../ressrc/series_images/Mindhunter.jpg"/>
+                            <h3>Crime</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="series_parent">
+                    <h2><button id="series_recently_watched_link">Recently watched</button></h2>
+                    <div class="scrollBar">
+                        <div class="child" onclick="display_serie_details('id3')">
+                            <img class="img-serie" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
+                            <h3>Game of Thrones</h3>
+                            <h5>2011 - present</h5>
+                        </div>
+
+                        <div class="child" onclick="display_serie_details('id7')">
+                            <img class="img-serie" src="../ressrc/series_images/Supernatural.jpg"/>
+                            <h3>Supernatural</h3>
+                            <h5>2005 - present</h5>
+                        </div>
+
+                        <div class="child" onclick="display_serie_details('id11')">
+                            <img class="img-serie" src="../ressrc/series_images/Mr.%20Robot.jpg"/>
+                            <h3>Mr. Robot</h3>
+                            <h5>2015 - present</h5>
+                        </div>
+
+                        <div class="child" onclick="display_serie_details('id12')">
+                            <img class="img-serie" src="../ressrc/series_images/The%20Flash.jpg"/>
+                            <h3>The Flash</h3>
+                            <h5>2014 - present</h5>
+                        </div>
+
+                        <div class="child" onclick="display_serie_details('id13')">
+                            <img class="img-serie" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
+                            <h3>The Good Fight</h3>
+                            <h5>2017 - present</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 1 - SERIES HOME -->
+
+        <!-- BEGIN PAGE 2 - SERIES SERIE_PAGE -->
+        <div id="serie_page" class="pt-page">
+            <div class="series_content scrollbar">
+                <div class="clearfix" style="background-color:#000000">
+                    <div class="col-xs-2" style="float:left">
+                        <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                            <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                        </a>
+                    </div>
+                    <div class="col-xs-8 text-center" style="padding:0">
+                        <h1 id="serie_title" style="margin:0; padding-top:7px">Home</h1>
+                    </div>
+                    <div class="col-xs-2" style="float:left;"></div>
+                </div>
+
+                <div id="serie_details" class="col-xs-12">
+                    <img id="serie_landscape_img" src="">
+                    <p style="margin-bottom: 40px !important;" id="serie_info" class="text-center"></p>
+                    <br/>
+                    <p id="serie_description"></p>
+
+                    <button id="serie_display_add">
+                        <h2 style="background-color:black; padding:20px; border-radius:10px;">
+                            <em class="fa fa-plus"></em> Add to My series
+                        </h2>
+                    </button>
+
+                    <button id="serie_display_play">
+                        <h2 style="background-color:black; padding:20px; border-radius:10px;">
+                            <em class="fa fa-play-circle-o"></em> Play it
+                        </h2>
+                    </button>
+
+                    <table class="table table-striped table-borderless">
+                         <tbody>
+                            <tr id="season-7">
+                                <td style="display: flex; justify-content: space-between;"><span>Season 7</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>Season 8</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>Season 9</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>Season 10</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>Season 11</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>Season 12</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 2 - SERIES SERIE_PAGE -->
+
+        <!-- BEGIN PAGE 2 - SERIES SERIE_PAGE -->
+        <div id="serie_episodes" class="pt-page">
+            <div class="series_content scrollbar">
+                <div class="clearfix" style="background-color:#000000">
+                    <div class="col-xs-2" style="float:left">
+                        <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                            <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                        </a>
+                    </div>
+                    <div class="col-xs-8 text-center" style="padding:0">
+                        <h1 style="margin:0; padding-top:7px">Home</h1>
+                    </div>
+                    <div class="col-xs-2" style="float:left;"></div>
+                </div>
+
+                <div class="col-xs-12" style="background-color: #33333F; opacity: 0.9;">
+                    <table class="table table-striped table-borderless">
+                         <tbody>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>1. Meet the New Boss</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr id="episode-2">
+                                <td style="display: flex; justify-content: space-between;"><span>2. Hello, Cruel World</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>3. The Girl Next Door</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>4. Defending Your Life</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>5. Shut Up, Dr. Phill</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>6. Slash Fiction</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr >
+                                <td style="display: flex; justify-content: space-between;"><span>7. The Mentalists</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>8. Season 7, Time for a Wedding!</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>9. How to Win Friends and Influence Monsters</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>10. Death's Door</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>11. Adventures in Babysitting</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>12. Time After Time After Time</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>13. The Slice Girls</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>14. Plucky Pennywhistle's Magical Menagerie</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>15. Repo Man</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>16. Out With the Old</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>17. The Born-Again Identity</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>18. Party On, Garth</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>19. Of Grave Importance</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>20. The Girl With the Dungeons and Dragons Tattoo</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>21. Reading Is Fundamental</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>22. There Will Be Blood</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; justify-content: space-between;"><span>23. Survival of the Fittest</span><i class="fa fa-chevron-right" aria-hidden="true"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 2 - SERIES SERIE_PAGE -->
+
+        <!-- BEGIN PAGE 2 - SERIES SERIE_PAGE -->
+        <div id="episode_details" class="pt-page">
+            <div id="serie_full-screen" class="series_content scrollbar">
+                <div class="clearfix" style="background-color:#000000">
+                    <div class="col-xs-2" style="float:left">
+                        <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                            <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                        </a>
+                    </div>
+                    <div class="col-xs-8 text-center" style="padding:0">
+                        <h1 id="" style="margin:0; padding-top:7px">Home</h1>
+                    </div>
+                    <div class="col-xs-2" style="float:left;"></div>
+                </div>
+
+                <div id="episode_page_details" class="col-xs-12" style="background-color: #33333F; opacity: 0.9;">
+                    <img src="http://vignette4.wikia.nocookie.net/supernatural/images/f/fe/706_Sam_with_his_hands_up.jpg/revision/latest?cb=20111015025633" style="
+                        max-width: 100%;
+                        height: auto;
+                        margin-left: auto;
+                        display: block;
+                        margin-right: auto;
+                        margin-top: 40px;
+                        margin-bottom: 40px;
+                    ">
+                    <p style="margin-bottom: 5px !important;" id="episode_info" class="text-center">Season 7, Episode 2</p>
+                    <p style="margin-bottom: 15px !important;" class="text-center"><p class="small">Air Date: September 30, 2011</p></p>
+                    <p id="episode_description">Castiel continues to struggle with the burdens that come with his power. The broken wall in Sam's head causes him to have hallucinations, and he has difficulty discerning what's real and what's not. Bobby worries that Dean is beginning to stumble under the weight of both fighting Castiel and keeping an eye on Sam.</p>
+                    <button style="float: right; margin-top: 40px;">
+                        <h2 style="background-color:black; padding:20px; border-radius:10px;">
+                            <em class="fa fa-play-circle-o"></em> Play
+                        </h2>
+                    </button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 2 - SERIES SERIE_PAGE -->
+
+        <!-- BEGIN PAGE 3 - SERIES NEW_SERIES -->
+        <div id="series_news" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">New Series</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="series_news_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 3 - SERIES NEW_SERIES -->
+
+        <!-- BEGIN PAGE 4 - SERIES TOP_SERIES-->
+        <div id="series_tops" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Top Series</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="series_tops_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 4 - SERIES TOP_SERIES -->
+
+        <!-- BEGIN PAGE 5 - SERIES GENRES_SERIES-->
+        <div id="series_genres" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">Genres</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="series_genres_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 5 - SERIES GENRES_SERIES -->
+
+        <!-- BEGIN PAGE 6 - SERIES BY_GENRES_SERIES-->
+        <div id="series_by_genres" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px"></h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>
+
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <div id="series_by_genres_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 6 - SERIES BY_GENRES_SERIES -->
+
+        <!-- BEGIN PAGE 7 - SERIES MYSERIES -->
+        <div id="series_myseries" class="pt-page">
+            <div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-center" style="padding:0">
+                    <h1 style="margin:0; padding-top:7px">My series</h1>
+                </div>
+                <div class="col-xs-2" style="float:left">
+                    <button data-toggle="collapse" data-target="#myseries_filters">
+                        <em class="fa fa-filter" style="font-size:50px; color:#2BB4C4"></em>
+                    </button>
+                </div>
+            </div>
+
+            <div class="content scrollbar">
+
+                <div class="clearfix"></div>
+                <div id="myseries_filters" class="collapse">
+                    <div id="myseries_keywords">
+                        <div class="filter_category" onclick="expand_filter('myseries_keywords');" type="button" data-toggle="collapse" data-target="#myseries_keywords_content">
+                            <p style="margin:0">
+                                <span>Keywords</span>
+                                <span style="float:right">
+                                    <em class="fa fa-angle-right"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="myseries_keywords_content" class="collapse in scrollbar filter_content">
+                            <input id="myseries_input_keywords" style="padding-top:21px; padding-bottom:21px" type="text" class="form-control" size="50" placeholder="keywords">
+                        </div>
+                    </div>
+
+                    <div id="myseries_genres">
+                        <div class="filter_category" onclick="expand_filter('myseries_genres');" type="button" data-toggle="collapse" data-target="#myseries_genres_content">
+                            <p style="margin:0">
+                                <span>Genres</span>
+                                <span style="float:right">
+                                    <em class="fa fa-angle-right"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="myseries_genres_content" class="collapse in scrollbar filter_content">
+                        </div>
+                    </div>
+
+                    <div id="myseries_release">
+                        <div class="filter_category" onclick="expand_filter('myseries_release');" type="button" data-toggle="collapse" data-target="#myseries_release_content">
+                            <p style="margin:0">
+                                <span>Release</span>
+                                <span style="float:right">
+                                    <em class="fa fa-angle-right"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="myseries_release_content" class="collapse in filter_content form-inline">
+                            <div class="col-xs-12">
+                                <label class="control-label">From</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="myseries_release_from" onchange="apply_filters_myseries()" class="form-control" style="width:100%"></select>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <label class="control-label">To</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="myseries_release_to" onchange="apply_filters_myseries()" class="form-control" style="width:100%"></select>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div id="myseries_rate">
+                        <div class="filter_category" onclick="expand_filter('myseries_rate');" type="button" data-toggle="collapse" data-target="#myseries_rate_content">
+                            <p style="margin:0">
+                                <span>Rate</span>
+                                <span style="float:right">
+                                    <em class="fa fa-angle-right"></em>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div id="myseries_rate_content" class="collapse in filter_content form-inline">
+                            <div class="col-xs-12">
+                                <label class="control-label">From</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="myseries_rate_from" onchange="apply_filters_myseries()" class="form-control" style="width:100%"></select>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <label class="control-label">To</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <select id="myseries_rate_to" onchange="apply_filters_myseries()" class="form-control" style="width:100%"></select>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12" style="padding:0">
+                    <div id="myseries_content"></div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 7 - SERIES MYSERIES -->
+
+        <!-- BEGIN PAGE 9 - SERIES RECENTLY_WATCHED-->
+        <div id="series_recently_watched" class="pt-page">
+            <div class="series_content scrollbar">
+                <div class="col-xs-12" style="padding:0; margin-top:20px;">
+                    <h3 style="margin-left:5px; padding:0 0 10px 10px">Recently Watched</h3>
+                    <div id="series_recently_watched_content">
+                        <div class="col-xs-6" onclick="display_serie_details('id3')">
+                            <img class="img-serie_gen" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
+                            <h3>Game of Thrones</h3>
+                            <h5>2011 - present</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_serie_details('id7')">
+                            <img class="img-serie_gen" src="../ressrc/series_images/Supernatural.jpg"/>
+                            <h3>Supernatural</h3>
+                            <h5>2005 - present</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_serie_details('id11')">
+                            <img class="img-serie_gen" src="../ressrc/series_images/Mr.%20Robot.jpg"/>
+                            <h3>Mr. Robot</h3>
+                            <h5>2015 - present</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_serie_details('id12')">
+                            <img class="img-serie_gen" src="../ressrc/series_images/The%20Flash.jpg"/>
+                            <h3>The Flash</h3>
+                            <h5>2014 - present</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_serie_details('id13')">
+                            <img class="img-serie_gen" src="../ressrc/series_images/The%20Good%20Fight.jpg"/>
+                            <h3>The Good Fight</h3>
+                            <h5>2017 - present</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_serie_details('id3')">
+                            <img class="img-serie_gen" src="../ressrc/series_images/Game%20of%20Thrones.jpg"/>
+                            <h3>Game of Thrones</h3>
+                            <h5>2011 - present</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_serie_details('id4')">
+                            <img class="img-serie_gen" src="../ressrc/series_images/Breaking%20Bad.jpg"/>
+                            <h3>Breaking Bad</h3>
+                            <h5>2008 - 2013</h5>
+                        </div>
+
+                        <div class="col-xs-6" onclick="display_serie_details('id9')">
+                            <img class="img-serie_gen" src="../ressrc/series_images/Sherlock.jpg"/>
+                            <h3>Sherlock</h3>
+                            <h5>2010 - 2017</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 9 - SERIES RECENTLY_WATCHED -->
+
+        <!-- BEGIN PAGE 10 - SERIES PLAYER-->
+        <div id="series_player" class="pt-page">
+            <div class="col-xs-12" style="padding:0">
+                <video id="series_video" poster="">
+                    <source src="" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="player text-center">
+
+                    <div style="font-size:11px; padding-bottom:70px">
+                        <div id="series_controls" style="padding-top:10px">
+                            <button onclick="prevSerie()"><em class="fa"></em></button>
+                            <button id="series_play_pause" class="fa fa-play-circle-o" onclick="playPauseSerie()"></button>
+                            <button onclick="nextSerie()"><em class="fa"></em></button>
+                            <button class="remote" onclick="open_interaction_modal()"><em class="material-icons">&#xe1b1;</em></button>
+                        </div>
+                        <div style="font-size:11px; transform: rotate(90deg); display:inline-block" class="serie_curr_dur">0:08</div>
+                        <div class="serie_progress">
+
+                            <div style="width: 9.36066%;" class="serie_bar"></div>
+
+                        </div>
+                        <div style="font-size:11px; transform: rotate(90deg); display:inline-block" class="serie_dur">1:32</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE 10 - SERIES PLAYER -->
+
+        <div id="search_inter" class="pt-page">
+            <input id="search" style="padding: 30px 30px" class="form-control" placeholder="search for ..."/>
+            <button id="to_mobile" style="width:100%; padding-top:50px">
+                <h2 style="background-color:black; padding:20px; border-radius:10px;">
+                    Display on mobile
+                </h2>
+            </button>
+            <button id="to_tv" style="width:100%">
+                <h2 style="background-color:black; padding:20px; border-radius:10px;">
+                    Display on TV
+                </h2>
+            </button>
+            <div class="player text-center" style="display: block;">
+                <div class="col-xs-12">
+                    <div class="to_song_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-music"></em><p style="font-size:24px">Explore</p></button></div>
+                    <div class="to_movies_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-film"></em><p style="font-size:24px">My movies</p></button></div>
+                    <div class="to_series_home" style="width:33.3%; float:left"><button><em style="font-size:50px" class="fa fa-tv"></em><p style="font-size:24px">My series</p></button></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal - INTERACTION -->
+        <div id="interaction_modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="close_interaction" class="close">&times;</span>
+                    <h3>Remote access</h3>
+                </div>
+                <div class="modal-body scrollbar">
+                    <button id="song_player_tv" onclick="remote_playing('tv')" style="width:100%">To TV</button>
+                    <button id="song_player_desktop" onclick="remote_playing('desktop')" style="width:100%">To Desktop</button>
+                    <button id="song_player_mobile" onclick="remote_playing('mobile')" style="width:100%">To Mobile</button>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel"><h3>Cancel</h3></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGES -->
+    <script>
+        setMoviesMenu();
+        setSeriesMenu();
+        setPlayer();
+        $("#series_bottom_menu").hide();
+        $("#movies_bottom_menu").hide();
+        $("#bottom_menu").hide();
+    </script>
+    <!-- BEGIN JAVASCRIPT AFTER LOADING -->
+    <script language="javascript" type="text/javascript" src="../app/js/ami_libs/pagetransitions.js"></script>
+    <!-- END JAVASCRIPT AFTER LOADING -->
+
+    <script type="application/javascript" src="songs/js/playerAPI.js"></script>
+    <script type="application/javascript" src="movies/js/movie_player_control.js"></script>
+    <script type="application/javascript" src="series/js/serie_player_control.js"></script>
+
+    <script>
+        // Get the playlists modal
+        var playlists_modal = document.getElementById('playlists_modal');
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementById("close_playlists");
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            playlists_modal.style.display = "none";
+        };
+
+//        // Get the new playlist modal
+//        var new_playlist_modal = document.getElementById('new_playlist_modal');
+//
+//        // Get the <span> element that closes the modal
+//        var new_playlist_modal_span = document.getElementById("close");
+//
+//        // When the user clicks on <span> (x), close the modal
+//        new_playlist_modal_span.onclick = function() {
+//            new_playlist_modal.style.display = "none";
+//        };
+
+        // Get the interaction modal
+        var interaction_modal = document.getElementById('interaction_modal');
+
+        // Get the <span> element that closes the modal
+        var interaction_modal_span = document.getElementById("close_interaction");
+
+        // When the user clicks on <span> (x), close the modal
+        interaction_modal_span.onclick = function() {
+            interaction_modal.style.display = "none";
+        };
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == playlists_modal) {
+                playlists_modal.style.display = "none";
+            }
+
+//            if (event.target == new_playlist_modal) {
+//                new_playlist_modal.style.display = "none";
+//            }
+
+            if (event.target == interaction_modal) {
+                interaction_modal.style.display = "none";
+            }
+        };
+    </script>
+
+
+    <script>
+        function expand_filter(this_elem) {
+            $("#" + this_elem).find("em").toggleClass("fa-angle-right fa-angle-down");
+        }
+    </script>
+
+    <script>
+        $("#keywords").on("change paste keyup", function() {
+            apply_filters_search();
+        });
+    </script>
+
+    <script>
+        $("#mysongs_input_keywords").on("change paste keyup", function() {
+            apply_filters_mysong();
+        });
+    </script>
+
+    <script>
+        $("#search").on("change paste keyup", function() {
+            console.log($("#search").val());
+            search_input();
+        });
+    </script>
+</body>
+
+</html>
