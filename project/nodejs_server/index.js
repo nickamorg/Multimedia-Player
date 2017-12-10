@@ -21,7 +21,7 @@ function isJSON(str) {
 }
 
 wsServer.on('connection', function connection(ws) {
-    console.log("perfect   "   + clients.length);
+    console.log("Devices   "   + (clients.length + 1));
     //new client connected - add client to list
     clients.push(ws);
 
@@ -33,7 +33,7 @@ wsServer.on('connection', function connection(ws) {
             message = JSON.parse(message);
             if(message["type"] === "add to my songs") {
                 var fs = require('fs');
-                fs.appendFile("data/mysongs.txt", message["song_id"] + "\n", function(err) {
+                fs.appendFile("data/mysongs.txt", message["song_id"] + "\r\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }
@@ -43,7 +43,7 @@ wsServer.on('connection', function connection(ws) {
                 clients.pop(ws);
             } else if(message["type"] === "add to my movies") {
                 var fs = require('fs');
-                fs.appendFile("data/mymovies.txt", message["movie_id"] + "\n", function(err) {
+                fs.appendFile("data/mymovies.txt", message["movie_id"] + "\r\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }
@@ -53,7 +53,7 @@ wsServer.on('connection', function connection(ws) {
                 clients.pop(ws);
             } else if(message["type"] === "add to my series") {
                 var fs = require('fs');
-                fs.appendFile("data/myseries.txt", message["serie_id"] + "\n", function(err) {
+                fs.appendFile("data/myseries.txt", message["serie_id"] + "\r\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }
@@ -84,7 +84,7 @@ wsServer.on('connection', function connection(ws) {
                 clients.pop(ws);
             } else  if(message["type"] === "new recent") {
                 var fs = require('fs');
-                fs.appendFile("data/recently_played.txt", message["song_id"] + "\n", function(err) {
+                fs.appendFile("data/recently_played.txt", message["song_id"] + "\r\n", function(err) {
                     if(err) {
                         return console.log(err);
                     }

@@ -23,7 +23,8 @@ function setSeriesPlayer(serie_id) {
     setTimeout(function(){
         if(series_video.paused) {
             series_video.play();
-            $("#series_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
+            $("#series_play_pause").addClass("fa-pause-circle-o");
+            $("#series_play_pause").removeClass("fa-play-circle-o");
         }
     }, 2500);
 }

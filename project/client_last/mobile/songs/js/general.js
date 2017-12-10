@@ -29,6 +29,7 @@ class VisitedPagesStack {
             this.stack = ["lobby"];
             this.counter = 1;
             goToPage("lobby");
+            return;
         }
         goToPage(this.stack[this.counter]);
     }

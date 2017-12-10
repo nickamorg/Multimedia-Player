@@ -140,7 +140,7 @@ function play_mysong(curr_song) {
 		myBar.css("width", "0");
 	});
     $("#playing")[0].play();
-    $(".title").html(playerAPI.songs[playerAPI.playlist[curr_song]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".title").html(playerAPI.songs[playerAPI.playlist[curr_song]].title + '<button class="clickableElement" onclick="open_playlists_modal(\'' + playerAPI.playlist[curr_song] + '\')"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[curr_song]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[curr_song]].img);
 }
@@ -280,7 +280,8 @@ function play_song(curr_song) {
         myBar.css("width", "0");
     });
     $("#playing")[0].play();
-    $(".title").html(playerAPI.songs[curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+
+    $(".title").html(playerAPI.songs[curr_song].title + '<button class="clickableElement" onclick="open_playlists_modal(\'' + curr_song + '\')"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[curr_song].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[curr_song].img);
 }
@@ -311,7 +312,7 @@ function play_playlist_song(curr_song) {
         myBar.css("width", "0");
     });
     $("#playing")[0].play();
-    $(".title").html(playerAPI.songs[curr_song].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".title").html(playerAPI.songs[curr_song].title + '<button class="clickableElement" onclick="open_playlists_modal(\'' + curr_song + '\')"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[curr_song].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[curr_song].img);
 }

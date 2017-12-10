@@ -174,6 +174,10 @@ function search_inter() {
 }
 
 function goToPage(page) {
+    setTimeout(function() {
+        $("#series_footer").css("visibility", "hidden");
+        $("#movies_footer").css("visibility", "hidden");
+    }, 500);
     $(".pt-page").removeClass("pt-page-current");
     $("#" + page).addClass("pt-page-current");
 }

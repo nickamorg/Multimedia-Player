@@ -937,7 +937,7 @@ playerAPI.songs = {
 
     playerAPI.row = 0;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
-    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button class="clickableElement"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button class="clickableElement" onclick="open_playlists_modal(\'' + playerAPI.playlist[playerAPI.row] + '\')"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
 
@@ -1020,7 +1020,7 @@ playerAPI.next = function next() {
     playerAPI.row = (playerAPI.row + 1) % playerAPI.playlist.length;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
     $('#myBar').css('width', "0");
-    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button class="clickableElement" onclick="open_playlists_modal(\'' + playerAPI.playlist[playerAPI.row] + '\')"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
 
@@ -1051,7 +1051,7 @@ playerAPI.prev = function prev() {
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
     $('#myBar').css('width', "0");
     playerAPI.width = 0;
-    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button class="clickableElement" onclick="open_playlists_modal(\'' + playerAPI.playlist[playerAPI.row] + '\')"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
 

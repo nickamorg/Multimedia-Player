@@ -947,6 +947,12 @@ playerAPI.songs = {
     $("#expand_player").find("div").find("p")[10].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].release;
     $("#expand_player").find("div").find("p")[11].innerHTML = playerAPI.songs[playerAPI.playlist[playerAPI.row]].duration;
     $("#expand_lyrics").html("<pre>" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].lyrics + "</pre>");
+
+    $("#add_from_expand").click(function() {
+        $("#expand_player").removeClass("in");
+        open_playlists_modal(playerAPI.playlist[playerAPI.row]);
+    });
+
     $("#playing")[0].load();
 })();
 
