@@ -28,9 +28,9 @@ class VisitedPagesStack {
             playerAPI.playing.pause();
             this.stack = ["lobby"];
             this.counter = 1;
-            PageTransitions.goToPage(2, "lobby");
+            goToPage("lobby");
         }
-        PageTransitions.goToPage(2, this.stack[this.counter]);
+        goToPage(this.stack[this.counter]);
     }
 
     setNewLastVisitedPage(page) {
@@ -108,7 +108,7 @@ interaction.onmessage = function (message) {
         });
 
         visitedPagesStack.setNewLastVisitedPage("search_inter");
-        PageTransitions.goToPage(1, 'search_inter');
+        goToPage('search_inter');
     }
     $('#interaction_modal').css('display', 'none');
     console.log(JSON.parse(message.data));
@@ -182,4 +182,9 @@ function show_hide_menu(curr) {
         $("#series_bottom_menu").show();
         $("#bottom_menu").hide();
     }
+}
+
+function goToPage(page) {
+    $(".pt-page").removeClass("pt-page-current");
+    $("#" + page).addClass("pt-page-current");
 }

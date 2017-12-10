@@ -477,7 +477,7 @@ function add_recently_played_song(song_id) {
 
 function read_playlist(playlist) {
     let playlist_songs = "";
-    PageTransitions.goToPage(2, "song_playlist");
+    goToPage("song_playlist");
     $("#curr_playlist").html("Playlist - " + playlist);
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
 
@@ -528,7 +528,7 @@ function read_playlist(playlist) {
                     $("#playlist_songs").append("<div class='clearfix'></div>");
                 }
             }
-            PageTransitions.goToPage(2, "song_playlist");
+            goToPage("song_playlist");
         };
     };
 }

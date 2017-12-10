@@ -3,7 +3,7 @@ let curr_movie_id;
 
 function setMoviesPlayer(movie_id) {
     curr_movie_id = movie_id;
-    PageTransitions.goToPage(2, 'movies_player');
+    goToPage('movies_player');
     movie = movies[movie_id];
     $("#movies_video").find("source")[0].src = "../ressrc/movies/" + movie.file;
     $("#movie_player_img").click(function() {

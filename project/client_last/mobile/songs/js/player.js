@@ -81,7 +81,7 @@ function set_songs_by_genre(genre) {
     $("#expand_player").removeClass("in");
 
     visitedPagesStack.setNewLastVisitedPage("song_by_genre");
-    PageTransitions.goToPage(2, 'song_by_genre');
+    goToPage('song_by_genre');
 
     $("#display_by_genre").html("");
     $("#song_by_genre").find("h1")[0].innerHTML = /*"Songs - " + */genre.charAt(0).toUpperCase() + genre.slice(1);
@@ -117,7 +117,7 @@ function set_songs_by_genre(genre) {
 
 function display_song_details(song_id) {
     visitedPagesStack.setNewLastVisitedPage("song_details");
-    PageTransitions.goToPage(2, 'song_details');
+    goToPage('song_details');
     var song = playerAPI.songs[song_id];
     $("#song_details").find(".content").html(
                     `<div class="clearfix" style="padding:20px 0 20px 0; background-color:#000000">

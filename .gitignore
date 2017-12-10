@@ -1,4 +1,4 @@
 project/*.idea/
 *.idea/
-
-TEST IGNORE
+.idea/
+idea/

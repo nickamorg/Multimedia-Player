@@ -25,7 +25,7 @@ class VisitedPagesStack {
         document.getElementById("series_video").pause();
         $('.serie_volume_bar').css('width', '50%');
 
-        PageTransitions.goToPage(2, this.stack[this.counter]);
+        goToPage(this.stack[this.counter]);
 
     }
 
@@ -171,4 +171,9 @@ function search_inter() {
     setTimeout(function() {
         $("#interaction_note_modal").css('display', 'none');
     }, 1500)
+}
+
+function goToPage(page) {
+    $(".pt-page").removeClass("pt-page-current");
+    $("#" + page).addClass("pt-page-current");
 }

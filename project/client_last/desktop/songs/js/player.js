@@ -43,7 +43,7 @@ function setPlayer() {
 }
 
 function set_songs_by_genre(genre) {
-    PageTransitions.goToPage(2, 'song_by_genre');
+    goToPage('song_by_genre');
     $("#display_by_genre").find("tbody").html("");
     $("#song_by_genre").find("h1")[0].innerHTML = "Songs - " + genre.charAt(0).toUpperCase() + genre.slice(1);
 
@@ -71,7 +71,7 @@ function set_songs_by_genre(genre) {
 function display_song_details(song_id) {
     song = playerAPI.songs[song_id];
     visitedPagesStack.setNewLastVisitedPage("song_details");
-    PageTransitions.goToPage(2, 'song_details');
+    goToPage('song_details');
     $("#lyrics").html("<h1>LYRICS</h1>");
     $("#lyrics").append("<pre class='scrollbar' style='max-height: 550px'>" + song.lyrics + "</pre>");
     $("#song_title").html(song.title);
@@ -145,7 +145,7 @@ function display_song_details(song_id) {
 function display_song_expand_details(song_id) {
     song = playerAPI.songs[song_id];
     visitedPagesStack.setNewLastVisitedPage("song_expand_details");
-    PageTransitions.goToPage(2, 'song_expand_details');
+    goToPage('song_expand_details');
     $("#expand_lyrics").html("<h1>LYRICS</h1>");
     $("#expand_lyrics").append("<pre class='scrollbar' style='max-height: 550px'>" + song.lyrics + "</pre>");
     $("#song_expand_title").html(song.title);

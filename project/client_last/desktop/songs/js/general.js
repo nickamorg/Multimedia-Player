@@ -10,7 +10,7 @@ $( document ).ready(function() {
     }
     document.getElementById("from").innerHTML = html;
     document.getElementById("to").innerHTML = html;
-})
+});
 
 class VisitedPagesStack {
 
@@ -35,7 +35,7 @@ class VisitedPagesStack {
         document.getElementById("series_video").pause();
         $('.serie_volume_bar').css('width', '50%');
 
-        PageTransitions.goToPage(2, this.stack[this.counter]);
+        goToPage(this.stack[this.counter]);
     }
 
     setNewLastVisitedPage(page) {
@@ -134,4 +134,9 @@ function remote_playing(device) {
 
     let json = `{ "type": "interaction", "category": "play", "subcat": "${subcat}", "device": "${device}", "id": "${id}", "currTime": ${currTime}, "isPaused": ${isPaused} }`;
     interaction.send(json);
+}
+
+function goToPage(page) {
+    $(".pt-page").removeClass("pt-page-current");
+    $("#" + page).addClass("pt-page-current");
 }

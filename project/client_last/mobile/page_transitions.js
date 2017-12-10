@@ -35,13 +35,13 @@ $(document).ready(function () {
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
     	$("#bottom_menu").show();
-		PageTransitions.goToPage(2, 'song_home');
+		goToPage('song_home');
 	});
 
 	$('.to_mysongs').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("song_mysongs");
-        PageTransitions.goToPage(2, 'song_mysongs');
+        goToPage('song_mysongs');
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
 		send_mysongs();
@@ -56,7 +56,7 @@ $(document).ready(function () {
         $("#series_bottom_menu").hide();
         $("#movies_bottom_menu").hide();
         $("#bottom_menu").hide();
-        PageTransitions.goToPage(2, 'lobby');
+        goToPage('lobby');
 	});
 
 	$('.display_song_by_genre').click(function () {
@@ -64,7 +64,7 @@ $(document).ready(function () {
         visitedPagesStack.setNewLastVisitedPage("song_by_genre");
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
-		PageTransitions.goToPage(2, 'song_by_genre');
+		goToPage('song_by_genre');
 	});
 
     $('.playlists').click(function () {
@@ -73,7 +73,7 @@ $(document).ready(function () {
         $("#expand_lyrics").removeClass("in");
         $("#expand_player").removeClass("in");
         get_playlists();
-        PageTransitions.goToPage(2, 'playlists');
+        goToPage('playlists');
     });
 
     $('.to_songs_search').click(function () {
@@ -83,140 +83,140 @@ $(document).ready(function () {
         $("#expand_player").removeClass("in");
         $("#bottom_menu").show();
         search_songs();
-        PageTransitions.goToPage(2, 'song_search');
+        goToPage('song_search');
     });
 
     $('#song_new_releases_link').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("song_new_releases");
         set_song_new_releases();
-        PageTransitions.goToPage(2, 'song_new_releases');
+        goToPage('song_new_releases');
     });
 
     $('#song_charts_link').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("song_charts");
-        PageTransitions.goToPage(2, 'song_charts');
+        goToPage('song_charts');
     });
 
     $('#song_genres_link').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("song_genres");
-        PageTransitions.goToPage(2, 'song_genres');
+        goToPage('song_genres');
     });
 
     $('#season-7').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("serie_episodes");
-        PageTransitions.goToPage(1, 'serie_episodes');
+        goToPage('serie_episodes');
     });
 
     $('#episode-2').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("serie_episodes");
-        PageTransitions.goToPage(1, 'episode_details');
+        goToPage('episode_details');
     });
 
     $('#to_movies_home, .to_movies_home').click(function () {
         reset();
         $("#movies_bottom_menu").show();
         visitedPagesStack.setNewLastVisitedPage("movies_home");
-        PageTransitions.goToPage(1, 'movies_home');
+        goToPage('movies_home');
     });
 
     $('#movies_news_link').click(function () {
         reset();
         set_movies_news();
         visitedPagesStack.setNewLastVisitedPage("movies_news");
-        PageTransitions.goToPage(1, 'movies_news');
+        goToPage('movies_news');
     });
 
     $('#movies_tops_link').click(function () {
         reset();
         set_movies_tops();
         visitedPagesStack.setNewLastVisitedPage("movies_tops");
-        PageTransitions.goToPage(1, 'movies_tops');
+        goToPage('movies_tops');
     });
 
     $('.to_movies_search').click(function () {
         reset();
         $("#movies_bottom_menu").show();
         visitedPagesStack.setNewLastVisitedPage('movie_search');
-        PageTransitions.goToPage(1, 'movie_search');
+        goToPage('movie_search');
     });
 
     $('#movies_genres_link').click(function () {
         reset();
         set_movies_genres();
         visitedPagesStack.setNewLastVisitedPage("movies_genres");
-        PageTransitions.goToPage(1, 'movies_genres');
+        goToPage('movies_genres');
     });
 
     $('#song_recently_played_link').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("song_recently_played");
-        PageTransitions.goToPage(1, 'song_recently_played');
+        goToPage('song_recently_played');
     });
 
     $('.to_mymovies').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("movies_mymovies");
-        PageTransitions.goToPage(1, 'movies_mymovies');
+        goToPage('movies_mymovies');
         send_mymovies();
     });
 
     $('#movies_recently_watched_link').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("movies_recently_watched");
-        PageTransitions.goToPage(1, 'movies_recently_watched');
+        goToPage('movies_recently_watched');
     });
 
     $('#to_series_home, .to_series_home').click(function () {
         reset();
         $("#series_bottom_menu").show();
         visitedPagesStack.setNewLastVisitedPage("series_home");
-        PageTransitions.goToPage(1, 'series_home');
+        goToPage('series_home');
     });
 
     $('#series_news_link').click(function () {
         reset();
         set_series_news();
         visitedPagesStack.setNewLastVisitedPage("series_news");
-        PageTransitions.goToPage(1, 'series_news');
+        goToPage('series_news');
     });
 
     $('#series_tops_link').click(function () {
         reset();
         set_series_tops();
         visitedPagesStack.setNewLastVisitedPage("series_tops");
-        PageTransitions.goToPage(1, 'series_tops');
+        goToPage('series_tops');
     });
 
     $('#series_genres_link').click(function () {
         reset();
         set_series_genres();
         visitedPagesStack.setNewLastVisitedPage("series_genres");
-        PageTransitions.goToPage(1, 'series_genres');
+        goToPage('series_genres');
     });
 
     $('.to_myseries').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("series_myseries");
-        PageTransitions.goToPage(1, 'series_myseries');
+        goToPage('series_myseries');
         send_myseries();
     });
 
     $('#series_recently_watched_link').click(function () {
         reset();
         visitedPagesStack.setNewLastVisitedPage("series_recently_watched");
-        PageTransitions.goToPage(1, 'series_recently_watched');
+        goToPage('series_recently_watched');
     });
 
     $('.to_series_search').click(function () {
         reset();
         $("#series_bottom_menu").show();
         visitedPagesStack.setNewLastVisitedPage('serie_search');
-        PageTransitions.goToPage(1, 'serie_search');
+        goToPage('serie_search');
     });
 
 });

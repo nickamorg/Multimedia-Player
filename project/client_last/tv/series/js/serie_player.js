@@ -179,7 +179,7 @@ function display_serie_details(serie_id) {
     });
 
     visitedPagesStack.setNewLastVisitedPage('serie_page');
-    PageTransitions.goToPage(2, 'serie_page');
+    goToPage('serie_page');
 
     $("#serie_related_content").html("");
 
@@ -336,7 +336,7 @@ function set_series_by_genre(genre) {
     }
 
     visitedPagesStack.setNewLastVisitedPage("series_by_genres");
-    PageTransitions.goToPage(2, 'series_by_genres');
+    goToPage('series_by_genres');
 }
 
 function send_myseries() {

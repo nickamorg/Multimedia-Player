@@ -445,7 +445,7 @@ function add_recently_played_song(song_id) {
 
 function read_playlist(playlist) {
     visitedPagesStack.setNewLastVisitedPage("song_playlist");
-    PageTransitions.goToPage(2, "song_playlist");
+    goToPage("song_playlist");
     let playlist_songs = "";
     var ws = new WebSocket('ws://' + "localhost" + ':6556');
 

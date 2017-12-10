@@ -3,7 +3,7 @@ let curr_serie_id;
 
 function setSeriesPlayer(serie_id) {
     curr_serie_id = serie_id;
-    PageTransitions.goToPage(2, 'series_player');
+    goToPage('series_player');
     serie = series[serie_id];
     $("#series_video").find("source")[0].src = "../ressrc/series/" + serie.file;
     $("#serie_player_img").click(function() {

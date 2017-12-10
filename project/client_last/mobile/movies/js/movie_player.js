@@ -185,7 +185,7 @@ function display_movie_details(movie_id) {
         add_to_mymovies(movie_id);
     });
 
-    PageTransitions.goToPage(2, 'movie_page');
+    goToPage('movie_page');
 
     $("#movie_related_content").html("");
 
@@ -332,7 +332,7 @@ function set_movies_by_genre(genre) {
     }
 
     // visitedPagesStack.setNewLastVisitedPage("movies_by_genres");
-    PageTransitions.goToPage(2, 'movies_by_genres');
+    goToPage('movies_by_genres');
 }
 
 function send_mymovies() {
