@@ -34,7 +34,7 @@ function send_mysongs() {
                     `<tr>
                             <td><button onclick="play_mysong('${i}')" class="fa fa-play-circle-o ${playerAPI.mysongs[i]}"></button></td>
                             <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
-                            <td><button onclick="remove_from_mysongs('${id}', this)"><em class="fa fa-minus"></em></button></td>
+                            <td><button onclick="remove_from_mysongs('${id}', this)"><em class="fa fa-trash-o"></em></button></td>
                             <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
                             <td>${song.artist}</td>
                             <td>${song.album}</td>
@@ -252,7 +252,7 @@ function apply_filters_mysong() {
                 `<tr>
                     <td><button onclick="play_mysong(${i})" class="fa fa-play-circle-o ${playerAPI.mysongs[i]}"></button></td>
                     <td><button onclick="open_playlists_modal('${tmp_mysongs[i]}');"><em class="fa fa-plus"></em></button></td>
-                    <td><button onclick="remove_playlist('${tmp_mysongs[i]}', this)"><em class="fa fa-minus"></em></button></td>
+                    <td><button onclick="remove_playlist('${tmp_mysongs[i]}', this)"><em class="fa fa-trash-o"></em></button></td>
                     <td><button onclick="display_song_details('${tmp_mysongs[i]}')">${song.title}</button></td>
                     <td>${song.artist}</td>
                     <td>${song.album}</td>
@@ -455,7 +455,7 @@ function get_playlists() {
                 $("#playlists").find("tbody").append(`
                     <tr>
                         <td><button onclick="play_playlist('${playlists[i]}')"><em class="fa">&#xf01d;</em></button></td>
-                        <td><button onclick="remove_playlist('${playlists[i]}', this)"><em class="fa fa-minus"></em></button></td></td>
+                        <td><button onclick="remove_playlist('${playlists[i]}', this)"><em class="fa fa-trash-o"></em></button></td></td>
                         <td>${i + 1}</td>
                         <td><button onclick="read_playlist('${playlists[i]}')">${playlists[i]}</button></td>
                         <td><em class="fa">${data[playlists[i]].length}</em></td>
@@ -501,7 +501,7 @@ function read_playlist(playlist) {
                     `<tr>
                             <td><button onclick="play_playlist_song('${id}')" class="fa fa-play-circle-o ${id}"></button></td>
                             <td><button onclick="open_playlists_modal('${id}');"><em class="fa fa-plus"></em></button></td>
-                            <td><button onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-minus"></em></button></td>
+                            <td><button onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-trash-o"></em></button></td>
                             <td><button onclick="display_song_details('${id}')">${song.title}</button></td>
                             <td>${song.artist}</td>
                             <td>${song.album}</td>
