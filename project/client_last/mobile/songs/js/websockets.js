@@ -47,7 +47,7 @@ function send_mysongs() {
                             <button onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
                         </div>
                         <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
-                            <button onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this);" style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                            <button onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this);" style="float:right"><em class="fa fa-trash-o" style="font-size:40px"></em></button>
                         </div>
                     </div>`);
             }
@@ -270,7 +270,7 @@ function apply_filters_mysong() {
                             <button onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
                         </div>
                         <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
-                            <button onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this);" style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                            <button onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this);" style="float:right"><em class="fa fa-trash-o" style="font-size:40px"></em></button>
                         </div>
                     </div>`);
         }
@@ -425,7 +425,7 @@ function get_playlists() {
                             <button onclick="play_playlist('${playlists[i]}')"><em class="fa" style="font-size:40px">&#xf01d;</em></button>
                         </div>
                         <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
-                            <button onclick="remove_playlist('${playlists[i]}', this)"  style="float:right"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                            <button onclick="remove_playlist('${playlists[i]}', this)"  style="float:right"><em class="fa fa-trash-o" style="font-size:40px"></em></button>
                         </div>
                     </div>`
                 )
@@ -482,7 +482,7 @@ function read_playlist(playlist) {
                                 <button onclick="open_playlists_modal('${id}');" style="float:right"><em class="fa fa-plus" style="font-size:40px"></em></button>
                             </div>
                             <div class="col-xs-1" style="padding:0; height:100px; line-height:100px;">
-                                <button style="float:right" onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-minus" style="font-size:40px"></em></button>
+                                <button style="float:right" onclick="remove_from_playlist('${playlist}', '${id}', this)"><em class="fa fa-trash-o" style="font-size:40px"></em></button>
                             </div>
                         </div>`);
             }
