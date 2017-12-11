@@ -189,3 +189,14 @@ function goToPage(page) {
     $(".pt-page").removeClass("pt-page-current");
     $("#" + page).addClass("pt-page-current");
 }
+
+function newplaylist_inter() {
+    let json = `{ "type": "interaction", "category": "new playlist"}`;
+    interaction.send(json);
+
+    $("#interaction_note_new_modal").css('display', 'block');
+
+    setTimeout(function() {
+        $("#interaction_note_new_modal").css('display', 'none');
+    }, 1500)
+}

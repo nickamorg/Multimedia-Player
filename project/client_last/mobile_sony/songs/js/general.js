@@ -110,6 +110,9 @@ interaction.onmessage = function (message) {
 
         visitedPagesStack.setNewLastVisitedPage("search_inter");
         goToPage('search_inter');
+    } else if(json["category"] === "new playlist") {
+        visitedPagesStack.setNewLastVisitedPage("new_playlist_inter");
+        goToPage('new_playlist_inter')
     }
     $('#interaction_modal').css('display', 'none');
     console.log(JSON.parse(message.data));
@@ -190,4 +193,18 @@ function goToPage(page) {
 
     $(".pt-page").removeClass("pt-page-current");
     $("#" + page).addClass("pt-page-current");
+}
+
+function myFunction(text) {
+    var x = document.getElementById("snackbar");
+    x.innerHTML = "The new playlist saved";
+    x.className = "show";
+    setTimeout(function () {
+        x.className = x.className.replace("show", "");
+    }, 3000);
+}
+
+function save_new_playlist() {
+    add_new_playlist($("#new_playlist_title").val());
+    myFunction();
 }

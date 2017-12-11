@@ -110,6 +110,10 @@ interaction.onmessage = function (message) {
 
         visitedPagesStack.setNewLastVisitedPage("search_inter");
         goToPage('search_inter');
+    } else if(json["category"] === "new playlist") {
+        console.log("xasxax");
+        visitedPagesStack.setNewLastVisitedPage("new_playlist_inter");
+        goToPage('new_playlist_inter')
     }
     $('#interaction_modal').css('display', 'none');
     console.log(JSON.parse(message.data));
@@ -190,4 +194,29 @@ function goToPage(page) {
 
     $(".pt-page").removeClass("pt-page-current");
     $("#" + page).addClass("pt-page-current");
+}
+
+function myFunction(text, succeed) {
+    var x = document.getElementById("snackbar");
+    x.innerHTML = text;
+    x.className = "show";
+    if(!succeed) {
+        $("#snackbar").css("color", "red");
+    } else {
+        $("#snackbar").css("color", "white");
+    }
+    setTimeout(function () {
+        $("#snackbar").css("color", "white");
+        x.className = x.className.replace("show", "");
+    }, 3000);
+}
+
+function save_new_playlist() {
+    if($("#new_playlist_title").val() !== "") {
+        add_new_playlist($("#new_playlist_title").val(), true);
+        myFunction("New playlist saved");
+        $("#new_playlist_title").val("");
+    } else {
+        myFunction("It seem that you haven't type anything", false);
+    }
 }
