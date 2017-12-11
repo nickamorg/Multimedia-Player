@@ -380,7 +380,7 @@ function send_myseries() {
                                 
                                 <em style="font-size: 60px; margin: 0 40px;" class="fa fa-play-circle-o clickableElement" onclick="setSeriesPlayer('${id}')" aria-hidden="true"></em>
                                 
-                                <em style="font-size: 60px;" class="fa fa-trash-o clickableElement" onclick="remove_from_myseries('${id}', this) aria-hidden="true"></em>
+                                <em style="font-size: 60px;" class="fa fa-trash-o clickableElement" onclick="remove_from_myseries('${id}', this)" aria-hidden="true"></em>
                             </div>
                         </div>
                     </div>`);
