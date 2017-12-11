@@ -207,12 +207,13 @@ var Sockets = (function () {
 						series_1234(tab);
 					}
 				} else if(msg.message["id"] === 2) {
+					console.log("here we are");
 					if($(".pt-page-current")[0].id === "movies_player") {
 						$('.movie_muted').click();
 					} else if($(".pt-page-current")[0].id === "series_player") {
 						$('.serie_muted').click();
 					} else if($(".pt-page-current")[0].id.includes("song")) {
-						$('.muted').click();
+						mute_song();
 					}
 				} else if(msg.message["id"] === 3) {
 					if($(".pt-page-current")[0].id === "movies_player") {

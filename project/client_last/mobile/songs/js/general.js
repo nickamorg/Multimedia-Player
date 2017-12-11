@@ -186,6 +186,8 @@ function show_hide_menu(curr) {
 }
 
 function goToPage(page) {
+    $(".pt-page-current").find(".scrollbar").scrollTop(0);
+
     $(".pt-page").removeClass("pt-page-current");
     $("#" + page).addClass("pt-page-current");
 }

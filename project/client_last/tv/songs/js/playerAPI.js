@@ -953,7 +953,14 @@ playerAPI.songs = {
     function scrolling() {
         let bottom_counter = 0;
         let top_counter = 0;
+        let last_top = -1;
         setInterval(function() {
+            if($("#cursor").offset().top === last_top) {
+                bottom_counter = 0;
+                top_counter = 0;
+                return;
+            }
+            last_top = $("#cursor").offset().top;
             if($("#cursor").offset().top < 60) {
                 bottom_counter = 0;
                 top_counter++;
@@ -1160,8 +1167,7 @@ playerAPI.playing.onended = function() {
     }
 };
 
-/*Song Volume*/
-$('.muted').click(function () {
+function mute_song() {
     if(playerAPI.playing.muted) {
         $('.volumeBar').css('width', playerAPI.stored_volume + '%');
     } else {
@@ -1169,7 +1175,12 @@ $('.muted').click(function () {
     }
     playerAPI.playing.muted = !playerAPI.playing.muted;
     return false;
-});
+}
+
+/*Song Volume*/
+$('.muted').click(mute_song);
+
+
 
 //VOLUME BAR
 //volume bar event

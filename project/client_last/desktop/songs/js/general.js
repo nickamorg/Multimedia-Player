@@ -137,6 +137,8 @@ function remote_playing(device) {
 }
 
 function goToPage(page) {
+    $(".pt-page-current").find(".scrollbar").scrollTop(0);
+
     $("#movies_header").css("visibility", "");
     $("#movies_footer").css("visibility", "");
     $("#series_header").css("visibility", "");
