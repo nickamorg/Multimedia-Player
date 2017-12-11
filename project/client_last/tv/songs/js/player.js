@@ -45,24 +45,37 @@ function setPlayer() {
 
 function set_songs_by_genre(genre) {
     goToPage('song_by_genre');
-    $("#display_by_genre").find("tbody").html("");
+    $("#display_by_genre").html("");
     $("#song_by_genre").find("h1")[0].innerHTML = "Songs - " + genre.charAt(0).toUpperCase() + genre.slice(1);
 
     for(let i = 0; i < playerAPI.songs.crowd; i++) {
         song = playerAPI.songs["id" + i];
+        id = "id" + i;
         for(let j = 0; j < song.genre.length; j++) {
             if(song.genre[j] === genre) {
-                $("#display_by_genre").find("tbody").append(
-                    `<tr>
-                        <td><img id="img" style="width:80px" src="../ressrc/songs_images/${song.img}"></td>
-						<td><button class="clickableElement" onclick='play_song("${'id' + i}")'><em class="fa">&#xf01d;</em></button></td>
-						<td><button class="clickableElement" onclick="open_playlists_modal('${"id" + i}')"><em class="fa">&#xf067;</em></button></td>
-						<td><button class="clickableElement" onclick="display_song_details('${"id" + i}')">${song.title}</button></td>
-						<td>${song.artist}</td>
-						<td>${song.album}</td>
-						<td>${song.release}</td>
-						<td>${song.duration}</td>
-					</tr>`);
+                $("#display_by_genre").append(
+                    `<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
+                        <img style="width:100%" src="../ressrc/songs_images/${song.img}">
+                        <p>${song.title}</p>
+                        <small>${song.artist}</small>
+                        <div class="overlay">
+                            <h3 class="text-center">${song.title} - ${song.artist}</h3>
+                            <div class="options">
+                                <div class="col-xs-4 clickableElement" onclick="display_song_details('${id}')">
+                                    <em class="fa fa-external-link" aria-hidden="true"></em>
+                                </div>
+                    
+                                <div class="col-xs-4 play-icon clickableElement" onclick="play_song(${i})">
+                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
+                                </div>
+                    
+                                <div class="col-xs-4 clickableElement" onclick="open_playlists_modal('${id}');">
+                                    <em class="fa fa-plus" aria-hidden="true"></em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`);
+
                 break;
             }
         }
