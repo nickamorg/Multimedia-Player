@@ -12,9 +12,9 @@ body {
 .clickableElement:hover,
 .clickableElement.hover
 {
-  -webkit-box-shadow: 0 0 14px 7px rgba(73,201,216,.83);
-	-moz-box-shadow: 0 0 14px 7px rgba(73,201,216,.83);
-	box-shadow: 0 0 14px 7px rgba(73,201,216,.83);
+  -webkit-box-shadow: 0 0 0 3px rgba(73,201,216,.83);
+	-moz-box-shadow: 0 0 0 3px rgba(73,201,216,.83);
+	box-shadow: 0 0 0 3px rgba(73,201,216,.83);
   -webkit-transition: All 0.2s ease;
 	-moz-transition: All 0.2s ease;
   transition: All 0.2s ease;

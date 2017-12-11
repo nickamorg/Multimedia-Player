@@ -13,6 +13,21 @@ img {
     border: 0;
 }
 
+.fixed_img {
+    margin-bottom:20px;
+}
+
+.fixed_img img {
+    height: 500px;
+    width:335px;
+}
+
+p {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-align: left;
+}
+
 .img-serie-recently-watched {
     width: 80px;
     height: 107px;

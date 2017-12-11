@@ -366,8 +366,8 @@ function send_mymovies() {
                 dates[i] = parseInt(movie.release.split(" ")[2]);
                 rates[i] = parseFloat(movie.rate);
                 $("#display_mymovies_content").append(
-                    `<div class="col-xs-4 clickableElement" style="margin-bottom:20px" onclick="toggleContainer(this)">
-                        <img class="img-responsive" src="../ressrc/movies_images/${movie.img}"/>
+                    `<div class="col-xs-3 fixed_img clickableElement" onclick="toggleContainer(this)">
+                        <img src="../ressrc/movies_images/${movie.img}"/>
                         <p>${movie.title}</p>
                         <div class="overlay">
                             <h3 class="text-center">${movie.title}</h3>
