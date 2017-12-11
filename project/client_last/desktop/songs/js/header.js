@@ -18,8 +18,8 @@ function setHeader(active) {
                 </form>
             </li>
             <li><a class="playlists ${(active === 'playlists')?'active-tab':''}">Playlists</a></li>
-            <li><a class="to_mysongs ${(active === 'mysongs')?'active-tab':''}">My songs</a></li>
-            <li><a class="to_song_home ${(active === 'explore')?'active-tab':''}">Explore</a></li>
+            <li><a class="to_mysongs ${(active === 'mysongs')?'active-tab':''}">My Songs</a></li>
+            <li><a class="to_song_home ${(active === 'explore')?'active-tab':''}">Explore Songs</a></li>
         </ul>
     </div>`);
 }
