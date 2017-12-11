@@ -439,17 +439,11 @@ function get_playlists() {
                         <div class="overlay">
                             <h3 class="text-center">${playlists[i]} - ${data[playlists[i]].length} Songs</h3>
                             <div class="options">
-                                <div class="col-xs-3 clickableElement" onclick="read_playlist('${playlists[i]}')">
-                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-                                </div>
-                        
-                                <div class="col-xs-3 play-icon clickableElement" onclick="play_playlist('${playlists[i]}')">
-                                <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                </div>
-                        
-                                <div class="col-xs-3 clickableElement" onclick="remove_playlist('${playlists[i]}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"></em>
-                                </div>
+                                <em style="font-size: 60px;" class="fa fa-external-link clickableElement" onclick="read_playlist('${playlists[i]}')" aria-hidden="true"></em>
+                                
+                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-play-circle-o clickableElement" onclick="play_playlist('${playlists[i]}')" aria-hidden="true"></em>
+
+                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-thrash-o clickableElement" onclick="remove_playlist('${playlists[i]}', this)" aria-hidden="true"></em>
                             </div>
                         </div>
                     </div>`
@@ -498,21 +492,13 @@ function read_playlist(playlist) {
                             <div class="overlay">
                                 <h3 class="text-center">${song.title} - ${song.artist}</h3>
                                 <div class="options">
-                                    <div class="col-xs-3 clickableElement" onclick="display_song_details('${id}')">
-                                        <em class="fa fa-external-link" aria-hidden="true"></em>
-                                    </div>
-                        
-                                    <div class="col-xs-3 play-icon clickableElement" onclick="play_playlist_song('${id}')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                    </div>
-                        
-                                    <div class="col-xs-3 clickableElement" onclick="open_playlists_modal('${id}');">
-                                        <em class="fa fa-plus" aria-hidden="true"></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-3 clickableElement" onclick="remove_from_mysongs(${id}', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"></em>
-                                    </div>
+                                    <em style="font-size: 60px;" class="fa fa-external-link clickableElement" onclick="display_song_details('${id}')" aria-hidden="true"></em>
+                                
+                                    <em style="font-size: 60px; margin-left: 40px;" class="fa fa-play-circle-o clickableElement" onclick="play_playlist_song('${id}')" aria-hidden="true"></em>
+
+                                    <em style="font-size: 60px; margin-left: 40px;" class="fa fa-plus clickableElement" onclick="open_playlists_modal('${id}')" aria-hidden="true"></em>
+
+                                    <em style="font-size: 60px; margin-left: 40px;" class="fa fa-thrash-o clickableElement" onclick="remove_from_mysongs(${id}', this)" aria-hidden="true"></em>
                                 </div>
                             </div>
                         </div>`);
