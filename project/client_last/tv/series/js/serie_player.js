@@ -376,17 +376,11 @@ function send_myseries() {
                         <div class="overlay">
                             <h3 class="text-center">${serie.title}</h3>
                             <div class="options">
-                                <div class="col-xs-12 clickableElement" onclick="display_serie_details('${id}')">
-                                    <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open series' page</span></em>
-                                </div>
+                                <em style="font-size: 60px;" class="fa fa-external-link clickableElement" onclick="display_serie_details('${id}')" aria-hidden="true"></em>
                                 
-                                <div class="col-xs-12 clickableElement" onclick="setSeriesPlayer('${id}')">
-                                    <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the serie</span></em>
-                                </div>
+                                <em style="font-size: 60px; margin: 0 40px;" class="fa fa-play-circle-o clickableElement" onclick="setSeriesPlayer('${id}')" aria-hidden="true"></em>
                                 
-                                <div class="col-xs-12 clickableElement" onclick="remove_from_myseries('${id}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
-                                </div>
+                                <em style="font-size: 60px;" class="fa fa-trash-o clickableElement" onclick="remove_from_myseries('${id}', this) aria-hidden="true"></em>
                             </div>
                         </div>
                     </div>`);

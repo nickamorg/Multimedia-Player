@@ -372,17 +372,11 @@ function send_mymovies() {
                         <div class="overlay">
                             <h3 class="text-center">${movie.title}</h3>
                             <div class="options">
-                                <div class="col-xs-12 clickableElement" onclick="display_movie_details('${id}')">
-                                    <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
-                                </div>
+                                <em style="font-size: 60px;" class="fa fa-external-link clickableElement" onclick="display_movie_details('${id}')" aria-hidden="true"></em>
                                 
-                                <div class="col-xs-12 clickableElement" onclick="setMoviesPlayer('${id}')">
-                                    <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
-                                </div>
+                                <em style="font-size: 60px; margin: 0 40px;" class="fa fa-play-circle-o clickableElement" onclick="setMoviesPlayer('${id}')" aria-hidden="true"></em>
                                 
-                                <div class="col-xs-12 clickableElement" onclick="remove_from_mymovies('${id}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
-                                </div>
+                                <em style="font-size: 60px;" class="fa fa-trash-o clickableElement" onclick="remove_from_mymovies('${id}', this) aria-hidden="true"></em>
                             </div>
                         </div>
                     </div>`);

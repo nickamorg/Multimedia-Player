@@ -37,21 +37,13 @@ function send_mysongs() {
                         <div class="overlay">
                             <h3 class="text-center">${song.title} - ${song.artist}</h3>
                             <div class="options">
-                                <div class="col-xs-3 clickableElement" onclick="display_song_details('${"id" + parseInt(songs[i].substring(2))}')">
-                                    <em class="fa fa-external-link" aria-hidden="true"></em>
-                                </div>
-                    
-                                <div class="col-xs-3 play-icon clickableElement" onclick="play_mysong(${i})">
-                                    <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                </div>
-                    
-                                <div class="col-xs-3 clickableElement" onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');">
-                                    <em class="fa fa-plus" aria-hidden="true"></em>
-                                </div>
+                                <em style="font-size: 60px;" class="fa fa-external-link clickableElement" onclick="display_song_details('${"id" + parseInt(songs[i].substring(2))}')" aria-hidden="true"></em>
                                 
-                                <div class="col-xs-3 clickableElement" onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"></em>
-                                </div>
+                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-play-circle-o clickableElement" onclick="play_mysong(${i})" aria-hidden="true"></em>
+
+                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-plus clickableElement" onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');" aria-hidden="true"></em>
+                                
+                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-trash-o clickableElement" onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this)" aria-hidden="true"></em>
                             </div>
                         </div>
                     </div>`);
