@@ -17,8 +17,8 @@ function setSeriesHeader(active) {
                     </div>
                 </form>
             </li>
-            <li><a class="to_myseries clickableElement ${(active === 'myseries')?'active-tab':''}">My series</a></li>
-            <li><a class="to_series_home clickableElement ${(active === 'explore')?'active-tab':''}">Explore</a></li>
+            <li><a class="to_myseries clickableElement ${(active === 'myseries')?'active-tab':''}">My Series</a></li>
+            <li><a class="to_series_home clickableElement ${(active === 'explore')?'active-tab':''}">Explore Series</a></li>
         </ul>
     </div>`);
 }
