@@ -550,3 +550,11 @@ a {
 .new-playlist:focus {
     color: white !important;
 }
+
+p {
+    font-size: 25px;
+}
+
+small {
+    font-size: 18px !important;
+}
