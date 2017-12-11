@@ -1390,11 +1390,11 @@
 						  <div id="display_songs_search_content" style="height: 1375px;">
 							  <article style="padding-top:50px;">
                                 <div style="margin-bottom: 30px;" class="horizontal-tabs">
-                                    <a onclick="songs_1234(1)" id="search_tab_1" style="color: white; text-decoration: none;" class="active-tab">TOP RESULTS</a>
-                                    <a onclick="songs_1234(2)" id="search_tab_2" class="clickableElement" style="color: white; text-decoration: none;">GENRES</a>
-                                    <a onclick="songs_1234(3)" id="search_tab_3" class="clickableElement" style="color: white; text-decoration: none;">TRACKS</a>
-                                    <a onclick="songs_1234(4)" id="search_tab_4" class="clickableElement" style="color: white; text-decoration: none;">ARTISTS</a>
-                                    <a onclick="songs_1234(5)" id="search_tab_5" class="clickableElement" style="color: white; text-decoration: none;">ALBUMS</a>
+                                    <a onclick="songs_1234(1)" id="search_tab_1" style="color: white; text-decoration: none; font-size:25px" class="active-tab">TOP RESULTS</a>
+                                    <a onclick="songs_1234(2)" id="search_tab_2" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">GENRES</a>
+                                    <a onclick="songs_1234(3)" id="search_tab_3" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">TRACKS</a>
+                                    <a onclick="songs_1234(4)" id="search_tab_4" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">ARTISTS</a>
+                                    <a onclick="songs_1234(5)" id="search_tab_5" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">ALBUMS</a>
                                 </div>
 
                                 <div id="search_page_1" style="display: block;">
@@ -1423,116 +1423,100 @@
                                             </a>
                                         </div>
                                     </section>
+
                                     <section style="margin-bottom: 30px;">
                                         <h4>Tracks</h4>
-                                        <div class="text-center" style="display: flex; justify-content: space-between;">
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/rockabye.jpg"/>
+                                        <div>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/songs_images/rockabye.jpg"/>
                                                 <p>Rockabye (feat. Sean Paul & Anne-Marie)</p>
                                                 <small>Clean Bandit, Sean Paul, Anne-Marie</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">Rockabye (feat. Sean Paul & Anne-Marie) - Clean Bandit, Sean Paul, Anne-Marie</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_song_details('id5')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="play_song('id5')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/we-will-rock-you.jpg"/>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/songs_images/we-will-rock-you.jpg"/>
                                                 <p>We Will Rock You - Remastered 2011</p>
                                                 <small>Queen</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">We Will Rock You - Remastered 2011 - Quenn</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_song_details('id5')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="play_song('id5')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/rock-you-like-a-hurricane.jpeg"/>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/songs_images/rock-you-like-a-hurricane.jpeg"/>
                                                 <p>Rock You Like a Hurricane</p>
                                                 <small>Scorpions</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">Rock You Like a Hurricane - Scorpions</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_song_details('id6')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="play_song('id6')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/rockstar.jpg"/>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/songs_images/rockstar.jpg"/>
                                                 <p>rockstar</p>
                                                 <small>Post Malone, 21 Savage</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">rockstar - Post Malone, 21 Savage</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_song_details('id7')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="play_song('id7')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/rock-the-casbah.jpg"/>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/songs_images/rock-the-casbah.jpg"/>
                                                 <p>Rock the Casbah - Remastered</p>
                                                 <small>The Clash</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">Rock the Casbah - Remastered - The Clash</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_song_details('id5')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="play_song('id5')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </section>
+
+									<div class="clearfix"></div>
+
                                     <section style="margin-bottom: 30px;">
                                         <h4>Artists</h4>
                                         <div style="display: flex;  justify-content: space-between;">
@@ -1656,113 +1640,93 @@
                                 <div id="search_page_3" style="display: none;">
                                     <section>
                                         <h4>Tracks</h4>
-                                        <div class="text-center" style="display: flex; justify-content: space-between;">
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/rockabye.jpg"/>
-                                                <p>Rockabye (feat. Sean Paul & Anne-Marie)</p>
-                                                <small>Clean Bandit, Sean Paul, Anne-Marie</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">Rockabye (feat. Sean Paul & Anne-Marie) - Clean Bandit, Sean Paul, Anne-Marie</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
+										<div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/songs_images/rockabye.jpg"/>
+												<p>Rockabye (feat. Sean Paul & Anne-Marie)</p>
+												<small>Clean Bandit, Sean Paul, Anne-Marie</small>
+												<div class="overlay">
+													<h3 class="text-center">Rockabye (feat. Sean Paul & Anne-Marie) - Clean Bandit, Sean Paul, Anne-Marie</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_song_details('id5')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="play_song('id5')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/songs_images/we-will-rock-you.jpg"/>
+												<p>We Will Rock You - Remastered 2011</p>
+												<small>Queen</small>
+												<div class="overlay">
+													<h3 class="text-center">We Will Rock You - Remastered 2011 - Quenn</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_song_details('id5')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/we-will-rock-you.jpg"/>
-                                                <p>We Will Rock You - Remastered 2011</p>
-                                                <small>Queen</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">We Will Rock You - Remastered 2011 - Quenn</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="play_song('id5')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/songs_images/rock-you-like-a-hurricane.jpeg"/>
+												<p>Rock You Like a Hurricane</p>
+												<small>Scorpions</small>
+												<div class="overlay">
+													<h3 class="text-center">Rock You Like a Hurricane - Scorpions</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_song_details('id6')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="play_song('id6')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/songs_images/rockstar.jpg"/>
+												<p>rockstar</p>
+												<small>Post Malone, 21 Savage</small>
+												<div class="overlay">
+													<h3 class="text-center">rockstar - Post Malone, 21 Savage</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_song_details('id7')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/rock-you-like-a-hurricane.jpeg"/>
-                                                <p>Rock You Like a Hurricane</p>
-                                                <small>Scorpions</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">Rock You Like a Hurricane - Scorpions</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="play_song('id7')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/songs_images/rock-the-casbah.jpg"/>
+												<p>Rock the Casbah - Remastered</p>
+												<small>The Clash</small>
+												<div class="overlay">
+													<h3 class="text-center">Rock the Casbah - Remastered - The Clash</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_song_details('id5')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/rockstar.jpg"/>
-                                                <p>rockstar</p>
-                                                <small>Post Malone, 21 Savage</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">rockstar - Post Malone, 21 Savage</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="results-image" src="../ressrc/songs_images/rock-the-casbah.jpg"/>
-                                                <p>Rock the Casbah - Remastered</p>
-                                                <small>The Clash</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">Rock the Casbah - Remastered - The Clash</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="play_song('id5')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
                                     </section>
                                 </div>
                                 <div id="search_page_5" style="display: none;">
@@ -2865,27 +2829,26 @@
                                 </div>
                               </div>
                               <div style="justify-content: space-between;" class="filter--content">
-                                    
-                                            <a href="#">
-                                                <img class="clickableElement results-image" src="../ressrc/search/action_horror.jpg" alt="Action Horror">
-                                                <p class="text-center">Action Horror</p>
-                                            </a>
-                                            <a href="#">
-                                                <img class="clickableElement results-image" src="../ressrc/search/comedy_horror.jpg" alt="Comedy Horror">
-                                                <p class="text-center">Comedy Horror</p>
-                                            </a>
-                                            <a href="#">
-                                                <img class="clickableElement results-image" src="../ressrc/search/science_fiction_horror.jpg" alt="Science Fiction Horror">
-                                                <p class="text-center">Science Fiction Horror</p>
-                                            </a>
-                                            <a href="#">
-                                                <img class="clickableElement results-image" src="../ressrc/search/horror_drama.jpg" alt="Horror Drama">
-                                                <p class="text-center">Horror Drama</p>
-                                            </a>
-                                            <a href="#">
-                                                <img class="clickableElement results-image" src="../ressrc/search/psychological_horror.jpg" alt="Psychological Horror">
-                                                <p class="text-center">Psychological Horror</p>
-                                            </a>
+									<a href="#">
+										<img class="clickableElement results-image" src="../ressrc/search/action_horror.jpg" alt="Action Horror">
+										<p class="text-center">Action Horror</p>
+									</a>
+									<a href="#">
+										<img class="clickableElement results-image" src="../ressrc/search/comedy_horror.jpg" alt="Comedy Horror">
+										<p class="text-center">Comedy Horror</p>
+									</a>
+									<a href="#">
+										<img class="clickableElement results-image" src="../ressrc/search/science_fiction_horror.jpg" alt="Science Fiction Horror">
+										<p class="text-center">Science Fiction Horror</p>
+									</a>
+									<a href="#">
+										<img class="clickableElement results-image" src="../ressrc/search/horror_drama.jpg" alt="Horror Drama">
+										<p class="text-center">Horror Drama</p>
+									</a>
+									<a href="#">
+										<img class="clickableElement results-image" src="../ressrc/search/psychological_horror.jpg" alt="Psychological Horror">
+										<p class="text-center">Psychological Horror</p>
+									</a>
                               </div>
                           </div>
 
@@ -2990,10 +2953,10 @@
                         <div id="display_movies_search" style="height: 1275px;">
                               <article style="padding-top:50px;">
                                 <div style="margin-bottom: 30px;" class="horizontal-tabs">
-                                    <a id="movie_tab_1" onclick="movies_1234(1)" class="active-tab" style="color: white; text-decoration: none;">TOP RESULTS</a>
-                                    <a id="movie_tab_2" onclick="movies_1234(2)" class="clickableElement" style="color: white; text-decoration: none;">GENRE</a>
-                                    <a id="movie_tab_3" onclick="movies_1234(3)" class="clickableElement" style="color: white; text-decoration: none;">MOVIES</a>
-                                    <a id="movie_tab_4" onclick="movies_1234(4)" class="clickableElement" style="color: white; text-decoration: none;">PEOPLE</a>
+                                    <a id="movie_tab_1" onclick="movies_1234(1)" class="active-tab" style="color: white; text-decoration: none; font-size:25px">TOP RESULTS</a>
+                                    <a id="movie_tab_2" onclick="movies_1234(2)" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">GENRE</a>
+                                    <a id="movie_tab_3" onclick="movies_1234(3)" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">MOVIES</a>
+                                    <a id="movie_tab_4" onclick="movies_1234(4)" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">PEOPLE</a>
                                 </div>
 
                                 <div id="movie_page_1" style="display: block;">
@@ -3024,114 +2987,97 @@
                                     </section>
                                     <section style="margin-bottom: 30px;">
                                         <h4>Movies</h4>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/the_rocky_horror_picture_show.jpg"/>
+                                        <div>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/search/the_rocky_horror_picture_show.jpg"/>
                                                 <p>The Rocky Horror Picture Show</p>
                                                 <small>1975</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">The Rocky Horror Picture Show - 1975</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/horror.jpg"/>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/search/horror.jpg"/>
                                                 <p>#Horror</p>
                                                 <small>2015</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">#Horror - 2015</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/a_christmas_horror_story.png"/>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/search/a_christmas_horror_story.png"/>
                                                 <p>A Christmas Horror Story</p>
                                                 <small>2015</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">A Christmas Horror Story - 2015</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/the_last_horror_film.jpg"/>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/search/the_last_horror_film.jpg"/>
                                                 <p>The Last Horror Film</p>
                                                 <small>1982</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">The Last Horror Film - 1982</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/the_amityville_horror.png"/>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/search/the_amityville_horror.png"/>
                                                 <p>The Amityville Horror</p>
                                                 <small>2005</small>
                                                 <div class="overlay">
                                                     <h3 class="text-center">The Amityville Horror - 2005</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </section>
+
+									<div class="clearfix"></div>
+
                                     <section style="margin-bottom: 30px;">
                                         <h4>People</h4>
                                         <div style="display: flex;  justify-content: space-between;">
@@ -3188,113 +3134,93 @@
                                 <div id="movie_page_3" style="display: none;">
                                     <section>
                                         <h4>Movies</h4>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/the_rocky_horror_picture_show.jpg"/>
-                                                <p>The Rocky Horror Picture Show</p>
-                                                <small>1975</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">The Rocky Horror Picture Show - 1975</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
+										<div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/search/the_rocky_horror_picture_show.jpg"/>
+												<p>The Rocky Horror Picture Show</p>
+												<small>1975</small>
+												<div class="overlay">
+													<h3 class="text-center">The Rocky Horror Picture Show - 1975</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/search/horror.jpg"/>
+												<p>#Horror</p>
+												<small>2015</small>
+												<div class="overlay">
+													<h3 class="text-center">#Horror - 2015</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/horror.jpg"/>
-                                                <p>#Horror</p>
-                                                <small>2015</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">#Horror - 2015</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/search/a_christmas_horror_story.png"/>
+												<p>A Christmas Horror Story</p>
+												<small>2015</small>
+												<div class="overlay">
+													<h3 class="text-center">A Christmas Horror Story - 2015</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/search/the_last_horror_film.jpg"/>
+												<p>The Last Horror Film</p>
+												<small>1982</small>
+												<div class="overlay">
+													<h3 class="text-center">The Last Horror Film - 1982</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/a_christmas_horror_story.png"/>
-                                                <p>A Christmas Horror Story</p>
-                                                <small>2015</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">A Christmas Horror Story - 2015</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/search/the_amityville_horror.png"/>
+												<p>The Amityville Horror</p>
+												<small>2005</small>
+												<div class="overlay">
+													<h3 class="text-center">The Amityville Horror - 2005</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_movie_details('id0')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/the_last_horror_film.jpg"/>
-                                                <p>The Last Horror Film</p>
-                                                <small>1982</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">The Last Horror Film - 1982</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="movie--image" src="../ressrc/search/the_amityville_horror.png"/>
-                                                <p>The Amityville Horror</p>
-                                                <small>2005</small>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">The Amityville Horror - 2005</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="setMoviesPlayer('id0')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
                                     </section>
                                 </div>
                                 <div id="movie_page_4" style="display: none;">
@@ -3325,7 +3251,7 @@
                                     </section>
                                 </div>
                             </article>
-                        </div>               
+                        </div>
                       </div>
 				  </div>
 			  </div>
@@ -4117,10 +4043,10 @@
                         <div id="filter_page_4" style="height: 1275px;">
                             <article style="padding-top:50px;">
                                 <div style="margin-bottom: 30px;" class="horizontal-tabs">
-                                    <a id="series_tab_1" onclick="series_1234(1)" class="active-tab" style="color: white; text-decoration: none;">TOP RESULTS</a>
-                                    <a id="series_tab_2" onclick="series_1234(2)" class="clickableElement" style="color: white; text-decoration: none;">GENRE</a>
-                                    <a id="series_tab_3" onclick="series_1234(3)" class="clickableElement" style="color: white; text-decoration: none;">TV SERIES</a>
-                                    <a id="series_tab_4" onclick="series_1234(4)" class="clickableElement" style="color: white; text-decoration: none;">PEOPLE</a>
+                                    <a id="series_tab_1" onclick="series_1234(1)" class="active-tab" style="color: white; text-decoration: none; font-size:25px">TOP RESULTS</a>
+                                    <a id="series_tab_2" onclick="series_1234(2)" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">GENRE</a>
+                                    <a id="series_tab_3" onclick="series_1234(3)" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">TV SERIES</a>
+                                    <a id="series_tab_4" onclick="series_1234(4)" class="clickableElement" style="color: white; text-decoration: none; font-size:25px">PEOPLE</a>
                                 </div>
                                 <div id="series_page_1" style="display: block;">
                                     <section style="margin-bottom: 30px;">
@@ -4150,9 +4076,9 @@
                                     </section>
                                     <section style="margin-bottom: 30px;">
                                         <h4>TV Series</h4>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="tv-series--image" src="../ressrc/search/ahs.jpg"/>
+                                        <div>
+                                            <div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+                                                <img style="width:100%" src="../ressrc/search/ahs.jpg"/>
                                                 <p>American Horror Story</p>
                                                 <div style="display: flex; justify-content: space-between;">
                                                     <small>2011</small>
@@ -4161,22 +4087,21 @@
                                                 <div class="overlay">
                                                     <h3 class="text-center">American Horror Story</h3>
                                                     <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
+                                                        <div class="col-xs-6 clickableElement" onclick="display_song_details('id0')">
                                                             <em class="fa fa-external-link" aria-hidden="true"></em>
                                                         </div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
+                                                        <div class="col-xs-6 play-icon clickableElement" onclick="play_song('id0')">
                                                             <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </section>
+
+									<div class="clearfix"></div>
+
                                     <section style="margin-bottom: 30px;">
                                         <h4>People</h4>
                                         <div style="display: flex;  justify-content: space-between;">
@@ -4233,32 +4158,28 @@
                                 <div id="series_page_3" style="display: none;">
                                     <section>
                                         <h4>TV Series</h4>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <div class="clickableElement" onclick="toggleContainer(this)">
-                                                <img class="tv-series--image" src="../ressrc/search/ahs.jpg"/>
-                                                <p>American Horror Story</p>
-                                                <div style="display: flex; justify-content: space-between;">
-                                                    <small>2011</small>
-                                                    <small>6 Seasons</small>
-                                                </div>
-                                                <div class="overlay">
-                                                    <h3 class="text-center">American Horror Story</h3>
-                                                    <div class="options">
-                                                        <div class="col-xs-4 clickableElement" onclick="display_song_details('id0')">
-                                                            <em class="fa fa-external-link" aria-hidden="true"></em>
-                                                        </div>
+										<div>
+											<div style="width:20%" class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
+												<img style="width:100%" src="../ressrc/search/ahs.jpg"/>
+												<p>American Horror Story</p>
+												<div style="display: flex; justify-content: space-between;">
+													<small>2011</small>
+													<small>6 Seasons</small>
+												</div>
+												<div class="overlay">
+													<h3 class="text-center">American Horror Story</h3>
+													<div class="options">
+														<div class="col-xs-6 clickableElement" onclick="display_song_details('id0')">
+															<em class="fa fa-external-link" aria-hidden="true"></em>
+														</div>
 
-                                                        <div class="col-xs-4 play-icon clickableElement" onclick="play_song('id0')">
-                                                            <em class="fa fa-play-circle-o" aria-hidden="true"></em>
-                                                        </div>
-
-                                                        <div class="col-xs-4 clickableElement" onclick="remove_from_mysongs('id0', this)">
-                                                            <em class="fa fa-minus" aria-hidden="true"></em>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+														<div class="col-xs-6 play-icon clickableElement" onclick="play_song('id0')">
+															<em class="fa fa-play-circle-o" aria-hidden="true"></em>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
                                     </section>
                                 </div>
                                 <div id="series_page_4" style="display: none;">
