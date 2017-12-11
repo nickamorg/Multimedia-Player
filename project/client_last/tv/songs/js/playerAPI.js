@@ -937,7 +937,7 @@ playerAPI.songs = {
 
     playerAPI.row = 0;
     $("#playing").find("source")[0].src = "../ressrc/songs/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].file;
-    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button class="clickableElement" onclick="open_playlists_modal(\'' + playerAPI.playlist[playerAPI.row] + '\')"><em style="font-size:24px" class="fa">&#xf067;</em></button>');
+    $(".title").html(playerAPI.songs[playerAPI.playlist[playerAPI.row]].title + '<button style="margin-left: 20px;" class="clickableElement" onclick="open_playlists_modal(\'' + playerAPI.playlist[playerAPI.row] + '\')"><em style="font-size:30px; padding: 10px;" class="fa">&#xf067;</em></button>');
     $(".artist").text(playerAPI.songs[playerAPI.playlist[playerAPI.row]].artist);
     $(".img").attr("src", "../ressrc/songs_images/" + playerAPI.songs[playerAPI.playlist[playerAPI.row]].img);
 

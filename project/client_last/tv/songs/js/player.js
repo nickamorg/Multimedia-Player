@@ -2,11 +2,11 @@ function setPlayer() {
     document.write(
 
     `<div class="player text-center">
-        <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px">
+        <div class="col-md-3 hidden-xs hidden-sm" style="padding-right:0px;">
             <div class="col-xs-3" style="padding:10px 0px 10px 0px;">
                 <img class="img" style="width:105px">
             </div>
-            <div style="font-size: 25px;" class="col-xs-9 text-left">
+            <div style="font-size: 25px; margin-top: 10px; padding-left: 10px;" class="col-xs-9 text-left">
 				<p class="title"></p>
 				<p class="artist"></p>
             </div>
