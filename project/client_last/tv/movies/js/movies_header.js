@@ -17,8 +17,8 @@ function setMoviesHeader(active) {
                     </div>
                 </form>
             </li>
-            <li><a class="to_mymovies clickableElement ${(active === 'mymovies')?'active-tab':''}">My movies</a></li>
-            <li><a class="to_movies_home clickableElement ${(active === 'explore')?'active-tab':''}">Explore</a></li>
+            <li><a class="to_mymovies clickableElement ${(active === 'mymovies')?'active-tab':''}">My Movies</a></li>
+            <li><a class="to_movies_home clickableElement ${(active === 'explore')?'active-tab':''}">Explore Movies</a></li>
         </ul>
     </div>`);
 }
