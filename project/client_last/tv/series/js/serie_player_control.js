@@ -15,7 +15,7 @@ function setSeriesPlayer(serie_id) {
     });
 
     $("#serie_player_img").find("img").attr("src","../ressrc/series_images/" + serie.img);
-    $("#serie_player_title").html(serie.title + '<button onclick="add_to_myseries(\'' + serie_id + '\')"><em class="fa">&#xf067;</em></button>');
+    $("#serie_player_title").html(serie.title + '<button onclick="add_to_myseries(\'' + serie_id + '\')"><em style="margin-left: 20px;" class="fa">&#xf067;</em></button>');
     $("#serie_player_year").html(serie.release.split(" ")[2]);
     $("#series_video").attr("poster", "../ressrc/series_images/background/" + serie.img);
     series_video.load();
