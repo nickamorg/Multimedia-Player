@@ -370,8 +370,8 @@ function send_myseries() {
                 dates[i] = parseInt(serie.release.split(" ")[0]);
                 rates[i] = parseFloat(serie.rate);
                 $("#display_myseries_content").append(
-                    `<div class="col-xs-3 fixed_img clickableElement" onclick="toggleContainer(this)">
-                        <img src="../ressrc/series_images/${serie.img}"/>
+                    `<div class="col-xs-3 clickableElement" style="margin-bottom:20px;" onclick="toggleContainer(this)">
+                        <img style="width:100%" src="../ressrc/series_images/${serie.img}"/>
                         <p>${serie.title}</p>
                         <div class="overlay">
                             <h3 class="text-center">${serie.title}</h3>

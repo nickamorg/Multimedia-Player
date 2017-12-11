@@ -542,3 +542,7 @@ a {
     width: 50%;
     margin: 0 auto;
 }
+
+#curr_playlist {
+    padding-left:10px;
+}

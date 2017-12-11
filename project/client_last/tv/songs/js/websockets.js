@@ -31,7 +31,7 @@ function send_mysongs() {
 
                 $("#display_mysongs_content").append(
                     `<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                        <img class="img-responsive" src="../ressrc/songs_images/${song.img}">
+                        <img style="width:100%" src="../ressrc/songs_images/${song.img}">
                         <p>${song.title}</p>
                         <small>${song.artist}</small>
                         <div class="overlay">
@@ -441,7 +441,7 @@ function get_playlists() {
                 }
                 $("#playlists_content").append(`
                     <div class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
-                        <img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs[data[playlists[i]][0]].img}">
+                        <img style="width:100%" src="../ressrc/songs_images/${playerAPI.songs[data[playlists[i]][0]].img}">
                         <p style="margin:2px 2px">${playlists[i]}</p>
                         <small>${data[playlists[i]].length} Songs</small>
                         <div class="overlay">
@@ -500,7 +500,7 @@ function read_playlist(playlist) {
                 playerAPI.tmpPlaylist[i] = id;
                 $("#playlist_songs").append(
                     `<div class="col-xs-3 clickableElement" onclick="toggleContainer(this)">
-                            <img class="img-responsive" src="../ressrc/songs_images/${song.img}">
+                            <img style="width:100%" src="../ressrc/songs_images/${song.img}">
                             <p>${song.title}</p>
                             <small>${song.artist}</small>
                             <div class="overlay">

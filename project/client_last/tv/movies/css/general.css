@@ -18,15 +18,6 @@ img {
     height: 107px;
 }
 
-.fixed_img {
-    margin-bottom:20px;
-}
-
-.fixed_img img {
-    height: 500px;
-    width:335px;
-}
-
 p {
     white-space: nowrap;
     overflow-x: hidden;
