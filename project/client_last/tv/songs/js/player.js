@@ -74,17 +74,17 @@ function display_song_details(song_id) {
     visitedPagesStack.setNewLastVisitedPage("song_details");
     goToPage('song_details');
     $("#lyrics").html("<h2 class='text-center'>LYRICS</h2>");
-    $("#lyrics").append("<pre class='text-center' style='font-size:20px;'>" + song.lyrics + "</pre>");
+    $("#lyrics").append("<pre class='text-center' style='font-size:20px; font-family: Roboto;'>" + song.lyrics + "</pre>");
     $("#song_title").html(song.title);
 
     $("#details").html(
         `<img class="img-responsive" style="border-radius: 38px" src="../ressrc/songs_images/${song.img}"/>
-        <button onclick="play_song('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf01d;</em></button>
+        <button style="margin-right: 20px;" onclick="play_song('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf01d;</em></button>
         <button onclick="open_playlists_modal('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf067;</em></button>
         
         <div class="clearfix"></div>
         
-        <div class="col-xs-3 text-left">
+        <div class="col-xs-4 text-left" style="font-size: 20px; margin-top: 10px;">
             <p>Title</p>
             <p>Artist</p>
             <p>Album</p>
@@ -92,7 +92,7 @@ function display_song_details(song_id) {
             <p>Release</p>
             <p>Duration</p>
         </div>
-        <div id="details" class="col-xs-9 text-left">
+        <div id="details" class="col-xs-8 text-left" style="font-size: 20px; margin-top: 10px;">
             <p>${song.title}</p>
             <p>${song.artist}</p>
             <p>${song.album}</p>
@@ -148,17 +148,17 @@ function display_song_expand_details(song_id) {
     visitedPagesStack.setNewLastVisitedPage("song_expand_details");
     goToPage('song_expand_details');
     $("#expand_lyrics").html("<h2>LYRICS</h2>");
-    $("#expand_lyrics").append("<pre class='text-center' style='font-size:20px;'>" + song.lyrics + "</pre>");
+    $("#expand_lyrics").append("<pre class='text-center' style='font-size:20px; font-family: Roboto;'>" + song.lyrics + "</pre>");
     $("#song_expand_title").html(song.title);
 
     $("#expand_details").html(
         `<img class="img-responsive" style="border-radius: 38px" src="../ressrc/songs_images/${song.img}"/>
-        <button onclick="play_song('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf01d;</em></button>
-        <button onclick="open_playlists_modal('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf067;</em></button>
+        <button onclick="play_song('${song_id}')" class="clickableElement"><em style="font-size:50px; margin-top: 8px;" class="fa">&#xf01d;</em></button>
+        <button onclick="open_playlists_modal('${song_id}')" class="clickableElement"><em style="font-size:50px; margin-top: 8px;" class="fa">&#xf067;</em></button>
         
         <div class="clearfix"></div>
         
-        <div class="col-xs-3 text-left">
+        <div class="col-xs-4 text-left" style="font-size: 20px; margin-top: 10px;">
             <p>Title</p>
             <p>Artist</p>
             <p>Album</p>
@@ -166,7 +166,7 @@ function display_song_expand_details(song_id) {
             <p>Release</p>
             <p>Duration</p>
         </div>
-        <div id="details" class="col-xs-9 text-left">
+        <div id="details" class="col-xs-8 text-left" style="font-size: 20px; margin-top: 10px;">
             <p>${song.title}</p>
             <p>${song.artist}</p>
             <p>${song.album}</p>
