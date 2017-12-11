@@ -15,7 +15,7 @@ function setMoviesPlayer(movie_id) {
     });
 
     $("#movie_player_img").find("img").attr("src","../ressrc/movies_images/" + movie.img);
-    $("#movie_player_title").html(movie.title + '<button onclick="add_to_mymovies(\'' + movie_id + '\')"><em class="fa">&#xf067;</em></button>');
+    $("#movie_player_title").html(movie.title + '<button onclick="add_to_mymovies(\'' + movie_id + '\')"><em style="margin-left: 20px;" class="fa">&#xf067;</em></button>');
     $("#movie_player_year").html(movie.release.split(" ")[2]);
     $("#movies_video").attr("poster", "../ressrc/movies_images/background/" + movie.img);
     movies_video.load();
