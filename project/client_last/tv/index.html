@@ -4487,10 +4487,19 @@
 				  <span id="close_interaction" class="close">&times;</span>
 				  <h3>Remote access</h3>
 			  </div>
-			  <div class="modal-body scrollbar">
-				  <button id="song_player_tv" onclick="remote_playing('tv')" style="width:100%">To TV</button>
-				  <button id="song_player_desktop" onclick="remote_playing('desktop')" style="width:100%">To Desktop</button>
-				  <button id="song_player_mobile" onclick="remote_playing('mobile')" style="width:100%">To Mobile</button>
+			  <div class="modal-body scrollbar" style="display: flex; justify-content: space-around; font-size: 80px;">
+                  <div>
+                    <button class="clickableElement" id="song_player_tv" onclick="remote_playing('tv')"><i style="color: black;" class="fa fa-television" aria-hidden="true"></i></button>   
+                    <p class="text-center" style="color: black; font-size: 25px;">TV</p>         
+                  </div>
+                  <div>
+                    <button class="clickableElement" id="song_player_desktop" onclick="remote_playing('desktop')"><i style="color: black;" class="fa fa-desktop" aria-hidden="true"></i></button>
+                    <p class="text-center" style="color: black; font-size: 25px;">PC</p>            
+                  </div>
+                  <div>
+                    <button class="clickableElement" id="song_player_mobile" onclick="remote_playing('mobile')"><i style="color: black;" class="fa fa-mobile" aria-hidden="true"></i></button>
+                    <p class="text-center" style="color: black; font-size: 25px;">Mobile</p>            
+                  </div>
 			  </div>
 			  <div class="modal-footer">
 				  <button id="cancel"><h3>Cancel</h3></button>
