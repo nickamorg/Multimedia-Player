@@ -91,7 +91,7 @@ function display_song_details(song_id) {
     $("#song_title").html(song.title);
 
     $("#details").html(
-        `<img class="img-responsive" style="border-radius: 38px" src="../ressrc/songs_images/${song.img}"/>
+        `<img style="width: 100%; border-radius: 38px" src="../ressrc/songs_images/${song.img}"/>
         <button style="margin-right: 20px;" onclick="play_song('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf01d;</em></button>
         <button onclick="open_playlists_modal('${song_id}')" class="clickableElement"><em style="font-size:50px" class="fa">&#xf067;</em></button>
         
@@ -165,7 +165,7 @@ function display_song_expand_details(song_id) {
     $("#song_expand_title").html(song.title);
 
     $("#expand_details").html(
-        `<img class="img-responsive" style="border-radius: 38px" src="../ressrc/songs_images/${song.img}"/>
+        `<img style="width:100%; border-radius: 38px" src="../ressrc/songs_images/${song.img}"/>
         <button onclick="play_song('${song_id}')" class="clickableElement"><em style="font-size:50px; margin-top: 8px;" class="fa">&#xf01d;</em></button>
         <button onclick="open_playlists_modal('${song_id}')" class="clickableElement"><em style="font-size:50px; margin-top: 8px;" class="fa">&#xf067;</em></button>
         
