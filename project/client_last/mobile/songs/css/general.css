@@ -440,13 +440,13 @@ h1 {
 }
 
 .modal-header {
-    background-color: #616161;
+    background-color: #191927;
     color: white;
 }
 
 .modal-body {
     padding: 2px 16px;
-    max-height:50%
+    max-height:50%;
 }
 
 .modal-body button:hover {
@@ -460,7 +460,7 @@ h1 {
 }
 
 .modal-footer {
-    background-color: #616161;
+    background-color: #191927;
     color: white;
 }
 

@@ -546,3 +546,7 @@ a {
 #curr_playlist {
     padding-left:10px;
 }
+
+.new-playlist:focus {
+    color: white !important;
+}
