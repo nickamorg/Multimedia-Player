@@ -195,16 +195,27 @@ function goToPage(page) {
     $("#" + page).addClass("pt-page-current");
 }
 
-function myFunction(text) {
+function myFunction(text, succeed) {
     var x = document.getElementById("snackbar");
-    x.innerHTML = "The new playlist saved";
+    x.innerHTML = text;
     x.className = "show";
+    if(!succeed) {
+        $("#snackbar").css("color", "red");
+    } else {
+        $("#snackbar").css("color", "white");
+    }
     setTimeout(function () {
+        $("#snackbar").css("color", "white");
         x.className = x.className.replace("show", "");
     }, 3000);
 }
 
 function save_new_playlist() {
-    add_new_playlist($("#new_playlist_title").val());
-    myFunction();
+    if($("#new_playlist_title").val() !== "") {
+        add_new_playlist($("#new_playlist_title").val(), true);
+        myFunction("New playlist saved");
+        $("#new_playlist_title").val("");
+    } else {
+        myFunction("It seem that you haven't type anything", false);
+    }
 }
