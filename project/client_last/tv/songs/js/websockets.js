@@ -41,7 +41,7 @@ function send_mysongs() {
                                 
                                 <em style="font-size: 60px; margin-left: 40px;" class="fa fa-play-circle-o clickableElement" onclick="play_mysong(${i})" aria-hidden="true"></em>
 
-                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-plus clickableElement" onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}');" aria-hidden="true"></em>
+                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-plus clickableElement" onclick="open_playlists_modal('${"id" + parseInt(songs[i].substring(2))}')" aria-hidden="true"></em>
                                 
                                 <em style="font-size: 60px; margin-left: 40px;" class="fa fa-trash-o clickableElement" onclick="remove_from_mysongs('${"id" + parseInt(songs[i].substring(2))}', this)" aria-hidden="true"></em>
                             </div>
