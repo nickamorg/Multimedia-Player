@@ -190,6 +190,7 @@ video {
 
 .series_controls {
     padding:20px 0px 5px 0px;
+    font-size: 40px;
 }
 
 .series_controls button {
