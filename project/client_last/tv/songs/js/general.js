@@ -170,7 +170,7 @@ function search_inter() {
 
     setTimeout(function() {
         $("#interaction_note_modal").css('display', 'none');
-    }, 1500)
+    }, 3000)
 }
 
 function goToPage(page) {
@@ -198,5 +198,5 @@ function newplaylist_inter() {
 
     setTimeout(function() {
         $("#interaction_note_new_modal").css('display', 'none');
-    }, 1500)
+    }, 3000)
 }
