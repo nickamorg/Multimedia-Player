@@ -157,7 +157,7 @@ function display_movie_details(movie_id) {
     new_background = 'url(\'../ressrc/movies_images/background/' + movie.img + '\')';
     new_poster = '../ressrc/movies_images/' + movie.img;
 
-    $('#full-screen').css('background-image', new_background);
+    $('#movie_full-screen').css('background-image', new_background);
     $('#movie_poster').attr('src', new_poster);
     $('#movie_title').text(movie.title);
     $('#movie_info').html(`
