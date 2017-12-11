@@ -443,7 +443,7 @@ function get_playlists() {
                                 
                                 <em style="font-size: 60px; margin-left: 40px;" class="fa fa-play-circle-o clickableElement" onclick="play_playlist('${playlists[i]}')" aria-hidden="true"></em>
 
-                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-thrash-o clickableElement" onclick="remove_playlist('${playlists[i]}', this)" aria-hidden="true"></em>
+                                <em style="font-size: 60px; margin-left: 40px;" class="fa fa-trash-o clickableElement" onclick="remove_playlist('${playlists[i]}', this)" aria-hidden="true"></em>
                             </div>
                         </div>
                     </div>`
@@ -498,7 +498,7 @@ function read_playlist(playlist) {
 
                                     <em style="font-size: 60px; margin-left: 40px;" class="fa fa-plus clickableElement" onclick="open_playlists_modal('${id}')" aria-hidden="true"></em>
 
-                                    <em style="font-size: 60px; margin-left: 40px;" class="fa fa-thrash-o clickableElement" onclick="remove_from_mysongs(${id}', this)" aria-hidden="true"></em>
+                                    <em style="font-size: 60px; margin-left: 40px;" class="fa fa-trash-o clickableElement" onclick="remove_from_mysongs(${id}', this)" aria-hidden="true"></em>
                                 </div>
                             </div>
                         </div>`);
