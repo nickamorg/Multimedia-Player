@@ -239,7 +239,7 @@ button {
 
 .filter_category {
     padding:10px;
-    background-color: #1F4A58;
+    background-color: #000000;
 }
 
 .filter_content {
@@ -283,6 +283,29 @@ option {
     border-radius: 10px;
     background-color:#2BB4C4;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+/* scrollbar */
+.new_scrollbar{
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.new_scrollbar::-webkit-scrollbar {
+    width: 15px;
+    border-radius: 10px;
+    background-color:transparent;
+}
+
+.new_scrollbar::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color:transparent;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+.new_scrollbar .child {
+    height:initial !important;
 }
 
 #lyrics pre, #expand_lyrics pre {
