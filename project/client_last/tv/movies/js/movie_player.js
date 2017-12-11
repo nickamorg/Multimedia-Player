@@ -376,7 +376,7 @@ function send_mymovies() {
                                 
                                 <em style="font-size: 60px; margin: 0 40px;" class="fa fa-play-circle-o clickableElement" onclick="setMoviesPlayer('${id}')" aria-hidden="true"></em>
                                 
-                                <em style="font-size: 60px;" class="fa fa-trash-o clickableElement" onclick="remove_from_mymovies('${id}', this) aria-hidden="true"></em>
+                                <em style="font-size: 60px;" class="fa fa-trash-o clickableElement" onclick="remove_from_mymovies('${id}', this)" aria-hidden="true"></em>
                             </div>
                         </div>
                     </div>`);
