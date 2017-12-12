@@ -216,6 +216,11 @@ function save_new_playlist() {
         myFunction("New playlist saved");
         $("#new_playlist_title").val("");
     } else {
-        myFunction("It seem that you haven't type anything", false);
+        myFunction("It seems that you haven't type anything", false);
     }
+}
+
+function change_bottom_menu_tab(this_elem) {
+    $(this_elem).siblings().removeClass("active-tab");
+    $(this_elem).addClass("active-tab");
 }

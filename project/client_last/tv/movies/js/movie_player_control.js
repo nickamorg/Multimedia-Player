@@ -30,10 +30,13 @@ function setMoviesPlayer(movie_id) {
 }
 
 movies_video.addEventListener('click', function(){
-    $("#movies_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
     if(this.paused) {
+        $("#movies_play_pause").addClass("fa-pause-circle-o");
+        $("#movies_play_pause").removeClass("fa-play-circle-o");
         this.play();
     } else {
+        $("#movies_play_pause").removeClass("fa-pause-circle-o");
+        $("#movies_play_pause").addClass("fa-play-circle-o");
         this.pause();
     }
 },false);

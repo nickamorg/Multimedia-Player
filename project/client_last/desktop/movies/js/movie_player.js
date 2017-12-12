@@ -381,7 +381,7 @@ function send_mymovies() {
                                 </div>
                                 
                                 <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
+                                    <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
                                 </div>
                             </div>
                         </div>
@@ -565,7 +565,7 @@ function apply_filters_mymovies() {
                                     </div>
                                     
                                     <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
+                                        <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
                                     </div>
                                 </div>
                             </div>

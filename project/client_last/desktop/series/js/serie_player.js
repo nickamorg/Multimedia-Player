@@ -390,7 +390,7 @@ function send_myseries() {
                                 </div>
                                 
                                 <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
+                                    <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
                                 </div>
                             </div>
                         </div>
@@ -574,7 +574,7 @@ function apply_filters_myseries() {
                                     </div>
                                     
                                     <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
+                                        <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
                                     </div>
                                 </div>
                             </div>

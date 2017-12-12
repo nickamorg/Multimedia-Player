@@ -347,7 +347,7 @@ function add_new_playlist(playlist) {
 // Get the button that opens the modal
 // When the user clicks the button, open the modal
 function open_playlists_modal(song_id) {
-    $("#playlists_modal").find("h2")[0].innerHTML = "Choose a list to add the track '" + playerAPI.songs[song_id].title + "'";
+    $("#playlists_modal").find("h3")[0].innerHTML = "Choose a list to add the track '" + playerAPI.songs[song_id].title + "'";
     $("#add").click(function() {
         new_playlist = $("#set_new_playlist").val();
         add_new_playlist(new_playlist);

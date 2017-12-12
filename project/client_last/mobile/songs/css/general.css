@@ -532,3 +532,7 @@ p {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+
+.active-tab em, .active-tab p {
+    color: #2bb4c4 !important;
+}

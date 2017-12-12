@@ -30,10 +30,13 @@ function setSeriesPlayer(serie_id) {
 }
 
 series_video.addEventListener('click', function(){
-    $("#series_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
     if(this.paused) {
+        $("#series_play_pause").addClass("fa-pause-circle-o");
+        $("#series_play_pause").removeClass("fa-play-circle-o");
         this.play();
     } else {
+        $("#series_play_pause").removeClass("fa-pause-circle-o");
+        $("#series_play_pause").addClass("fa-play-circle-o");
         this.pause();
     }
 },false);
@@ -41,10 +44,14 @@ series_video.addEventListener('click', function(){
 function playPauseSerie() {
     let series_video = document.getElementById("series_video");
     serie_width = 0;
-    $("#series_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
+
     if(series_video.paused) {
+        $("#series_play_pause").addClass("fa-pause-circle-o");
+        $("#series_play_pause").removeClass("fa-play-circle-o");
         series_video.play();
     } else {
+        $("#series_play_pause").removeClass("fa-pause-circle-o");
+        $("#series_play_pause").addClass("fa-play-circle-o");
         series_video.pause();
     }
 }

@@ -1103,7 +1103,7 @@
             <div class="movies_content scrollbar">
                 <div class="clearfix" style="padding-top:25%"></div>
 
-                <div class="parent" style="top:18%">
+                <div class="movies_parent" style="top:18%">
                     <h2><button id="movies_news_link">New Movies</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="display_movie_details('id0')">
@@ -1129,7 +1129,7 @@
                     </div>
                 </div>
 
-                <div class="parent">
+                <div class="movies_parent">
                     <h2><button id="movies_tops_link">Top Movies</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="display_movie_details('id9')">
@@ -1155,7 +1155,7 @@
                     </div>
                 </div>
 
-                <div class="parent">
+                <div class="movies_parent">
                     <h2><button id="movies_genres_link">Genres</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="set_movies_by_genre('Action')">
@@ -1177,7 +1177,7 @@
                     </div>
                 </div>
 
-                <div class="parent">
+                <div class="movies_parent">
                     <h2><button id="movies_recently_watched_link">Recently watched</button></h2>
                     <div class="scrollBar">
                         <div class="child" onclick="display_movie_details('id5')">
@@ -1475,7 +1475,7 @@
                     <div class="clearfix"></div>
 
                     <div class="collapse">
-                        <div id="search_genres">
+                        <div id="movies_search_genres">
                             <div class="filter_category">
                                 <p style="margin:0">
                                     <span>Genres</span>
@@ -1506,13 +1506,13 @@
                             <div class="collapse filter_content form-inline text-center">
                                 <div class="form-group" style="padding-right:20px">
                                     <label class="control-label">From</label>
-                                    <select onchange="apply_filters_mysong()" id="search_from"  class="form-control">
+                                    <select onchange="apply_filters_mysong()" id="movies_search_from"  class="form-control">
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label">To</label>
-                                    <select onchange="apply_filters_mysong()" id="search_to"  class="form-control">
+                                    <select onchange="apply_filters_mysong()" id="movies_search_to"  class="form-control">
                                     </select>
                                 </div>
 
@@ -1536,7 +1536,7 @@
                         </div>
                     </div>
                     <div style="padding-left:30px; padding-right:30px" class="col-xs-12">
-                        <input style="padding: 30px 30px" id="keywords" class="form-control" placeholder="keywords" value="Horror" />
+                        <input style="padding: 30px 30px" id="movies_keywords" class="form-control" placeholder="keywords" value="Horror" />
                     </div>
                     <div>
                         <h2 style="padding: 18px !important;" class="text-center">Genre</h2>
@@ -2436,7 +2436,7 @@
                     <div class="clearfix"></div>
 
                     <div class="collapse">
-                        <div id="search_genres">
+                        <div id="series_search_genres">
                             <div class="filter_category">
                                 <p style="margin:0">
                                     <span>Genres</span>
@@ -2467,13 +2467,13 @@
                             <div class="collapse filter_content form-inline text-center">
                                 <div class="form-group" style="padding-right:20px">
                                     <label class="control-label">From</label>
-                                    <select onchange="apply_filters_mysong()" id="search_from"  class="form-control">
+                                    <select onchange="apply_filters_mysong()" id="series_search_from"  class="form-control">
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label">To</label>
-                                    <select onchange="apply_filters_mysong()" id="search_to"  class="form-control">
+                                    <select onchange="apply_filters_mysong()" id="series_search_to"  class="form-control">
                                     </select>
                                 </div>
 
@@ -2497,7 +2497,7 @@
                         </div>
                     </div>
                     <div style="padding-left:30px; padding-right:30px" class="col-xs-12">
-                        <input style="padding: 30px 30px" id="keywords" class="form-control" placeholder="keywords" value="horror" />
+                        <input style="padding: 30px 30px" id="series_keywords" class="form-control" placeholder="keywords" value="horror" />
                     </div>
                     <div>
                         <h2 style="padding: 18px !important;" class="text-center">Genre</h2>

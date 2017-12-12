@@ -308,6 +308,13 @@ option {
     height:initial !important;
 }
 
+#lyrics, #expand_lyrics {
+    margin-left:25%;
+    margin-top: 50px;
+    margin-bottom:120px;
+    padding-right:25%;
+}
+
 #lyrics pre, #expand_lyrics pre {
     color: #ffffff;
     border: none;
