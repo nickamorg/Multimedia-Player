@@ -48,7 +48,7 @@ function min(n1, n2) {
 }
 
 
-var interaction = new WebSocket('ws://' + "localhost" + ':6556');
+var interaction = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
 interaction.onmessage = function (message) {
     json = JSON.parse(message.data);

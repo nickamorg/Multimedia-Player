@@ -343,7 +343,7 @@ function set_series_by_genre(genre) {
 }
 
 function send_myseries() {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = "myseries";
@@ -361,7 +361,13 @@ function send_myseries() {
             var index = myseries.indexOf("");
             myseries.splice(index, 1);
 
+            counter = 1;
             for(var i = 0; i < myseries.length; i++) {
+                if(i % 2 === 0) {
+                    container = "container1";
+                } else {
+                    container = "container2";
+                }
                 id = "id" + parseInt(myseries[i].substring(2));
                 if(id === "idNaN") continue;
                 serie = series[id];
@@ -374,7 +380,7 @@ function send_myseries() {
                 dates[i] = parseInt(serie.release.split(" ")[0]);
                 rates[i] = parseFloat(serie.rate);
                 $("#myseries_content").append(
-                    `<div class="col-xs-6 container">
+                    `<div class="col-xs-6 ${container} container">
                         <img class="img-serie_gen" src="../ressrc/series_images/${serie.img}"/>
                         <h3>${serie.title}</h3>
                         <div class="overlay">
@@ -389,11 +395,15 @@ function send_myseries() {
                                 </div>
                                 
                                 <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove serie</span></em>
+                                    <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove serie</span></em>
                                 </div>
                             </div>
                         </div>
                     </div>`);
+                if(counter % 2 == 0) {
+                    $("#myseries_content").append('<div class="clearfix" style="padding-bottom:30px"></div>');
+                }
+                counter++;
             }
 
             // Filter duplicates
@@ -441,7 +451,7 @@ function send_myseries() {
 }
 
 function remove_from_myseries(serie_id, this_elem) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "remove from myseries", "serie_id":"' + serie_id + '"}';
@@ -574,7 +584,7 @@ function apply_filters_myseries() {
                             </div>
                             
                             <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
-                                <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
+                                <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
                             </div>
                         </div>
                     </div>
@@ -650,7 +660,7 @@ function search_series_filters() {
 }
 
 function add_to_myseries(serie_id) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "add to my series", "serie_id":"' + serie_id + '" }';

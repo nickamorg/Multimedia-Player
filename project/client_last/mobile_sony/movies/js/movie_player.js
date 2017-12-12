@@ -258,7 +258,6 @@ function set_movies_news() {
 function set_movies_tops() {
     $("#movies_tops_content").html("");
 
-    var counter = 1;
     for(let i = 0; i < movies.crowd; i++) {
         if (parseFloat(movies["id" + i].rate) >= 7.0) {
             $("#movies_tops_content").append(`
@@ -267,11 +266,7 @@ function set_movies_tops() {
                     <h3>${movies["id" + i].title}</h3>
                     <h5>${movies["id" + i].release}</h5>
                 </div>
-            `)
-
-            if(counter++ % 4 == 0) {
-                $("#movies_tops_content").append(`<div class="clearfix"></div>`)
-            }
+            `);
         }
     }
 }
@@ -336,7 +331,7 @@ function set_movies_by_genre(genre) {
 }
 
 function send_mymovies() {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = "mymovies";
@@ -356,6 +351,11 @@ function send_mymovies() {
 
             counter = 1;
             for(var i = 0; i < mymovies.length; i++) {
+                if(i % 2 === 0) {
+                    container = "container1";
+                } else {
+                    container = "container2";
+                }
                 id = "id" + parseInt(mymovies[i].substring(2));
                 if(id === "idNaN") continue;
                 movie = movies[id];
@@ -368,22 +368,22 @@ function send_mymovies() {
                 dates[i] = parseInt(movie.release.split(" ")[2]);
                 rates[i] = parseFloat(movie.rate);
                 $("#mymovies_content").append(
-                    `<div class="col-xs-6 container">
+                    `<div class="col-xs-6 ${container} container">
                         <img class="img-movie_gen" src="../ressrc/movies_images/${movie.img}"/>
                         <h3>${movie.title}</h3>
                         <div class="overlay">
                             <h3 class="text-center">${movie.title}</h3>
                             <div class="options">
                                 <div class="col-xs-12" onclick="display_movie_details('${id}')">
-                                    <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movie</span></em>
+                                    <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open</span></em>
                                 </div>
                                 
                                 <div class="col-xs-12" onclick="setMoviesPlayer('${id}')">
-                                    <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play movie</span></em>
+                                    <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play</span></em>
                                 </div>
                                 
                                 <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
-                                    <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove movie</span></em>
+                                    <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove</span></em>
                                 </div>
                             </div>
                         </div>
@@ -439,7 +439,7 @@ function send_mymovies() {
 }
 
 function remove_from_mymovies(movie_id, this_elem) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "remove from mymovies", "movie_id":"' + movie_id + '"}';
@@ -557,22 +557,22 @@ function apply_filters_mymovies() {
             movie = movies[id];
 
             $("#mymovies_content").append(
-                `<div class="col-xs-6 container">
+                `<div class="col-xs-6 container container1">
                     <img class="img-serie_gen" src="../ressrc/movies_images/${movie.img}"/>
                     <p>${movie.title}</p>
                     <div class="overlay">
                         <h3 class="text-center">${movie.title}</h3>
                         <div class="options">
                             <div class="col-xs-12" onclick="display_movie_details('${id}')">
-                                <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
+                                <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open</span></em>
                             </div>
                             
                             <div class="col-xs-12" onclick="display_movie_details('${id}')">
-                                <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
+                                <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play</span></em>
                             </div>
                             
                             <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
-                                <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
+                                <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove</span></em>
                             </div>
                         </div>
                     </div>
@@ -648,7 +648,7 @@ function search_movies_filters() {
 }
 
 function add_to_mymovies(movie_id) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "add to my movies", "movie_id":"' + movie_id + '" }';

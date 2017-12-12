@@ -1,5 +1,5 @@
 function send_mysongs() {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = "mysongs";
@@ -328,7 +328,7 @@ function play_playlist_song(curr_song) {
 }
 
 function add_to_mysongs(song_id) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "add to my songs", "song_id":"' + song_id + '" }';
@@ -343,7 +343,7 @@ function add_to_mysongs(song_id) {
 }
 
 function add_to_playlist(song_id, playlist) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "add to playlist", "playlist":"' + playlist + '" , "song_id":"' + song_id + '" }';
@@ -354,7 +354,7 @@ function add_to_playlist(song_id, playlist) {
 }
 
 function add_new_playlist(playlist) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "new playlist", "playlist":"' + playlist + '"}';
@@ -373,7 +373,7 @@ function open_playlists_modal(song_id) {
         add_to_playlist(song_id, new_playlist);
     });
 
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
     ws.onopen = function() {
         message = "playlists";
 
@@ -407,7 +407,7 @@ function open_playlists_modal(song_id) {
 
 
 function get_playlists() {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = "playlists";
@@ -469,7 +469,7 @@ function get_playlists() {
 }
 
 function add_recently_played_song(song_id) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "new recent", "song_id":"' + song_id + '"}';
@@ -481,7 +481,7 @@ function read_playlist(playlist) {
     let playlist_songs = "";
     $("#curr_playlist").html("Playlist - " + playlist);
     goToPage("song_playlist");
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "playlist", "title":"' + playlist + '"}';
@@ -517,7 +517,7 @@ function read_playlist(playlist) {
 
 function play_playlist(playlist) {
     let playlist_songs = "";
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "playlist", "title":"' + playlist + '"}';
@@ -540,7 +540,7 @@ function play_playlist(playlist) {
 }
 
 function remove_playlist(playlist, this_elem) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "remove playlist", "playlist":"' + playlist + '"}';
@@ -552,7 +552,7 @@ function remove_playlist(playlist, this_elem) {
 }
 
 function remove_from_playlist(playlist, song_id, this_elem) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "remove from playlist", "playlist":"' + playlist + '", "song_id":"' + song_id + '"}';
@@ -564,7 +564,7 @@ function remove_from_playlist(playlist, song_id, this_elem) {
 }
 
 function remove_from_mysongs(song_id, this_elem) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "remove from mysongs", "song_id":"' + song_id + '"}';

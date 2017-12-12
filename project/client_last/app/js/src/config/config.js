@@ -3,10 +3,11 @@
 //*******************************************
 
 var GlobalConfig = (function () {
+  var ip_address = "147.52.146.150";
   var DebugMode = false;     //true/false
 
   var Connections = {
-    Sockets: 'ws://127.0.0.1:6556/', // URL of socket server
+    Sockets: 'ws://' + ip_address + ':6556/', // URL of socket server
   };		
 
   var Pages = {
@@ -26,3 +27,5 @@ var GlobalConfig = (function () {
     Cursor: Cursor
   }
 })();
+
+GlobalConfig.ip_address = "147.52.146.150";

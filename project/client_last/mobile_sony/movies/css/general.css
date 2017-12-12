@@ -2,7 +2,7 @@
 .movies_parent {
     /* position: absolute; */
     width: 100%;
-    height: 420px;
+    height: 330px;
     /* left: 20%; */
     /* top: 50%; */
     transform: translateY(-50%);
@@ -32,7 +32,7 @@
 
 #movies_genres_content div, #movies_tops_content div, #movies_news_content div, #movies_by_genres_content div, #movies_recently_watched_content div {
     white-space: nowrap;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 .img-movie + h3 {
@@ -95,6 +95,13 @@
     transition: .5s ease;
 }
 
+.container1 {
+    padding:0 10px 0 0 !important;
+}
+
+.container2 {
+    padding:0 0 0 10px !important;
+}
 .container:hover .overlay {
     bottom: 0;
     height: 100%;
@@ -106,7 +113,7 @@
     font-size: 20px;
     position: absolute;
     overflow: hidden;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -230,4 +237,78 @@ video {
 .movie {
     width: 25%;
     padding: 10px;
+}
+
+#movies_recently_watched_content div {
+    padding:0 !important;
+    padding-bottom: 10px !important;
+}
+
+#movies_recently_watched_content div:nth-child(odd) {
+    padding-right:10px !important;
+}
+
+#movies_recently_watched_content div:nth-child(even) {
+    padding-left:10px !important;
+}
+
+#movies_tops_content div {
+    padding:0 !important;
+    padding-bottom: 10px !important;
+}
+
+#movies_tops_content div:nth-child(odd) {
+    padding-right:10px !important;
+}
+
+#movies_tops_content div:nth-child(even) {
+    padding-left:10px !important;
+}
+
+#movies_news_content div {
+    padding:0 !important;
+    padding-bottom: 10px !important;
+}
+
+#movies_news_content div:nth-child(odd) {
+    padding-right:10px !important;
+}
+
+#movies_news_content div:nth-child(even) {
+    padding-left:10px !important;
+}
+
+#movies_genres_content div {
+    padding:0 !important;
+    padding-bottom: 10px !important;
+}
+
+#movies_genres_content div:nth-child(odd) {
+    padding-right:10px !important;
+}
+
+#movies_genres_content div:nth-child(even) {
+    padding-left:10px !important;
+}
+
+#movies_by_genres_content div {
+    padding:0 !important;
+    padding-bottom: 10px !important;
+}
+
+#movies_by_genres_content div:nth-child(odd) {
+    padding-right:10px !important;
+}
+
+#movies_by_genres_content div:nth-child(even) {
+    padding-left:10px !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, small {
+    white-space: nowrap !important;
+    overflow-x: scroll !important;
+}
+
+.special_text {
+    white-space: normal !important;
 }

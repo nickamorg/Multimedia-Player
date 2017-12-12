@@ -336,7 +336,7 @@ function set_movies_by_genre(genre) {
 }
 
 function send_mymovies() {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = "mymovies";
@@ -427,7 +427,7 @@ function send_mymovies() {
 }
 
 function remove_from_mymovies(movie_id, this_elem) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "remove from mymovies", "movie_id":"' + movie_id + '"}';
@@ -630,7 +630,7 @@ function search_movies_filters() {
 }
 
 function add_to_mymovies(movie_id) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "add to my movies", "movie_id":"' + movie_id + '" }';

@@ -119,24 +119,25 @@ function display_song_details(song_id) {
     visitedPagesStack.setNewLastVisitedPage("song_details");
     goToPage('song_details');
     var song = playerAPI.songs[song_id];
-    $("#song_details").find(".content").html(
-                    `<div class="clearfix" style="background-color:#000000">
-                        <div class="col-xs-2" style="float:left">
-                            <a onclick="visitedPagesStack.goToLastVisitedPage()">
-                                <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
-                            </a>
-        
-                        </div>
-                        <div class="col-xs-8 text-center">
-                            <h1 style="margin:0; padding-top:7px">${song.title}</h1>
-                        </div>
-                        <div class="col-xs-2" style="float:left"></div>
-                    </div>
+    $("#song_details_title").html(
+            `<div class="clearfix" style="background-color:#000000">
+                <div class="col-xs-2" style="float:left">
+                    <a onclick="visitedPagesStack.goToLastVisitedPage()">
+                        <em class="fa fa-angle-left" style="color:white; font-size:50px"></em>
+                    </a>
+    
+                </div>
+                <div class="col-xs-8 text-center">
+                    <h1 style="margin:0; padding-top:7px">${song.title}</h1>
+                </div>
+                <div class="col-xs-2" style="float:left"></div>
+            </div>`);
                     
-                    <div class="col-xs-12">
-                        <img style="width:80%" src="../ressrc/songs_images/${song.img}">
+    $("#song_details").find(".content").html(
+                    `<div class="col-xs-12">
+                        <img style="width:100%" src="../ressrc/songs_images/${song.img}">
                     </div>
-                    <div class="col-xs-5 text-left" style="padding-left:50px">
+                    <div class="col-xs-5 text-left">
                         <p>Title</p>
                         <p>Artist</p>
                         <p>Genre</p>
@@ -144,7 +145,7 @@ function display_song_details(song_id) {
                         <p>Release</p>
                         <p>Duration</p>
                     </div>
-                    <div class="col-xs-7 text-left" style="padding-right:50px">
+                    <div class="col-xs-7 text-left">
                         <p>${song.title}</p>
                         <p>${song.artist}</p>
                         <p style="white-space:nowrap; overflow-x: hidden;">${song.genre}</p>

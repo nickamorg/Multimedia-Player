@@ -345,7 +345,7 @@ function set_series_by_genre(genre) {
 }
 
 function send_myseries() {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = "myseries";
@@ -442,7 +442,7 @@ function send_myseries() {
 }
 
 function remove_from_myseries(serie_id, this_elem) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "remove from myseries", "serie_id":"' + serie_id + '"}';
@@ -645,7 +645,7 @@ function search_series_filters() {
 }
 
 function add_to_myseries(serie_id) {
-    var ws = new WebSocket('ws://' + "localhost" + ':6556');
+    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
 
     ws.onopen = function() {
         message = '{ "type": "add to my series", "serie_id":"' + serie_id + '" }';
