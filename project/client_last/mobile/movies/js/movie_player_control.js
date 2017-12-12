@@ -33,10 +33,13 @@ function setMoviesPlayer(movie_id) {
 }
 
 movies_video.addEventListener('click', function(){
-    $("#movies_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
     if(this.paused) {
+        $("#movies_play_pause").addClass("fa-pause-circle-o");
+        $("#movies_play_pause").removeClass("fa-play-circle-o");
         this.play();
     } else {
+        $("#movies_play_pause").removeClass("fa-pause-circle-o");
+        $("#movies_play_pause").addClass("fa-play-circle-o");
         this.pause();
     }
 },false);
@@ -44,13 +47,21 @@ movies_video.addEventListener('click', function(){
 function playPauseMovie() {
     let movies_video = document.getElementById("movies_video");
     movie_width = 0;
-    $("#movies_play_pause").toggleClass("fa-pause-circle-o", "fa-play-circle-o");
+
     if(movies_video.paused) {
+        $("#movies_play_pause").addClass("fa-pause-circle-o");
+        $("#movies_play_pause").removeClass("fa-play-circle-o");
         movies_video.play();
     } else {
+        $("#movies_play_pause").removeClass("fa-pause-circle-o");
+        $("#movies_play_pause").addClass("fa-play-circle-o");
         movies_video.pause();
     }
 }
+
+$("#movies_video").dblclick(function() {
+    visitedPagesStack.goToLastVisitedPage();
+});
 
 movies_video.oncanplay = function() {
     var min = parseInt(movies_video.duration / 60, 10);

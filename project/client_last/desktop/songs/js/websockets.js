@@ -359,6 +359,7 @@ function add_new_playlist(playlist) {
     ws.onopen = function() {
         message = '{ "type": "new playlist", "playlist":"' + playlist + '"}';
         ws.send(message);
+        get_playlists();
     };
 }
 
@@ -805,4 +806,5 @@ function set_song_new_releases() {
 
 function open_new_playlist_modal() {
     $('#new_playlist_modal').css('display', 'block');
+    $("#playlist_title").focus();
 }
