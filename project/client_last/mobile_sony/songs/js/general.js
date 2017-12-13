@@ -90,6 +90,9 @@ interaction.onmessage = function (message) {
             }
         }
     } else if(json["category"] === "search") {
+        $("#series_bottom_menu").hide();
+        $("#movies_bottom_menu").hide();
+        $("#bottom_menu").hide();
         $("#search").focus();
         $( "#search" ).attr("placeholder", "Search for " + json["kind"]);
         $("#to_mobile").click(function() {
@@ -111,11 +114,13 @@ interaction.onmessage = function (message) {
         visitedPagesStack.setNewLastVisitedPage("search_inter");
         goToPage('search_inter');
     } else if(json["category"] === "new playlist") {
+        $("#series_bottom_menu").hide();
+        $("#movies_bottom_menu").hide();
+        $("#bottom_menu").hide();
         visitedPagesStack.setNewLastVisitedPage("new_playlist_inter");
         goToPage('new_playlist_inter')
     }
     $('#interaction_modal').css('display', 'none');
-    console.log(JSON.parse(message.data));
 };
 
 function open_interaction_modal() {

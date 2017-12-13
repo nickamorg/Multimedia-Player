@@ -3,7 +3,7 @@
 //*******************************************
 
 var GlobalConfig = (function () {
-  var ip_address = "147.52.146.150";
+  var ip_address = "localhost";
   var DebugMode = false;     //true/false
 
   var Connections = {
@@ -28,4 +28,4 @@ var GlobalConfig = (function () {
   }
 })();
 
-GlobalConfig.ip_address = "147.52.146.150";
+GlobalConfig.ip_address = "localhost";
