@@ -3,7 +3,7 @@
 //*******************************************
 
 var GlobalConfig = (function () {
-  var ip_address = "localhost";
+  var ip_address = "127.0.0.1";
   var DebugMode = false;     //true/false
 
   var Connections = {
@@ -28,4 +28,4 @@ var GlobalConfig = (function () {
   }
 })();
 
-GlobalConfig.ip_address = "localhost";
+GlobalConfig.ip_address = "127.0.0.1";
