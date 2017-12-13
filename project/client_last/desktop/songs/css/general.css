@@ -466,3 +466,11 @@ button:hover, a:hover, a:hover em, button:hover em {
 video {
     cursor: pointer;
 }
+
+.hover_color:hover span {
+    color: #2BB4C4;
+}
+
+.hover_color:hover em {
+    color: #2BB4C4;
+}

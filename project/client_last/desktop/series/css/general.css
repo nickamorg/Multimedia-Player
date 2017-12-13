@@ -102,6 +102,10 @@ img {
     color: #2BB4C4;
 }
 
+.options div span:hover {
+    color: #2BB4C4;
+}
+
 .results-image {
     width: 220px;
     height: 220px;
