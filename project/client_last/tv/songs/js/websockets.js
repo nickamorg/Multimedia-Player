@@ -431,9 +431,12 @@ function get_playlists() {
                     }
                     total += sec;
                 }
+
+                empty = "empty.png";;
+
                 $("#playlists_content").append(`
                     <div class="col-xs-2 clickableElement" onclick="toggleContainer(this)">
-                        <img style="width:100%" src="../ressrc/songs_images/${playerAPI.songs[data[playlists[i]][0]].img}">
+                        <img style="width:100%" src="../ressrc/songs_images/${data[playlists[i]].length === 0?empty:playerAPI.songs[data[playlists[i]][0]].img}">
                         <p style="margin:2px 2px">${playlists[i]}</p>
                         <small>${data[playlists[i]].length} Songs</small>
                         <div class="overlay">
