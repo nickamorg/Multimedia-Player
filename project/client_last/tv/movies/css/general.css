@@ -24,7 +24,7 @@ p {
     text-align: left;
 }
 
-#full-screen {
+#movie_full-screen {
     height: 100%;
     background: center no-repeat;
     background-size: cover;
