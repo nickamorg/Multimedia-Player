@@ -299,7 +299,6 @@ function set_series_genres() {
     current_series = [];
     series_counter = 0;
     var counter = 1;
-    console.log(genres);
     for(let i = 0; i < genres.length; i++) {
         for(let j = 0; j < series.crowd; j++) {
             if(current_series.indexOf("id" + j) == -1 && series["id" + j].genre.indexOf(genres[i]) > -1) {
@@ -450,10 +449,14 @@ function remove_from_myseries(serie_id, this_elem) {
         ws.send(message);
     };
 
-    $(this_elem).parentsUntil("#myseries_content").remove();
+    last_top = $("#series_myseries").find(".series_content").scrollTop();
+    $(".to_myseries").click();
+    $("#series_myseries").find(".series_content").scrollTop(last_top);
+    myFunction(`Series '${series[serie_id].title}' removed from 'My Series' successfully`, true);
 }
 
 function apply_filters_myseries() {
+    $(".loader").show();
     let genres = [];
     let counter = 0;
 
@@ -560,28 +563,32 @@ function apply_filters_myseries() {
 
             $("#myseries_content").append(
                 `<div class="col-xs-4 container">
-                            <img class="img-responsive" src="../ressrc/series_images/${serie.img}"/>
-                            <p>${serie.title}</p>
-                            <div class="overlay">
-                                <h3 class="text-center">${serie.title}</h3>
-                                <div class="options">
-                                    <div class="col-xs-12" onclick="display_serie_details('${id}')">
-                                        <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open series' page</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="display_serie_details('${id}')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the serie</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
-                                        <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
-                                    </div>
-                                </div>
+                    <img class="img-responsive" src="../ressrc/series_images/${serie.img}"/>
+                    <p>${serie.title}</p>
+                    <div class="overlay">
+                        <h3 class="text-center">${serie.title}</h3>
+                        <div class="options">
+                            <div class="col-xs-12" onclick="display_serie_details('${id}')">
+                                <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open series' page</span></em>
                             </div>
-                        </div>`);
-
+                            
+                            <div class="col-xs-12" onclick="display_serie_details('${id}')">
+                                <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the serie</span></em>
+                            </div>
+                            
+                            <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
+                                <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
         }
     }
+
+    setTimeout(function() {
+        $(".loader").hide();
+    }, 250);
+
 }
 
 function search_series_filters() {
@@ -651,5 +658,7 @@ function add_to_myseries(serie_id) {
         message = '{ "type": "add to my series", "serie_id":"' + serie_id + '" }';
 
         ws.send(message);
+
+        myFunction(`Series '${series[serie_id].title}' added to 'My Series' successfully`, true);
     };
 }

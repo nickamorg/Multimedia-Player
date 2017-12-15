@@ -445,9 +445,12 @@ function remove_from_mymovies(movie_id, this_elem) {
         message = '{ "type": "remove from mymovies", "movie_id":"' + movie_id + '"}';
 
         ws.send(message);
-    };
 
-    $(this_elem).parentsUntil("#mymovies_content").remove();
+        last_top = $("#movies_mymovies .scrollbar").scrollTop();
+        $(".to_mymovies").click();
+        $("#movies_mymovies .scrollbar").scrollTop(last_top);
+        myFunction(`Movie '${series[movie_id].title}' removed from 'My Movies' successfully`, true);
+    };
 }
 
 function apply_filters_mymovies() {
@@ -654,5 +657,7 @@ function add_to_mymovies(movie_id) {
         message = '{ "type": "add to my movies", "movie_id":"' + movie_id + '" }';
 
         ws.send(message);
+
+        myFunction(`Movie '${movies[movie_id].title}' added to 'My Movies' successfully`, true);
     };
 }

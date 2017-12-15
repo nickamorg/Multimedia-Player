@@ -328,6 +328,7 @@ function add_to_mysongs(song_id) {
         };
     };
     $("#playlists_modal").css("display", "none");
+    myFunction(`Song '${playerAPI.songs[song_id].title}' added to 'My Songs' successfully`, true);
 }
 
 function add_to_playlist(song_id, playlist) {
@@ -337,6 +338,8 @@ function add_to_playlist(song_id, playlist) {
         message = '{ "type": "add to playlist", "playlist":"' + playlist + '" , "song_id":"' + song_id + '" }';
 
         ws.send(message);
+
+        myFunction(`Song '${playerAPI.songs[song_id].title}' added to playlist '${playlist}' successfully`, true);
     };
     $("#playlists_modal").css("display", "none");
 }
@@ -347,6 +350,7 @@ function add_new_playlist(playlist) {
     ws.onopen = function() {
         message = '{ "type": "new playlist", "playlist":"' + playlist + '"}';
         ws.send(message);
+
     };
 }
 
@@ -382,7 +386,7 @@ function open_playlists_modal(song_id) {
 
             html_display += `
                 <h3 style="color:#000000">My songs</h3>
-                <div class="col-xs-12"><button style="width:100%">My songs</button></div>
+                <div class="col-xs-12"><button onclick="add_to_mysongs('${song_id}')" style="width:100%">My songs</button></div>
                 <div class="clearfix"></div>`;
             $(".modal-body")[0].innerHTML = html_display;
             $("#playlists_modal").css("display", "block");
@@ -426,15 +430,6 @@ function get_playlists() {
             }
         }
     }
-}
-
-function add_recently_played_song(song_id) {
-    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
-
-    ws.onopen = function() {
-        message = '{ "type": "new recent", "song_id":"' + song_id + '"}';
-        ws.send(message);
-    };
 }
 
 function read_playlist(playlist) {
@@ -515,6 +510,7 @@ function remove_playlist(playlist, this_elem) {
     };
 
     $(this_elem).parents(':eq(1)').html("");
+    myFunction(`Playlist '${playlist}' removed from 'Playlists' successfully`, true);
 }
 
 function remove_from_playlist(playlist, song_id, this_elem) {
@@ -527,6 +523,9 @@ function remove_from_playlist(playlist, song_id, this_elem) {
     };
 
     $(this_elem).parents(':eq(1)').html("");
+
+    myFunction(`Song '${playerAPI.songs[song_id].title}' removed from playlist '${playlist}' successfully`, true);
+
 }
 
 function search_songs() {
@@ -775,6 +774,7 @@ function remove_from_mysongs(song_id, this_elem) {
     };
 
     $(this_elem).parents(':eq(1)').html("");
+    myFunction(`Song '${playerAPI.songs[song_id].title}' removed from 'My Songs' successfully`, true);
 }
 
 function set_song_new_releases() {
@@ -783,12 +783,12 @@ function set_song_new_releases() {
     for(let i = 0; i < playerAPI.songs.crowd; i++) {
         if (playerAPI.songs["id" + i].release.split(" ")[2] === (new Date()).getFullYear().toString()) {
             $("#song_new_releases_content").append(`
-                                    <div class="col-xs-6" onclick="display_song_details('id' + ${i})">
-                                        <img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"/>
-                                        <p>${playerAPI.songs["id" + i].title}</p>
-                                        <p class="small">${playerAPI.songs["id" + i].artist}</small>
-                                    </div>
-                                    `)
+                <div class="col-xs-6" onclick="display_song_details('id' + ${i})">
+                    <img class="img-responsive" src="../ressrc/songs_images/${playerAPI.songs["id" + i].img}"/>
+                    <p>${playerAPI.songs["id" + i].title}</p>
+                    <p class="small">${playerAPI.songs["id" + i].artist}</small>
+                </div>
+                `)
         }
     }
 }

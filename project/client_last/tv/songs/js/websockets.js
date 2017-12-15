@@ -105,7 +105,10 @@ function remove_from_mysongs(song_id, this_elem) {
         ws.send(message);
     };
 
-    $(this_elem).parents(':eq(2)').html("");
+    last_top = $("#song_mysongs").find(".content").scrollTop();
+    $(".to_mysongs").click();
+    $("#song_mysongs").find(".content").scrollTop(last_top);
+    myFunction(`Song '${playerAPI.songs[song_id].title}' removed from 'My Songs' successfully`, true);
 }
 
 function play_mysong(curr_song) {
@@ -322,6 +325,7 @@ function add_to_mysongs(song_id) {
         };
     };
     $("#playlists_modal").css("display", "none");
+    myFunction(`Song '${playerAPI.songs[song_id].title}' added to 'My songs' successfully`, true);
 }
 
 function add_to_playlist(song_id, playlist) {
@@ -333,6 +337,7 @@ function add_to_playlist(song_id, playlist) {
         ws.send(message);
     };
     $("#playlists_modal").css("display", "none");
+    myFunction(`Song '${playerAPI.songs[song_id].title}' added to playlist '${playlist}' successfully`, true);
 }
 
 function add_new_playlist(playlist) {
@@ -365,18 +370,18 @@ function open_playlists_modal(song_id) {
 
             html_display = `
                 <h3 style="color:#000000">Playlists</h3>
-                <div class="col-xs-12"><input id="set_new_playlist" style="width:100%" placeholder="Type a new playlist and press Add"></input></div>`;
+                <div class="col-xs-12 clickableElement"><input id="set_new_playlist" style="width:100%" placeholder="Type a new playlist and press Add"></input></div>`;
 
             for(i = 0; i < playlists.crowd; i++) {
                 html_display += `
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 clickableElement">
                                     <button onclick="add_to_playlist('${song_id}', '${keys[i + 1].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%">${keys[i + 1]}</button>
                                 </div>`;
             }
 
             html_display += `
                 <h3 style="color:#000000">My songs</h3>
-                <div class="col-xs-12"><button style="width:100%">My songs</button></div>
+                <div class="col-xs-12 clickableElement"><button onclick="add_to_mysongs('${song_id}')" style="width:100%">My songs</button></div>
                 <div class="clearfix"></div>`;
             $(".modal-body")[0].innerHTML = html_display;
             $("#playlists_modal").css("display", "block");
@@ -501,7 +506,7 @@ function read_playlist(playlist) {
 
                                     <em style="font-size: 60px; margin-left: 40px;" class="fa fa-plus clickableElement" onclick="open_playlists_modal('${id}')" aria-hidden="true"></em>
 
-                                    <em style="font-size: 60px; margin-left: 40px;" class="fa fa-trash-o clickableElement" onclick="remove_from_mysongs(${id}', this)" aria-hidden="true"></em>
+                                    <em style="font-size: 60px; margin-left: 40px;" class="fa fa-trash-o clickableElement" onclick="remove_from_playlist('${playlist}', '${id}', this)" aria-hidden="true"></em>
                                 </div>
                             </div>
                         </div>`);
@@ -548,7 +553,8 @@ function remove_playlist(playlist, this_elem) {
         ws.send(message);
     };
 
-    $(this_elem).parents(':eq(1)').html("");
+    $(this_elem).parents(':eq(2)').remove();
+    myFunction(`Playlist '${playlist}' removed from 'Playlists' successfully`, true);
 }
 
 function remove_from_playlist(playlist, song_id, this_elem) {
@@ -558,9 +564,12 @@ function remove_from_playlist(playlist, song_id, this_elem) {
         message = '{ "type": "remove from playlist", "playlist":"' + playlist + '", "song_id":"' + song_id + '"}';
 
         ws.send(message);
-    };
 
-    $(this_elem).parents(':eq(1)').html("");
+        last_top = $("#song_playlist").find(".content").scrollTop();
+        read_playlist(playlist);
+        $("#song_playlist").find(".content").scrollTop(last_top);
+        myFunction(`Song '${playerAPI.songs[song_id].title}' removed from playlist '${playlist}' successfully`, true);
+    };
 }
 
 function search_songs(keywords) {

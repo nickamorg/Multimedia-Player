@@ -205,9 +205,11 @@ function myFunction(text, succeed) {
     x.innerHTML = text;
     x.className = "show";
     if(!succeed) {
-        $("#snackbar").css("color", "red");
+        x.innerHTML = `<i class="fa fa-times" style="padding-right:10px" aria-hidden="true"></i>` + x.innerHTML;
+        $("#snackbar").css("background-color", "red");
     } else {
-        $("#snackbar").css("color", "white");
+        x.innerHTML = `<i class="fa fa-check" style="padding-right:10px" aria-hidden="true"></i>` + x.innerHTML;
+        $("#snackbar").css("background-color", "green");
     }
     setTimeout(function () {
         $("#snackbar").css("color", "white");

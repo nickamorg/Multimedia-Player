@@ -264,8 +264,6 @@ function apply_filters_mysong() {
 }
 
 function play_song(curr_song) {
-    // add_recently_played_song(curr_song);
-    // playerAPI.playlist = playerAPI.tmpPlaylist;
     for (i = 0; i < playerAPI.songs.crowd; i++) {
         playerAPI.playlist[i] = "id" + i;
         playerAPI.tmpPlaylsit[i] = "id" + i;
@@ -340,6 +338,7 @@ function add_to_mysongs(song_id) {
         };
     };
     $("#playlists_modal").css("display", "none");
+    myFunction(`Song '${playerAPI.songs[song_id].title}' added to 'My Songs' successfully`, true);
 }
 
 function add_to_playlist(song_id, playlist) {
@@ -351,6 +350,7 @@ function add_to_playlist(song_id, playlist) {
         ws.send(message);
     };
     $("#playlists_modal").css("display", "none");
+    myFunction(`Song '${playerAPI.songs[song_id].title}' added to playlist '${playlist}' successfully`, true);
 }
 
 function add_new_playlist(playlist) {
@@ -386,9 +386,9 @@ function open_playlists_modal(song_id) {
 
             for(i = 0; i < playlists.crowd; i++) {
                 html_display += `
-                    <div class="col-xs-12">
-                        <button onclick="add_to_playlist('${song_id}', '${keys[i + 1].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%; color: white;">${keys[i + 1]}</button>
-                    </div>`;
+                                <div class="col-xs-12">
+                                    <button onclick="add_to_playlist('${song_id}', '${keys[i + 1].replace(/(\r\n|\n|\r)/gm,"")}')" style="width:100%; color: white;">${keys[i + 1]}</button>
+                                </div>`;
             }
 
             html_display += `
@@ -468,15 +468,6 @@ function get_playlists() {
     }
 }
 
-function add_recently_played_song(song_id) {
-    var ws = new WebSocket('ws://' + GlobalConfig.ip_address + ':6556');
-
-    ws.onopen = function() {
-        message = '{ "type": "new recent", "song_id":"' + song_id + '"}';
-        ws.send(message);
-    };
-}
-
 function read_playlist(playlist) {
     let playlist_songs = "";
     $("#curr_playlist").html("Playlist - " + playlist);
@@ -549,6 +540,7 @@ function remove_playlist(playlist, this_elem) {
     };
 
     $(this_elem).parents(':eq(1)').html("");
+    myFunction(`Playlist '${playlist}' removed from 'Playlists' successfully`, true);
 }
 
 function remove_from_playlist(playlist, song_id, this_elem) {
@@ -561,6 +553,7 @@ function remove_from_playlist(playlist, song_id, this_elem) {
     };
 
     $(this_elem).parents(':eq(1)').html("");
+    myFunction(`Song '${playerAPI.songs[song_id].title}' removed from playlist '${playlist}' successfully`, true);
 }
 
 function remove_from_mysongs(song_id, this_elem) {
@@ -573,6 +566,7 @@ function remove_from_mysongs(song_id, this_elem) {
     };
 
     $(this_elem).parents(':eq(1)').html("");
+    myFunction(`Song '${playerAPI.songs[song_id].title}' removed from 'My Songs' successfully`, true);
 }
 
 function search_songs(keywords) {

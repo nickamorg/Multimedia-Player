@@ -358,6 +358,7 @@ function send_myseries() {
             var index = myseries.indexOf("");
             myseries.splice(index, 1);
 
+            let counter = 1;
             for(var i = 0; i < myseries.length; i++) {
                 id = "id" + parseInt(myseries[i].substring(2));
                 serie = series[id];
@@ -384,6 +385,10 @@ function send_myseries() {
                             </div>
                         </div>
                     </div>`);
+
+                if(counter++ % 4 === 0) {
+                    $("#display_myseries_content").append("<div class='clearfix'></div>");
+                }
             }
 
             // Filter duplicates
@@ -439,7 +444,11 @@ function remove_from_myseries(serie_id, this_elem) {
         ws.send(message);
     };
 
-    $(this_elem).parentsUntil("#myseries_content").remove();
+    last_top = $("#series_myseries").find(".series_content").scrollTop();
+    $(".to_myseries").click();
+    $("#series_myseries").find(".series_content").scrollTop(last_top);
+    myFunction(`Series '${series[serie_id].title}' removed from 'My Series' successfully`, true);
+
 }
 
 function apply_filters_myseries() {
@@ -541,6 +550,7 @@ function apply_filters_myseries() {
 
 
     $("#myseries_content").html("");
+    counter = 1;
     for(var i = 0; i < myseries.length; i++) {
 
         if(check[i]) {
@@ -549,26 +559,29 @@ function apply_filters_myseries() {
 
             $("#myseries_content").append(
                 `<div class="col-xs-4 container">
-                            <img class="img-responsive" src="../ressrc/series_images/${serie.img}"/>
-                            <p>${serie.title}</p>
-                            <div class="overlay">
-                                <h3 class="text-center">${serie.title}</h3>
-                                <div class="options">
-                                    <div class="col-xs-12" onclick="display_serie_details('${id}')">
-                                        <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open series' page</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="display_serie_details('${id}')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the serie</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
-                                        <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
-                                    </div>
-                                </div>
+                    <img class="img-responsive" src="../ressrc/series_images/${serie.img}"/>
+                    <p>${serie.title}</p>
+                    <div class="overlay">
+                        <h3 class="text-center">${serie.title}</h3>
+                        <div class="options">
+                            <div class="col-xs-12" onclick="display_serie_details('${id}')">
+                                <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open series' page</span></em>
                             </div>
-                        </div>`);
+                            
+                            <div class="col-xs-12" onclick="display_serie_details('${id}')">
+                                <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the serie</span></em>
+                            </div>
+                            
+                            <div class="col-xs-12" onclick="remove_from_myseries('${id}', this)">
+                                <em class="fa fa-minus" aria-hidden="true"><span style="padding-left:10px">Remove from My series</span></em>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
 
+            if(counter++ % 4 === 0) {
+                $("#display_myseries_content").append("<div class='clearfix'></div>");
+            }
         }
     }
 }
@@ -640,5 +653,7 @@ function add_to_myseries(serie_id) {
         message = '{ "type": "add to my series", "serie_id":"' + serie_id + '" }';
 
         ws.send(message);
+
+        myFunction(`Series '${series[serie_id].title}' added to 'My Series' successfully`, true);
     };
 }

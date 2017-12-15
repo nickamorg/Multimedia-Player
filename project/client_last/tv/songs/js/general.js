@@ -200,3 +200,20 @@ function newplaylist_inter() {
         $("#interaction_note_new_modal").css('display', 'none');
     }, 3000)
 }
+
+function myFunction(text, succeed) {
+    var x = document.getElementById("snackbar");
+    x.innerHTML = text;
+    x.className = "show";
+    if(!succeed) {
+        x.innerHTML = `<i class="fa fa-times" style="padding-right:10px" aria-hidden="true"></i>` + x.innerHTML;
+        $("#snackbar").css("background-color", "red");
+    } else {
+        x.innerHTML = `<i class="fa fa-check" style="padding-right:10px" aria-hidden="true"></i>` + x.innerHTML;
+        $("#snackbar").css("background-color", "green");
+    }
+    setTimeout(function () {
+        $("#snackbar").css("color", "white");
+        x.className = x.className.replace("show", "");
+    }, 3000);
+}

@@ -290,7 +290,6 @@ function set_movies_genres() {
     current_movies = [];
     movies_counter = 0;
     var counter = 1;
-    console.log(genres);
     for(let i = 0; i < genres.length; i++) {
         for(let j = 0; j < movies.crowd; j++) {
             if(current_movies.indexOf("id" + j) == -1 && movies["id" + j].genre.indexOf(genres[i]) > -1) {
@@ -441,10 +440,14 @@ function remove_from_mymovies(movie_id, this_elem) {
         ws.send(message);
     };
 
-    $(this_elem).parentsUntil("#mymovies_content").remove();
+    last_top = $("#movies_mymovies").find(".movies_content").scrollTop();
+    $(".to_mymovies").click();
+    $("#movies_mymovies").find(".movies_content").scrollTop(last_top);
+    myFunction(`Movie '${movies[movie_id].title}' removed from 'My Movies' successfully`, true);
 }
 
 function apply_filters_mymovies() {
+    $(".loader").show();
     let genres = [];
     let counter = 0;
 
@@ -551,28 +554,30 @@ function apply_filters_mymovies() {
 
             $("#mymovies_content").append(
                 `<div class="col-xs-4 container">
-                            <img class="img-responsive" src="../ressrc/movies_images/${movie.img}"/>
-                            <p>${movie.title}</p>
-                            <div class="overlay">
-                                <h3 class="text-center">${movie.title}</h3>
-                                <div class="options">
-                                    <div class="col-xs-12" onclick="display_movie_details('${id}')">
-                                        <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="display_movie_details('${id}')">
-                                        <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
-                                    </div>
-                                    
-                                    <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
-                                        <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
-                                    </div>
-                                </div>
+                    <img class="img-responsive" src="../ressrc/movies_images/${movie.img}"/>
+                    <p>${movie.title}</p>
+                    <div class="overlay">
+                        <h3 class="text-center">${movie.title}</h3>
+                        <div class="options">
+                            <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                <em class="fa fa-external-link" aria-hidden="true"><span style="padding-left:10px">Open movies' page</span></em>
                             </div>
-                        </div>`);
-
+                            
+                            <div class="col-xs-12" onclick="display_movie_details('${id}')">
+                                <em class="fa fa-play-circle-o" aria-hidden="true"><span style="padding-left:10px">Play the movie</span></em>
+                            </div>
+                            
+                            <div class="col-xs-12" onclick="remove_from_mymovies('${id}', this)">
+                                <em class="fa fa-trash-o" aria-hidden="true"><span style="padding-left:10px">Remove from My movies</span></em>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
         }
     }
+    setTimeout(function() {
+        $(".loader").hide();
+    }, 250);
 }
 
 function search_movies_filters() {
@@ -642,5 +647,7 @@ function add_to_mymovies(movie_id) {
         message = '{ "type": "add to my movies", "movie_id":"' + movie_id + '" }';
 
         ws.send(message);
+
+        myFunction(`Movie '${movies[movie_id].title}' added to 'My Movies' successfully`, true);
     };
 }
